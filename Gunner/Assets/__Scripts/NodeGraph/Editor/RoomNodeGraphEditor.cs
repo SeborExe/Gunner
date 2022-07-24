@@ -85,4 +85,41 @@ public class RoomNodeGraphEditor : EditorWindow
             ShowContextMenu(currentEvent.mousePosition);
         }
     }
+
+    private void ShowContextMenu(Vector2 mousePosition)
+    {
+        GenericMenu menu = new GenericMenu();
+
+        menu.AddItem(new GUIContent("Create Room Menu"), false, CreateRoomNode, mousePosition);
+        menu.ShowAsContext();
+    }
+
+    private void CreateRoomNode(object mousePositionObject)
+    {
+        CreateRoomNode(mousePositionObject, roomNodeTypeList.list.Find(x => x.isNone));
+    }
+
+    private void CreateRoomNode(object mousePositionObject, RoomNodeTypeSO roomNodeType)
+    {
+        Vector2 mousePosition = (Vector2)mousePositionObject;
+
+        RoomNodeSO roomNode = ScriptableObject.CreateInstance<RoomNodeSO>();
+
+        currentRoomNodeGraph.roomNodeList.Add(roomNode);
+
+        roomNode.Initialize(new Rect(mousePosition, new Vector2(nodeWidth, nodeHeight)), currentRoomNodeGraph, roomNodeType);
+
+        AssetDatabase.AddObjectToAsset(roomNode, currentRoomNodeGraph);
+        AssetDatabase.SaveAssets();
+    }
+
+    private void DrawRoomNodes()
+    {
+        foreach (RoomNodeSO roomNode in currentRoomNodeGraph.roomNodeList)
+        {
+            roomNode.Draw(roomNodeStyle);
+        }
+
+        GUI.changed = true;
+    }
 }
