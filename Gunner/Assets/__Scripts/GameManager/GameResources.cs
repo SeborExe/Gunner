@@ -28,4 +28,7 @@ public class GameResources : MonoBehaviour
     #endregion
 
     public RoomNodeTypeListSO roomNodeTypeList;
+
+    [Header("Materials")]
+    public Material dimmendMaterial;
 }
