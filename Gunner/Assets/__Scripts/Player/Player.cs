@@ -11,6 +11,7 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Health))]
 [DisallowMultipleComponent]
 #endregion
 public class Player : MonoBehaviour
