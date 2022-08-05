@@ -15,6 +15,17 @@ public static class HelperUtilities
         return false;
     }
 
+    public static bool ValidateCheckNullValue(Object thisObject, string fieldName, UnityEngine.Object objectToCheck)
+    {
+        if (objectToCheck == null)
+        {
+            Debug.Log(fieldName + " is null and must contain a value in object " + thisObject.name);
+            return true;
+        }
+
+        return false;
+    }
+
     public static bool ValidateCheckEnumerableValues(Object thisObject, string fieldName, IEnumerable enumarableObjectToCheck)
     {
         bool error = false;
@@ -43,6 +54,30 @@ public static class HelperUtilities
         {
             Debug.Log(fieldName + " has no values in object " + thisObject.name.ToString());
             error = true;
+        }
+
+        return error;
+    }
+
+    public static bool ValidateCheckPositiveValue(Object thisObject, string fieldName, int valueToCheck, bool isZeroAllowed)
+    {
+        bool error = false;
+
+        if (isZeroAllowed)
+        {
+            if (valueToCheck < 0)
+            {
+                Debug.Log(fieldName + " must contain positive value or zero in object " + thisObject.name);
+                error = true;
+            }
+        }
+        else
+        {
+            if (valueToCheck <= 0)
+            {
+                Debug.Log(fieldName + " must contain positive value in object " + thisObject.name);
+                error = true;
+            }
         }
 
         return error;
