@@ -29,6 +29,9 @@ public class GameResources : MonoBehaviour
 
     public RoomNodeTypeListSO roomNodeTypeList;
 
+    [Header("Player")]
+    public CurrentPlayerSO currentPlayer;
+
     [Header("Materials")]
     public Material dimmendMaterial;
 }
