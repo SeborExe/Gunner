@@ -30,6 +30,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         gameState = GameState.gameStarted;
     }
 
+    private void OnEnable()
+    {
+        StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
+    }
+
+    private void OnDisable()
+    {
+        StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
+    }
+
     private void Update()
     {
         HandleGameState();
@@ -46,6 +56,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         player = playerGameObject.GetComponent<Player>();
         player.Initialize(playerDetails);
+    }
+
+    private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
+    {
+        SetCurrentRoom(roomChangedEventArgs.room);
     }
 
 
