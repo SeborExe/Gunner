@@ -11,7 +11,7 @@ public class WeaponDetailsSO : ScriptableObject
 
     [Header("Weapon configuration")]
     public Vector3 weaponShootPosition;
-    //public AmmoDetailsSO weaponCurrentAmmo;
+    public AmmoDetailsSO weaponCurrentAmmo;
 
     [Header("Weapon operating values")]
     public bool hasInfiniteAmmo = false;
@@ -28,7 +28,7 @@ public class WeaponDetailsSO : ScriptableObject
     private void OnValidate()
     {
         HelperUtilities.ValidateCheckEmptyString(this, nameof(weaponName), weaponName);
-        //HelperUtilities.ValidateCheckNullValue(this, nameof(weaponCurrentAmmo), weaponCurrentAmmo);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(weaponCurrentAmmo), weaponCurrentAmmo);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(weaponFireRate), weaponFireRate, false);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(weaponPrechargeTime), weaponPrechargeTime, false);
 
