@@ -54,4 +54,10 @@ public static class Settings
     public const float useAimAngleDistance = 3.5f;
 
     #endregion
+
+    #region UI
+
+    public const float uiAmmoIconSpacing = 4f;
+
+    #endregion
 }
