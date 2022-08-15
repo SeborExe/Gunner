@@ -30,7 +30,7 @@ public class WeaponDetailsSO : ScriptableObject
         HelperUtilities.ValidateCheckEmptyString(this, nameof(weaponName), weaponName);
         HelperUtilities.ValidateCheckNullValue(this, nameof(weaponCurrentAmmo), weaponCurrentAmmo);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(weaponFireRate), weaponFireRate, false);
-        HelperUtilities.ValidateCheckPositiveValue(this, nameof(weaponPrechargeTime), weaponPrechargeTime, false);
+        HelperUtilities.ValidateCheckPositiveValue(this, nameof(weaponPrechargeTime), weaponPrechargeTime, true);
 
         if (!hasInfiniteAmmo)
         {
