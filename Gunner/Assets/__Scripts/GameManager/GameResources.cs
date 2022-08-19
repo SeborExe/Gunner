@@ -43,6 +43,7 @@ public class GameResources : MonoBehaviour
 
     [Header("Sounds")]
     public AudioMixerGroup soundsMasterMixerGroup;
+    public SoundEffectSO doorOpenCloseSoundEffect;
 
     #region Validate
 #if UNITY_EDITOR
@@ -51,6 +52,7 @@ public class GameResources : MonoBehaviour
     {
         HelperUtilities.ValidateCheckNullValue(this, nameof(roomNodeTypeList), roomNodeTypeList);
         HelperUtilities.ValidateCheckNullValue(this, nameof(currentPlayer), currentPlayer);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(doorOpenCloseSoundEffect), doorOpenCloseSoundEffect);
         HelperUtilities.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
         HelperUtilities.ValidateCheckNullValue(this, nameof(dimmendMaterial), dimmendMaterial);
         HelperUtilities.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);

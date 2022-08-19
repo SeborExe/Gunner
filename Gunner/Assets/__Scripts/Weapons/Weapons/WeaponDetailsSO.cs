@@ -12,6 +12,8 @@ public class WeaponDetailsSO : ScriptableObject
     [Header("Weapon configuration")]
     public Vector3 weaponShootPosition;
     public AmmoDetailsSO weaponCurrentAmmo;
+    public SoundEffectSO weaponFiringSoundEffect;
+    public SoundEffectSO weaponReloadingSoundEffect;
 
     [Header("Weapon operating values")]
     public bool hasInfiniteAmmo = false;

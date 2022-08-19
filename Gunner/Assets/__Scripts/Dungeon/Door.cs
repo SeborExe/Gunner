@@ -48,6 +48,8 @@ public class Door : MonoBehaviour
             doorTrigger.enabled = false;
 
             animator.SetBool(Settings.open, true);
+
+            SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.doorOpenCloseSoundEffect);
         }
     }
 
@@ -58,6 +60,8 @@ public class Door : MonoBehaviour
         doorTrigger.enabled = false;
 
         animator.SetBool(Settings.open, false);
+
+        SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.doorOpenCloseSoundEffect);
     }
 
     public void UnlockDoor()
