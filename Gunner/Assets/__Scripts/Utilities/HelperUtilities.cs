@@ -77,6 +77,13 @@ public static class HelperUtilities
         return aimDirection;
     }
 
+    public static float LinearToDecibels(int linear)
+    {
+        float linearScaleRange = 20f;
+
+        return Mathf.Log10((float)linear / linearScaleRange) * 20f;
+    }
+
     public static bool ValidateCheckEmptyString(Object thisObject, string fieldName, string stringToCheck)
     {
         if (stringToCheck == "")
