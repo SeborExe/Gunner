@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameResources : MonoBehaviour
 {
@@ -39,6 +40,9 @@ public class GameResources : MonoBehaviour
 
     [Header("UI")]
     public GameObject ammoIconPrefab;
+
+    [Header("Sounds")]
+    public AudioMixerGroup soundsMasterMixerGroup;
 
     #region Validate
 #if UNITY_EDITOR
