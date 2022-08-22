@@ -2358,6 +2358,18 @@ MonoBehaviour:
   - poolSize: 40
     prefab: {fileID: 3811002244096778003, guid: d078e928e06eb2c49b8aa5b91c63e5bc, type: 3}
     componentType: SoundEffect
+  - poolSize: 20
+    prefab: {fileID: 8577602166864936081, guid: 166c6859770486e42838617d3445a545, type: 3}
+    componentType: WeaponShootEffect
+  - poolSize: 20
+    prefab: {fileID: 7767097455848972860, guid: a9f350b16eb0f6145bcd5667b0b87cf8, type: 3}
+    componentType: WeaponShootEffect
+  - poolSize: 20
+    prefab: {fileID: 6648786565079465316, guid: da7e8522d7b040244818c767a411bf28, type: 3}
+    componentType: WeaponShootEffect
+  - poolSize: 20
+    prefab: {fileID: 7767097455848972860, guid: 3e8780f06f5120b459d83bd5d39d8c3e, type: 3}
+    componentType: AmmoHitEffect
 --- !u!4 &1713267372
 Transform:
   m_ObjectHideFlags: 0

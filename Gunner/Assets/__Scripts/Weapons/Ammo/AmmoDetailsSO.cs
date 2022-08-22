@@ -39,4 +39,7 @@ public class AmmoDetailsSO : ScriptableObject
     public Material ammoTrailMaterial;
     [Range(0f, 1f)] public float ammoTrailStartWidth;
     [Range(0f, 1f)] public float ammoTrailEndWidth;
+
+    [Header("Hit Effect")]
+    public AmmoHitEffectSO ammoHitEffect;
 }
