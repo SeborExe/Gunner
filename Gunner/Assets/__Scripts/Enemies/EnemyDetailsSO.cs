@@ -8,4 +8,5 @@ public class EnemyDetailsSO : ScriptableObject
     [Header("Enemy Details")]
     public string enemyName;
     public GameObject enemyPrefab;
+    public float chaseDistance = 50f;
 }
