@@ -9,4 +9,10 @@ public class EnemyDetailsSO : ScriptableObject
     public string enemyName;
     public GameObject enemyPrefab;
     public float chaseDistance = 50f;
+    public Material enemyStandardMaterial;
+
+    [Header("Enemy materialize settings")]
+    public float enemyMaterializeTime;
+    public Shader enemyMaterializeShader;
+    [ColorUsage(true, true)] public Color enemyMaterializeColor;
 }

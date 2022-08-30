@@ -16,6 +16,7 @@ public class EnemyMovementAI : MonoBehaviour
     private WaitForFixedUpdate waitForFixedUpdate;
     [HideInInspector] public float moveSpeed;
     private bool chasePlayer = false;
+    [HideInInspector] public int updateFrameNumber = 1;
 
     private void Awake()
     {
@@ -45,6 +46,8 @@ public class EnemyMovementAI : MonoBehaviour
         }
 
         if (!chasePlayer) return;
+
+        if (Time.frameCount % Settings.targetFrameRateToSpreadPathfindingOver != updateFrameNumber) return;
 
         if (currentEnemyPathRebuildCooldown <= 0f || (Vector3.Distance(playerReferencesPosition,
             GameManager.Instance.GetPlayer().GetPlayerPosition()) > Settings.playerMoveDistanceToRebuildPath)) 
@@ -103,6 +106,11 @@ public class EnemyMovementAI : MonoBehaviour
         {
             enemy.idleEvent.CallIdleEvent();
         }
+    }
+
+    public void SetUpdateFrameNumber(int updateFrameNumber)
+    {
+        this.updateFrameNumber = updateFrameNumber;
     }
 
     private Vector3Int GetNearestNonObstaclePlayerPosition(Room currentRoom)

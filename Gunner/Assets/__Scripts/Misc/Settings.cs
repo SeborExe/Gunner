@@ -62,6 +62,7 @@ public static class Settings
     public const int prefferedPathAStarMovementPenalty = 1;
     public const float playerMoveDistanceToRebuildPath = 3f;
     public const float enemyPathRebuildCooldown = 2f;
+    public const int targetFrameRateToSpreadPathfindingOver = 60;
 
     #endregion
 
