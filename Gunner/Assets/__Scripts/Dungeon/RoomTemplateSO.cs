@@ -74,6 +74,7 @@ public class RoomTemplateSO : ScriptableObject
 
     [Header("Enemy Details")]
     public List<SpawnableObjectByLevel<EnemyDetailsSO>> enemiesByLevelList;
+    public List<RoomEnemySpawnParameters> roomEnemySpawnParametersList;
 
     /// <summary>
     /// Returns the list of Entrances for the room template
