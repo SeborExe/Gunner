@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_QBZ95SMG_Enemy
+  m_EditorClassIdentifier: 
+  weaponName: QBZ95 SMG Enemy
+  weaponSprite: {fileID: 21300000, guid: dff74299f2cf7674eb05930ed6b07f8e, type: 3}
+  weaponShootPosition: {x: 1.125, y: 0.313, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 14f2579e24163874b9c9df19721fadd3, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: d1f32b0606f30e9478904eb70cfc2e5b, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: f07b036268180ad429be6c2c2d3ea550, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: ef8e000b2a2d8464da98662529b8756c, type: 2}
+  hasInfiniteAmmo: 1
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 20
+  weaponAmmoCapacity: 0
+  weaponFireRate: 0.33
+  weaponPrechargeTime: 0
+  weaponReloadTime: 2
