@@ -19,6 +19,7 @@ public static class Settings
 
     public const int maxChildCorridors = 3;
     public const float fadeInTime = 0.5f;
+    public const float doorUnlockDelay = 1f;
 
     #endregion
 
@@ -69,6 +70,12 @@ public static class Settings
     #region UI
 
     public const float uiAmmoIconSpacing = 4f;
+
+    #endregion
+
+    #region Enemy parameters
+
+    public const int defaultEnemyHealth = 30;
 
     #endregion
 }

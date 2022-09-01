@@ -181,6 +181,10 @@ GameObject:
   - component: {fileID: 63753697801491591}
   - component: {fileID: 190267915164599281}
   - component: {fileID: 2949716915081668307}
+  - component: {fileID: 3973672528817807415}
+  - component: {fileID: 354654234012489410}
+  - component: {fileID: 5940075475224172503}
+  - component: {fileID: 762722562304856984}
   m_Layer: 15
   m_Name: Enemy
   m_TagString: Untagged
@@ -598,6 +602,55 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac374e4a7d70638489464ec1f89eb2e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3973672528817807415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6158470697551482003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0c1282b0fe7fd48b4495d826552cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &354654234012489410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6158470697551482003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7762d5be18124941959aa2cf0f63a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDamagable: 1
+--- !u!114 &5940075475224172503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6158470697551482003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d231ae040876a498503c50f6cbbef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &762722562304856984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6158470697551482003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab10f2080ea59f946a20972583c63ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6325840118252883985

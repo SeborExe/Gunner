@@ -23,4 +23,9 @@ public class EnemyDetailsSO : ScriptableObject
     public float firingDurationMin = 1f;
     public float firingDurationMax = 2f;
     public bool firingLineOfSightRequired;
+
+    [Header("Enemy Health")]
+    public EnemyHealthDetails[] enemyHealthDetailsArray;
+    public bool isImmuneAfterHit = false;
+    public float hitImmuneTime;
 }
