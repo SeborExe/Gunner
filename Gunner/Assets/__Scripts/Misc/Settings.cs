@@ -70,12 +70,14 @@ public static class Settings
     #region UI
 
     public const float uiAmmoIconSpacing = 4f;
+    public const float uiHearthSpacing = 16f;
 
     #endregion
 
     #region Enemy parameters
 
     public const int defaultEnemyHealth = 30;
+    public const float contactDamageCollisionRestartDelay = 0.5f;
 
     #endregion
 }

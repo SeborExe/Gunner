@@ -32,6 +32,7 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(Health))]
 [RequireComponent(typeof(DestroyedEvent))]
 [RequireComponent(typeof(Destroyed))]
+[RequireComponent(typeof(DealContactDamage))]
 [DisallowMultipleComponent]
 public class Enemy : MonoBehaviour
 {
@@ -49,7 +50,7 @@ public class Enemy : MonoBehaviour
     private PolygonCollider2D polygonCollider2D;
     private MaterializeEffect materializeEffect;
     [HideInInspector] public Animator animator;
-    [HideInInspector] SpriteRenderer[] spriteRendererArray;
+    [HideInInspector] public SpriteRenderer[] spriteRendererArray;
 
     private void Awake()
     {

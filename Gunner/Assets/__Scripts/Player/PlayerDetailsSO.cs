@@ -12,6 +12,8 @@ public class PlayerDetailsSO : ScriptableObject
 
     [Header("Player Health")]
     public int playerHealthAmount;
+    public bool isImmuneAfterHit = false;
+    public float hitImmuneTime;
 
     [Header("Other")]
     public Sprite playerMiniMapIcon;

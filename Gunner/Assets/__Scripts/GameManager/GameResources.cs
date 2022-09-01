@@ -41,6 +41,7 @@ public class GameResources : MonoBehaviour
 
     [Header("UI")]
     public GameObject ammoIconPrefab;
+    public GameObject hearthPrefab;
 
     [Header("Sounds")]
     public AudioMixerGroup soundsMasterMixerGroup;

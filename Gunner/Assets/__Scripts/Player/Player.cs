@@ -32,6 +32,8 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(ReloadWeaponEvent))]
 [RequireComponent(typeof(WeaponReloadedEventArgs))]
 [RequireComponent(typeof(ReloadWeapon))]
+[RequireComponent(typeof(DealContactDamage))]
+[RequireComponent(typeof(ReciveContactDamage))]
 [DisallowMultipleComponent]
 #endregion
 public class Player : MonoBehaviour
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public ActiveWeapon activeWeapon;
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
+    [HideInInspector] public PlayerControl playerControl;
 
     public List<Weapon> weaponList = new List<Weapon>();
 
@@ -74,6 +77,7 @@ public class Player : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        playerControl = GetComponent<PlayerControl>();
     }
 
     public void Initialize(PlayerDetailsSO playerDetails)
