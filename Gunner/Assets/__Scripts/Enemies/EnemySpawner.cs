@@ -111,6 +111,7 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
     {
         destroyedEvent.OnDestroyed -= Enemy_OnDestroyed;
         currentEnemyCount--;
+        StaticEventHandler.CallPointScoredEvent(destroyEventArgs.points);
 
         if (currentEnemyCount <= 0 && enemiesSpawnedSoFar == enemiesToSpawn)
         {

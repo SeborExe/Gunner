@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     private WaitForSeconds WaitForSecondsSpriteFlashInterfal = new WaitForSeconds(spriteFlashInterval);
 
     [HideInInspector] public bool isDamagable = true;
-    [HideInInspector] Enemy enemy;
+    [HideInInspector] public Enemy enemy;
 
     private void Awake()
     {
