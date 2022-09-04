@@ -28,4 +28,5 @@ public class EnemyDetailsSO : ScriptableObject
     public EnemyHealthDetails[] enemyHealthDetailsArray;
     public bool isImmuneAfterHit = false;
     public float hitImmuneTime;
+    public bool isHealthBarDisplayed = false;
 }
