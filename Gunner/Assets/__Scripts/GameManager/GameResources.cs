@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.Audio;
 
 public class GameResources : MonoBehaviour
@@ -40,10 +41,15 @@ public class GameResources : MonoBehaviour
 
     [Header("UI")]
     public GameObject ammoIconPrefab;
+    public GameObject hearthPrefab;
 
     [Header("Sounds")]
     public AudioMixerGroup soundsMasterMixerGroup;
     public SoundEffectSO doorOpenCloseSoundEffect;
+
+    [Header("Special tilemaps tiles")]
+    public TileBase[] enemyUnwalkableCollisionTilesArray;
+    public TileBase preferredEnemyPathTile;
 
     #region Validate
 #if UNITY_EDITOR

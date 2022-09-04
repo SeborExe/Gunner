@@ -19,6 +19,7 @@ public static class Settings
 
     public const int maxChildCorridors = 3;
     public const float fadeInTime = 0.5f;
+    public const float doorUnlockDelay = 1f;
 
     #endregion
 
@@ -38,6 +39,7 @@ public static class Settings
     public static int rollDown = Animator.StringToHash("rollDown");
 
     public static float baseSpeedForPlayerAnimations = 8f;
+    public static float baseSpeedForEnemyAnimations = 3f;
 
     public static int open = Animator.StringToHash("open");
     #endregion
@@ -55,9 +57,27 @@ public static class Settings
 
     #endregion
 
+    #region PathFinding
+
+    public const int defaultAStarMovementPenalty = 40;
+    public const int prefferedPathAStarMovementPenalty = 1;
+    public const float playerMoveDistanceToRebuildPath = 3f;
+    public const float enemyPathRebuildCooldown = 2f;
+    public const int targetFrameRateToSpreadPathfindingOver = 60;
+
+    #endregion
+
     #region UI
 
     public const float uiAmmoIconSpacing = 4f;
+    public const float uiHearthSpacing = 16f;
+
+    #endregion
+
+    #region Enemy parameters
+
+    public const int defaultEnemyHealth = 30;
+    public const float contactDamageCollisionRestartDelay = 0.5f;
 
     #endregion
 }

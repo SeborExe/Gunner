@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 #region Require components
+[RequireComponent(typeof(HealthEvent))]
+[RequireComponent(typeof(DestroyedEvent))]
+[RequireComponent(typeof(Destroyed))]
 [RequireComponent(typeof(SortingGroup))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
@@ -29,6 +32,8 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(ReloadWeaponEvent))]
 [RequireComponent(typeof(WeaponReloadedEventArgs))]
 [RequireComponent(typeof(ReloadWeapon))]
+[RequireComponent(typeof(DealContactDamage))]
+[RequireComponent(typeof(ReciveContactDamage))]
 [DisallowMultipleComponent]
 #endregion
 public class Player : MonoBehaviour
@@ -37,6 +42,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public Health health;
     [HideInInspector] public IdleEvent idleEvent;
     [HideInInspector] public AimWeaponEvent aimWeaponEvent;
+    [HideInInspector] public HealthEvent healthEvent;
+    [HideInInspector] public DestroyedEvent destroyedEvent;
     [HideInInspector] public MovementByVelocityEvent movementByVelocityEvent;
     [HideInInspector] public MovementToPositionEvent movementToPositionEvent;
     [HideInInspector] public SetActiveWeaponEvent setActiveWeaponEvent;
@@ -48,13 +55,16 @@ public class Player : MonoBehaviour
     [HideInInspector] public ActiveWeapon activeWeapon;
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
+    [HideInInspector] public PlayerControl playerControl;
 
     public List<Weapon> weaponList = new List<Weapon>();
 
     private void Awake()
     {
+        healthEvent = GetComponent<HealthEvent>();
         health = GetComponent<Health>();
         idleEvent = GetComponent<IdleEvent>();
+        destroyedEvent = GetComponent<DestroyedEvent>();
         aimWeaponEvent = GetComponent<AimWeaponEvent>();
         movementByVelocityEvent = GetComponent<MovementByVelocityEvent>();
         movementToPositionEvent = GetComponent<MovementToPositionEvent>();
@@ -67,6 +77,7 @@ public class Player : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        playerControl = GetComponent<PlayerControl>();
     }
 
     public void Initialize(PlayerDetailsSO playerDetails)
@@ -75,6 +86,24 @@ public class Player : MonoBehaviour
 
         CreatePlayerStartingWeapons();
         SetPlayerHealth();
+    }
+
+    private void OnEnable()
+    {
+        healthEvent.OnHealthChanged += HealthEvent_OnHealthChanged;
+    }
+
+    private void OnDisable()
+    {
+        healthEvent.OnHealthChanged -= HealthEvent_OnHealthChanged;
+    }
+
+    private void HealthEvent_OnHealthChanged(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
+    {
+        if (healthEventArgs.healthAmount <= 0f)
+        {
+            destroyedEvent.CallDestroyedEvent(true, 0);
+        }
     }
 
     private void CreatePlayerStartingWeapons()
@@ -90,6 +119,11 @@ public class Player : MonoBehaviour
     private void SetPlayerHealth()
     {
         health.SetStartingHealth(playerDetails.playerHealthAmount);
+    }
+
+    public Vector3 GetPlayerPosition()
+    {
+        return transform.position;
     }
 
     public Weapon AddWeaponToPlayer(WeaponDetailsSO weaponDetails)

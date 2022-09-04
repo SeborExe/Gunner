@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eec900795e0cd542915561b958e3c44, type: 3}
+  m_Name: EnemyDetails_Orc
+  m_EditorClassIdentifier: 
+  enemyName: Orc
+  enemyPrefab: {fileID: 6017502499073047210, guid: 98019a7537039f6428d291466ced630b, type: 3}
+  chaseDistance: 50
+  enemyStandardMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  enemyMaterializeTime: 3
+  enemyMaterializeShader: {fileID: -6465566751694194690, guid: 5fec8f8e6ea244648a3c6ede24a56288, type: 3}
+  enemyMaterializeColor: {r: 1.2245954, g: 9.819445, b: 0.77814394, a: 0}
+  enemyWeapon: {fileID: 11400000, guid: 189222f4cd29ef347bc7a2b1ad70a5f2, type: 2}
+  firingIntervalMin: 1
+  firingIntervalMax: 2
+  firingDurationMin: 6
+  firingDurationMax: 10
+  firingLineOfSightRequired: 1
+  enemyHealthDetailsArray:
+  - dungeonLevel: {fileID: 11400000, guid: ac8f09ebd15458f4e89eafe5fa7d0417, type: 2}
+    enemyHealthAmount: 12
+  - dungeonLevel: {fileID: 11400000, guid: d634e73cb404ed6468b248b7e20e237b, type: 2}
+    enemyHealthAmount: 35
+  - dungeonLevel: {fileID: 11400000, guid: f7631d7666a67da41805bfa815b28daf, type: 2}
+    enemyHealthAmount: 50
+  - dungeonLevel: {fileID: 11400000, guid: b8dc6c9ec82964d429bceee46a29bdd8, type: 2}
+    enemyHealthAmount: 60
+  - dungeonLevel: {fileID: 11400000, guid: f3fef57c02aea0a44866d02bb377f07d, type: 2}
+    enemyHealthAmount: 70
+  - dungeonLevel: {fileID: 11400000, guid: e0af8536dfbcc0545b6ff3d9ae75bc9e, type: 2}
+    enemyHealthAmount: 75
+  isImmuneAfterHit: 0
+  hitImmuneTime: 0
