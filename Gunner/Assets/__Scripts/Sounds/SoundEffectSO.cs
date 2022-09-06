@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SoundEffect_", menuName = "Scriptable Objects/Weapons/Sounds")]
+[CreateAssetMenu(fileName = "SoundEffect_", menuName = "Scriptable Objects/Sounds")]
 public class SoundEffectSO : ScriptableObject
 {
     [Header("Sound effect details")]
