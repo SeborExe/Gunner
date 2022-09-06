@@ -21,6 +21,8 @@ public class InstantiatedRoom : MonoBehaviour
 
     private BoxCollider2D boxCollider2D;
 
+    [SerializeField] private GameObject enviromentGameObject;
+
     private void Awake()
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
@@ -297,5 +299,21 @@ public class InstantiatedRoom : MonoBehaviour
     public void EnableRoomCollider()
     {
         boxCollider2D.enabled = true;
+    }
+
+    public void ActiveEnviromentGameObjects()
+    {
+        if (enviromentGameObject != null)
+        {
+            enviromentGameObject.SetActive(true);
+        }
+    }
+
+    public void DeactivateEnviromentRoomGameObjects()
+    {
+        if (enviromentGameObject != null)
+        {
+            enviromentGameObject.SetActive(false);
+        }
     }
 }
