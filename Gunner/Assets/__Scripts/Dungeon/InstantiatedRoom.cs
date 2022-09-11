@@ -19,7 +19,12 @@ public class InstantiatedRoom : MonoBehaviour
     [HideInInspector] public int[,] aStarMovementPenalty;
     [HideInInspector] public Bounds roomColliderBounds;
 
+    [HideInInspector] public List<MoveItem> movableItemList = new List<MoveItem>();
+    [HideInInspector] public int[,] aStarItemObstacles;
+
     private BoxCollider2D boxCollider2D;
+
+    [SerializeField] private GameObject enviromentGameObject;
 
     private void Awake()
     {
@@ -27,6 +32,47 @@ public class InstantiatedRoom : MonoBehaviour
 
         roomColliderBounds = boxCollider2D.bounds;
     }
+
+    private void Start()
+    {
+        UpdateMovableObstacles();
+    }
+
+    internal void UpdateMovableObstacles()
+    {
+        InitializeItemObstaclesArray();
+
+        foreach (MoveItem moveItem in movableItemList)
+        {
+            Vector3Int colliderBoundsMin = grid.WorldToCell(moveItem.boxCollider2D.bounds.min);
+            Vector3Int colliderBoundsMax = grid.WorldToCell(moveItem.boxCollider2D.bounds.max);
+
+            for (int i = colliderBoundsMin.x; i <= colliderBoundsMax.x; i++)
+            {
+                for (int j = colliderBoundsMin.y; j <= colliderBoundsMax.y; j++)
+                {
+                    aStarItemObstacles[i - room.templateLowerBounds.x, j - room.templateLowerBounds.y] = 0;
+                }
+            }
+        }
+    }
+
+    /*
+    private void OnDrawGizmos()
+    {
+        for (int x = 0; x < (room.templateUpperBounds.x - room.templateLowerBounds.x + 1); x++)
+        {
+            for (int y = 0; y < (room.templateUpperBounds.y - room.templateLowerBounds.y + 1); y++)
+            {
+                if (aStarItemObstacles[x, y] == 0)
+                {
+                    Vector3 worldCellPos = grid.CellToWorld(new Vector3Int(x + room.templateUpperBounds.x, y + room.templateLowerBounds.y, 0));
+                    Gizmos.DrawWireCube(new Vector3(worldCellPos.x + 0.5f, worldCellPos.y + 0.5f, 0), Vector3.one);
+                }
+            }
+        }
+    }
+    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -43,6 +89,8 @@ public class InstantiatedRoom : MonoBehaviour
         BlockOffUnusedDoorWays();
 
         AddObstacle();
+
+        CreateItemObstaclesArray();
 
         AddDorsToRoom();
 
@@ -207,6 +255,23 @@ public class InstantiatedRoom : MonoBehaviour
         }
     }
 
+    private void CreateItemObstaclesArray()
+    {
+        aStarItemObstacles = new int[room.templateUpperBounds.x - room.templateLowerBounds.x + 1, room.templateUpperBounds.y -
+            room.templateLowerBounds.y + 1];
+    }
+
+    private void InitializeItemObstaclesArray()
+    {
+        for (int x = 0; x < (room.templateUpperBounds.x - room.templateLowerBounds.x + 1); x++)
+        {
+            for (int y = 0; y < (room.templateUpperBounds.y - room.templateLowerBounds.y + 1); y++)
+            {
+                aStarItemObstacles[x, y] = Settings.defaultAStarMovementPenalty;
+            }
+        }
+    }
+
     private void AddDorsToRoom()
     {
         if (room.roomNodeType.isCorridorEW || room.roomNodeType.isCorridorNS) return;
@@ -297,5 +362,21 @@ public class InstantiatedRoom : MonoBehaviour
     public void EnableRoomCollider()
     {
         boxCollider2D.enabled = true;
+    }
+
+    public void ActiveEnviromentGameObjects()
+    {
+        if (enviromentGameObject != null)
+        {
+            enviromentGameObject.SetActive(true);
+        }
+    }
+
+    public void DeactivateEnviromentRoomGameObjects()
+    {
+        if (enviromentGameObject != null)
+        {
+            enviromentGameObject.SetActive(false);
+        }
     }
 }

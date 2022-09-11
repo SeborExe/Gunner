@@ -46,6 +46,7 @@ public class GameResources : MonoBehaviour
     [Header("Sounds")]
     public AudioMixerGroup soundsMasterMixerGroup;
     public SoundEffectSO doorOpenCloseSoundEffect;
+    public SoundEffectSO tableFlip;
 
     [Header("Special tilemaps tiles")]
     public TileBase[] enemyUnwalkableCollisionTilesArray;
