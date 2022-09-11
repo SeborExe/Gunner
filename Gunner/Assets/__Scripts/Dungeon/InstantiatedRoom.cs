@@ -47,9 +47,9 @@ public class InstantiatedRoom : MonoBehaviour
             Vector3Int colliderBoundsMin = grid.WorldToCell(moveItem.boxCollider2D.bounds.min);
             Vector3Int colliderBoundsMax = grid.WorldToCell(moveItem.boxCollider2D.bounds.max);
 
-            for (int i = colliderBoundsMin.x; i < colliderBoundsMax.x; i++)
+            for (int i = colliderBoundsMin.x; i <= colliderBoundsMax.x; i++)
             {
-                for (int j = colliderBoundsMin.y; j < colliderBoundsMax.y; j++)
+                for (int j = colliderBoundsMin.y; j <= colliderBoundsMax.y; j++)
                 {
                     aStarItemObstacles[i - room.templateLowerBounds.x, j - room.templateLowerBounds.y] = 0;
                 }
