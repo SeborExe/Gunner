@@ -49,6 +49,9 @@ public class GameResources : MonoBehaviour
     public Sprite heartIcon;
     public Sprite bulletIcon;
 
+    [Header("Minimap")]
+    public GameObject minimapSkullPrefab;
+
     [Header("Sounds")]
     public AudioMixerGroup soundsMasterMixerGroup;
     public SoundEffectSO doorOpenCloseSoundEffect;

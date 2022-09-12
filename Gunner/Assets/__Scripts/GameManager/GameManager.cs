@@ -26,6 +26,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private long gameScore;
     private int scoreMultiplier;
     private InstantiatedRoom bossRoom;
+    private bool isFading = false;
 
     protected override void Awake()
     {
@@ -130,6 +131,27 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 RoomEnemiesDefeated();
                 break;
 
+            case GameState.playingLevel:
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    DisplayDungeonOverviewMap();
+                }
+                break;
+
+            case GameState.dungeonOverviewMap:
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    DungeonMap.Instance.ClearDungeonOverviewMap();
+                }
+                break;
+
+            case GameState.bossStage:
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    DisplayDungeonOverviewMap();
+                }
+                break;
+
             case GameState.levelCompleted:
                 StartCoroutine(LevelComplete());
                 break;
@@ -223,9 +245,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
             "SURVIVED THIS DUNGEON LEVEL!", Color.white, 5f));
 
+        yield return StartCoroutine(DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE BOX AND PRESS 'P'\nTO ADVANCE TO THE NEXT LEVEL",
+            Color.white, 5f));
+
         yield return StartCoroutine(Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f)));
 
-        while (!Input.GetMouseButtonDown(0))
+        while (!Input.GetKeyDown(KeyCode.P))
         {
             yield return null;
         }
@@ -238,6 +263,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     private IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
     {
+        isFading = true;
         Image image = canvasGroup.GetComponent<Image>();
         image.color = backgroundColor;
 
@@ -249,6 +275,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time / fadeSeconds);
             yield return null;
         }
+
+        isFading = false;
     }
 
     private IEnumerator GameWon()
@@ -374,6 +402,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public DungeonLevelSO GetCurrentDungeonLevel()
     {
         return dungeonLevelList[currentDungeonLevelListIndex];
+    }
+
+    private void DisplayDungeonOverviewMap()
+    {
+        if (isFading) return;
+
+        DungeonMap.Instance.DisplayDungeonOverviewMap();
     }
 
     #region Validation
