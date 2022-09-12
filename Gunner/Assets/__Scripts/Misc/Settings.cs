@@ -43,6 +43,7 @@ public static class Settings
     public static int flipRight = Animator.StringToHash("flipRight");
     public static int flipLeft = Animator.StringToHash("flipLeft");
     public static int flipDown = Animator.StringToHash("flipDown");
+    public static int use = Animator.StringToHash("use");
 
     public static float baseSpeedForPlayerAnimations = 8f;
     public static float baseSpeedForEnemyAnimations = 3f;
