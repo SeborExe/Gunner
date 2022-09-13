@@ -38,15 +38,34 @@ public class GameResources : MonoBehaviour
     public Material dimmendMaterial;
     public Material litMaterial;
     public Shader variableLitShader;
+    public Shader materializeShader;
 
     [Header("UI")]
     public GameObject ammoIconPrefab;
     public GameObject hearthPrefab;
 
+    [Header("Chest")]
+    public GameObject chestItemPrefab;
+    public Sprite heartIcon;
+    public Sprite bulletIcon;
+
+    [Header("Minimap")]
+    public GameObject minimapSkullPrefab;
+
     [Header("Sounds")]
     public AudioMixerGroup soundsMasterMixerGroup;
     public SoundEffectSO doorOpenCloseSoundEffect;
     public SoundEffectSO tableFlip;
+    public SoundEffectSO chestOpen;
+    public SoundEffectSO healthPickup;
+    public SoundEffectSO weaponPickup;
+    public SoundEffectSO ammoPickup;
+
+    [Header("Music")]
+    public AudioMixerGroup musicMasterMixerGroup;
+    public AudioMixerSnapshot musicOnFullSnapshot;
+    public AudioMixerSnapshot musicLowSnapshot;
+    public AudioMixerSnapshot musicOffSnapshot;
 
     [Header("Special tilemaps tiles")]
     public TileBase[] enemyUnwalkableCollisionTilesArray;

@@ -313,6 +313,9 @@ public class InstantiatedRoom : MonoBehaviour
                 {
                     doorComponent.isBoosRoomDoor = true;
                     doorComponent.LockDoor();
+
+                    GameObject skullIcon = Instantiate(GameResources.Instance.minimapSkullPrefab, gameObject.transform);
+                    skullIcon.transform.localPosition = door.transform.localPosition;
                 }
             }
         }
