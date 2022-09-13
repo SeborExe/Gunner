@@ -61,6 +61,13 @@ public static class Settings
 
     #endregion
 
+    #region Audio
+
+    public const float musicFadeOutTime = 0.5f;
+    public const float musicFadeInTime = 0.5f;
+
+    #endregion
+
     #region Firing control
 
     public const float useAimAngleDistance = 3.5f;

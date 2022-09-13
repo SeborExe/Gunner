@@ -61,6 +61,12 @@ public class GameResources : MonoBehaviour
     public SoundEffectSO weaponPickup;
     public SoundEffectSO ammoPickup;
 
+    [Header("Music")]
+    public AudioMixerGroup musicMasterMixerGroup;
+    public AudioMixerSnapshot musicOnFullSnapshot;
+    public AudioMixerSnapshot musicLowSnapshot;
+    public AudioMixerSnapshot musicOffSnapshot;
+
     [Header("Special tilemaps tiles")]
     public TileBase[] enemyUnwalkableCollisionTilesArray;
     public TileBase preferredEnemyPathTile;

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: 023a45a9-ca30-4646-95ae-925f54097472
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 39c66d62-424d-4f62-a07f-233836904734
+  childRoomNodeIDList:
+  - 481c3c4b-11bb-416b-b618-7a91476e05d9
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 7b56a0b7cc223964e87a79a4d419cf49, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -39,8 +41,12 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: 481c3c4b-11bb-416b-b618-7a91476e05d9
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 023a45a9-ca30-4646-95ae-925f54097472
+  childRoomNodeIDList:
+  - f71b6fdd-586f-4353-ac33-2db7461d6fe2
+  - 411f1cf3-a261-41d3-a968-501865ed451f
+  - 5b56410b-430e-4513-aaf9-6b7c50b46715
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 096c2f48dc674e24fbee3e52e5bf32e0, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -65,14 +71,16 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: 35fcefed-8b21-4f13-a5ac-7f462f18cdd3
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 7250ca77-5732-41f1-ae1e-53d6d47f583b
+  childRoomNodeIDList:
+  - d6f7d20c-3387-4ef9-a2cd-e4feabffad36
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 7b56a0b7cc223964e87a79a4d419cf49, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
   rect:
     serializedVersion: 2
-    x: 271
+    x: 269
     y: 490.2
     width: 160
     height: 75
@@ -91,7 +99,8 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: 35eb0626-9742-45a2-ae49-61da207032e7
-  parentRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 411f1cf3-a261-41d3-a968-501865ed451f
   childRoomNodeIDList: []
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 096c2f48dc674e24fbee3e52e5bf32e0, type: 2}
@@ -117,8 +126,10 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: da316857-2426-48bb-9bab-8a337303cc58
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 39c66d62-424d-4f62-a07f-233836904734
+  childRoomNodeIDList:
+  - cfe9b634-5c50-4eec-ac7c-19efa3776f2f
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 7b56a0b7cc223964e87a79a4d419cf49, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -143,8 +154,10 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: 411f1cf3-a261-41d3-a968-501865ed451f
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 481c3c4b-11bb-416b-b618-7a91476e05d9
+  childRoomNodeIDList:
+  - 35eb0626-9742-45a2-ae49-61da207032e7
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 7b56a0b7cc223964e87a79a4d419cf49, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -169,8 +182,10 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: 5b56410b-430e-4513-aaf9-6b7c50b46715
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 481c3c4b-11bb-416b-b618-7a91476e05d9
+  childRoomNodeIDList:
+  - a35d74f9-bc8e-4587-85ef-a7069dd2debb
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 7b56a0b7cc223964e87a79a4d419cf49, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -195,7 +210,8 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: 370fbb17-9b62-45ad-b477-a268bdcc08d8
-  parentRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 917fe124-efa3-4f8e-80b8-2e0e7ba5b204
   childRoomNodeIDList: []
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: a0052a960a821034ca39e9d198f0febe, type: 2}
@@ -221,8 +237,10 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: 917fe124-efa3-4f8e-80b8-2e0e7ba5b204
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - a35d74f9-bc8e-4587-85ef-a7069dd2debb
+  childRoomNodeIDList:
+  - 370fbb17-9b62-45ad-b477-a268bdcc08d8
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 7b56a0b7cc223964e87a79a4d419cf49, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -281,7 +299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7250ca77-5732-41f1-ae1e-53d6d47f583b
   parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  childRoomNodeIDList:
+  - 35fcefed-8b21-4f13-a5ac-7f462f18cdd3
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 6c046126b694fe9468817bf20c679857, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -306,8 +325,10 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: f71b6fdd-586f-4353-ac33-2db7461d6fe2
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 481c3c4b-11bb-416b-b618-7a91476e05d9
+  childRoomNodeIDList:
+  - 4b4e3c15-499c-48cc-a387-3f0be575c51d
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 7b56a0b7cc223964e87a79a4d419cf49, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -332,8 +353,10 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: f6670015-ea89-4094-92bf-d7c07eed2850
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - d6f7d20c-3387-4ef9-a2cd-e4feabffad36
+  childRoomNodeIDList:
+  - 39c66d62-424d-4f62-a07f-233836904734
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: 7b56a0b7cc223964e87a79a4d419cf49, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -358,8 +381,10 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: a35d74f9-bc8e-4587-85ef-a7069dd2debb
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 5b56410b-430e-4513-aaf9-6b7c50b46715
+  childRoomNodeIDList:
+  - 917fe124-efa3-4f8e-80b8-2e0e7ba5b204
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: aac4fa204e0b5a14898b9fb47015cba5, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -384,7 +409,8 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: 4b4e3c15-499c-48cc-a387-3f0be575c51d
-  parentRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - f71b6fdd-586f-4353-ac33-2db7461d6fe2
   childRoomNodeIDList: []
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: f683a10b4cec6a248adf8ab88e0476d5, type: 2}
@@ -410,7 +436,8 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: cfe9b634-5c50-4eec-ac7c-19efa3776f2f
-  parentRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - da316857-2426-48bb-9bab-8a337303cc58
   childRoomNodeIDList: []
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: c659def4741fbb34a95636743febdec5, type: 2}
@@ -436,8 +463,10 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: d6f7d20c-3387-4ef9-a2cd-e4feabffad36
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - 35fcefed-8b21-4f13-a5ac-7f462f18cdd3
+  childRoomNodeIDList:
+  - f6670015-ea89-4094-92bf-d7c07eed2850
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: f683a10b4cec6a248adf8ab88e0476d5, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
@@ -462,8 +491,11 @@ MonoBehaviour:
   m_Name: RoomNode
   m_EditorClassIdentifier: 
   id: 39c66d62-424d-4f62-a07f-233836904734
-  parentRoomNodeIDList: []
-  childRoomNodeIDList: []
+  parentRoomNodeIDList:
+  - f6670015-ea89-4094-92bf-d7c07eed2850
+  childRoomNodeIDList:
+  - da316857-2426-48bb-9bab-8a337303cc58
+  - 023a45a9-ca30-4646-95ae-925f54097472
   roomNodeGraph: {fileID: 11400000}
   roomNodeType: {fileID: 11400000, guid: f683a10b4cec6a248adf8ab88e0476d5, type: 2}
   roomNodyTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
