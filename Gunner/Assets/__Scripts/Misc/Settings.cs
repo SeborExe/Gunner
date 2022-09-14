@@ -15,7 +15,6 @@ public static class Settings
     public const int maxDungeonBuildAttempts = 10;
     #endregion
 
-
     #region Room Settings
 
     public const int maxChildCorridors = 3;
