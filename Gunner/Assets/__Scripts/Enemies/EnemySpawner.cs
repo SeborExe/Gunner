@@ -28,6 +28,7 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
         enemiesSpawnedSoFar = 0;
         currentEnemyCount = 0;
         currentRoom = roomChangedEventArgs.room;
+        currentRoom.isPreviouslyVisited = true;
 
         MusicManager.Instance.PlayMusic(currentRoom.ambientMusic, 0.2f, 2f);
 

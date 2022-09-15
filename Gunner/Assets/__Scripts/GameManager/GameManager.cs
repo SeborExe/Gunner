@@ -69,11 +69,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private void Update()
     {
         HandleGameState();
-
-        //if (Input.GetKeyDown(KeyCode.P))
-        //{
-        //    gameState = GameState.gameStarted;
-        //}
     }
 
     private void InstantiatePlayer()
@@ -379,7 +374,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     private void RestartGame()
     {
-        SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     private void PlayDungeonLevel(int dungeonLevelListIndex)

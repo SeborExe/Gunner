@@ -33,6 +33,7 @@ public class GameResources : MonoBehaviour
 
     [Header("Player")]
     public CurrentPlayerSO currentPlayer;
+    public List<PlayerDetailsSO> playerDetailsList;
 
     [Header("Materials")]
     public Material dimmendMaterial;
@@ -48,6 +49,9 @@ public class GameResources : MonoBehaviour
     public GameObject chestItemPrefab;
     public Sprite heartIcon;
     public Sprite bulletIcon;
+
+    [Header("Player selection")]
+    public GameObject playerSelectionPrefab;
 
     [Header("Minimap")]
     public GameObject minimapSkullPrefab;
@@ -66,6 +70,7 @@ public class GameResources : MonoBehaviour
     public AudioMixerSnapshot musicOnFullSnapshot;
     public AudioMixerSnapshot musicLowSnapshot;
     public AudioMixerSnapshot musicOffSnapshot;
+    public MusicTrackSO mainMenuMusic;
 
     [Header("Special tilemaps tiles")]
     public TileBase[] enemyUnwalkableCollisionTilesArray;
