@@ -331,12 +331,40 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         GetPlayer().playerControl.DisablePlayer();
 
+        int rank = HighScoreManager.Instance.GetRank(gameScore);
+        string rankText;
+
+        if (rank > 0 && rank <= Settings.numberOfHighScoresToSava)
+        {
+            rankText = $"YOUR SCORE IS RANKED {rank.ToString("#0")} IN THE TOP {Settings.numberOfHighScoresToSava.ToString("#0")}";
+            string name = GameResources.Instance.currentPlayer.playerName;
+
+            if (name =="")
+            {
+                name = playerDetails.playerCharacterName.ToUpper();
+            }
+
+            HighScoreManager.Instance.AddScore(new Score()
+            {
+                playerName = name,
+                levelDescription = $"LEVEL {currentDungeonLevelListIndex + 1} - " +
+                $"{GetCurrentDungeonLevel().levelName.ToUpper()}",
+                playerScore = gameScore
+            }, rank);
+        }
+        else
+        {
+            rankText = $"YOUR SCORE ISN'T RANKED IN THE TOP {Settings.numberOfHighScoresToSava.ToString("#0")}";
+        }
+
+        yield return new WaitForSeconds(1f);
+
         yield return StartCoroutine(Fade(0f, 1f, 2f, Color.black));
 
         yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
             "DEFEATED THE DUNGEON!", Color.white, 3f));
 
-        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED: " + gameScore.ToString("###,###0"), Color.white, 4f));
+        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED: " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f));
 
         yield return StartCoroutine(DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f));
 
@@ -348,6 +376,32 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         previousGameState = GameState.gameLost;
 
         GetPlayer().playerControl.DisablePlayer();
+
+        int rank = HighScoreManager.Instance.GetRank(gameScore);
+        string rankText;
+
+        if (rank > 0 && rank <= Settings.numberOfHighScoresToSava)
+        {
+            rankText = $"YOUR SCORE IS RANKED {rank.ToString("#0")} IN THE TOP {Settings.numberOfHighScoresToSava.ToString("#0")}";
+            string name = GameResources.Instance.currentPlayer.playerName;
+
+            if (name == "")
+            {
+                name = playerDetails.playerCharacterName.ToUpper();
+            }
+
+            HighScoreManager.Instance.AddScore(new Score()
+            {
+                playerName = name,
+                levelDescription = $"LEVEL {currentDungeonLevelListIndex + 1} - " +
+                $"{GetCurrentDungeonLevel().levelName.ToUpper()}",
+                playerScore = gameScore
+            }, rank);
+        }
+        else
+        {
+            rankText = $"YOUR SCORE ISN'T RANKED IN THE TOP {Settings.numberOfHighScoresToSava.ToString("#0")}";
+        }
 
         yield return new WaitForSeconds(1f);
 
@@ -362,7 +416,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(DisplayMessageRoutine("BAD LUCK " + GameResources.Instance.currentPlayer.playerName +
             "... THIS DUNGEON HAS BECOME YOUR GRAVE", Color.white, 2f));
 
-        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED: " + gameScore.ToString("###,###0"), Color.white, 4f));
+        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED: " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f));
 
         while (!Input.GetMouseButtonDown(0))
         {

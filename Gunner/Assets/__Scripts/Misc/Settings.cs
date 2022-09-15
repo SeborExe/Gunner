@@ -96,4 +96,10 @@ public static class Settings
     public const float contactDamageCollisionRestartDelay = 0.5f;
 
     #endregion
+
+    #region High Scores
+
+    public const int numberOfHighScoresToSava = 100;
+
+    #endregion
 }

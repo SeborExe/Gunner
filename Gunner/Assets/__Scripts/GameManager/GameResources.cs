@@ -44,6 +44,7 @@ public class GameResources : MonoBehaviour
     [Header("UI")]
     public GameObject ammoIconPrefab;
     public GameObject hearthPrefab;
+    public GameObject scorePrefab;
 
     [Header("Chest")]
     public GameObject chestItemPrefab;

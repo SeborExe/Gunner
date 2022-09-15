@@ -45,8 +45,6 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
             {
                 InstantiatedRoom instantiatedRoom = collider2D.GetComponent<InstantiatedRoom>();
 
-                Debug.Log($"{instantiatedRoom.room.isPreviouslyVisited} --------- {instantiatedRoom.room.isClearedOfEnemies}");
-
                 if (instantiatedRoom.room.isClearedOfEnemies && instantiatedRoom.room.isPreviouslyVisited)
                 {
                     StartCoroutine(MovePlayerToRoom(worldPosition, instantiatedRoom.room));
