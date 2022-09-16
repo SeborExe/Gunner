@@ -46,15 +46,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomNodeTypeList: {fileID: 11400000, guid: 562341fc17a415e4b900e07f89ef40dc, type: 2}
   currentPlayer: {fileID: 11400000, guid: 193709f4d52adc44cbad5538b4a1325f, type: 2}
+  playerDetailsList:
+  - {fileID: 11400000, guid: e5f82dad5d02d274187a8cb9ee528e4c, type: 2}
+  - {fileID: 11400000, guid: 25b0ad1843e1507419f8371937389a85, type: 2}
+  - {fileID: 11400000, guid: 5e7a250eb3bc805458ea0344289c9de0, type: 2}
   dimmendMaterial: {fileID: 2100000, guid: fd5ae752e16da36428c7ae98c49dc19e, type: 2}
   litMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   variableLitShader: {fileID: -6465566751694194690, guid: 8ceab57effffed94dba37dd3358abd82, type: 3}
   materializeShader: {fileID: -6465566751694194690, guid: 5fec8f8e6ea244648a3c6ede24a56288, type: 3}
   ammoIconPrefab: {fileID: 2369378694709925640, guid: 8f94bd25b8f1f4a48b4e6885297f2b71, type: 3}
   hearthPrefab: {fileID: 944531168773978589, guid: 86597941276b9c845abee748a1cfac6c, type: 3}
+  scorePrefab: {fileID: 7177315586951034533, guid: e134e54e377d13547a59e5984fd5cb6f, type: 3}
   chestItemPrefab: {fileID: 706140603337885198, guid: bf6e837b4abde2c4cabc415606f569fd, type: 3}
   heartIcon: {fileID: 21300000, guid: 93356131eec0f44458223985928ac6e3, type: 3}
   bulletIcon: {fileID: 21300000, guid: a2482871b46d396438236c07b6402283, type: 3}
+  playerSelectionPrefab: {fileID: 8549444259598236936, guid: d70c196eb5cfedb4790ea0a3e51c5b7d, type: 3}
   minimapSkullPrefab: {fileID: 753989831410449113, guid: f602845d99f4d304c9457e1c2310b0d3, type: 3}
   soundsMasterMixerGroup: {fileID: -4734643798044506327, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   doorOpenCloseSoundEffect: {fileID: 11400000, guid: 3f248c75840f2de468a39f47efd6a359, type: 2}
@@ -67,6 +73,7 @@ MonoBehaviour:
   musicOnFullSnapshot: {fileID: 24500006, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   musicLowSnapshot: {fileID: 8893122114324796974, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
   musicOffSnapshot: {fileID: -3084740370723268673, guid: 2ac509b551addfb48950fbdc0d9cefb4, type: 2}
+  mainMenuMusic: {fileID: 11400000, guid: c315008e09c5737428cb0224ba8b4968, type: 2}
   enemyUnwalkableCollisionTilesArray:
   - {fileID: 11400000, guid: 37e2c9e0227bfbc409cd632b9bd0c81f, type: 2}
   - {fileID: 11400000, guid: 98f177f8276c38b429705e6720c48672, type: 2}

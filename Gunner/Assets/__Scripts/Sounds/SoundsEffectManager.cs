@@ -10,7 +10,17 @@ public class SoundsEffectManager : SingletonMonobehaviour<SoundsEffectManager>
 
     private void Start()
     {
+        if (PlayerPrefs.HasKey("soundsVolume"))
+        {
+            soundsVolume = PlayerPrefs.GetInt("soundsVolume");
+        }
+
         SetSoundVolume(soundsVolume);
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetInt("soundsVolume", soundsVolume);
     }
 
     public void PlaySoundEffect(SoundEffectSO soundEffect)
@@ -40,5 +50,23 @@ public class SoundsEffectManager : SingletonMonobehaviour<SoundsEffectManager>
         {
             GameResources.Instance.soundsMasterMixerGroup.audioMixer.SetFloat("soundsVolume", HelperUtilities.LinearToDecibels(soundsVolume));
         }
+    }
+
+    public void IncreaseSoundsVolume()
+    {
+        int maxSoundsVolume = 20;
+
+        if (soundsVolume >= maxSoundsVolume) return;
+
+        soundsVolume += 1;
+        SetSoundVolume(soundsVolume);
+    }
+
+    public void DecreaseSoundsVolume()
+    {
+        if (soundsVolume == 0) return;
+
+        soundsVolume -= 1;
+        SetSoundVolume(soundsVolume);
     }
 }

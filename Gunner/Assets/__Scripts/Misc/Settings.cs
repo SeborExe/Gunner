@@ -15,7 +15,6 @@ public static class Settings
     public const int maxDungeonBuildAttempts = 10;
     #endregion
 
-
     #region Room Settings
 
     public const int maxChildCorridors = 3;
@@ -95,6 +94,12 @@ public static class Settings
 
     public const int defaultEnemyHealth = 30;
     public const float contactDamageCollisionRestartDelay = 0.5f;
+
+    #endregion
+
+    #region High Scores
+
+    public const int numberOfHighScoresToSava = 100;
 
     #endregion
 }

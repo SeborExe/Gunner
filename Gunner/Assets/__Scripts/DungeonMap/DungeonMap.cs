@@ -37,7 +37,7 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
         Vector3 worldPosition = dungeonCamera.ScreenToWorldPoint(Input.mousePosition);
         worldPosition = new Vector3(worldPosition.x, worldPosition.y, 0f);
 
-        Collider2D[] collider2DArray = Physics2D.OverlapCircleAll(new Vector2(worldPosition.x, worldPosition.x), 1f);
+        Collider2D[] collider2DArray = Physics2D.OverlapCircleAll(new Vector2(worldPosition.x, worldPosition.y), 1f);
 
         foreach (Collider2D collider2D in collider2DArray)
         {
