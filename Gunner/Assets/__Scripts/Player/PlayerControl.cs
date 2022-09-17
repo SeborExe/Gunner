@@ -365,7 +365,16 @@ public class PlayerControl : MonoBehaviour
     private void AimWeaponInput(out Vector3 weaponDirection, out float weaponAngleDegrees, out float playerAngleDegrees, out AimDirection playerAimDirection)
     {
         //Vector3 mouseWorldPosition = HelperUtilities.GetMouseWorldPosition();
-        Vector3 pointPosition = HelperUtilities.GetPointWorldPosition();
+        Vector3 pointPosition = Vector3.zero;
+        if (FindBestTarget() == null)
+        {
+            pointPosition = HelperUtilities.GetPointWorldPosition();
+        }
+        else
+        {
+            pointPosition = FindBestTarget().transform.position;
+        }
+
 
         weaponDirection = (pointPosition - player.activeWeapon.GetShootPosition());
 
@@ -396,8 +405,6 @@ public class PlayerControl : MonoBehaviour
 
         pointRigidbody2D.velocity = direction * 10000f;
 
-        Vector3 target = point.transform.position;
-
         float radius = 100f;
         Vector3 centerPosition = new Vector3(Screen.width / 2, Screen.height / 2, 0f);
         float distance = Vector3.Distance(point.transform.position, centerPosition);
@@ -407,13 +414,51 @@ public class PlayerControl : MonoBehaviour
             fromOriginToObject *= radius / distance; //Multiply by radius //Divide by Distance
             point.transform.position = centerPosition + fromOriginToObject; //*BlackCenter* + all that Math
         }
+    }
 
+    private IEnumerable<Enemy> FindAllEnemiesInRange()
+    {
+        Collider2D[] raycastHits = Physics2D.OverlapCircleAll(transform.position, 8f);
+        foreach (Collider2D collider in raycastHits)
+        {
+            Enemy enemy = collider.transform.GetComponent<Enemy>();
+            yield return enemy;
+        }
+    }
+
+    private Enemy FindBestTarget()
+    {
         /*
-        target.x = Mathf.Clamp(target.x, 0f, Screen.width);
-        target.y = Mathf.Clamp(target.y, 0f, Screen.height);
-        target.z = 0f;
-        point.transform.position = target;
+        Enemy best = null;
+        float bestDistance = Mathf.Infinity;
+
+        foreach (Enemy canditate in FindAllEnemiesInRange())
+        {
+            float candidateDinstance = Vector3.Distance(transform.position, canditate.transform.position);
+            if (candidateDinstance < bestDistance)
+            {
+                best = canditate;
+                bestDistance = candidateDinstance;
+            }
+        }
+        return best;
         */
+
+        float bestDistance = Mathf.Infinity;
+        Enemy closestEnemy = null;
+        Enemy[] allEnemies = GameObject.FindObjectsOfType<Enemy>();
+
+        foreach (Enemy currentEnemy in allEnemies)
+        {
+            float distanceToEnemy = (currentEnemy.transform.position - transform.position).sqrMagnitude;
+            if (distanceToEnemy < bestDistance)
+            {
+                bestDistance = distanceToEnemy;
+                closestEnemy = currentEnemy;
+            }
+        }
+
+        return closestEnemy;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -433,6 +478,11 @@ public class PlayerControl : MonoBehaviour
             StopCoroutine(playerRollCoroutine);
             isPlayerRolling = false;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, 10f);
     }
 
     #region Validation
