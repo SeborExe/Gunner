@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Player))]
 [DisallowMultipleComponent]
@@ -19,6 +20,15 @@ public class PlayerControl : MonoBehaviour
     private float playerRollCooldownTimer = 0f;
     private bool isPlayerMovementDisabled = false;
 
+    private Joystick joystick;
+    private Joystick rotationJoystick;
+    private ShootButton joystickButton;
+    private ActionButton actionButton;
+    private RollButton rollButton;
+    private WeaponChangeButton weaponChangeButton;
+    private Transform point;
+    private Rigidbody2D pointRigidbody2D;
+
     private void Awake()
     {
         player = GetComponent<Player>();
@@ -31,6 +41,16 @@ public class PlayerControl : MonoBehaviour
 
         SetStartingWeapon();
         SetPlayerAnimationSpeed();
+
+        joystick = GameManager.Instance.joystick;
+        rotationJoystick = GameManager.Instance.rotationJoystick;
+        joystickButton = rotationJoystick.GetComponentInChildren<ShootButton>();
+        actionButton = GameManager.Instance.actionButton;
+        rollButton = GameManager.Instance.rollButton;
+        weaponChangeButton = GameManager.Instance.weaponChangeButton;
+
+        point = GameManager.Instance.point;
+        pointRigidbody2D = point.GetComponent<Rigidbody2D>();
     }
 
     private void SetStartingWeapon()
@@ -61,6 +81,7 @@ public class PlayerControl : MonoBehaviour
         if (isPlayerRolling) return;
 
         MovementInput();
+        UpdatePointPosition();
         WeaponInput();
         UseItemInput();
         PlayerRollCooldownTimer();
@@ -77,9 +98,11 @@ public class PlayerControl : MonoBehaviour
 
     private void MovementInput()
     {
-        float horizontalMovement = Input.GetAxisRaw("Horizontal");
-        float verticalMovement = Input.GetAxisRaw("Vertical");
-        bool spaceButton = Input.GetKeyDown(KeyCode.Space);
+        float horizontalMovement = Mathf.RoundToInt(joystick.Horizontal);
+        float verticalMovement = Mathf.RoundToInt(joystick.Vertical);
+
+        //bool spaceButton = Input.GetKeyDown(KeyCode.Space);
+        bool spaceButton = rollButton.rollButtonPressed;
 
         Vector2 direction = new Vector2(horizontalMovement, verticalMovement);
 
@@ -148,7 +171,8 @@ public class PlayerControl : MonoBehaviour
 
     private void UseItemInput()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        //if (Input.GetKeyDown(KeyCode.E))
+        if (actionButton.actionButtonPressed)
         {
             float useItemRadius = 2f;
 
@@ -168,7 +192,7 @@ public class PlayerControl : MonoBehaviour
 
     private void FireWeaponInput(Vector3 weaponDirection, float weaponAngleDegrees, float playerAngleDegrees, AimDirection playerAimDirection)
     {
-        if (Input.GetMouseButton(0))
+        if (joystickButton.buttonPressed)
         {
             player.fireWeaponEvent.CallFireWeaponEvent(true, leftMouseDownPreviousFrame, playerAimDirection, playerAngleDegrees, weaponAngleDegrees,
                 weaponDirection);
@@ -189,6 +213,11 @@ public class PlayerControl : MonoBehaviour
         }
 
         if (Input.mouseScrollDelta.y > 0f)
+        {
+            NextWeapon();
+        }
+
+        if (weaponChangeButton.weaponChangeButtonPressed)
         {
             NextWeapon();
         }
@@ -335,11 +364,12 @@ public class PlayerControl : MonoBehaviour
 
     private void AimWeaponInput(out Vector3 weaponDirection, out float weaponAngleDegrees, out float playerAngleDegrees, out AimDirection playerAimDirection)
     {
-        Vector3 mouseWorldPosition = HelperUtilities.GetMouseWorldPosition();
+        //Vector3 mouseWorldPosition = HelperUtilities.GetMouseWorldPosition();
+        Vector3 pointPosition = HelperUtilities.GetPointWorldPosition();
 
-        weaponDirection = (mouseWorldPosition - player.activeWeapon.GetShootPosition());
+        weaponDirection = (pointPosition - player.activeWeapon.GetShootPosition());
 
-        Vector3 playerDirection = (mouseWorldPosition - transform.position);
+        Vector3 playerDirection = (pointPosition - transform.position);
 
         //Get weapon to cursor angle
         weaponAngleDegrees = HelperUtilities.GetAngleFromVector(weaponDirection);
@@ -350,6 +380,40 @@ public class PlayerControl : MonoBehaviour
         playerAimDirection = HelperUtilities.GetAimDirection(playerAngleDegrees);
 
         player.aimWeaponEvent.CallAimWeaponEvent(playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
+    }
+
+    private void UpdatePointPosition()
+    {
+        float x = rotationJoystick.Horizontal;
+        float y = rotationJoystick.Vertical;
+
+        Vector2 direction = new Vector2(x, y);
+
+        if (x != 0 && y != 0)
+        {
+            direction *= 0.7f;
+        }
+
+        pointRigidbody2D.velocity = direction * 10000f;
+
+        Vector3 target = point.transform.position;
+
+        float radius = 100f;
+        Vector3 centerPosition = new Vector3(Screen.width / 2, Screen.height / 2, 0f);
+        float distance = Vector3.Distance(point.transform.position, centerPosition);
+        if (distance > radius)
+        {
+            Vector3 fromOriginToObject = point.transform.position - centerPosition; //~GreenPosition~ - *BlackCenter*
+            fromOriginToObject *= radius / distance; //Multiply by radius //Divide by Distance
+            point.transform.position = centerPosition + fromOriginToObject; //*BlackCenter* + all that Math
+        }
+
+        /*
+        target.x = Mathf.Clamp(target.x, 0f, Screen.width);
+        target.y = Mathf.Clamp(target.y, 0f, Screen.height);
+        target.z = 0f;
+        point.transform.position = target;
+        */
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

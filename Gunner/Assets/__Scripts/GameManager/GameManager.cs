@@ -24,6 +24,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [HideInInspector] public GameState gameState;
     [HideInInspector] public GameState previousGameState;
 
+    [Header("Joysticks")]
+    public Joystick joystick;
+    public Joystick rotationJoystick;
+    public Transform point;
+    public ActionButton actionButton;
+    public RollButton rollButton;
+    public WeaponChangeButton weaponChangeButton;
+    public MinimapButton minimapButton;
+    public PauseButton pauseButton;
+
     private long gameScore;
     private int scoreMultiplier;
     private InstantiatedRoom bossRoom;
@@ -128,43 +138,43 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 break;
 
             case GameState.playingLevel:
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
                 }
-                if (Input.GetKeyDown(KeyCode.Tab))
+                if (minimapButton.minimapButtonButtonPressed)
                 {
                     DisplayDungeonOverviewMap();
                 }
                 break;
 
             case GameState.engagingEnemies:
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
                 }
                 break;
 
             case GameState.dungeonOverviewMap:
-                if (Input.GetKeyDown(KeyCode.Tab))
+                if (!minimapButton.minimapButtonButtonPressed)
                 {
                     DungeonMap.Instance.ClearDungeonOverviewMap();
                 }
                 break;
 
             case GameState.bossStage:
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
                 }
-                if (Input.GetKeyDown(KeyCode.Tab))
+                if (minimapButton.minimapButtonButtonPressed)
                 {
                     DisplayDungeonOverviewMap();
                 }
                 break;
 
             case GameState.engagingBoss:
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
                 }
