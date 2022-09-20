@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
-  m_Name: WeaponDetails_PlasmaBlaster
+  m_Name: WeaponDetails_PlasmaRifle
   m_EditorClassIdentifier: 
   weaponName: Plasma Blaster
   weaponSprite: {fileID: 21300000, guid: d40ddff7cb9842245857e0aa68313d01, type: 3}
   weaponShootPosition: {x: 1.245, y: 0.277, z: 0}
-  weaponCurrentAmmo: {fileID: 11400000, guid: 2335eba0a0dc23a40afdcbc356d40177, type: 2}
-  weaponShootEffect: {fileID: 11400000, guid: ab21d3a08f97aae449cb173321636e0c, type: 2}
-  weaponFiringSoundEffect: {fileID: 11400000, guid: 4f461742f8c1bad45bf02b8d88a3c3cb, type: 2}
-  weaponReloadingSoundEffect: {fileID: 11400000, guid: f36cd842403d03640892be42b3725d89, type: 2}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 4cb3f8f7f22028244a601fb8029d8cdf, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: 395ce8afc010cdb4494b084077de7420, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 98a63f869dd42f348adfdc715656ee99, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: 76ea0fc6d85f8bf46867fd136821a479, type: 2}
   hasInfiniteAmmo: 1
   hasInfiniteClipCapacity: 0
-  weaponClipAmmoCapacity: 6
+  weaponClipAmmoCapacity: 5
   weaponAmmoCapacity: 0
   weaponFireRate: 0.5
-  weaponPrechargeTime: 0.2
-  weaponReloadTime: 1
+  weaponPrechargeTime: 0.35
+  weaponReloadTime: 1.5

@@ -73,11 +73,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[1].spawnableObjectRatioList.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[2].spawnableObjectRatioList.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[3].spawnableObjectRatioList.Array.size
@@ -116,6 +116,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: weaponSpawnByLevelList.Array.data[1].spawnableObjectRatioList.Array.data[3].ratio
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[2].spawnableObjectRatioList.Array.data[0].ratio
       value: 3
       objectReference: {fileID: 0}
@@ -125,6 +129,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[2].spawnableObjectRatioList.Array.data[2].ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: weaponSpawnByLevelList.Array.data[2].spawnableObjectRatioList.Array.data[3].ratio
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
@@ -192,6 +200,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ff33183dddfec314db8e2e3e4c512509, type: 2}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: weaponSpawnByLevelList.Array.data[1].spawnableObjectRatioList.Array.data[3].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 184f59808da0b8d4f8cba1261ebb6bd6, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[2].spawnableObjectRatioList.Array.data[0].dungeonObject
       value: 
       objectReference: {fileID: 11400000, guid: eb5af58978c8ae34bb99852870f3af38, type: 2}
@@ -203,6 +215,10 @@ PrefabInstance:
       propertyPath: weaponSpawnByLevelList.Array.data[2].spawnableObjectRatioList.Array.data[2].dungeonObject
       value: 
       objectReference: {fileID: 11400000, guid: ff33183dddfec314db8e2e3e4c512509, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: weaponSpawnByLevelList.Array.data[2].spawnableObjectRatioList.Array.data[3].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 184f59808da0b8d4f8cba1261ebb6bd6, type: 2}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[3].spawnableObjectRatioList.Array.data[0].dungeonObject
       value: 

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private MovementDetailsSO movementDetails;
+    [SerializeField] private float autoAimRange = 15f;
 
     private Player player;
     private bool leftMouseDownPreviousFrame = false;
@@ -45,9 +46,9 @@ public class PlayerControl : MonoBehaviour
         joystick = GameManager.Instance.joystick;
         rotationJoystick = GameManager.Instance.rotationJoystick;
         joystickButton = rotationJoystick.GetComponentInChildren<ShootButton>();
+        weaponChangeButton = GameManager.Instance.weaponChangeButton;
         actionButton = GameManager.Instance.actionButton;
         rollButton = GameManager.Instance.rollButton;
-        weaponChangeButton = GameManager.Instance.weaponChangeButton;
 
         point = GameManager.Instance.point;
         pointRigidbody2D = point.GetComponent<Rigidbody2D>();
@@ -418,17 +419,18 @@ public class PlayerControl : MonoBehaviour
 
     private IEnumerable<Enemy> FindAllEnemiesInRange()
     {
-        Collider2D[] raycastHits = Physics2D.OverlapCircleAll(transform.position, 8f);
+        Collider2D[] raycastHits = Physics2D.OverlapCircleAll(transform.position, autoAimRange);
         foreach (Collider2D collider in raycastHits)
         {
             Enemy enemy = collider.transform.GetComponent<Enemy>();
-            yield return enemy;
+            if (enemy != null)
+                yield return enemy;
         }
     }
 
     private Enemy FindBestTarget()
     {
-        /*
+        
         Enemy best = null;
         float bestDistance = Mathf.Infinity;
 
@@ -442,8 +444,9 @@ public class PlayerControl : MonoBehaviour
             }
         }
         return best;
-        */
+        
 
+        /*
         float bestDistance = Mathf.Infinity;
         Enemy closestEnemy = null;
         Enemy[] allEnemies = GameObject.FindObjectsOfType<Enemy>();
@@ -459,6 +462,25 @@ public class PlayerControl : MonoBehaviour
         }
 
         return closestEnemy;
+        */
+    }
+
+    public static bool IsDoubleTap()
+    {
+        bool result = false;
+        float MaxTimeWait = 1;
+        float VariancePosition = 1;
+
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            float DeltaTime = Input.GetTouch(0).deltaTime;
+            float DeltaPositionLenght = Input.GetTouch(0).deltaPosition.magnitude;
+
+            if (DeltaTime > 0 && DeltaTime < MaxTimeWait && DeltaPositionLenght < VariancePosition)
+                result = true;
+        }
+
+        return result;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -482,7 +504,7 @@ public class PlayerControl : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, 10f);
+        Gizmos.DrawWireSphere(transform.position, autoAimRange);
     }
 
     #region Validation
