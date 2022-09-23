@@ -246,7 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7762d5be18124941959aa2cf0f63a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   isDamagable: 1
+  enemy: {fileID: 0}
 --- !u!114 &2367259199412606248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDetails: {fileID: 11400000, guid: c24fcfdfacf96174d847fa22ada6e9da, type: 2}
+  autoAimRange: 22
   isPlayerRolling: 0
 --- !u!114 &1135545511972188532
 MonoBehaviour:
