@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Player))]
 [DisallowMultipleComponent]
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private MovementDetailsSO movementDetails;
+    [SerializeField] private float autoAimRange = 15f;
 
     private Player player;
     private bool leftMouseDownPreviousFrame = false;
@@ -18,6 +20,15 @@ public class PlayerControl : MonoBehaviour
     [HideInInspector] public bool isPlayerRolling = false;
     private float playerRollCooldownTimer = 0f;
     private bool isPlayerMovementDisabled = false;
+
+    private Joystick joystick;
+    private Joystick rotationJoystick;
+    private ShootButton joystickButton;
+    private ActionButton actionButton;
+    private RollButton rollButton;
+    private WeaponChangeButton weaponChangeButton;
+    private Transform point;
+    private Rigidbody2D pointRigidbody2D;
 
     private void Awake()
     {
@@ -31,6 +42,16 @@ public class PlayerControl : MonoBehaviour
 
         SetStartingWeapon();
         SetPlayerAnimationSpeed();
+
+        joystick = GameManager.Instance.joystick;
+        rotationJoystick = GameManager.Instance.rotationJoystick;
+        joystickButton = rotationJoystick.GetComponentInChildren<ShootButton>();
+        weaponChangeButton = GameManager.Instance.weaponChangeButton;
+        actionButton = GameManager.Instance.actionButton;
+        rollButton = GameManager.Instance.rollButton;
+
+        point = GameManager.Instance.point;
+        pointRigidbody2D = point.GetComponent<Rigidbody2D>();
     }
 
     private void SetStartingWeapon()
@@ -61,6 +82,7 @@ public class PlayerControl : MonoBehaviour
         if (isPlayerRolling) return;
 
         MovementInput();
+        UpdatePointPosition();
         WeaponInput();
         UseItemInput();
         PlayerRollCooldownTimer();
@@ -77,9 +99,11 @@ public class PlayerControl : MonoBehaviour
 
     private void MovementInput()
     {
-        float horizontalMovement = Input.GetAxisRaw("Horizontal");
-        float verticalMovement = Input.GetAxisRaw("Vertical");
-        bool spaceButton = Input.GetKeyDown(KeyCode.Space);
+        float horizontalMovement = Mathf.RoundToInt(joystick.Horizontal);
+        float verticalMovement = Mathf.RoundToInt(joystick.Vertical);
+
+        //bool spaceButton = Input.GetKeyDown(KeyCode.Space);
+        bool spaceButton = rollButton.rollButtonPressed;
 
         Vector2 direction = new Vector2(horizontalMovement, verticalMovement);
 
@@ -148,7 +172,8 @@ public class PlayerControl : MonoBehaviour
 
     private void UseItemInput()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        //if (Input.GetKeyDown(KeyCode.E))
+        if (actionButton.actionButtonPressed)
         {
             float useItemRadius = 2f;
 
@@ -168,7 +193,7 @@ public class PlayerControl : MonoBehaviour
 
     private void FireWeaponInput(Vector3 weaponDirection, float weaponAngleDegrees, float playerAngleDegrees, AimDirection playerAimDirection)
     {
-        if (Input.GetMouseButton(0))
+        if (joystickButton.buttonPressed)
         {
             player.fireWeaponEvent.CallFireWeaponEvent(true, leftMouseDownPreviousFrame, playerAimDirection, playerAngleDegrees, weaponAngleDegrees,
                 weaponDirection);
@@ -189,6 +214,11 @@ public class PlayerControl : MonoBehaviour
         }
 
         if (Input.mouseScrollDelta.y > 0f)
+        {
+            NextWeapon();
+        }
+
+        if (weaponChangeButton.weaponChangeButtonPressed)
         {
             NextWeapon();
         }
@@ -335,11 +365,21 @@ public class PlayerControl : MonoBehaviour
 
     private void AimWeaponInput(out Vector3 weaponDirection, out float weaponAngleDegrees, out float playerAngleDegrees, out AimDirection playerAimDirection)
     {
-        Vector3 mouseWorldPosition = HelperUtilities.GetMouseWorldPosition();
+        //Vector3 mouseWorldPosition = HelperUtilities.GetMouseWorldPosition();
+        Vector3 pointPosition = Vector3.zero;
+        if (FindBestTarget() == null)
+        {
+            pointPosition = HelperUtilities.GetPointWorldPosition();
+        }
+        else
+        {
+            pointPosition = FindBestTarget().transform.position;
+        }
 
-        weaponDirection = (mouseWorldPosition - player.activeWeapon.GetShootPosition());
 
-        Vector3 playerDirection = (mouseWorldPosition - transform.position);
+        weaponDirection = (pointPosition - player.activeWeapon.GetShootPosition());
+
+        Vector3 playerDirection = (pointPosition - transform.position);
 
         //Get weapon to cursor angle
         weaponAngleDegrees = HelperUtilities.GetAngleFromVector(weaponDirection);
@@ -350,6 +390,97 @@ public class PlayerControl : MonoBehaviour
         playerAimDirection = HelperUtilities.GetAimDirection(playerAngleDegrees);
 
         player.aimWeaponEvent.CallAimWeaponEvent(playerAimDirection, playerAngleDegrees, weaponAngleDegrees, weaponDirection);
+    }
+
+    private void UpdatePointPosition()
+    {
+        float x = rotationJoystick.Horizontal;
+        float y = rotationJoystick.Vertical;
+
+        Vector2 direction = new Vector2(x, y);
+
+        if (x != 0 && y != 0)
+        {
+            direction *= 0.7f;
+        }
+
+        pointRigidbody2D.velocity = direction * 10000f;
+
+        float radius = 100f;
+        Vector3 centerPosition = new Vector3(Screen.width / 2, Screen.height / 2, 0f);
+        float distance = Vector3.Distance(point.transform.position, centerPosition);
+        if (distance > radius)
+        {
+            Vector3 fromOriginToObject = point.transform.position - centerPosition; //~GreenPosition~ - *BlackCenter*
+            fromOriginToObject *= radius / distance; //Multiply by radius //Divide by Distance
+            point.transform.position = centerPosition + fromOriginToObject; //*BlackCenter* + all that Math
+        }
+    }
+
+    private IEnumerable<Enemy> FindAllEnemiesInRange()
+    {
+        Collider2D[] raycastHits = Physics2D.OverlapCircleAll(transform.position, autoAimRange);
+        foreach (Collider2D collider in raycastHits)
+        {
+            Enemy enemy = collider.transform.GetComponent<Enemy>();
+            if (enemy != null)
+                yield return enemy;
+        }
+    }
+
+    private Enemy FindBestTarget()
+    {
+        
+        Enemy best = null;
+        float bestDistance = Mathf.Infinity;
+
+        foreach (Enemy canditate in FindAllEnemiesInRange())
+        {
+            float candidateDinstance = Vector3.Distance(transform.position, canditate.transform.position);
+            if (candidateDinstance < bestDistance)
+            {
+                best = canditate;
+                bestDistance = candidateDinstance;
+            }
+        }
+        return best;
+        
+
+        /*
+        float bestDistance = Mathf.Infinity;
+        Enemy closestEnemy = null;
+        Enemy[] allEnemies = GameObject.FindObjectsOfType<Enemy>();
+
+        foreach (Enemy currentEnemy in allEnemies)
+        {
+            float distanceToEnemy = (currentEnemy.transform.position - transform.position).sqrMagnitude;
+            if (distanceToEnemy < bestDistance)
+            {
+                bestDistance = distanceToEnemy;
+                closestEnemy = currentEnemy;
+            }
+        }
+
+        return closestEnemy;
+        */
+    }
+
+    public static bool IsDoubleTap()
+    {
+        bool result = false;
+        float MaxTimeWait = 1;
+        float VariancePosition = 1;
+
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            float DeltaTime = Input.GetTouch(0).deltaTime;
+            float DeltaPositionLenght = Input.GetTouch(0).deltaPosition.magnitude;
+
+            if (DeltaTime > 0 && DeltaTime < MaxTimeWait && DeltaPositionLenght < VariancePosition)
+                result = true;
+        }
+
+        return result;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -369,6 +500,11 @@ public class PlayerControl : MonoBehaviour
             StopCoroutine(playerRollCoroutine);
             isPlayerRolling = false;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, autoAimRange);
     }
 
     #region Validation

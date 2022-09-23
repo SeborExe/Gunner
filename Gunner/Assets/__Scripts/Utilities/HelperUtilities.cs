@@ -21,6 +21,17 @@ public static class HelperUtilities
         return worldPosition;
     }
 
+    public static Vector3 GetPointWorldPosition()
+    {
+        if (mainCamera == null) mainCamera = Camera.main;
+
+        Vector3 point = GameManager.Instance.point.transform.position;
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(point);
+        worldPosition.z = 0f;
+
+        return worldPosition;
+    }
+
     public static void CameraWorldPositionBounds(out Vector2Int cameraWorldPositionLowerBounds, out Vector2Int cameraWorldPositionUpperBounds,
         Camera camera)
     {

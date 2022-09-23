@@ -24,6 +24,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [HideInInspector] public GameState gameState;
     [HideInInspector] public GameState previousGameState;
 
+    [Header("Joysticks")]
+    public Joystick joystick;
+    public Joystick rotationJoystick;
+    public Transform point;
+    public WeaponChangeButton weaponChangeButton;
+    public MinimapButton minimapButton;
+    public ActionButton actionButton;
+    public RollButton rollButton;
+    public PauseButton pauseButton;
+
     private long gameScore;
     private int scoreMultiplier;
     private InstantiatedRoom bossRoom;
@@ -128,43 +138,43 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 break;
 
             case GameState.playingLevel:
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
                 }
-                if (Input.GetKeyDown(KeyCode.Tab))
+                if (minimapButton.minimapButtonButtonPressed)
                 {
                     DisplayDungeonOverviewMap();
                 }
                 break;
 
             case GameState.engagingEnemies:
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
                 }
                 break;
 
             case GameState.dungeonOverviewMap:
-                if (Input.GetKeyDown(KeyCode.Tab))
+                if (!minimapButton.minimapButtonButtonPressed)
                 {
                     DungeonMap.Instance.ClearDungeonOverviewMap();
                 }
                 break;
 
             case GameState.bossStage:
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
                 }
-                if (Input.GetKeyDown(KeyCode.Tab))
+                if (minimapButton.minimapButtonButtonPressed)
                 {
                     DisplayDungeonOverviewMap();
                 }
                 break;
 
             case GameState.engagingBoss:
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
                 }
@@ -291,12 +301,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
             "SURVIVED THIS DUNGEON LEVEL!", Color.white, 5f));
 
-        yield return StartCoroutine(DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE BOX AND PRESS 'P'\nTO ADVANCE TO THE NEXT LEVEL",
+        yield return StartCoroutine(DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE BOX AND PRESS 'R' BUTTON\nTO ADVANCE TO THE NEXT LEVEL",
             Color.white, 5f));
 
         yield return StartCoroutine(Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f)));
 
-        while (!Input.GetKeyDown(KeyCode.P))
+        while (!rollButton.rollButtonPressed)
         {
             yield return null;
         }

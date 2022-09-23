@@ -36,17 +36,19 @@ public class CinemachineTarget : MonoBehaviour
             GameManager.Instance.GetPlayer().transform
         };
 
+        /*
         CinemachineTargetGroup.Target cinemachineTargetGroup_cursor = new CinemachineTargetGroup.Target 
         {
             weight = 1f, 
             radius = 1f, 
             target = cursorTarget 
         };
+        */
 
         CinemachineTargetGroup.Target[] cinemachineTargetArray = new CinemachineTargetGroup.Target[] 
         { 
             cinemachineTargetGroup_player,
-            cinemachineTargetGroup_cursor
+            //cinemachineTargetGroup_cursor
         };
 
         cinemachineTargetGroup.m_Targets = cinemachineTargetArray;
