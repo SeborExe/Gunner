@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public SpriteRenderer spriteRenderer;
     [HideInInspector] public Animator animator;
     [HideInInspector] public PlayerControl playerControl;
+    [HideInInspector] public PlayerStats playerStats;
 
     public List<Weapon> weaponList = new List<Weapon>();
 
@@ -78,6 +79,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         playerControl = GetComponent<PlayerControl>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     public void Initialize(PlayerDetailsSO playerDetails)
@@ -118,7 +120,7 @@ public class Player : MonoBehaviour
 
     private void SetPlayerHealth()
     {
-        int healthAmount = playerDetails.playerHealthAmount + playerControl.GetAdditionalhealth();
+        int healthAmount = playerDetails.playerHealthAmount + playerStats.GetAdditionalhealth();
         health.SetStartingHealth(healthAmount);
     }
 

@@ -141,7 +141,9 @@ public class FireWeapon : MonoBehaviour
             ammoCounter++;
 
             GameObject ammoPrefab = currentAmmo.ammoPrefabArray[UnityEngine.Random.Range(0, currentAmmo.ammoPrefabArray.Length)];
-            float ammoSpeed = UnityEngine.Random.Range(currentAmmo.ammoSpeedMin, currentAmmo.ammoSpeedMax);
+            float ammoSpeed = UnityEngine.Random.Range(currentAmmo.ammoSpeedMin + 
+                GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoSpeed() ,currentAmmo.ammoSpeedMax +
+                GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoSpeed());
 
             IFireable ammo = (IFireable)PoolManager.Instance.ReuseComponent(ammoPrefab, activeWeapon.GetShootPosition(), Quaternion.identity);
             ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector);
@@ -185,6 +187,9 @@ public class FireWeapon : MonoBehaviour
 
     private void ResetCoolDownTimer()
     {
-        fireRateCoolDownTimer = activeWeapon.GetCurrentWeapon().weaponDetails.weaponFireRate;
+        float additionalSpeed = activeWeapon.GetCurrentWeapon().weaponDetails.weaponFireRate * (
+            GameManager.Instance.GetPlayer().playerStats.GetAdditionalFireRate() / 100);
+
+        fireRateCoolDownTimer = Mathf.Max(0.1f, activeWeapon.GetCurrentWeapon().weaponDetails.weaponFireRate - additionalSpeed);
     }
 }

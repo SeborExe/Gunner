@@ -30,9 +30,6 @@ public class PlayerControl : MonoBehaviour
     private Transform point;
     private Rigidbody2D pointRigidbody2D;
 
-    private int baseDamage = 0;
-    [SerializeField] int additionalHealth = 0;
-
     private void Awake()
     {
         player = GetComponent<Player>();
@@ -73,31 +70,14 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    #region Stats
-    public int GetBaseDamage()
-    {
-        return baseDamage + GameManager.Instance.GetPlayer().playerDetails.baseDamage;
-    }
-
-    public void SetBaseDamage(int amount)
-    {
-        baseDamage += amount;
-    }
-
-    public int GetAdditionalhealth()
-    {
-        return additionalHealth;
-    }
-
-    public void SetAdditionalHealth(int amount)
-    {
-        additionalHealth += amount;
-    }
-    #endregion Stats
-
     private void SetPlayerAnimationSpeed()
     {
         player.animator.speed = moveSpeed / Settings.baseSpeedForPlayerAnimations;
+    }
+
+    public void SetMovementSpeed(float amount)
+    {
+        moveSpeed += amount;
     }
 
     private void Update()

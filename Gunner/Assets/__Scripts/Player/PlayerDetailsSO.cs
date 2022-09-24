@@ -25,6 +25,9 @@ public class PlayerDetailsSO : ScriptableObject
 
     [Header("Stats")]
     public int baseDamage = 0;
+    public float baseFireRateInPercent = 0;
+    public int baseRange = 0;
+    public int baseAmmoSpeed = 0;
 
     #region Validation
 #if UNITY_EDITOR

@@ -138,7 +138,7 @@ public class Chest : MonoBehaviour, IUseable
 
         else if (item != null)
         {
-            ChestState.Item;
+            chestState = ChestState.Item;
             InstantiateBonusItem();
         }
         else
@@ -177,7 +177,10 @@ public class Chest : MonoBehaviour, IUseable
 
     private void InstantiateBonusItem()
     {
-        
+        InstantiateItem();
+
+        chestItemGameObject.GetComponent<ChestItem>().Initialize(item.itemSprite, item.itemName, itemSpawnPoint.position,
+            materializeColor);
     }
 
     private void CollectHealthItem()
@@ -227,7 +230,17 @@ public class Chest : MonoBehaviour, IUseable
 
     private void CollectItem()
     {
-        
+        if (chestItem == null || !chestItem.isItemMaterialized) return;
+
+        foreach (ItemEffect effect in item.effects)
+        {
+            effect.ActiveEffect();
+            SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
+        }
+
+        item = null;
+        Destroy(chestItemGameObject);
+        UpdateChestState();
     }
 
     private IEnumerator DisplayMessage(string messageText, float messageDisplayTime)

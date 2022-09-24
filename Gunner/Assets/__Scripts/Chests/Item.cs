@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponDetails_", menuName = "Scriptable Objects/Items/Item Details")]
+[CreateAssetMenu(fileName = "ItemDetails_", menuName = "Scriptable Objects/Items/Item Details")]
 public class Item : ScriptableObject
 {
     [Header("Item Base Details")]
@@ -10,6 +10,5 @@ public class Item : ScriptableObject
     public Sprite itemSprite;
 
     [Header("Item configuration")]
-    public int additionalHealth;
-    public int additionalDamage;
+    public ItemEffect[] effects;
 }
