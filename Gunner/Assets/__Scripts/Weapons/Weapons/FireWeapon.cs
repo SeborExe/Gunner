@@ -55,6 +55,12 @@ public class FireWeapon : MonoBehaviour
             {
                 FireAmmo(fireWeaponEventArgs.aimAngle, fireWeaponEventArgs.weaponAimAngle, fireWeaponEventArgs.weaponAimDirectionVector);
 
+                if (activeWeapon.GetCurrentWeapon().weaponDetails.shouldShake)
+                {
+                    GameManager.Instance.virtualCamera.ShakeCamera(activeWeapon.GetCurrentWeapon().weaponDetails.intensity,
+                        activeWeapon.GetCurrentWeapon().weaponDetails.frequency, activeWeapon.GetCurrentWeapon().weaponDetails.time);
+                }
+
                 ResetCoolDownTimer();
 
                 ResetPreChargTimer();

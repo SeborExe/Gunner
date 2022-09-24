@@ -118,7 +118,8 @@ public class Player : MonoBehaviour
 
     private void SetPlayerHealth()
     {
-        health.SetStartingHealth(playerDetails.playerHealthAmount);
+        int healthAmount = playerDetails.playerHealthAmount + playerControl.GetAdditionalhealth();
+        health.SetStartingHealth(healthAmount);
     }
 
     public Vector3 GetPlayerPosition()

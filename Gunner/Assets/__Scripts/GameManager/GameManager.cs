@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -38,6 +39,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private int scoreMultiplier;
     private InstantiatedRoom bossRoom;
     private bool isFading = false;
+
+    [Header("Camera")]
+    public CinemachineShake virtualCamera;
 
     protected override void Awake()
     {

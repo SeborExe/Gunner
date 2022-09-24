@@ -76,6 +76,11 @@ public class Health : MonoBehaviour
             currentHealth -= damageAmount;
             CallHealthEvent(damageAmount);
 
+            if (player)
+            {
+                GameManager.Instance.virtualCamera.ShakeCamera(3f, 3f, .5f);
+            }
+
             PostHitImmunity();
 
             if (healthBar != null)

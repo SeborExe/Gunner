@@ -23,6 +23,9 @@ public class PlayerDetailsSO : ScriptableObject
     public WeaponDetailsSO startingWeapon;
     public List<WeaponDetailsSO> startingWeaponList;
 
+    [Header("Stats")]
+    public int baseDamage = 0;
+
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private MovementDetailsSO movementDetails;
-    [SerializeField] private float autoAimRange = 15f;
+    [SerializeField] private float autoAimRange = 22f;
 
     private Player player;
     private bool leftMouseDownPreviousFrame = false;
@@ -29,6 +29,9 @@ public class PlayerControl : MonoBehaviour
     private WeaponChangeButton weaponChangeButton;
     private Transform point;
     private Rigidbody2D pointRigidbody2D;
+
+    private int baseDamage = 0;
+    [SerializeField] int additionalHealth = 0;
 
     private void Awake()
     {
@@ -69,6 +72,28 @@ public class PlayerControl : MonoBehaviour
             index++;
         }
     }
+
+    #region Stats
+    public int GetBaseDamage()
+    {
+        return baseDamage + GameManager.Instance.GetPlayer().playerDetails.baseDamage;
+    }
+
+    public void SetBaseDamage(int amount)
+    {
+        baseDamage += amount;
+    }
+
+    public int GetAdditionalhealth()
+    {
+        return additionalHealth;
+    }
+
+    public void SetAdditionalHealth(int amount)
+    {
+        additionalHealth += amount;
+    }
+    #endregion Stats
 
     private void SetPlayerAnimationSpeed()
     {

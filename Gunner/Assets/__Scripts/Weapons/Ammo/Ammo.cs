@@ -74,7 +74,16 @@ public class Ammo : MonoBehaviour, IFireable
         if (health != null)
         {
             isColliding = true;
-            health.TakeDamage(ammoDetails.ammoDamage);
+
+            if (health.GetComponent<Enemy>())
+            {
+                int damage = GameManager.Instance.GetPlayer().playerControl.GetBaseDamage() + ammoDetails.ammoDamage;
+                health.TakeDamage(damage);
+            }
+            else
+            {
+                health.TakeDamage(ammoDetails.ammoDamage);
+            }
 
             if (health.enemy != null)
             {
