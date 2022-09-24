@@ -16,6 +16,8 @@ public class Chest : MonoBehaviour, IUseable
     private int healthPercent;
     private WeaponDetailsSO weaponDetails;
     private int ammoPercent;
+    private Item item;
+
     private MaterializeEffect materializeEffect;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -33,11 +35,12 @@ public class Chest : MonoBehaviour, IUseable
         messageTextTMP = GetComponentInChildren<TextMeshPro>();
     }
 
-    public void Initialize(bool shouldMaterialize, int healthPercent, WeaponDetailsSO weaponDetails, int ammoPercent)
+    public void Initialize(bool shouldMaterialize, int healthPercent, WeaponDetailsSO weaponDetails, int ammoPercent, Item item)
     {
         this.healthPercent = healthPercent;
         this.weaponDetails = weaponDetails;
         this.ammoPercent = ammoPercent;
+        this.item = item;
 
         if (shouldMaterialize)
         {
@@ -86,6 +89,10 @@ public class Chest : MonoBehaviour, IUseable
                 CollectWeaponItem();
                 break;
 
+            case ChestState.Item:
+                CollectItem();
+                break;
+
             case ChestState.empty:
                 return;
 
@@ -128,6 +135,12 @@ public class Chest : MonoBehaviour, IUseable
             chestState = ChestState.weaponItem;
             InstantiateWeaponItem();
         }
+
+        else if (item != null)
+        {
+            ChestState.Item;
+            InstantiateBonusItem();
+        }
         else
         {
             chestState = ChestState.weaponItem;
@@ -160,6 +173,11 @@ public class Chest : MonoBehaviour, IUseable
 
         chestItemGameObject.GetComponent<ChestItem>().Initialize(weaponDetails.weaponSprite, weaponDetails.weaponName, itemSpawnPoint.position,
             materializeColor);
+    }
+
+    private void InstantiateBonusItem()
+    {
+        
     }
 
     private void CollectHealthItem()
@@ -205,6 +223,11 @@ public class Chest : MonoBehaviour, IUseable
         weaponDetails = null;
         Destroy(chestItemGameObject);
         UpdateChestState();
+    }
+
+    private void CollectItem()
+    {
+        
     }
 
     private IEnumerator DisplayMessage(string messageText, float messageDisplayTime)
