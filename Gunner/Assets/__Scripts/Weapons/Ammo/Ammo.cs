@@ -77,8 +77,18 @@ public class Ammo : MonoBehaviour, IFireable
 
             if (health.GetComponent<Enemy>())
             {
-                int damage = GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() + ammoDetails.ammoDamage;
-                health.TakeDamage(damage);
+                if (GameManager.Instance.GetPlayer().activeWeapon.GetCurrentAmmo().ammoSpawnAmountMax > 1)
+                {
+                    int damage = ammoDetails.ammoDamage +
+                         ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 150);
+                    health.TakeDamage(damage);
+                }
+                else
+                {
+                    int damage = ammoDetails.ammoDamage +
+                        ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 100);
+                    health.TakeDamage(damage);
+                }
             }
             else
             {
@@ -141,7 +151,14 @@ public class Ammo : MonoBehaviour, IFireable
             isAmmoMaterialSet = true;
         }
 
-        ammoRange = ammoDetails.ammoRange + GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoRange();
+        if (ammoDetails.isPlayerAmmo)
+        {
+            ammoRange = Mathf.Max(1f, ammoDetails.ammoRange + GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoRange());
+        }
+        else
+        {
+            ammoRange = ammoDetails.ammoRange;
+        }
 
         this.ammoSpeed = ammoSpeed;
         this.overrideAmmoMovement = overrideAmmoMovement;

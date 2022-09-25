@@ -6,7 +6,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PlayerStats : MonoBehaviour
 {
-    private int baseDamage = 0;
+    private int baseDamageInPercent = 0;
     private int additionalHealth = 0;
     private float additionalFireRateInPercent = 0;
     private float additionalRange = 0;
@@ -14,12 +14,12 @@ public class PlayerStats : MonoBehaviour
 
     public int GetBaseDamage()
     {
-        return baseDamage + GameManager.Instance.GetPlayer().playerDetails.baseDamage;
+        return baseDamageInPercent + GameManager.Instance.GetPlayer().playerDetails.baseDamageInPercent;
     }
 
     public void SetBaseDamage(int amount)
     {
-        baseDamage += amount;
+        baseDamageInPercent += amount;
     }
 
     public int GetAdditionalhealth()

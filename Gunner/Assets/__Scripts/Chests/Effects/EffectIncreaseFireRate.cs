@@ -6,10 +6,10 @@ using UnityEngine;
 public class EffectIncreaseFireRate : ItemEffect
 {
     [Tooltip("Value in percent")]
-    [SerializeField] float FirerateToIncrease;
+    [SerializeField] float FirerateToIncreaseInPercent;
 
     public override void ActiveEffect()
     {
-        GameManager.Instance.GetPlayer().playerStats.SetAdditionalFireRate(FirerateToIncrease);
+        GameManager.Instance.GetPlayer().playerStats.SetAdditionalFireRate(FirerateToIncreaseInPercent);
     }
 }

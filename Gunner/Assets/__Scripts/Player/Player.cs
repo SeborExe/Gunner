@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void SetPlayerHealth()
+    public void SetPlayerHealth()
     {
         int healthAmount = playerDetails.playerHealthAmount + playerStats.GetAdditionalhealth();
         health.SetStartingHealth(healthAmount);

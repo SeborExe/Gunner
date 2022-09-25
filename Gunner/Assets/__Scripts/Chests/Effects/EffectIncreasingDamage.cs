@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ChangeDamage_", menuName = "Scriptable Objects/Items/Effects/Damage")]
 public class EffectIncreasingDamage : ItemEffect
 {
-    [SerializeField] int damageToIncrease;
+    [SerializeField] int damageToIncreaseInPercent;
 
     public override void ActiveEffect()
     {
-        GameManager.Instance.GetPlayer().playerStats.SetBaseDamage(damageToIncrease);
+        GameManager.Instance.GetPlayer().playerStats.SetBaseDamage(damageToIncreaseInPercent);
     }
 }

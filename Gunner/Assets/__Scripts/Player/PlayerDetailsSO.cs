@@ -24,7 +24,7 @@ public class PlayerDetailsSO : ScriptableObject
     public List<WeaponDetailsSO> startingWeaponList;
 
     [Header("Stats")]
-    public int baseDamage = 0;
+    public int baseDamageInPercent = 0;
     public float baseFireRateInPercent = 0;
     public int baseRange = 0;
     public int baseAmmoSpeed = 0;
