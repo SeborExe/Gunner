@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
 
     public void SetPlayerHealth()
     {
-        int healthAmount = playerDetails.playerHealthAmount + playerStats.GetAdditionalhealth();
+        int healthAmount = Mathf.Max(1, playerDetails.playerHealthAmount + playerStats.GetAdditionalhealth());
         health.SetStartingHealth(healthAmount);
     }
 

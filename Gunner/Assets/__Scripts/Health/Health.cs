@@ -85,7 +85,8 @@ public class Health : MonoBehaviour
 
             if (healthBar != null)
             {
-                healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
+                //healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
+                healthBar.SetHealthBarValue(startingHealth);
             }
         }
     }
