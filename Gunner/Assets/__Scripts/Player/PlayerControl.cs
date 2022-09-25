@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] private MovementDetailsSO movementDetails;
-    [SerializeField] private float autoAimRange = 15f;
+    [SerializeField] private float autoAimRange = 22f;
 
     private Player player;
     private bool leftMouseDownPreviousFrame = false;
@@ -73,6 +73,11 @@ public class PlayerControl : MonoBehaviour
     private void SetPlayerAnimationSpeed()
     {
         player.animator.speed = moveSpeed / Settings.baseSpeedForPlayerAnimations;
+    }
+
+    public void SetMovementSpeed(float amount)
+    {
+        moveSpeed += amount;
     }
 
     private void Update()

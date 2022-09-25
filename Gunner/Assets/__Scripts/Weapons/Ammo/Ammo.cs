@@ -74,7 +74,26 @@ public class Ammo : MonoBehaviour, IFireable
         if (health != null)
         {
             isColliding = true;
-            health.TakeDamage(ammoDetails.ammoDamage);
+
+            if (health.GetComponent<Enemy>())
+            {
+                if (GameManager.Instance.GetPlayer().activeWeapon.GetCurrentAmmo().ammoSpawnAmountMax > 1)
+                {
+                    int damage = ammoDetails.ammoDamage +
+                         ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 150);
+                    health.TakeDamage(damage);
+                }
+                else
+                {
+                    int damage = ammoDetails.ammoDamage +
+                        ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 100);
+                    health.TakeDamage(damage);
+                }
+            }
+            else
+            {
+                health.TakeDamage(ammoDetails.ammoDamage);
+            }
 
             if (health.enemy != null)
             {
@@ -132,7 +151,14 @@ public class Ammo : MonoBehaviour, IFireable
             isAmmoMaterialSet = true;
         }
 
-        ammoRange = ammoDetails.ammoRange;
+        if (ammoDetails.isPlayerAmmo)
+        {
+            ammoRange = Mathf.Max(1f, ammoDetails.ammoRange + GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoRange());
+        }
+        else
+        {
+            ammoRange = ammoDetails.ammoRange;
+        }
 
         this.ammoSpeed = ammoSpeed;
         this.overrideAmmoMovement = overrideAmmoMovement;

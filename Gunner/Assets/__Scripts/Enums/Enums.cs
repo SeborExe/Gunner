@@ -50,6 +50,7 @@ public enum ChestState
     healthItem,
     ammoItem,
     weaponItem,
-    empty
+    empty,
+    Item
 }
 

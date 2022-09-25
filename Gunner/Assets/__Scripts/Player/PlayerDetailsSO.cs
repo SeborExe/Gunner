@@ -23,6 +23,12 @@ public class PlayerDetailsSO : ScriptableObject
     public WeaponDetailsSO startingWeapon;
     public List<WeaponDetailsSO> startingWeaponList;
 
+    [Header("Stats")]
+    public int baseDamageInPercent = 0;
+    public float baseFireRateInPercent = 0;
+    public int baseRange = 0;
+    public int baseAmmoSpeed = 0;
+
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()

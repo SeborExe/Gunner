@@ -25,6 +25,12 @@ public class WeaponDetailsSO : ScriptableObject
     public float weaponPrechargeTime = 0f;
     public float weaponReloadTime = 0f;
 
+    [Header("Camera effects")]
+    public bool shouldShake = false;
+    public float intensity;
+    public float frequency;
+    public float time;
+
     #region Validation
 #if UNITY_EDITOR
 

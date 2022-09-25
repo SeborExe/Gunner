@@ -51,6 +51,7 @@ public class Enemy : MonoBehaviour
     private MaterializeEffect materializeEffect;
     [HideInInspector] public Animator animator;
     [HideInInspector] public SpriteRenderer[] spriteRendererArray;
+    [SerializeField] ParticleSystem bloodParticle;
 
     private void Awake()
     {
@@ -84,6 +85,7 @@ public class Enemy : MonoBehaviour
     {
         if (healthEventArgs.healthAmount <= 0)
         {
+            Instantiate(bloodParticle, transform.position, Quaternion.identity);
             EnemyDestroyed();
         }
     }

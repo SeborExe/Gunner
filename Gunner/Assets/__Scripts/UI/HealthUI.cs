@@ -37,7 +37,8 @@ public class HealthUI : MonoBehaviour
     {
         CleraHealthBar();
 
-        int healthHearts = Mathf.CeilToInt(healthEventArgs.healthPercent * 100f / 20f);
+        //int healthHearts = Mathf.CeilToInt(healthEventArgs.healthPercent * 100f / 20f);
+        int healthHearts = Mathf.CeilToInt(healthEventArgs.healthAmount / 20f);
 
         for (int i = 0; i < healthHearts; i++)
         {

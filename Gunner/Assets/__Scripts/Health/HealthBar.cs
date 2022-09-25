@@ -20,4 +20,9 @@ public class HealthBar : MonoBehaviour
     {
         healthBar.transform.localScale = new Vector3(healthPercentage, 1f, 1f);
     }
+
+    public void SetHealthBarValue(int healthAmount)
+    {
+        healthBar.transform.localScale = new Vector3(healthAmount, 1f, 1f);
+    }
 }
