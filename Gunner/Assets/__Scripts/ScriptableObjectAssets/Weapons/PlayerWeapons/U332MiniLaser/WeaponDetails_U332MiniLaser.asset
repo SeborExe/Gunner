@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_U332MiniLaser
+  m_EditorClassIdentifier: 
+  weaponName: U332MiniLaser
+  weaponSprite: {fileID: 21300000, guid: 4b4eb7949997e13488e4a50dcdba0fa2, type: 3}
+  weaponShootPosition: {x: 1.323, y: 0.294, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 3d965dc54babdde439beab082736edd2, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: 93056504ac54d5a478f1139309e374c3, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: ae67de9f064a1774fba7ef79baecf678, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: f3cd8c24aba7d104aa15048308d17a8c, type: 2}
+  hasInfiniteAmmo: 0
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 5
+  weaponAmmoCapacity: 50
+  weaponFireRate: 1
+  weaponPrechargeTime: 0.1
+  weaponReloadTime: 2.5
+  shouldShake: 0
+  intensity: 0
+  frequency: 0
+  time: 0

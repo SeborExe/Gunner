@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e93d5fa7f534a047996000b02dcd757, type: 3}
+  m_Name: AmmoDetails_U332MiniLaser
+  m_EditorClassIdentifier: 
+  ammoName: U332MiniLaser Ammo
+  isPlayerAmmo: 1
+  ammoSprite: {fileID: 21300000, guid: 4df9cc7131cd27f4288bca5e76c82034, type: 3}
+  ammoPrefabArray:
+  - {fileID: 5249748811358305308, guid: b37ea02ea9ff5a34d8cd3465aef571fa, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: 5dceff0f64a88b949a3db290b8082010, type: 2}
+  ammoChargeTime: 0
+  ammoChargeMaterial: {fileID: 0}
+  ammoDamage: 3
+  ammoSpeedMin: 30
+  ammoSpeedMax: 35
+  ammoRange: 30
+  ammoRotationSpeed: 1
+  ammoSpreadMin: 1
+  ammoSpreadMax: 25
+  ammoSpawnAmountMin: 10
+  ammoSpawnAmountMax: 12
+  ammoSpawnIntervalMin: 0.01
+  ammoSpawnIntervalMax: 0.03
+  isAmmoTrail: 1
+  ammoTrailTime: 0.1
+  ammoTrailMaterial: {fileID: 2100000, guid: f40d05d451e2ae24f91e9e3314c280da, type: 2}
+  ammoTrailStartWidth: 0.079
+  ammoTrailEndWidth: 0.2
+  ammoHitEffect: {fileID: 11400000, guid: 8df812d5d99c2db4393278024b02c96c, type: 2}
