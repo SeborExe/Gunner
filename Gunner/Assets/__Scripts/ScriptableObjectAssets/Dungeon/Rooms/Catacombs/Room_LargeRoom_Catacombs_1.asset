@@ -66,7 +66,7 @@ MonoBehaviour:
   - dungeonLevel: {fileID: 11400000, guid: ac8f09ebd15458f4e89eafe5fa7d0417, type: 2}
     spawnableObjectRatioList:
     - dungeonObject: {fileID: 11400000, guid: 1be21069960376b4aae15326a021222b, type: 2}
-      ratio: 8
+      ratio: 7
     - dungeonObject: {fileID: 11400000, guid: a50ea18d9f287f64ea475ed8fe0cbdcb, type: 2}
       ratio: 10
     - dungeonObject: {fileID: 11400000, guid: 566bc696b7165cc44b5dbc32d38d8180, type: 2}
@@ -92,7 +92,7 @@ MonoBehaviour:
     - dungeonObject: {fileID: 11400000, guid: 1be21069960376b4aae15326a021222b, type: 2}
       ratio: 5
     - dungeonObject: {fileID: 11400000, guid: b3853c813b3bfdd47af2feaa7b973f55, type: 2}
-      ratio: 6
+      ratio: 4
     - dungeonObject: {fileID: 11400000, guid: a50ea18d9f287f64ea475ed8fe0cbdcb, type: 2}
       ratio: 3
     - dungeonObject: {fileID: 11400000, guid: 95937aecb8a0f934dbd1e416771e5788, type: 2}
@@ -100,7 +100,7 @@ MonoBehaviour:
     - dungeonObject: {fileID: 11400000, guid: d19900927b1f78940bda0a0f0a4d36b0, type: 2}
       ratio: 3
     - dungeonObject: {fileID: 11400000, guid: a7a229d3997212b4e8776badca2c4e09, type: 2}
-      ratio: 6
+      ratio: 4
     - dungeonObject: {fileID: 11400000, guid: 9a64acb3b84d8634ab0dfe3d3c24ae65, type: 2}
       ratio: 1
     - dungeonObject: {fileID: 11400000, guid: e707263dc1f30bb48bca3098e8a27aaf, type: 2}
@@ -114,16 +114,16 @@ MonoBehaviour:
     minSpawnInterval: 2
     maxSpawnInterval: 4
   - dungeonLevel: {fileID: 11400000, guid: d634e73cb404ed6468b248b7e20e237b, type: 2}
-    minTotalEnemiesToSpawn: 10
-    maxTotalEnemiesToSpawn: 15
+    minTotalEnemiesToSpawn: 9
+    maxTotalEnemiesToSpawn: 13
     minConcurrentEnemies: 3
     maxConcurrentEnemies: 6
     minSpawnInterval: 2
     maxSpawnInterval: 3
   - dungeonLevel: {fileID: 11400000, guid: f7631d7666a67da41805bfa815b28daf, type: 2}
-    minTotalEnemiesToSpawn: 15
-    maxTotalEnemiesToSpawn: 20
-    minConcurrentEnemies: 4
-    maxConcurrentEnemies: 7
+    minTotalEnemiesToSpawn: 12
+    maxTotalEnemiesToSpawn: 18
+    minConcurrentEnemies: 3
+    maxConcurrentEnemies: 6
     minSpawnInterval: 1
     maxSpawnInterval: 2

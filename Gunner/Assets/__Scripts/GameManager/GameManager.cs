@@ -44,6 +44,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("Camera")]
     public CinemachineShake virtualCamera;
 
+    [Header("Items Inpact")]
+    public GameObject controls;
+    public GameObject alternativeControls;
+
     protected override void Awake()
     {
         base.Awake();
@@ -313,7 +317,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
             "SURVIVED THIS DUNGEON LEVEL!", Color.white, 5f));
 
-        yield return StartCoroutine(DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE BOX AND PRESS 'COMPLETE BUTTON' \nTO ADVANCE TO THE NEXT LEVEL",
+        yield return StartCoroutine(DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE BOX AND PRESS\n'COMPLETE BUTTON' TO ADVANCE TO THE NEXT LEVEL",
             Color.white, 5f));
 
         yield return StartCoroutine(Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f)));
