@@ -329,6 +329,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         yield return null;
 
+        SetRank(playerDetails.playerPrefab.name, currentDungeonLevelListIndex + 1);
         currentDungeonLevelListIndex++;
         finishLevelButton.gameObject.SetActive(false);
         PlayDungeonLevel(currentDungeonLevelListIndex);
@@ -456,6 +457,36 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private void RestartGame()
     {
         SceneManager.LoadScene("MainMenuScene");
+    }
+
+    private void SetRank(string name, int level)
+    {
+        if (name == "TheGeneral")
+        {
+            int actualRank = Rank.GetRank("general");
+            if (level > actualRank)
+            {
+                Rank.SetRank("general", level);
+            }
+        }
+
+        if (name == "TheScientist")
+        {
+            int actualRank = Rank.GetRank("scientist");
+            if (level > actualRank)
+            {
+                Rank.SetRank("scientist", level);
+            }
+        }
+
+        if (name == "TheThief")
+        {
+            int actualRank = Rank.GetRank("thief");
+            if (level > actualRank)
+            {
+                Rank.SetRank("thief", level);
+            }
+        }
     }
 
     private void PlayDungeonLevel(int dungeonLevelListIndex)
