@@ -34,6 +34,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public ActionButton actionButton;
     public RollButton rollButton;
     public PauseButton pauseButton;
+    public Button mapExitButton;
     public FinishLevelButton finishLevelButton;
 
     private long gameScore;
@@ -46,7 +47,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     [Header("Items Inpact")]
     public GameObject controls;
-    public GameObject alternativeControls;
 
     protected override void Awake()
     {
@@ -386,6 +386,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
 
         yield return new WaitForSeconds(1f);
+
+        SetRank(playerDetails.playerPrefab.name, 6);
 
         yield return StartCoroutine(Fade(0f, 1f, 2f, Color.black));
 

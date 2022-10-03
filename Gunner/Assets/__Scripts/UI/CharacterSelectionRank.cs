@@ -8,6 +8,7 @@ public class CharacterSelectionRank : MonoBehaviour
 {
     [SerializeField] TMP_Text rankText;
     [SerializeField] SpriteRenderer rankImage;
+    [SerializeField] Sprite wonGameSprite;
 
     Animator animator;
 
@@ -22,20 +23,32 @@ public class CharacterSelectionRank : MonoBehaviour
         if (animator.runtimeAnimatorController.name == "TheGeneral")
         {
             rankText.text = Rank.GetRank("general").ToString();
+            SetIfWon();
         }
         else if (animator.runtimeAnimatorController.name == "TheScientist")
         {
             rankText.text = Rank.GetRank("scientist").ToString();
+            SetIfWon();
         }
         else if (animator.runtimeAnimatorController.name == "TheThief")
         {
             rankText.text = Rank.GetRank("thief").ToString();
+            SetIfWon();
         }
 
         if (rankText.text == "0")
         {
             rankText.text = "";
             rankImage.color = Color.black;
+        }
+    }
+
+    private void SetIfWon()
+    {
+        if (rankText.text == "6")
+        {
+            rankText.text = "W";
+            rankImage.sprite = wonGameSprite;
         }
     }
 
