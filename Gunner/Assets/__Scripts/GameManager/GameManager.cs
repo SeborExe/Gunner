@@ -33,6 +33,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public MinimapButton minimapButton;
     public ActionButton actionButton;
     public RollButton rollButton;
+    public ReloadButton reloadButton;
     public PauseButton pauseButton;
     public Button mapExitButton;
     public FinishLevelButton finishLevelButton;

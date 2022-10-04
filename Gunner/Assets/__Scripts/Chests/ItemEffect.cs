@@ -6,6 +6,6 @@ public class ItemEffect : ScriptableObject, IItemEffect
 {
     public virtual void ActiveEffect()
     {
-
+        StatsDisplayUI.Instance.UpdateStatsUI();
     }
 }

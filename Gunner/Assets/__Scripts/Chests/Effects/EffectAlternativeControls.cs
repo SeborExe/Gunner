@@ -12,5 +12,6 @@ public class EffectAlternativeControls : ItemEffect
         GameManager.Instance.actionButton.GetComponent<RectTransform>().transform.localPosition = new Vector3(-260f, -20f, 0f);
         GameManager.Instance.rollButton.GetComponent<RectTransform>().transform.localPosition = new Vector3(-210f, -20f, 0f);
         GameManager.Instance.mapExitButton.GetComponent<RectTransform>().transform.localPosition = new Vector3(30f, 25f, 0f);
+        base.ActiveEffect();
     }
 }

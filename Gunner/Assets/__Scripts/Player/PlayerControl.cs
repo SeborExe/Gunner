@@ -80,6 +80,11 @@ public class PlayerControl : MonoBehaviour
         moveSpeed += amount;
     }
 
+    public float GetMovementSpeed()
+    {
+        return moveSpeed;
+    }
+
     private void Update()
     {
         if (isPlayerMovementDisabled) return;
@@ -343,7 +348,7 @@ public class PlayerControl : MonoBehaviour
 
         if (currentWeapon.weaponClipRemainingAmmo == currentWeapon.weaponDetails.weaponClipAmmoCapacity) return;
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (GameManager.Instance.reloadButton.reloadButtonPressed)
         {
             player.reloadWeaponEvent.CallReloadWeaponEvent(player.activeWeapon.GetCurrentWeapon(), 0);
         }
@@ -378,7 +383,7 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
-            pointPosition = FindBestTarget().transform.position;
+            pointPosition = FindBestTarget().transform.position + Vector3.up * 0.5f;
         }
 
 

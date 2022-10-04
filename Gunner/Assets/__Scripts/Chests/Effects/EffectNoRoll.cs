@@ -7,6 +7,8 @@ public class EffectNoRoll : ItemEffect
 {
     public override void ActiveEffect()
     {
+        base.ActiveEffect();
+
         GameManager.Instance.rollButton.gameObject.SetActive(false);
     }
 }

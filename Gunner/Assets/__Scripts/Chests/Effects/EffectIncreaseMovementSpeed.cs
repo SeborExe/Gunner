@@ -10,5 +10,6 @@ public class EffectIncreaseMovementSpeed : ItemEffect
     public override void ActiveEffect()
     {
         GameManager.Instance.GetPlayer().playerControl.SetMovementSpeed(SpeedToIncrease);
+        base.ActiveEffect();
     }
 }

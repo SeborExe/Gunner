@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,4 +12,9 @@ public class Item : ScriptableObject
 
     [Header("Item configuration")]
     public ItemEffect[] effects;
+
+    public void AddImage()
+    {
+        StatsDisplayUI.Instance.AddItemIcon(itemSprite);
+    }
 }
