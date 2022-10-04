@@ -206,7 +206,7 @@ public class FireWeapon : MonoBehaviour
             float additionalSpeed = activeWeapon.GetCurrentWeapon().weaponDetails.weaponFireRate * (
             GameManager.Instance.GetPlayer().playerStats.GetAdditionalFireRate() / 100);
 
-            fireRateCoolDownTimer = Mathf.Max(0.1f, activeWeapon.GetCurrentWeapon().weaponDetails.weaponFireRate - additionalSpeed);
+            fireRateCoolDownTimer = Mathf.Max(0.05f, activeWeapon.GetCurrentWeapon().weaponDetails.weaponFireRate - additionalSpeed);
         }
         else
         {

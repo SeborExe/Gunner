@@ -9,6 +9,7 @@ public class PlayerDetailsSO : ScriptableObject
     public string playerCharacterName;
     public GameObject playerPrefab;
     public RuntimeAnimatorController runtimeAnimatorController;
+    public int id;
 
     [Header("Player Health")]
     public int playerHealthAmount;

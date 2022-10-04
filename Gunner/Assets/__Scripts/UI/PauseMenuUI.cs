@@ -18,6 +18,7 @@ public class PauseMenuUI : MonoBehaviour
     {
         yield return null;
 
+        GameManager.Instance.controls.SetActive(false);
         soundsLevelText.SetText(SoundsEffectManager.Instance.soundsVolume.ToString());
         musicLevelText.SetText(MusicManager.Instance.musicVolume.ToString());
     }
@@ -31,6 +32,7 @@ public class PauseMenuUI : MonoBehaviour
 
     private void OnDisable()
     {
+        GameManager.Instance.controls.SetActive(true);
         Time.timeScale = 1f;
     }
 

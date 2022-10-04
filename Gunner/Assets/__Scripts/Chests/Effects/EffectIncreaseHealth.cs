@@ -13,5 +13,6 @@ public class EffectIncreaseHealth : ItemEffect
         GameManager.Instance.GetPlayer().playerStats.SetAdditionalHealth(healthToIncreaseInPercent);
         GameManager.Instance.GetPlayer().SetPlayerHealth();
         GameManager.Instance.GetPlayer().health.AddHealth(healAmount);
+        base.ActiveEffect();
     }
 }

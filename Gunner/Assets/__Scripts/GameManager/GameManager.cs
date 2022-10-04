@@ -33,7 +33,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public MinimapButton minimapButton;
     public ActionButton actionButton;
     public RollButton rollButton;
+    public ReloadButton reloadButton;
     public PauseButton pauseButton;
+    public Button mapExitButton;
+    public FinishLevelButton finishLevelButton;
 
     private long gameScore;
     private int scoreMultiplier;
@@ -42,6 +45,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     [Header("Camera")]
     public CinemachineShake virtualCamera;
+
+    [Header("Items Inpact")]
+    public GameObject controls;
 
     protected override void Awake()
     {
@@ -298,6 +304,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     {
         gameState = GameState.playingLevel;
 
+        if (currentDungeonLevelListIndex == 5)
+        {
+            finishLevelButton.GetComponentInChildren<TMP_Text>().text = "FINISH";
+        }
+
+        finishLevelButton.gameObject.SetActive(true);
+
         yield return new WaitForSeconds(2f);
 
         yield return StartCoroutine(Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f)));
@@ -305,19 +318,21 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
             "SURVIVED THIS DUNGEON LEVEL!", Color.white, 5f));
 
-        yield return StartCoroutine(DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE BOX AND PRESS 'R' BUTTON\nTO ADVANCE TO THE NEXT LEVEL",
+        yield return StartCoroutine(DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE BOX AND PRESS\n'COMPLETE BUTTON' TO ADVANCE TO THE NEXT LEVEL",
             Color.white, 5f));
 
         yield return StartCoroutine(Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f)));
 
-        while (!rollButton.rollButtonPressed)
+        while (!finishLevelButton.finishLevelButtonPressed)
         {
             yield return null;
         }
 
         yield return null;
 
+        SetRank(playerDetails.playerPrefab.name, currentDungeonLevelListIndex + 1);
         currentDungeonLevelListIndex++;
+        finishLevelButton.gameObject.SetActive(false);
         PlayDungeonLevel(currentDungeonLevelListIndex);
     }
 
@@ -372,6 +387,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
 
         yield return new WaitForSeconds(1f);
+
+        SetRank(playerDetails.playerPrefab.name, 6);
 
         yield return StartCoroutine(Fade(0f, 1f, 2f, Color.black));
 
@@ -443,6 +460,36 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private void RestartGame()
     {
         SceneManager.LoadScene("MainMenuScene");
+    }
+
+    private void SetRank(string name, int level)
+    {
+        if (name == "TheGeneral")
+        {
+            int actualRank = Rank.GetRank("general");
+            if (level > actualRank)
+            {
+                Rank.SetRank("general", level);
+            }
+        }
+
+        if (name == "TheScientist")
+        {
+            int actualRank = Rank.GetRank("scientist");
+            if (level > actualRank)
+            {
+                Rank.SetRank("scientist", level);
+            }
+        }
+
+        if (name == "TheThief")
+        {
+            int actualRank = Rank.GetRank("thief");
+            if (level > actualRank)
+            {
+                Rank.SetRank("thief", level);
+            }
+        }
     }
 
     private void PlayDungeonLevel(int dungeonLevelListIndex)

@@ -11,5 +11,6 @@ public class EffectIncreaseFireRate : ItemEffect
     public override void ActiveEffect()
     {
         GameManager.Instance.GetPlayer().playerStats.SetAdditionalFireRate(FirerateToIncreaseInPercent);
+        base.ActiveEffect();
     }
 }

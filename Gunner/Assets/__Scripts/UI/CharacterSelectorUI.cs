@@ -92,4 +92,9 @@ public class CharacterSelectorUI : MonoBehaviour
         playerNameInput.text = playerNameInput.text.ToUpper();
         currentPlayer.playerName = playerNameInput.text;
     }
+
+    public Transform GetCharacterSelector()
+    {
+        return characterSelector;
+    }
 }

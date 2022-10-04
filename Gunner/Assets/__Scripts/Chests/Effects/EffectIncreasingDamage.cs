@@ -10,5 +10,6 @@ public class EffectIncreasingDamage : ItemEffect
     public override void ActiveEffect()
     {
         GameManager.Instance.GetPlayer().playerStats.SetBaseDamage(damageToIncreaseInPercent);
+        base.ActiveEffect();
     }
 }

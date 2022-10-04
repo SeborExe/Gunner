@@ -10,5 +10,6 @@ public class EffectIncreaseAmmoSpeed : ItemEffect
     public override void ActiveEffect()
     {
         GameManager.Instance.GetPlayer().playerStats.SetAdditionalAmmoSpeed(ammoSpeedToIncrease);
+        base.ActiveEffect();
     }
 }

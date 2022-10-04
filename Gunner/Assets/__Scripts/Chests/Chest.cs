@@ -238,6 +238,8 @@ public class Chest : MonoBehaviour, IUseable
             SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
         }
 
+        item.AddImage();
+
         item = null;
         Destroy(chestItemGameObject);
         UpdateChestState();

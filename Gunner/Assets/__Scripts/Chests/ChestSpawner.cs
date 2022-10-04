@@ -170,9 +170,8 @@ public class ChestSpawner : MonoBehaviour
 
         else if (numberOfItemsToSpawn == 3)
         {
-            choice = UnityEngine.Random.Range(0, 3);
+            choice = UnityEngine.Random.Range(0, 2);
             if (choice == 0) { health++; ammo++; weapons++; return; }
-            if (choice == 0) { ammo++; health++; weapons++; return; }
             if (choice == 1) { ammo++; health++; items++; return; }
             return;
         }
