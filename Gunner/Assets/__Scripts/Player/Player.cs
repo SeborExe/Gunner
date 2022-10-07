@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerStats playerStats;
 
     [SerializeField] UsableItem currentUsableItem = null;
+    [SerializeField] int currentChargingPoints;
 
     public List<Weapon> weaponList = new List<Weapon>();
 
@@ -90,6 +91,15 @@ public class Player : MonoBehaviour
 
         CreatePlayerStartingWeapons();
         SetPlayerHealth();
+
+        if (currentUsableItem != null)
+        {
+            currentChargingPoints = currentUsableItem.GetChargingPoints();
+        }
+        else
+        {
+            currentChargingPoints = 0;
+        }
     }
 
     private void OnEnable()
@@ -167,5 +177,23 @@ public class Player : MonoBehaviour
     public void SetCurrentUsableItem(UsableItem item)
     {
         currentUsableItem = item;
+    }
+
+    public int GetCurrentChargingPoints()
+    {
+        return currentChargingPoints;
+    }
+
+    public void SetCurrentChargingPointsAfterUse()
+    {
+        currentChargingPoints = 0;
+    }
+
+    public void RefreshCurrentChargingPoints(int amount = 1)
+    {
+        if (currentChargingPoints < currentUsableItem.chargingPoints)
+        {
+            currentChargingPoints += amount;
+        }
     }
 }

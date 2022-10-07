@@ -226,7 +226,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (usableItemButton.usableButtonPressed)
             {
-                player.GetCurrentUsableItem().Use();
+                player.GetCurrentUsableItem().OnUse();
             }
         }
 
