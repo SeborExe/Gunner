@@ -34,6 +34,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public ActionButton actionButton;
     public RollButton rollButton;
     public ReloadButton reloadButton;
+    public UsableItemButton usableItemButton;
     public PauseButton pauseButton;
     public Button mapExitButton;
     public FinishLevelButton finishLevelButton;

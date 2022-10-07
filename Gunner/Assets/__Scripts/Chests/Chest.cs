@@ -183,6 +183,14 @@ public class Chest : MonoBehaviour, IUseable
             materializeColor);
     }
 
+    private void InstantiateBonusItem(UsableItem item)
+    {
+        InstantiateItem();
+
+        chestItemGameObject.GetComponent<ChestItem>().Initialize(item.itemSprite, item.itemName, itemSpawnPoint.position,
+            materializeColor);
+    }
+
     private void CollectHealthItem()
     {
         if (chestItem == null || !chestItem.isItemMaterialized) return;
@@ -240,9 +248,37 @@ public class Chest : MonoBehaviour, IUseable
 
         item.AddImage();
 
-        item = null;
-        Destroy(chestItemGameObject);
-        UpdateChestState();
+        if (!item.isUsable)
+        {
+            item = null;
+            Destroy(chestItemGameObject);
+            UpdateChestState();
+        }
+        else
+        {
+            if (GameManager.Instance.GetPlayer().GetCurrentUsableItem() != null)
+            {
+                SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
+
+                UsableItem playerUsableItem = GameManager.Instance.GetPlayer().GetCurrentUsableItem();
+                UsableItem chestUsableItem = (UsableItem)item;
+
+                GameManager.Instance.GetPlayer().SetCurrentUsableItem(chestUsableItem);
+                item = null;
+                Destroy(chestItemGameObject);
+
+                item = playerUsableItem;
+                InstantiateBonusItem(playerUsableItem);
+
+                UsableItemUI.Instance.OnItemCollected();
+            }
+            else
+            {
+                item = null;
+                Destroy(chestItemGameObject);
+                UpdateChestState();
+            }
+        }
     }
 
     private IEnumerator DisplayMessage(string messageText, float messageDisplayTime)

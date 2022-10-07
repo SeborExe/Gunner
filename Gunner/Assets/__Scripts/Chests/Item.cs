@@ -9,6 +9,7 @@ public class Item : ScriptableObject
     [Header("Item Base Details")]
     public string itemName;
     public Sprite itemSprite;
+    public bool isUsable = false;
 
     [Header("Item configuration")]
     public ItemEffect[] effects;

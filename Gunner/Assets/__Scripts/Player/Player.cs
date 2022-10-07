@@ -58,6 +58,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerControl playerControl;
     [HideInInspector] public PlayerStats playerStats;
 
+    [SerializeField] UsableItem currentUsableItem = null;
+
     public List<Weapon> weaponList = new List<Weapon>();
 
     private void Awake()
@@ -155,5 +157,15 @@ public class Player : MonoBehaviour
         }
 
         return false;
+    }
+
+    public UsableItem GetCurrentUsableItem()
+    {
+        return currentUsableItem;
+    }
+
+    public void SetCurrentUsableItem(UsableItem item)
+    {
+        currentUsableItem = item;
     }
 }

@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour
     private ShootButton joystickButton;
     private ActionButton actionButton;
     private RollButton rollButton;
+    private UsableItemButton usableItemButton;
     private WeaponChangeButton weaponChangeButton;
     private Transform point;
     private Rigidbody2D pointRigidbody2D;
@@ -49,6 +50,7 @@ public class PlayerControl : MonoBehaviour
         weaponChangeButton = GameManager.Instance.weaponChangeButton;
         actionButton = GameManager.Instance.actionButton;
         rollButton = GameManager.Instance.rollButton;
+        usableItemButton = GameManager.Instance.usableItemButton;
 
         point = GameManager.Instance.point;
         pointRigidbody2D = point.GetComponent<Rigidbody2D>();
@@ -178,6 +180,8 @@ public class PlayerControl : MonoBehaviour
         SwitchWeaponInput();
 
         ReloadWeaponInput();
+
+        HanleUsableItem();
     }
 
     private void UseItemInput()
@@ -214,6 +218,18 @@ public class PlayerControl : MonoBehaviour
         {
             leftMouseDownPreviousFrame = false;
         }
+    }
+
+    private void HanleUsableItem()
+    {
+        if (player.GetCurrentUsableItem() != null)
+        {
+            if (usableItemButton.usableButtonPressed)
+            {
+                player.GetCurrentUsableItem().Use();
+            }
+        }
+
     }
 
     private void SwitchWeaponInput()
@@ -454,25 +470,6 @@ public class PlayerControl : MonoBehaviour
             }
         }
         return best;
-        
-
-        /*
-        float bestDistance = Mathf.Infinity;
-        Enemy closestEnemy = null;
-        Enemy[] allEnemies = GameObject.FindObjectsOfType<Enemy>();
-
-        foreach (Enemy currentEnemy in allEnemies)
-        {
-            float distanceToEnemy = (currentEnemy.transform.position - transform.position).sqrMagnitude;
-            if (distanceToEnemy < bestDistance)
-            {
-                bestDistance = distanceToEnemy;
-                closestEnemy = currentEnemy;
-            }
-        }
-
-        return closestEnemy;
-        */
     }
 
     public static bool IsDoubleTap()
