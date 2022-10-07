@@ -15,4 +15,11 @@ MonoBehaviour:
   itemName: Blood Bank
   itemSprite: {fileID: -115004843, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
   isUsable: 1
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: 7a40699004dd64f49ae9de4f40582f2f, type: 2}
+  chargingPoints: 1
+  radius: 12
+  damage: 10
+  amplitude: 8
+  frequency: 5
+  time: 0.6

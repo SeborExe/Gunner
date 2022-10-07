@@ -246,10 +246,10 @@ public class Chest : MonoBehaviour, IUseable
             SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
         }
 
-        item.AddImage();
-
         if (!item.isUsable)
         {
+            item.AddImage();
+
             item = null;
             Destroy(chestItemGameObject);
             UpdateChestState();
@@ -271,9 +271,26 @@ public class Chest : MonoBehaviour, IUseable
                 InstantiateBonusItem(playerUsableItem);
 
                 UsableItemUI.Instance.OnItemCollected();
+
+                if (chestUsableItem != GameManager.Instance.GetPlayer().lastUsableItem)
+                {
+                    UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, chestUsableItem.chargingPoints);
+                    GameManager.Instance.GetPlayer().SetCurrentChargingPointsAfterUse(chestUsableItem.chargingPoints);
+                }
+                else
+                {
+                    UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, Mathf.Min(
+                        chestUsableItem.chargingPoints, GameManager.Instance.GetPlayer().GetCurrentChargingPoints()));
+                }
+
+                GameManager.Instance.GetPlayer().lastUsableItem = playerUsableItem;
             }
             else
             {
+                UsableItem chestUsableItem = (UsableItem)item;
+                GameManager.Instance.GetPlayer().lastUsableItem = chestUsableItem;
+
+                UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, chestUsableItem.chargingPoints);
                 item = null;
                 Destroy(chestItemGameObject);
                 UpdateChestState();
