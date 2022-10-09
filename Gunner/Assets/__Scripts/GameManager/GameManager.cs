@@ -44,6 +44,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private InstantiatedRoom bossRoom;
     private bool isFading = false;
 
+    private float timer;
+
     [Header("Camera")]
     public CinemachineShake virtualCamera;
 
@@ -90,6 +92,14 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private void Update()
     {
         HandleGameState();
+
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer < 0) timer = 0f;
+        }
+
     }
 
     private void InstantiatePlayer()
@@ -571,6 +581,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         if (isFading) return;
 
         DungeonMap.Instance.DisplayDungeonOverviewMap();
+    }
+
+    public float GetTimer()
+    {
+        return timer;
+    }
+
+    public void SetTimer(float time)
+    {
+        timer = time;
     }
 
     #region Validation

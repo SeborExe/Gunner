@@ -132,6 +132,8 @@ public class Health : MonoBehaviour
     {
         this.startingHealth = startingHealth;
         currentHealth = startingHealth;
+
+        CallHealthEvent(0);
     }
 
     public int GetStartingHealth()

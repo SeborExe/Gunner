@@ -20,6 +20,8 @@ public class UsableItemAOEDamage : UsableItem
 
     public override void Use()
     {
+        base.Use();
+
         GameManager.Instance.virtualCamera.ShakeCamera(amplitude, frequency, time);
         SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.tableFlip);
 
@@ -40,11 +42,6 @@ public class UsableItemAOEDamage : UsableItem
         foreach (Enemy enemy in enemies)
         {
             enemy.GetComponent<Health>().TakeDamage(damage);
-        }
-
-        foreach (ItemEffect effect in effects)
-        {
-            effect.ActiveEffect();
         }
 
         enemies.Clear();

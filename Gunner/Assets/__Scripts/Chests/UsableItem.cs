@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class UsableItem : Item
 {
+    public bool isChangingStats = false;
+    public float coolDown = 0f;
     public int chargingPoints = 3;
 
     public virtual void OnUse()
@@ -13,23 +15,43 @@ public abstract class UsableItem : Item
         SetAfterUse();
     }
 
-    public abstract void Use();
+    public virtual void Use()
+    {
+        foreach (ItemEffect effect in effects)
+        {
+            effect.ActiveEffect();
+        }
+
+        if (chargingPoints == 0)
+        {
+            GameManager.Instance.SetTimer(coolDown);
+        }
+    }
 
     private void SetAfterUse()
     {
-        GameManager.Instance.GetPlayer().SetCurrentChargingPointsAfterUse();
-        UsableItemUI.Instance.SetFill(chargingPoints, 0);
+        if (isChangingStats)
+        {
+            StatsDisplayUI.Instance.UpdateStatsUI();
+        }
+
+        if (chargingPoints != 0)
+        {
+            GameManager.Instance.GetPlayer().SetCurrentChargingPointsAfterUse();
+            UsableItemUI.Instance.SetFill(chargingPoints, 0);
+        }
     }
 
     public bool CanUse()
     {
-        if (GameManager.Instance.GetPlayer().GetCurrentChargingPoints() >= chargingPoints)
+        if (GameManager.Instance.GetPlayer().GetCurrentChargingPoints() < chargingPoints ||
+            GameManager.Instance.GetTimer() > 0f)
         {
-            return true;
+            return false;
         }
         else
         {
-            return false;
+            return true;
         }
     }
 
