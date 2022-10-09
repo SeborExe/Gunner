@@ -8,6 +8,10 @@ public class UsableItemUI : SingletonMonobehaviour<UsableItemUI>
     [SerializeField] Image usableItemImage;
     [SerializeField] Image fill;
 
+    [Header("Stripes")]
+    [SerializeField] Transform rootObject;
+    [SerializeField] GameObject stripPrefab;
+
     private void Start()
     {
         if (GameManager.Instance.GetPlayer().GetCurrentUsableItem() == null)
@@ -17,6 +21,7 @@ public class UsableItemUI : SingletonMonobehaviour<UsableItemUI>
         else
         {
             OnItemCollected();
+            AddStripes();
         }
     }
 
@@ -32,5 +37,22 @@ public class UsableItemUI : SingletonMonobehaviour<UsableItemUI>
     {
         float fillScale = (float)currentValue / (float)maxValue;
         fill.transform.localScale = new Vector3(1, fillScale, 1);
+    }
+
+    public void AddStripes()
+    {
+        foreach (Transform child in rootObject)
+        {
+            Destroy(child.gameObject);
+        }
+
+        int stripsCount = GameManager.Instance.GetPlayer().GetCurrentUsableItem().chargingPoints;
+        float rootSize = rootObject.GetComponent<RectTransform>().sizeDelta.y;
+
+        for (int i = 1; i < stripsCount; i++)
+        {
+            GameObject strip = Instantiate(stripPrefab, rootObject);
+            strip.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, ((rootSize / stripsCount) * i) - rootSize / 2);
+        }
     }
 }

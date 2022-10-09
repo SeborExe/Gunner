@@ -256,6 +256,8 @@ public class Chest : MonoBehaviour, IUseable
         }
         else
         {
+            UsableItemUI.Instance.AddStripes();
+
             if (GameManager.Instance.GetPlayer().GetCurrentUsableItem() != null)
             {
                 SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
