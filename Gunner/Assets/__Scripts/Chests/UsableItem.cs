@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public abstract class UsableItem : Item
+[CreateAssetMenu(fileName = "ItemDetails_", menuName = "Scriptable Objects/Items/Usable Item/Usable Item")]
+public class UsableItem : Item
 {
     public bool isChangingStats = false;
+    public bool hasIndividualSoundEffect = false;
     public float coolDown = 0f;
     public int chargingPoints = 3;
 
@@ -25,6 +27,11 @@ public abstract class UsableItem : Item
         if (chargingPoints == 0)
         {
             GameManager.Instance.SetTimer(coolDown);
+        }
+
+        if (!hasIndividualSoundEffect)
+        {
+            SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
         }
     }
 

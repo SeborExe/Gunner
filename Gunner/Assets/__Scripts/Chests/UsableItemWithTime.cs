@@ -13,7 +13,6 @@ public class UsableItemWithTime : UsableItem
         base.Use();
 
         GameManager.Instance.usableItemCoolDownTime = time;
-        SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
         GameManager.Instance.usableItemCoolDownActive = true;
         GameManager.Instance.SetCoolDownTimer(time);
     }
