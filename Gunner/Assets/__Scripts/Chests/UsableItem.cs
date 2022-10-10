@@ -28,7 +28,7 @@ public abstract class UsableItem : Item
         }
     }
 
-    private void SetAfterUse()
+    public virtual void SetAfterUse()
     {
         if (isChangingStats)
         {
@@ -59,4 +59,6 @@ public abstract class UsableItem : Item
     {
         return chargingPoints;
     }
+
+    public virtual void ActiveAfterCoolDownTimerEndCount() { }
 }

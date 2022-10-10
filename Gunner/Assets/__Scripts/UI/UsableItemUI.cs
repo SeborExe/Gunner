@@ -39,6 +39,12 @@ public class UsableItemUI : SingletonMonobehaviour<UsableItemUI>
         fill.transform.localScale = new Vector3(1, fillScale, 1);
     }
 
+    public void SetFill(float maxValue, float currentValue)
+    {
+        float fillScale = currentValue / maxValue;
+        fill.transform.localScale = new Vector3(1, fillScale, 1);
+    }
+
     public void AddStripes()
     {
         foreach (Transform child in rootObject)

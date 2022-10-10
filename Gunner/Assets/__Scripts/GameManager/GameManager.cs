@@ -45,6 +45,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private bool isFading = false;
 
     private float timer;
+    private float usableItemCoolDownTimer;
+    [HideInInspector] public bool usableItemCoolDownActive = false;
+    [HideInInspector] public float usableItemCoolDownTime;
 
     [Header("Camera")]
     public CinemachineShake virtualCamera;
@@ -92,7 +95,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private void Update()
     {
         HandleGameState();
+        UpdateTimers();
+    }
 
+    private void UpdateTimers()
+    {
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -100,6 +107,20 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             if (timer < 0) timer = 0f;
         }
 
+        if (usableItemCoolDownTimer > 0)
+        {
+            usableItemCoolDownTimer -= Time.deltaTime;
+
+            UsableItemUI.Instance.SetFill(1f, usableItemCoolDownTimer / usableItemCoolDownTime);
+
+            if (usableItemCoolDownTimer < 0 && usableItemCoolDownActive)
+            {
+                usableItemCoolDownTimer = 0f;
+                GetPlayer().GetCurrentUsableItem().ActiveAfterCoolDownTimerEndCount();
+                SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.weaponPickup);
+                UsableItemUI.Instance.SetFill(GetPlayer().GetCurrentUsableItem().chargingPoints, 0);
+            }
+        }
     }
 
     private void InstantiatePlayer()
@@ -591,6 +612,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public void SetTimer(float time)
     {
         timer = time;
+    }
+
+    public float GetCoolDownTimer()
+    {
+        return usableItemCoolDownTimer;
+    }
+
+    public void SetCoolDownTimer(float time)
+    {
+        usableItemCoolDownTimer = time;
     }
 
     #region Validation
