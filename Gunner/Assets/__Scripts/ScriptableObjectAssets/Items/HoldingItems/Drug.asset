@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298ebabe488a21342bf6afe5a59f19a4, type: 3}
+  m_Name: Drug
+  m_EditorClassIdentifier: 
+  itemName: Drug
+  itemSprite: {fileID: -933412513, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  isUsable: 1
+  effects:
+  - {fileID: 11400000, guid: 25576edff626fa64598411a52157bfb8, type: 2}
+  - {fileID: 11400000, guid: e2f4a96b3439d1b4dbc04782fd1763c4, type: 2}
+  - {fileID: 11400000, guid: 49537bde7cfeceb4fa7475c9bb57b4cf, type: 2}
+  - {fileID: 11400000, guid: b2992f890b1b2e642aa49853c0253bab, type: 2}
+  - {fileID: 11400000, guid: 4123abe0effa29e44b0f1f1d64281c07, type: 2}
+  effectRank: 1
+  time: 20
+  debuffEffects:
+  - {fileID: 11400000, guid: 8c81be280c19b9f43bcba0f229a1049d, type: 2}
+  - {fileID: 11400000, guid: bf82c7da9188a9e4c9d5d97fb68e1ed4, type: 2}
+  - {fileID: 11400000, guid: 9c9618ebc8c624c40a1e66977bceca56, type: 2}
+  - {fileID: 11400000, guid: 21364d7052326984faf82be4f148cdfe, type: 2}
+  - {fileID: 11400000, guid: 3dea6de5db4242e448c43d31dfedb782, type: 2}
