@@ -12,6 +12,11 @@ public class UsableItemUI : SingletonMonobehaviour<UsableItemUI>
     [SerializeField] Transform rootObject;
     [SerializeField] GameObject stripPrefab;
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     private void Start()
     {
         if (GameManager.Instance.GetPlayer().GetCurrentUsableItem() == null)

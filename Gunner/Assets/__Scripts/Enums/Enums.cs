@@ -52,6 +52,13 @@ public enum ChestState
     weaponItem,
     empty,
     Item,
-    UsableItem
+    HoldingItem
+}
+
+public enum ItemRank
+{
+    Positive,
+    Neutral,
+    negative
 }
 

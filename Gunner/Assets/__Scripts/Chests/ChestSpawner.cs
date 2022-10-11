@@ -31,6 +31,7 @@ public class ChestSpawner : MonoBehaviour
     [SerializeField] private List<RangeByLevel> healthSpawnByLevelList;
     [SerializeField] private List<RangeByLevel> ammoSpawnByLevelList;
     [SerializeField] private List<SpawnableObjectByLevel<Item>> itemSpawnByLevelList;
+    [SerializeField] private List<SpawnableObjectByLevel<HoldingItem>> holdingItemsList;
 
     private bool chestSpawned = false;
     private Room chestRoom;
@@ -81,7 +82,7 @@ public class ChestSpawner : MonoBehaviour
 
         if (!RandomSpawnedChest()) return;
 
-        GetItemToSpawn(out int ammoNum, out int healthNum, out int weaponNum, out int itemNum);
+        GetItemToSpawn(out int ammoNum, out int healthNum, out int weaponNum, out int itemNum, out int holdingItemNum);
 
         GameObject chestGameObject = Instantiate(chestPrefab, this.transform);
 
@@ -103,12 +104,12 @@ public class ChestSpawner : MonoBehaviour
         if (chestSpawnEvent == ChestSpawnEvent.onRoomEntry)
         {
             chest.Initialize(false, GetHealthPercentToSpawn(healthNum), GetWeaponDetailsToSpawn(weaponNum),
-                GetAmmoPercentToSpawn(ammoNum), GetItemToSpawn(itemNum));
+                GetAmmoPercentToSpawn(ammoNum), GetItemToSpawn(itemNum), GetHoldingItemToSpawn(holdingItemNum));
         }
         else
         {
             chest.Initialize(true, GetHealthPercentToSpawn(healthNum), GetWeaponDetailsToSpawn(weaponNum),
-                GetAmmoPercentToSpawn(ammoNum), GetItemToSpawn(itemNum));
+                GetAmmoPercentToSpawn(ammoNum), GetItemToSpawn(itemNum), GetHoldingItemToSpawn(holdingItemNum));
         }
     }
 
@@ -137,42 +138,44 @@ public class ChestSpawner : MonoBehaviour
         }
     }
 
-    private void GetItemToSpawn(out int ammo, out int health, out int weapons, out int items)
+    private void GetItemToSpawn(out int ammo, out int health, out int weapons, out int items, out int holdingItem)
     {
         ammo = 0;
         health = 0;
         weapons = 0;
         items = 0;
+        holdingItem = 0;
 
         int numberOfItemsToSpawn = UnityEngine.Random.Range(numberOfItemsToSpawnMin, numberOfItemsToSpawnMax);
         int choice;
 
         if (numberOfItemsToSpawn == 1)
         {
-            choice = UnityEngine.Random.Range(0, 3);
+            choice = UnityEngine.Random.Range(0, 4);
             if (choice == 0) { weapons++; return; }
             if (choice == 1) { ammo++; return; }
             if (choice == 2) { health++; return; }
-            //if (choice == 4) { items++; return; }
+            if (choice == 3) { holdingItem++; return; }
             return;
         }
 
         else if (numberOfItemsToSpawn == 2)
         {
-            choice = UnityEngine.Random.Range(0, 3);
+            choice = UnityEngine.Random.Range(0, 5);
             if (choice == 0) { weapons++; ammo++; return; }
             if (choice == 1) { ammo++; health++; return; }
             if (choice == 2) { health++; weapons++; return; }
-            //if (choice == 3) { health++; items++; return; }
-            //if (choice == 4) { ammo++; items++; return; }
+            if (choice == 3) { health++; holdingItem++; return; }
+            if (choice == 4) { ammo++; holdingItem++; return; }
             return;
         }
 
         else if (numberOfItemsToSpawn == 3)
         {
-            choice = UnityEngine.Random.Range(0, 2);
+            choice = UnityEngine.Random.Range(0, 3);
             if (choice == 0) { health++; ammo++; weapons++; return; }
             if (choice == 1) { ammo++; health++; items++; return; }
+            if (choice == 2) { ammo++; health++; holdingItem++; return; }
             return;
         }
 
@@ -219,6 +222,16 @@ public class ChestSpawner : MonoBehaviour
 
         Item itemDetails = itemRandom.GetItem();
         return itemDetails;
+    }
+
+    private HoldingItem GetHoldingItemToSpawn(int itemNum)
+    {
+        if (itemNum == 0) return null;
+
+        RandomSpawnableObject<HoldingItem> itemRandom = new RandomSpawnableObject<HoldingItem>(holdingItemsList);
+
+        HoldingItem holdingItemDetails = itemRandom.GetItem();
+        return holdingItemDetails;
     }
 
     private int GetAmmoPercentToSpawn(int ammoNumber)

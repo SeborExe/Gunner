@@ -17,6 +17,7 @@ public class Chest : MonoBehaviour, IUseable
     private WeaponDetailsSO weaponDetails;
     private int ammoPercent;
     private Item item;
+    private HoldingItem holdingItem;
 
     private MaterializeEffect materializeEffect;
     private Animator animator;
@@ -35,12 +36,14 @@ public class Chest : MonoBehaviour, IUseable
         messageTextTMP = GetComponentInChildren<TextMeshPro>();
     }
 
-    public void Initialize(bool shouldMaterialize, int healthPercent, WeaponDetailsSO weaponDetails, int ammoPercent, Item item)
+    public void Initialize(bool shouldMaterialize, int healthPercent, WeaponDetailsSO weaponDetails, int ammoPercent, Item item,
+        HoldingItem holdingItem)
     {
         this.healthPercent = healthPercent;
         this.weaponDetails = weaponDetails;
         this.ammoPercent = ammoPercent;
         this.item = item;
+        this.holdingItem = holdingItem;
 
         if (shouldMaterialize)
         {
@@ -91,6 +94,10 @@ public class Chest : MonoBehaviour, IUseable
 
             case ChestState.Item:
                 CollectItem();
+                break;
+
+            case ChestState.HoldingItem:
+                CollectHoldingItem();
                 break;
 
             case ChestState.empty:
@@ -184,6 +191,14 @@ public class Chest : MonoBehaviour, IUseable
     }
 
     private void InstantiateBonusItem(UsableItem item)
+    {
+        InstantiateItem();
+
+        chestItemGameObject.GetComponent<ChestItem>().Initialize(item.itemSprite, item.itemName, itemSpawnPoint.position,
+            materializeColor);
+    }
+
+    private void InstantiateBonusItem(HoldingItem item)
     {
         InstantiateItem();
 
@@ -297,6 +312,32 @@ public class Chest : MonoBehaviour, IUseable
                 Destroy(chestItemGameObject);
                 UpdateChestState();
             }
+        }
+    }
+
+    private void CollectHoldingItem()
+    {
+        if (GameManager.Instance.GetPlayer().GetCurrentHoldingItem() != null)
+        {
+            SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
+
+            HoldingItem playerUsableItem = GameManager.Instance.GetPlayer().GetCurrentHoldingItem();
+            HoldingItem chestUsableItem = (HoldingItem)item;
+
+            GameManager.Instance.GetPlayer().SetCurrentHoldingItem(chestUsableItem);
+            item = null;
+            Destroy(chestItemGameObject);
+
+            item = playerUsableItem;
+            InstantiateBonusItem(playerUsableItem);
+
+            HoldingItemUI.Instance.OnItemCollected();
+        }
+        else
+        {
+            item = null;
+            Destroy(chestItemGameObject);
+            UpdateChestState();
         }
     }
 
