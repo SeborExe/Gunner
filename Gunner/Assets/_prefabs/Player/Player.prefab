@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
+  currentHealth: 0
   isDamagable: 1
   enemy: {fileID: 0}
 --- !u!114 &2367259199412606248
@@ -281,6 +282,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerControl: {fileID: 0}
   playerStats: {fileID: 0}
+  lastUsableItem: {fileID: 0}
+  currentUsableItem: {fileID: 11400000, guid: ac83aa1aae3fe6a47bf668af86f5be1e, type: 2}
+  currentChargingPoints: 0
 --- !u!114 &8866742185802358694
 MonoBehaviour:
   m_ObjectHideFlags: 0

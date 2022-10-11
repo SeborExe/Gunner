@@ -51,6 +51,7 @@ public enum ChestState
     ammoItem,
     weaponItem,
     empty,
-    Item
+    Item,
+    UsableItem
 }
 

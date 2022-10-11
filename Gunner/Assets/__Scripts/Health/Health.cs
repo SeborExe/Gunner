@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField] private HealthBar healthBar;
 
     private int startingHealth;
-    private int currentHealth;
+    public int currentHealth;
     private HealthEvent healthEvent;
     private Player player;
     private Coroutine immunityCoroutine;
@@ -132,6 +132,8 @@ public class Health : MonoBehaviour
     {
         this.startingHealth = startingHealth;
         currentHealth = startingHealth;
+
+        CallHealthEvent(0);
     }
 
     public int GetStartingHealth()

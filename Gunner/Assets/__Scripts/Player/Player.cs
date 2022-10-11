@@ -58,6 +58,10 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerControl playerControl;
     [HideInInspector] public PlayerStats playerStats;
 
+    [HideInInspector] public UsableItem lastUsableItem = null;
+    [SerializeField] UsableItem currentUsableItem = null;
+    [SerializeField] int currentChargingPoints;
+
     public List<Weapon> weaponList = new List<Weapon>();
 
     private void Awake()
@@ -88,6 +92,22 @@ public class Player : MonoBehaviour
 
         CreatePlayerStartingWeapons();
         SetPlayerHealth();
+
+        StaticEventHandler.OnRoomEnemiesDefeated += StaticEventHandler_OnRoomEnemiesDefeated;
+
+        if (currentUsableItem != null)
+        {
+            currentChargingPoints = currentUsableItem.GetChargingPoints();
+        }
+        else
+        {
+            currentChargingPoints = 0;
+        }
+    }
+
+    private void StaticEventHandler_OnRoomEnemiesDefeated(RoomEnemiesDefeatedArgs e)
+    {
+        RefreshCurrentChargingPoints();
     }
 
     private void OnEnable()
@@ -155,5 +175,39 @@ public class Player : MonoBehaviour
         }
 
         return false;
+    }
+
+    public UsableItem GetCurrentUsableItem()
+    {
+        return currentUsableItem;
+    }
+
+    public void SetCurrentUsableItem(UsableItem item)
+    {
+        currentUsableItem = item;
+    }
+
+    public int GetCurrentChargingPoints()
+    {
+        return currentChargingPoints;
+    }
+
+    public void SetCurrentChargingPointsAfterUse()
+    {
+        currentChargingPoints = 0;
+    }
+
+    public void SetCurrentChargingPointsAfterUse(int amount)
+    {
+        currentChargingPoints = amount;
+    }
+
+    public void RefreshCurrentChargingPoints(int amount = 1)
+    {
+        if (currentChargingPoints < currentUsableItem.chargingPoints)
+        {
+            currentChargingPoints += amount;
+            UsableItemUI.Instance.SetFill(currentUsableItem.chargingPoints, currentChargingPoints);
+        }
     }
 }

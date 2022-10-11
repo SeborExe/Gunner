@@ -183,6 +183,14 @@ public class Chest : MonoBehaviour, IUseable
             materializeColor);
     }
 
+    private void InstantiateBonusItem(UsableItem item)
+    {
+        InstantiateItem();
+
+        chestItemGameObject.GetComponent<ChestItem>().Initialize(item.itemSprite, item.itemName, itemSpawnPoint.position,
+            materializeColor);
+    }
+
     private void CollectHealthItem()
     {
         if (chestItem == null || !chestItem.isItemMaterialized) return;
@@ -238,11 +246,58 @@ public class Chest : MonoBehaviour, IUseable
             SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
         }
 
-        item.AddImage();
+        if (!item.isUsable)
+        {
+            item.AddImage();
 
-        item = null;
-        Destroy(chestItemGameObject);
-        UpdateChestState();
+            item = null;
+            Destroy(chestItemGameObject);
+            UpdateChestState();
+        }
+        else
+        {
+            UsableItemUI.Instance.AddStripes();
+
+            if (GameManager.Instance.GetPlayer().GetCurrentUsableItem() != null)
+            {
+                SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
+
+                UsableItem playerUsableItem = GameManager.Instance.GetPlayer().GetCurrentUsableItem();
+                UsableItem chestUsableItem = (UsableItem)item;
+
+                GameManager.Instance.GetPlayer().SetCurrentUsableItem(chestUsableItem);
+                item = null;
+                Destroy(chestItemGameObject);
+
+                item = playerUsableItem;
+                InstantiateBonusItem(playerUsableItem);
+
+                UsableItemUI.Instance.OnItemCollected();
+
+                if (chestUsableItem != GameManager.Instance.GetPlayer().lastUsableItem)
+                {
+                    UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, chestUsableItem.chargingPoints);
+                    GameManager.Instance.GetPlayer().SetCurrentChargingPointsAfterUse(chestUsableItem.chargingPoints);
+                }
+                else
+                {
+                    UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, Mathf.Min(
+                        chestUsableItem.chargingPoints, GameManager.Instance.GetPlayer().GetCurrentChargingPoints()));
+                }
+
+                GameManager.Instance.GetPlayer().lastUsableItem = playerUsableItem;
+            }
+            else
+            {
+                UsableItem chestUsableItem = (UsableItem)item;
+                GameManager.Instance.GetPlayer().lastUsableItem = chestUsableItem;
+
+                UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, chestUsableItem.chargingPoints);
+                item = null;
+                Destroy(chestItemGameObject);
+                UpdateChestState();
+            }
+        }
     }
 
     private IEnumerator DisplayMessage(string messageText, float messageDisplayTime)

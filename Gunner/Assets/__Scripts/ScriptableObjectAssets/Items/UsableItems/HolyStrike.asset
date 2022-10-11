@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f6e183ed0f1e2468c2b417d633d5fa, type: 3}
+  m_Name: HolyStrike
+  m_EditorClassIdentifier: 
+  itemName: Holy Strike
+  itemSprite: {fileID: -22657963, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  isUsable: 1
+  effects: []
+  isChangingStats: 0
+  hasIndividualSoundEffect: 1
+  coolDown: 0
+  chargingPoints: 3
+  radius: 10
+  damage: 20
+  amplitude: 8
+  frequency: 5
+  time: 0.6
