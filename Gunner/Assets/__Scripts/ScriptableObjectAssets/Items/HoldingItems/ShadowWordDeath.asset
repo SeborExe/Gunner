@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915ba91f97ea1d84d9de7e5575afd3dd, type: 3}
+  m_Name: ShadowWordDeath
+  m_EditorClassIdentifier: 
+  itemName: Shadow Word Death
+  itemSprite: {fileID: 21300000, guid: daabc6ae20154244f8ef8dd7e5973c4f, type: 3}
+  isUsable: 1
+  effects:
+  - {fileID: 11400000, guid: cd93ded9fe6821141b693344a729e2e1, type: 2}
+  effectRank: 2
