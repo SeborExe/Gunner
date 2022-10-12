@@ -216,10 +216,13 @@ public class Player : MonoBehaviour
 
     public void RefreshCurrentChargingPoints(int amount = 1)
     {
-        if (currentChargingPoints < currentUsableItem.chargingPoints)
+        if (currentChargingPoints != 0)
         {
-            currentChargingPoints += amount;
-            UsableItemUI.Instance.SetFill(currentUsableItem.chargingPoints, currentChargingPoints);
+            if (currentChargingPoints < currentUsableItem.chargingPoints)
+            {
+                currentChargingPoints += amount;
+                UsableItemUI.Instance.SetFill(currentUsableItem.chargingPoints, currentChargingPoints);
+            }
         }
     }
 }
