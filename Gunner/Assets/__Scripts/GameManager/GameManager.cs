@@ -35,6 +35,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public RollButton rollButton;
     public ReloadButton reloadButton;
     public UsableItemButton usableItemButton;
+    public HoldingItemButton holdingItemButton;
     public PauseButton pauseButton;
     public Button mapExitButton;
     public FinishLevelButton finishLevelButton;
@@ -45,9 +46,15 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private bool isFading = false;
 
     private float timer;
+
+    //Usable Items
     private float usableItemCoolDownTimer;
     [HideInInspector] public bool usableItemCoolDownActive = false;
     [HideInInspector] public float usableItemCoolDownTime;
+
+    //Holding Items
+    private float holdingItemCoolDownTimer;
+    [HideInInspector] public bool holdingItemCoolDownActive = false;
 
     [Header("Camera")]
     public CinemachineShake virtualCamera;
@@ -119,6 +126,18 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 GetPlayer().GetCurrentUsableItem().ActiveAfterCoolDownTimerEndCount();
                 SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.weaponPickup);
                 UsableItemUI.Instance.SetFill(GetPlayer().GetCurrentUsableItem().chargingPoints, 0);
+            }
+        }
+
+        if (holdingItemCoolDownTimer > 0)
+        {
+            holdingItemCoolDownTimer -= Time.deltaTime;
+
+            if (holdingItemCoolDownTimer < 0 && holdingItemCoolDownActive)
+            {
+                holdingItemCoolDownTimer = 0f;
+                GetPlayer().lastHoldingItem.ActiveAfterCoolDownTimerEndCount();
+                SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.weaponPickup);
             }
         }
     }
@@ -622,6 +641,21 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public void SetCoolDownTimer(float time)
     {
         usableItemCoolDownTimer = time;
+    }
+
+    public float GetHoldingItemCooldownTimer()
+    {
+        return holdingItemCoolDownTimer;
+    }
+
+    public void SetHoldingItemCooldownTimer(float time)
+    {
+        holdingItemCoolDownTimer = time;
+    }
+
+    public void StartImmortalityRoutine(float time, SpriteRenderer spriteRenderer)
+    {
+        StartCoroutine(player.health.ImmortalityRoutine(time, spriteRenderer));
     }
 
     #region Validation

@@ -6,11 +6,14 @@ using UnityEngine;
 public class EffectImmortality : ItemEffect
 {
     public bool isImmune;
+    public float time;
 
     public override void ActiveEffect()
     {
         base.ActiveEffect();
 
         GameManager.Instance.GetPlayer().health.isDamagable = isImmune;
+        GameManager.Instance.StartImmortalityRoutine(time,
+            GameManager.Instance.GetPlayer().health.GetPlayerSpriteRenderer());
     }
 }

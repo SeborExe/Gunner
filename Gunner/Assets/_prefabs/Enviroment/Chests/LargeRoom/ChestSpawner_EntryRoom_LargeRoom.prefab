@@ -24,6 +24,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: ammoSpawnByLevelList.Array.data[0].max
       value: 20
       objectReference: {fileID: 0}
@@ -120,6 +124,30 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].dungeonLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: ac8f09ebd15458f4e89eafe5fa7d0417, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].dungeonLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: d634e73cb404ed6468b248b7e20e237b, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].dungeonLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: f7631d7666a67da41805bfa815b28daf, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].dungeonLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: b8dc6c9ec82964d429bceee46a29bdd8, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].dungeonLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: f3fef57c02aea0a44866d02bb377f07d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].dungeonLevel
+      value: 
+      objectReference: {fileID: 11400000, guid: e0af8536dfbcc0545b6ff3d9ae75bc9e, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: chestSpawnChanceByLevelList.Array.data[0].max
       value: 50
       objectReference: {fileID: 0}
@@ -156,6 +184,30 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e0af8536dfbcc0545b6ff3d9ae75bc9e, type: 2}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[0].spawnableObjectRatioList.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -177,6 +229,462 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[5].spawnableObjectRatioList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[0].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[1].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[2].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[3].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[4].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[5].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[6].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[7].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[8].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[9].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[0].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[1].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[2].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[3].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[4].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[5].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[6].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[7].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[8].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[9].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[0].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[1].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[2].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[3].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[4].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[5].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[6].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[7].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[8].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[9].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[0].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[1].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[2].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[3].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[4].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[5].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[6].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[7].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[8].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[9].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[0].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[1].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[2].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[3].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[4].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[5].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[6].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[7].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[8].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[9].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[0].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[1].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[2].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[3].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[4].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[5].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[6].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[7].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[8].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[9].ratio
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[10].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[11].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[12].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[13].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[14].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[15].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[16].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[17].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[18].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[10].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[11].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[12].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[13].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[14].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[15].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[16].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[17].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[18].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[10].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[11].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[12].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[13].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[14].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[15].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[16].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[17].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[18].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[10].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[11].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[12].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[13].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[14].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[15].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[16].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[17].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[18].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[10].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[11].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[12].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[13].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[14].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[15].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[16].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[17].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[18].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[10].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[11].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[12].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[13].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[14].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[15].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[16].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[17].ratio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[18].ratio
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
@@ -279,6 +787,462 @@ PrefabInstance:
       propertyPath: weaponSpawnByLevelList.Array.data[5].spawnableObjectRatioList.Array.data[3].ratio
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[0].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 250759e0a083be14699343501c3b5e46, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[1].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: a428f4dc58f471549933302c2b8d0fab, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[2].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 8824e795eb5a3fd44949c57b4452c758, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[3].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3dd9ead5b9368d842b290ed081b4a7fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[4].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: eb7d19eca80305b4495adaf1ed4fe31c, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[5].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 69d83c65e5d904a4caae40da45dc9d6f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[6].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: f5f8ce4b7d6a64b4aa255d4ac8a78d25, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[7].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 50a1145c9bc38ff418080d07b0f18a14, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[8].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: af910066c7bf038459b2a051a0079e66, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[9].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 117974346a2c1e44a8e58b87f7cbd58a, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[0].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 250759e0a083be14699343501c3b5e46, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[1].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: a428f4dc58f471549933302c2b8d0fab, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[2].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 8824e795eb5a3fd44949c57b4452c758, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[3].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3dd9ead5b9368d842b290ed081b4a7fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[4].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: eb7d19eca80305b4495adaf1ed4fe31c, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[5].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 69d83c65e5d904a4caae40da45dc9d6f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[6].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: f5f8ce4b7d6a64b4aa255d4ac8a78d25, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[7].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 50a1145c9bc38ff418080d07b0f18a14, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[8].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: af910066c7bf038459b2a051a0079e66, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[9].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 117974346a2c1e44a8e58b87f7cbd58a, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[0].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 250759e0a083be14699343501c3b5e46, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[1].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: a428f4dc58f471549933302c2b8d0fab, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[2].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 8824e795eb5a3fd44949c57b4452c758, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[3].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3dd9ead5b9368d842b290ed081b4a7fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[4].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: eb7d19eca80305b4495adaf1ed4fe31c, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[5].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 69d83c65e5d904a4caae40da45dc9d6f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[6].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: f5f8ce4b7d6a64b4aa255d4ac8a78d25, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[7].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 50a1145c9bc38ff418080d07b0f18a14, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[8].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: af910066c7bf038459b2a051a0079e66, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[9].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 117974346a2c1e44a8e58b87f7cbd58a, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[0].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 250759e0a083be14699343501c3b5e46, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[1].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: a428f4dc58f471549933302c2b8d0fab, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[2].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 8824e795eb5a3fd44949c57b4452c758, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[3].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3dd9ead5b9368d842b290ed081b4a7fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[4].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: eb7d19eca80305b4495adaf1ed4fe31c, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[5].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 69d83c65e5d904a4caae40da45dc9d6f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[6].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: f5f8ce4b7d6a64b4aa255d4ac8a78d25, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[7].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 50a1145c9bc38ff418080d07b0f18a14, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[8].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: af910066c7bf038459b2a051a0079e66, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[9].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 117974346a2c1e44a8e58b87f7cbd58a, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[0].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 250759e0a083be14699343501c3b5e46, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[1].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: a428f4dc58f471549933302c2b8d0fab, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[2].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 8824e795eb5a3fd44949c57b4452c758, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[3].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3dd9ead5b9368d842b290ed081b4a7fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[4].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: eb7d19eca80305b4495adaf1ed4fe31c, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[5].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 69d83c65e5d904a4caae40da45dc9d6f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[6].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: f5f8ce4b7d6a64b4aa255d4ac8a78d25, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[7].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 50a1145c9bc38ff418080d07b0f18a14, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[8].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: af910066c7bf038459b2a051a0079e66, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[9].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 117974346a2c1e44a8e58b87f7cbd58a, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[0].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 250759e0a083be14699343501c3b5e46, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[1].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: a428f4dc58f471549933302c2b8d0fab, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[2].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 8824e795eb5a3fd44949c57b4452c758, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[3].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3dd9ead5b9368d842b290ed081b4a7fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[4].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: eb7d19eca80305b4495adaf1ed4fe31c, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[5].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 69d83c65e5d904a4caae40da45dc9d6f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[6].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: f5f8ce4b7d6a64b4aa255d4ac8a78d25, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[7].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 50a1145c9bc38ff418080d07b0f18a14, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[8].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: af910066c7bf038459b2a051a0079e66, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[9].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 117974346a2c1e44a8e58b87f7cbd58a, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[10].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 2262b72705059614eae1da848286d325, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[11].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3001f09139bd0e941ac0aeb660dfb819, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[12].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: acf5121099c9f5a4780711155194b4c0, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[13].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: cc2bf383eb86af64daf9f8d39f4eebcc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[14].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: b27efe9fb2985974ea89c4ce955bbcb4, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[15].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: d6c46a7ffab124546b7a7d7d254f7e3d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[16].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: ed26db4d32580ac45a87144c01cbaa1f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[17].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: edd30b592e55c4f4d9ebd28bc087ed5d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[0].spawnableObjectRatioList.Array.data[18].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 386050a2b26e7494cbe43a271ed239fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[10].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 2262b72705059614eae1da848286d325, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[11].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3001f09139bd0e941ac0aeb660dfb819, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[12].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: acf5121099c9f5a4780711155194b4c0, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[13].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: cc2bf383eb86af64daf9f8d39f4eebcc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[14].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: b27efe9fb2985974ea89c4ce955bbcb4, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[15].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: d6c46a7ffab124546b7a7d7d254f7e3d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[16].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: ed26db4d32580ac45a87144c01cbaa1f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[17].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: edd30b592e55c4f4d9ebd28bc087ed5d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[1].spawnableObjectRatioList.Array.data[18].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 386050a2b26e7494cbe43a271ed239fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[10].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 2262b72705059614eae1da848286d325, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[11].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3001f09139bd0e941ac0aeb660dfb819, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[12].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: acf5121099c9f5a4780711155194b4c0, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[13].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: cc2bf383eb86af64daf9f8d39f4eebcc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[14].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: b27efe9fb2985974ea89c4ce955bbcb4, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[15].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: d6c46a7ffab124546b7a7d7d254f7e3d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[16].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: ed26db4d32580ac45a87144c01cbaa1f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[17].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: edd30b592e55c4f4d9ebd28bc087ed5d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[2].spawnableObjectRatioList.Array.data[18].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 386050a2b26e7494cbe43a271ed239fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[10].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 2262b72705059614eae1da848286d325, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[11].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3001f09139bd0e941ac0aeb660dfb819, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[12].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: acf5121099c9f5a4780711155194b4c0, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[13].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: cc2bf383eb86af64daf9f8d39f4eebcc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[14].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: b27efe9fb2985974ea89c4ce955bbcb4, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[15].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: d6c46a7ffab124546b7a7d7d254f7e3d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[16].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: ed26db4d32580ac45a87144c01cbaa1f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[17].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: edd30b592e55c4f4d9ebd28bc087ed5d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[3].spawnableObjectRatioList.Array.data[18].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 386050a2b26e7494cbe43a271ed239fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[10].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 2262b72705059614eae1da848286d325, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[11].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3001f09139bd0e941ac0aeb660dfb819, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[12].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: acf5121099c9f5a4780711155194b4c0, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[13].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: cc2bf383eb86af64daf9f8d39f4eebcc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[14].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: b27efe9fb2985974ea89c4ce955bbcb4, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[15].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: d6c46a7ffab124546b7a7d7d254f7e3d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[16].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: ed26db4d32580ac45a87144c01cbaa1f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[17].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: edd30b592e55c4f4d9ebd28bc087ed5d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[4].spawnableObjectRatioList.Array.data[18].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 386050a2b26e7494cbe43a271ed239fc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[10].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 2262b72705059614eae1da848286d325, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[11].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 3001f09139bd0e941ac0aeb660dfb819, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[12].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: acf5121099c9f5a4780711155194b4c0, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[13].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: cc2bf383eb86af64daf9f8d39f4eebcc, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[14].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: b27efe9fb2985974ea89c4ce955bbcb4, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[15].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: d6c46a7ffab124546b7a7d7d254f7e3d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[16].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: ed26db4d32580ac45a87144c01cbaa1f, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[17].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: edd30b592e55c4f4d9ebd28bc087ed5d, type: 2}
+    - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
+      propertyPath: holdingItemsList.Array.data[5].spawnableObjectRatioList.Array.data[18].dungeonObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 386050a2b26e7494cbe43a271ed239fc, type: 2}
     - target: {fileID: 1659099610068701718, guid: 46ee50388d8d3ac4c8d5a95b59ec0d2b, type: 3}
       propertyPath: weaponSpawnByLevelList.Array.data[0].spawnableObjectRatioList.Array.data[0].dungeonObject
       value: 

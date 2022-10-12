@@ -27,6 +27,7 @@ public class PlayerControl : MonoBehaviour
     private ActionButton actionButton;
     private RollButton rollButton;
     private UsableItemButton usableItemButton;
+    private HoldingItemButton holdingItemButton;
     private WeaponChangeButton weaponChangeButton;
     private Transform point;
     private Rigidbody2D pointRigidbody2D;
@@ -51,6 +52,7 @@ public class PlayerControl : MonoBehaviour
         actionButton = GameManager.Instance.actionButton;
         rollButton = GameManager.Instance.rollButton;
         usableItemButton = GameManager.Instance.usableItemButton;
+        holdingItemButton = GameManager.Instance.holdingItemButton;
 
         point = GameManager.Instance.point;
         pointRigidbody2D = point.GetComponent<Rigidbody2D>();
@@ -182,6 +184,8 @@ public class PlayerControl : MonoBehaviour
         ReloadWeaponInput();
 
         HanleUsableItem();
+
+        HanleHoldingItem();
     }
 
     private void UseItemInput()
@@ -229,7 +233,17 @@ public class PlayerControl : MonoBehaviour
                 player.GetCurrentUsableItem().OnUse();
             }
         }
+    }
 
+    private void HanleHoldingItem()
+    {
+        if (player.GetCurrentHoldingItem() != null)
+        {
+            if (holdingItemButton.holdingItemButtonPressed)
+            {
+                player.GetCurrentHoldingItem().Use();
+            }
+        }
     }
 
     private void SwitchWeaponInput()
@@ -389,7 +403,7 @@ public class PlayerControl : MonoBehaviour
         player.idleEvent.CallIdleEvent();
     }
 
-    private void AimWeaponInput(out Vector3 weaponDirection, out float weaponAngleDegrees, out float playerAngleDegrees, out AimDirection playerAimDirection)
+    public void AimWeaponInput(out Vector3 weaponDirection, out float weaponAngleDegrees, out float playerAngleDegrees, out AimDirection playerAimDirection)
     {
         //Vector3 mouseWorldPosition = HelperUtilities.GetMouseWorldPosition();
         Vector3 pointPosition = Vector3.zero;
@@ -454,7 +468,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private Enemy FindBestTarget()
+    public Enemy FindBestTarget()
     {
         
         Enemy best = null;

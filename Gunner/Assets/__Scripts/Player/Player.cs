@@ -61,6 +61,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public UsableItem lastUsableItem = null;
     [SerializeField] UsableItem currentUsableItem = null;
     [SerializeField] int currentChargingPoints;
+    [SerializeField] public HoldingItem holdingItem = null;
+    [HideInInspector] public HoldingItem lastHoldingItem = null;
 
     public List<Weapon> weaponList = new List<Weapon>();
 
@@ -185,6 +187,16 @@ public class Player : MonoBehaviour
     public void SetCurrentUsableItem(UsableItem item)
     {
         currentUsableItem = item;
+    }
+
+    public HoldingItem GetCurrentHoldingItem()
+    {
+        return holdingItem;
+    }
+
+    public void SetCurrentHoldingItem(HoldingItem item)
+    {
+        holdingItem = item;
     }
 
     public int GetCurrentChargingPoints()

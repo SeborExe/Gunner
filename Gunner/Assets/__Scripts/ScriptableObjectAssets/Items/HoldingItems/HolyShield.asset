@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298ebabe488a21342bf6afe5a59f19a4, type: 3}
+  m_Name: HolyShield
+  m_EditorClassIdentifier: 
+  itemName: Holy Shield
+  itemSprite: {fileID: -674338826, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  isUsable: 1
+  effects:
+  - {fileID: 11400000, guid: 323294a1e0e812740921a21d547e9579, type: 2}
+  - {fileID: 11400000, guid: e2f4a96b3439d1b4dbc04782fd1763c4, type: 2}
+  - {fileID: 11400000, guid: 49537bde7cfeceb4fa7475c9bb57b4cf, type: 2}
+  - {fileID: 11400000, guid: 1408d62b20954af40bf7cd6007b46b38, type: 2}
+  effectRank: 0
+  time: 10
+  debuffEffects:
+  - {fileID: 11400000, guid: 5f55e48706c0da441b624069f319610c, type: 2}
+  - {fileID: 11400000, guid: bf82c7da9188a9e4c9d5d97fb68e1ed4, type: 2}
+  - {fileID: 11400000, guid: 9c9618ebc8c624c40a1e66977bceca56, type: 2}
+  - {fileID: 11400000, guid: a385ac8d9b3ae78428c587f9a71f1f57, type: 2}

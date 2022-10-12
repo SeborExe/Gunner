@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298ebabe488a21342bf6afe5a59f19a4, type: 3}
+  m_Name: FireRage
+  m_EditorClassIdentifier: 
+  itemName: Fire Rage
+  itemSprite: {fileID: 1187801627, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  isUsable: 1
+  effects:
+  - {fileID: 11400000, guid: 073322613e3ec664e9b82d08f4346acd, type: 2}
+  effectRank: 0
+  time: 10
+  debuffEffects:
+  - {fileID: 11400000, guid: 6f668fdb0aa91bc469602766fb179483, type: 2}
