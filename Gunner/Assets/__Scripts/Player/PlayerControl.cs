@@ -403,7 +403,7 @@ public class PlayerControl : MonoBehaviour
         player.idleEvent.CallIdleEvent();
     }
 
-    private void AimWeaponInput(out Vector3 weaponDirection, out float weaponAngleDegrees, out float playerAngleDegrees, out AimDirection playerAimDirection)
+    public void AimWeaponInput(out Vector3 weaponDirection, out float weaponAngleDegrees, out float playerAngleDegrees, out AimDirection playerAimDirection)
     {
         //Vector3 mouseWorldPosition = HelperUtilities.GetMouseWorldPosition();
         Vector3 pointPosition = Vector3.zero;
@@ -468,7 +468,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private Enemy FindBestTarget()
+    public Enemy FindBestTarget()
     {
         
         Enemy best = null;
