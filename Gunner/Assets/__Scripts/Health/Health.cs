@@ -123,6 +123,21 @@ public class Health : MonoBehaviour
         isDamagable = true;
     }
 
+    public IEnumerator ImmortalityRoutine(float immuneTime, SpriteRenderer spriteRenderer)
+    {
+        int iterations = Mathf.RoundToInt(immuneTime / spriteFlashInterval / 2f);
+
+        while (iterations > 0)
+        {
+            spriteRenderer.color = Color.yellow;
+            yield return WaitForSecondsSpriteFlashInterfal;
+            spriteRenderer.color = Color.white;
+            yield return WaitForSecondsSpriteFlashInterfal;
+            iterations--;
+            yield return null;
+        }
+    }
+
     private void CallHealthEvent(int damageAmount)
     {
         healthEvent.CallHealthChangedEvent(((float)currentHealth / (float)startingHealth), currentHealth, damageAmount);
@@ -156,5 +171,10 @@ public class Health : MonoBehaviour
         }
 
         CallHealthEvent(0);
+    }
+
+    public SpriteRenderer GetPlayerSpriteRenderer()
+    {
+        return spriteRenderer;
     }
 }

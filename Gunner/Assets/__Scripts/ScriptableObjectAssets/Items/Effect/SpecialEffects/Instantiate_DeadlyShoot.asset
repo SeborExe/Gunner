@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f177ac8ba9c049498b06e6f170f7aee, type: 3}
-  m_Name: Immortality
+  m_Script: {fileID: 11500000, guid: 2730c4943f2c5cf43b4a5c414bd8bfa8, type: 3}
+  m_Name: Instantiate_DeadlyShoot
   m_EditorClassIdentifier: 
-  isImmune: 0
+  ammoDetails: {fileID: 11400000, guid: 309c5ee163ad8b94ea9a4f4bab7c609e, type: 2}
+  weaponDetails: {fileID: 11400000, guid: ff33183dddfec314db8e2e3e4c512509, type: 2}

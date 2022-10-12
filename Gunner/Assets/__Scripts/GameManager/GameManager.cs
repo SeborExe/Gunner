@@ -653,6 +653,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         holdingItemCoolDownTimer = time;
     }
 
+    public void StartImmortalityRoutine(float time, SpriteRenderer spriteRenderer)
+    {
+        StartCoroutine(player.health.ImmortalityRoutine(time, spriteRenderer));
+    }
+
     #region Validation
 #if UNITY_EDITOR
 
