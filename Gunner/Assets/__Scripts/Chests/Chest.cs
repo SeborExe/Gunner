@@ -255,12 +255,6 @@ public class Chest : MonoBehaviour, IUseable
     {
         if (chestItem == null || !chestItem.isItemMaterialized) return;
 
-        foreach (ItemEffect effect in item.effects)
-        {
-            effect.ActiveEffect();
-            SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
-        }
-
         if (!item.isUsable)
         {
             item.AddImage();
@@ -268,19 +262,24 @@ public class Chest : MonoBehaviour, IUseable
             item = null;
             Destroy(chestItemGameObject);
             UpdateChestState();
+
+            foreach (ItemEffect effect in item.effects)
+            {
+                effect.ActiveEffect();
+                SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
+            }
         }
         else
         {
-            UsableItemUI.Instance.AddStripes();
+            SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
 
             if (GameManager.Instance.GetPlayer().GetCurrentUsableItem() != null)
             {
-                SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
-
                 UsableItem playerUsableItem = GameManager.Instance.GetPlayer().GetCurrentUsableItem();
                 UsableItem chestUsableItem = (UsableItem)item;
 
                 GameManager.Instance.GetPlayer().SetCurrentUsableItem(chestUsableItem);
+
                 item = null;
                 Destroy(chestItemGameObject);
 
@@ -305,22 +304,27 @@ public class Chest : MonoBehaviour, IUseable
             else
             {
                 UsableItem chestUsableItem = (UsableItem)item;
-                GameManager.Instance.GetPlayer().lastUsableItem = chestUsableItem;
+                GameManager.Instance.GetPlayer().SetCurrentUsableItem(chestUsableItem);
 
                 UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, chestUsableItem.chargingPoints);
+                UsableItemUI.Instance.OnItemCollected();
+                GameManager.Instance.GetPlayer().SetCurrentChargingPointsAfterUse(chestUsableItem.chargingPoints);
+
                 item = null;
                 Destroy(chestItemGameObject);
                 UpdateChestState();
             }
+
+            UsableItemUI.Instance.AddStripes();
         }
     }
 
     private void CollectHoldingItem()
     {
+        SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
+
         if (GameManager.Instance.GetPlayer().GetCurrentHoldingItem() != null)
         {
-            SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
-
             HoldingItem playerUsableItem = GameManager.Instance.GetPlayer().GetCurrentHoldingItem();
             HoldingItem chestUsableItem = (HoldingItem)item;
 
@@ -335,6 +339,10 @@ public class Chest : MonoBehaviour, IUseable
         }
         else
         {
+            HoldingItem chestUsableItem = (HoldingItem)item;
+            GameManager.Instance.GetPlayer().SetCurrentHoldingItem(chestUsableItem);
+            HoldingItemUI.Instance.OnItemCollected();
+
             item = null;
             Destroy(chestItemGameObject);
             UpdateChestState();

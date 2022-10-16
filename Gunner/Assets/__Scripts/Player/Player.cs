@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public PlayerControl playerControl;
     [HideInInspector] public PlayerStats playerStats;
 
-    [HideInInspector] public UsableItem lastUsableItem = null;
+    [SerializeField] public UsableItem lastUsableItem = null;
     [SerializeField] UsableItem currentUsableItem = null;
     [SerializeField] int currentChargingPoints;
     [SerializeField] public HoldingItem holdingItem = null;
