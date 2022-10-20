@@ -148,6 +148,12 @@ public class Chest : MonoBehaviour, IUseable
             chestState = ChestState.Item;
             InstantiateBonusItem();
         }
+
+        else if (holdingItem != null)
+        {
+            chestState = ChestState.HoldingItem;
+            InstantiateHoldingItem();
+        }
         else
         {
             chestState = ChestState.weaponItem;
@@ -198,7 +204,15 @@ public class Chest : MonoBehaviour, IUseable
             materializeColor);
     }
 
-    private void InstantiateBonusItem(HoldingItem item)
+    private void InstantiateHoldingItem()
+    {
+        InstantiateItem();
+
+        chestItemGameObject.GetComponent<ChestItem>().Initialize(holdingItem.itemSprite, holdingItem.itemName, itemSpawnPoint.position,
+            materializeColor);
+    }
+
+    private void InstantiateHoldingItem(HoldingItem item)
     {
         InstantiateItem();
 
@@ -257,17 +271,17 @@ public class Chest : MonoBehaviour, IUseable
 
         if (!item.isUsable)
         {
-            item.AddImage();
-
-            item = null;
-            Destroy(chestItemGameObject);
-            UpdateChestState();
-
             foreach (ItemEffect effect in item.effects)
             {
                 effect.ActiveEffect();
                 SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
             }
+
+            item.AddImage();
+
+            item = null;
+            Destroy(chestItemGameObject);
+            UpdateChestState();
         }
         else
         {
@@ -326,26 +340,27 @@ public class Chest : MonoBehaviour, IUseable
         if (GameManager.Instance.GetPlayer().GetCurrentHoldingItem() != null)
         {
             HoldingItem playerUsableItem = GameManager.Instance.GetPlayer().GetCurrentHoldingItem();
-            HoldingItem chestUsableItem = (HoldingItem)item;
+            HoldingItem chestUsableItem = holdingItem;
 
             GameManager.Instance.GetPlayer().SetCurrentHoldingItem(chestUsableItem);
-            item = null;
+            holdingItem = null;
             Destroy(chestItemGameObject);
 
-            item = playerUsableItem;
-            InstantiateBonusItem(playerUsableItem);
+            holdingItem = playerUsableItem;
+            InstantiateHoldingItem(playerUsableItem);
 
             HoldingItemUI.Instance.OnItemCollected();
         }
         else
         {
-            HoldingItem chestUsableItem = (HoldingItem)item;
+            HoldingItem chestUsableItem = holdingItem;
             GameManager.Instance.GetPlayer().SetCurrentHoldingItem(chestUsableItem);
-            HoldingItemUI.Instance.OnItemCollected();
 
-            item = null;
+            holdingItem = null;
             Destroy(chestItemGameObject);
             UpdateChestState();
+
+            HoldingItemUI.Instance.OnItemCollected();
         }
     }
 
