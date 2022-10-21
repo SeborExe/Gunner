@@ -40,8 +40,15 @@ public class UsableItemUI : SingletonMonobehaviour<UsableItemUI>
 
     public void SetFill(int maxValue, int currentValue)
     {
-        float fillScale = (float)currentValue / (float)maxValue;
-        fill.transform.localScale = new Vector3(1, fillScale, 1);
+        if (maxValue != 0)
+        {
+            float fillScale = (float)currentValue / (float)maxValue;
+            fill.transform.localScale = new Vector3(1, fillScale, 1);
+        }
+        else
+        {
+            fill.transform.localScale = Vector3.one;
+        }
     }
 
     public void SetFill(float maxValue, float currentValue)

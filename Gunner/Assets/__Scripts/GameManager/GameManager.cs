@@ -51,10 +51,14 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private float usableItemCoolDownTimer;
     [HideInInspector] public bool usableItemCoolDownActive = false;
     [HideInInspector] public float usableItemCoolDownTime;
+    [HideInInspector] public bool canUseUsableItem = true;
+    [HideInInspector] public UsableItem usableItemThatWasUsed;
+    public List<UsableItem> usableItemsThatPlayerHad = new List<UsableItem>();
 
     //Holding Items
     private float holdingItemCoolDownTimer;
     [HideInInspector] public bool holdingItemCoolDownActive = false;
+    [HideInInspector] public bool canUseHoldingItem = true;
 
     [Header("Camera")]
     public CinemachineShake virtualCamera;
@@ -123,9 +127,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             if (usableItemCoolDownTimer < 0 && usableItemCoolDownActive)
             {
                 usableItemCoolDownTimer = 0f;
-                GetPlayer().GetCurrentUsableItem().ActiveAfterCoolDownTimerEndCount();
+                usableItemThatWasUsed.ActiveAfterCoolDownTimerEndCount();
                 SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.weaponPickup);
                 UsableItemUI.Instance.SetFill(GetPlayer().GetCurrentUsableItem().chargingPoints, 0);
+                canUseUsableItem = true;
             }
         }
 
@@ -138,6 +143,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 holdingItemCoolDownTimer = 0f;
                 GetPlayer().lastHoldingItem.ActiveAfterCoolDownTimerEndCount();
                 SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.weaponPickup);
+                canUseHoldingItem = true;
             }
         }
     }
@@ -380,6 +386,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
 
         yield return null;
+
+        usableItemsThatPlayerHad.Clear();
+        if (GetPlayer().GetCurrentUsableItem() != null)
+        {
+            usableItemsThatPlayerHad.Add(GetPlayer().GetCurrentUsableItem());
+        }
 
         SetRank(playerDetails.playerPrefab.name, currentDungeonLevelListIndex + 1);
         currentDungeonLevelListIndex++;

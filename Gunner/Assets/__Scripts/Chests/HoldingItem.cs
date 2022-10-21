@@ -16,7 +16,10 @@ public class HoldingItem : Item
             effect.ActiveEffect();
         }
 
-        GameManager.Instance.GetPlayer().lastHoldingItem = this;
+        if (effectRank == ItemRank.Time)
+        {
+            GameManager.Instance.GetPlayer().lastHoldingItem = this;
+        }
 
         PlaySound();
         GameManager.Instance.GetPlayer().SetCurrentHoldingItem(null);
@@ -37,8 +40,12 @@ public class HoldingItem : Item
                 SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.weaponPickup);
                 break;
 
-            case ItemRank.negative:
+            case ItemRank.Negative:
                 SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.tableFlip);
+                break;
+
+            case ItemRank.Time:
+                SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
                 break;
         }
     }

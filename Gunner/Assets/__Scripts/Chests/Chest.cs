@@ -301,8 +301,8 @@ public class Chest : MonoBehaviour, IUseable
                 InstantiateBonusItem(playerUsableItem);
 
                 UsableItemUI.Instance.OnItemCollected();
-
-                if (chestUsableItem != GameManager.Instance.GetPlayer().lastUsableItem)
+                
+                if (!GameManager.Instance.usableItemsThatPlayerHad.Contains(chestUsableItem))
                 {
                     UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, chestUsableItem.chargingPoints);
                     GameManager.Instance.GetPlayer().SetCurrentChargingPointsAfterUse(chestUsableItem.chargingPoints);
@@ -335,6 +335,8 @@ public class Chest : MonoBehaviour, IUseable
 
     private void CollectHoldingItem()
     {
+        if (chestItem == null || !chestItem.isItemMaterialized) return;
+
         SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
 
         if (GameManager.Instance.GetPlayer().GetCurrentHoldingItem() != null)
@@ -348,8 +350,6 @@ public class Chest : MonoBehaviour, IUseable
 
             holdingItem = playerUsableItem;
             InstantiateHoldingItem(playerUsableItem);
-
-            HoldingItemUI.Instance.OnItemCollected();
         }
         else
         {
@@ -359,9 +359,9 @@ public class Chest : MonoBehaviour, IUseable
             holdingItem = null;
             Destroy(chestItemGameObject);
             UpdateChestState();
-
-            HoldingItemUI.Instance.OnItemCollected();
         }
+
+        HoldingItemUI.Instance.OnItemCollected();
     }
 
     private IEnumerator DisplayMessage(string messageText, float messageDisplayTime)
