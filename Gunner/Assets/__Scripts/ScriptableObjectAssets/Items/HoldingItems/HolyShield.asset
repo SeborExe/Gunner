@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Holy Shield
   itemSprite: {fileID: -674338826, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  itemText: '10 Seconds
+
+    All Stats Up!
+
+    Immortality!'
   isUsable: 1
   effects:
   - {fileID: 11400000, guid: 323294a1e0e812740921a21d547e9579, type: 2}
@@ -21,6 +26,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 49537bde7cfeceb4fa7475c9bb57b4cf, type: 2}
   - {fileID: 11400000, guid: 1408d62b20954af40bf7cd6007b46b38, type: 2}
   effectRank: 3
+  itemTextAfterUse: 
   time: 10
   debuffEffects:
   - {fileID: 11400000, guid: 5f55e48706c0da441b624069f319610c, type: 2}

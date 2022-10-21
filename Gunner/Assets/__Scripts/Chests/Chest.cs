@@ -341,15 +341,14 @@ public class Chest : MonoBehaviour, IUseable
         if (chestItem == null || !chestItem.isItemMaterialized) return;
 
         SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
+        HoldingItem chestUsableItem = holdingItem;
 
         if (GameManager.Instance.GetPlayer().GetCurrentHoldingItem() != null)
         {
             HoldingItem playerUsableItem = GameManager.Instance.GetPlayer().GetCurrentHoldingItem();
-            HoldingItem chestUsableItem = holdingItem;
 
             GameManager.Instance.GetPlayer().SetCurrentHoldingItem(chestUsableItem);
             holdingItem = null;
-            GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(chestUsableItem.itemText);
             Destroy(chestItemGameObject);
 
             holdingItem = playerUsableItem;
@@ -357,15 +356,14 @@ public class Chest : MonoBehaviour, IUseable
         }
         else
         {
-            HoldingItem chestUsableItem = holdingItem;
             GameManager.Instance.GetPlayer().SetCurrentHoldingItem(chestUsableItem);
-            GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(chestUsableItem.itemText);
 
             holdingItem = null;
             Destroy(chestItemGameObject);
             UpdateChestState();
         }
 
+        GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(chestUsableItem.itemText);
         HoldingItemUI.Instance.OnItemCollected();
     }
 

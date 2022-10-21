@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Strong Drugs
   itemSprite: {fileID: 578999810, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  itemText: '45 Seconds
+
+    All Stats Up!
+
+    Health Down'
   isUsable: 1
   effects:
   - {fileID: 11400000, guid: 339451398c7c4f04eb54291d7a5e7a12, type: 2}
@@ -22,6 +27,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 25576edff626fa64598411a52157bfb8, type: 2}
   - {fileID: 11400000, guid: 111f781215143424e8383ef612091a0e, type: 2}
   effectRank: 3
+  itemTextAfterUse: 
   time: 45
   debuffEffects:
   - {fileID: 11400000, guid: 5112b414929ddc04095e365b05669a53, type: 2}

@@ -8,6 +8,7 @@ public class HoldingItem : Item
 {
     [Header("ItemType")]
     public ItemRank effectRank;
+    [Multiline(4)] public string itemTextAfterUse;
 
     public virtual void Use()
     {
@@ -19,6 +20,11 @@ public class HoldingItem : Item
         if (effectRank == ItemRank.Time)
         {
             GameManager.Instance.GetPlayer().lastHoldingItem = this;
+        }
+
+        if (!String.IsNullOrEmpty(itemTextAfterUse))
+        {
+            GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(itemTextAfterUse);
         }
 
         PlaySound();

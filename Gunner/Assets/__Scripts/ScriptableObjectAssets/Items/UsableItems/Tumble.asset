@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Tumble
   itemSprite: {fileID: 1853475993, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  itemText: 'Hurt Everyone!
+
+    Take Damage'
   isUsable: 1
   effects:
   - {fileID: 11400000, guid: 73d5575c98d379743b05d705a3214233, type: 2}
   - {fileID: 11400000, guid: 7a40699004dd64f49ae9de4f40582f2f, type: 2}
   isChangingStats: 0
   hasIndividualSoundEffect: 0
+  hasTimeEffect: 0
   coolDown: 1
   chargingPoints: 0

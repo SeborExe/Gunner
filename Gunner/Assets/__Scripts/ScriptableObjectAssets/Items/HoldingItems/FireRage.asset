@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Fire Rage
   itemSprite: {fileID: 1187801627, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  itemText: '10 Seconds
+
+    Damage Up!'
   isUsable: 1
   effects:
   - {fileID: 11400000, guid: 073322613e3ec664e9b82d08f4346acd, type: 2}
   effectRank: 3
+  itemTextAfterUse: 
   time: 10
   debuffEffects:
   - {fileID: 11400000, guid: 6f668fdb0aa91bc469602766fb179483, type: 2}

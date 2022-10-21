@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Level Up
   itemSprite: {fileID: 21300000, guid: 2cdc04558f7b757428bbbc318fab3edb, type: 3}
+  itemText: Use to All Stats Up!
   isUsable: 1
   effects:
   - {fileID: 11400000, guid: 90f744067ed70904a9f704d73800d50d, type: 2}
@@ -23,5 +24,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b745645db0c251e47ab5b6b250a83cf9, type: 2}
   isChangingStats: 1
   hasIndividualSoundEffect: 0
+  hasTimeEffect: 0
   coolDown: 0
   chargingPoints: 4
