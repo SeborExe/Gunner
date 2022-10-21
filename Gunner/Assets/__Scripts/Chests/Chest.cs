@@ -278,6 +278,7 @@ public class Chest : MonoBehaviour, IUseable
             }
 
             item.AddImage();
+            GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(item.itemText);
 
             item = null;
             Destroy(chestItemGameObject);
@@ -306,6 +307,7 @@ public class Chest : MonoBehaviour, IUseable
                 {
                     UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, chestUsableItem.chargingPoints);
                     GameManager.Instance.GetPlayer().SetCurrentChargingPointsAfterUse(chestUsableItem.chargingPoints);
+                    GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(chestUsableItem.itemText);
                 }
                 else
                 {
@@ -323,6 +325,7 @@ public class Chest : MonoBehaviour, IUseable
                 UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, chestUsableItem.chargingPoints);
                 UsableItemUI.Instance.OnItemCollected();
                 GameManager.Instance.GetPlayer().SetCurrentChargingPointsAfterUse(chestUsableItem.chargingPoints);
+                GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(chestUsableItem.itemText);
 
                 item = null;
                 Destroy(chestItemGameObject);
@@ -346,6 +349,7 @@ public class Chest : MonoBehaviour, IUseable
 
             GameManager.Instance.GetPlayer().SetCurrentHoldingItem(chestUsableItem);
             holdingItem = null;
+            GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(chestUsableItem.itemText);
             Destroy(chestItemGameObject);
 
             holdingItem = playerUsableItem;
@@ -355,6 +359,7 @@ public class Chest : MonoBehaviour, IUseable
         {
             HoldingItem chestUsableItem = holdingItem;
             GameManager.Instance.GetPlayer().SetCurrentHoldingItem(chestUsableItem);
+            GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(chestUsableItem.itemText);
 
             holdingItem = null;
             Destroy(chestItemGameObject);

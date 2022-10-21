@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public Animator animator;
     [HideInInspector] public PlayerControl playerControl;
     [HideInInspector] public PlayerStats playerStats;
+    [HideInInspector] public ItemTextSpawner itemTextSpawner;
 
     [SerializeField] public UsableItem lastUsableItem = null;
     [SerializeField] UsableItem currentUsableItem = null;
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
         activeWeapon = GetComponent<ActiveWeapon>();
         reloadWeaponEvent = GetComponent<ReloadWeaponEvent>();
         weaponReloadedEvent = GetComponent<WeaponReloadedEvent>();
+        itemTextSpawner = GetComponentInChildren<ItemTextSpawner>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Amok
   itemSprite: {fileID: 339894447, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  itemText: 'Mleko jest dobre
+
+    I zdrowe siom!'
   isUsable: 1
   effects:
   - {fileID: 11400000, guid: bbe58e98fcedee14da7a85095ba23005, type: 2}
@@ -22,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 49537bde7cfeceb4fa7475c9bb57b4cf, type: 2}
   isChangingStats: 1
   hasIndividualSoundEffect: 0
+  hasTimeEffect: 1
   coolDown: 0
   chargingPoints: 5
   time: 12
