@@ -53,6 +53,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public SpriteRenderer[] spriteRendererArray;
     [SerializeField] ParticleSystem bloodParticle;
 
+    [SerializeField] bool isMoving = true;
+
     private void Awake()
     {
         health = GetComponent<Health>();
@@ -113,7 +115,14 @@ public class Enemy : MonoBehaviour
 
     private void SetEnemyMovementUpdateFrame(int enemySpawnNumber)
     {
-        enemyMovementAI.SetUpdateFrameNumber(enemySpawnNumber % Settings.targetFrameRateToSpreadPathfindingOver);
+        if (isMoving)
+        {
+            enemyMovementAI.SetUpdateFrameNumber(enemySpawnNumber % Settings.targetFrameRateToSpreadPathfindingOver);
+        }
+        else
+        {
+            enemyMovementAI.SetUpdateFrameNumber(8);
+        }
     }
 
     private void SetEnemyStartingHealth(DungeonLevelSO dungeonLevel)
@@ -148,7 +157,14 @@ public class Enemy : MonoBehaviour
 
     private void SetEnemyAnimationSpeed()
     {
-        animator.speed = enemyMovementAI.moveSpeed / Settings.baseSpeedForEnemyAnimations;
+        if (isMoving)
+        {
+            animator.speed = enemyMovementAI.moveSpeed / Settings.baseSpeedForEnemyAnimations;
+        }
+        else
+        {
+            animator.speed = 1;
+        }
     }
 
     private IEnumerator MaterializeEnemy()
