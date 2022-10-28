@@ -15,11 +15,41 @@ public class SpawnEnemy : MonoBehaviour
     private int enemyMaxConcurrentSpawnNumber;
     private Room currentRoom;
     private RoomEnemySpawnParameters roomEnemySpawnParameters;
+    private HealthEvent healthEvent;
+
+    private List<GameObject> enemies = new List<GameObject>();
+
+    private void Awake()
+    {
+        healthEvent = GetComponent<HealthEvent>();
+    }
 
     private void Start()
     {
         int spawnInterval = Random.Range((int)MinMaxSpawnInterval.x, (int)MinMaxSpawnInterval.y);
         Invoke(nameof(SpawnEnemies), spawnInterval);
+    }
+
+    private void OnEnable()
+    {
+        healthEvent.OnHealthChanged += HealthEvent_OnHealthLost;
+    }
+
+    private void OnDisable()
+    {
+        healthEvent.OnHealthChanged -= HealthEvent_OnHealthLost;
+    }
+
+    private void HealthEvent_OnHealthLost(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
+    {
+        if (healthEventArgs.healthAmount <= 0)
+        {
+            foreach (GameObject enemyObject in enemies)
+            {
+                Health enemyHealth = enemyObject.GetComponent<Enemy>().GetHealth();
+                enemyHealth.TakeDamage(200);
+            }
+        }
     }
 
     private void SpawnEnemies()
@@ -101,6 +131,8 @@ public class SpawnEnemy : MonoBehaviour
 
         GameObject enemy = Instantiate(enemyDetails.enemyPrefab, position, Quaternion.identity);
         enemy.GetComponent<Enemy>().EnemyInitialization(enemyDetails, enemiesSpawnedSoFar, dungeonLevel);
+
+        enemies.Add(enemy);
     }
 
     private float GetEnemySpawnInterval()

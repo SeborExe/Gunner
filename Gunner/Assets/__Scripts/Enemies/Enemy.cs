@@ -184,4 +184,9 @@ public class Enemy : MonoBehaviour
         enemyMovementAI.enabled = isEnable;
         fireWeapon.enabled = isEnable;
     }
+
+    public Health GetHealth()
+    {
+        return health;
+    }
 }
