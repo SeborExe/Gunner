@@ -53,7 +53,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [HideInInspector] public float usableItemCoolDownTime;
     [HideInInspector] public bool canUseUsableItem = true;
     [HideInInspector] public UsableItem usableItemThatWasUsed;
-    public List<UsableItem> usableItemsThatPlayerHad = new List<UsableItem>();
+    public Dictionary<UsableItem, int> usableItemsThatPlayerHad = new Dictionary<UsableItem, int>();
 
     //Holding Items
     private float holdingItemCoolDownTimer;
@@ -390,7 +390,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         usableItemsThatPlayerHad.Clear();
         if (GetPlayer().GetCurrentUsableItem() != null)
         {
-            usableItemsThatPlayerHad.Add(GetPlayer().GetCurrentUsableItem());
+            usableItemsThatPlayerHad.Add(GetPlayer().GetCurrentUsableItem(), GetPlayer().GetCurrentChargingPoints());
         }
 
         SetRank(playerDetails.playerPrefab.name, currentDungeonLevelListIndex + 1);

@@ -35,10 +35,7 @@ public class UsableItem : Item
             SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
         }
 
-        if (!GameManager.Instance.usableItemsThatPlayerHad.Contains(this))
-        {
-            GameManager.Instance.usableItemsThatPlayerHad.Add(this);
-        }
+        GameManager.Instance.usableItemsThatPlayerHad[this] = 0;
     }
 
     public virtual void SetAfterUse()

@@ -226,6 +226,8 @@ public class Player : MonoBehaviour
                 {
                     currentChargingPoints += amount;
                     UsableItemUI.Instance.SetFill(currentUsableItem.chargingPoints, currentChargingPoints);
+
+                    GameManager.Instance.usableItemsThatPlayerHad[currentUsableItem] = currentChargingPoints;
                 }
             }
         }

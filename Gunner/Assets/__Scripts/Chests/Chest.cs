@@ -303,16 +303,20 @@ public class Chest : MonoBehaviour, IUseable
 
                 UsableItemUI.Instance.OnItemCollected();
                 
-                if (!GameManager.Instance.usableItemsThatPlayerHad.Contains(chestUsableItem))
+                if (!GameManager.Instance.usableItemsThatPlayerHad.ContainsKey(chestUsableItem))
                 {
                     UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, chestUsableItem.chargingPoints);
                     GameManager.Instance.GetPlayer().SetCurrentChargingPointsAfterUse(chestUsableItem.chargingPoints);
                     GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(chestUsableItem.itemText);
+
+                    if (!GameManager.Instance.usableItemsThatPlayerHad.ContainsKey(chestUsableItem))
+                    {
+                        GameManager.Instance.usableItemsThatPlayerHad.Add(chestUsableItem, chestUsableItem.chargingPoints);
+                    }
                 }
                 else
                 {
-                    UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, Mathf.Min(
-                        chestUsableItem.chargingPoints, GameManager.Instance.GetPlayer().GetCurrentChargingPoints()));
+                    UsableItemUI.Instance.SetFill(chestUsableItem.chargingPoints, GameManager.Instance.usableItemsThatPlayerHad[chestUsableItem]);
                 }
 
                 GameManager.Instance.GetPlayer().lastUsableItem = playerUsableItem;
