@@ -88,7 +88,11 @@ public class Enemy : MonoBehaviour
         if (healthEventArgs.healthAmount <= 0)
         {
             Instantiate(bloodParticle, transform.position, Quaternion.identity);
-            EnemyDestroyed();
+
+            if (isMoving)
+            {
+                EnemyDestroyed(); //Making sure the spawning boss kills everyone it summoned
+            }
         }
     }
 
