@@ -8,6 +8,7 @@ public class AmmoDetailsSO : ScriptableObject
     [Header("Basic Ammo Details")]
     public string ammoName;
     public bool isPlayerAmmo;
+    public bool isMelee = false;
 
     [Header("Ammo sprite, prefabs and materials")]
     public Sprite ammoSprite;

@@ -153,7 +153,14 @@ public class Ammo : MonoBehaviour, IFireable
 
         if (ammoDetails.isPlayerAmmo)
         {
-            ammoRange = Mathf.Max(1f, ammoDetails.ammoRange + GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoRange());
+            if (ammoDetails.isMelee)
+            {
+                ammoRange = Mathf.Max(1f, ammoDetails.ammoRange);
+            }
+            else
+            {
+                ammoRange = Mathf.Max(1f, ammoDetails.ammoRange + GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoRange());
+            }
         }
         else
         {
