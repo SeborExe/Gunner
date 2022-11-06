@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a547f0cf900a14688378803007eb3b, type: 3}
+  m_Name: AmmoHitEffect_AK47
+  m_EditorClassIdentifier: 
+  colorGradient:
+    serializedVersion: 2
+    key0: {r: 0.41509432, g: 0.38533285, b: 0.38533285, a: 1}
+    key1: {r: 0.9433962, g: 0.36845848, b: 0.36845848, a: 1}
+    key2: {r: 0.7169812, g: 0.21238874, b: 0.21238874, a: 0}
+    key3: {r: 1, g: 1, b: 1, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 26407
+    ctime2: 44718
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
+  duration: 0.35
+  startParticleSize: 0.35
+  startParticleSpeed: 3.19
+  startParticleLifeTime: 0.5
+  maxParticleNumber: 30
+  emissionRate: 0
+  burstParticleNumber: 30
+  effectGravity: -0.02
+  sprite: {fileID: 0}
+  velocityOverLifeTimeMin: {x: 0, y: 0, z: 0}
+  velocityOverLifeTimeMax: {x: 0, y: 0, z: 0}
+  ammoHitEffectPrefab: {fileID: 7767097455848972860, guid: 3e8780f06f5120b459d83bd5d39d8c3e, type: 3}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eec900795e0cd542915561b958e3c44, type: 3}
+  m_Name: EnemyDetails_Slimeblock_Zombie_BIG
+  m_EditorClassIdentifier: 
+  enemyName: Slimeblock Zombie BIG
+  enemyPrefab: {fileID: 7047134002394612637, guid: 3b2759052adf75243b71ea1c68162375, type: 3}
+  chaseDistance: 50
+  enemyStandardMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  enemyMaterializeTime: 4
+  enemyMaterializeShader: {fileID: -6465566751694194690, guid: 5fec8f8e6ea244648a3c6ede24a56288, type: 3}
+  enemyMaterializeColor: {r: 12.243994, g: 1.2012973, b: 1.6422621, a: 0}
+  enemyWeapon: {fileID: 0}
+  firingIntervalMin: 0.1
+  firingIntervalMax: 0.5
+  firingDurationMin: 1
+  firingDurationMax: 2
+  firingLineOfSightRequired: 0
+  enemyHealthDetailsArray:
+  - dungeonLevel: {fileID: 11400000, guid: ac8f09ebd15458f4e89eafe5fa7d0417, type: 2}
+    enemyHealthAmount: 25
+  - dungeonLevel: {fileID: 11400000, guid: d634e73cb404ed6468b248b7e20e237b, type: 2}
+    enemyHealthAmount: 100
+  - dungeonLevel: {fileID: 11400000, guid: f7631d7666a67da41805bfa815b28daf, type: 2}
+    enemyHealthAmount: 120
+  - dungeonLevel: {fileID: 11400000, guid: b8dc6c9ec82964d429bceee46a29bdd8, type: 2}
+    enemyHealthAmount: 150
+  - dungeonLevel: {fileID: 11400000, guid: f3fef57c02aea0a44866d02bb377f07d, type: 2}
+    enemyHealthAmount: 160
+  - dungeonLevel: {fileID: 11400000, guid: e0af8536dfbcc0545b6ff3d9ae75bc9e, type: 2}
+    enemyHealthAmount: 200
+  isImmuneAfterHit: 0
+  hitImmuneTime: 0
+  isHealthBarDisplayed: 1

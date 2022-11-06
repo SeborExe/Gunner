@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_Bow_Enemy
+  m_EditorClassIdentifier: 
+  weaponName: Bow Enemy
+  weaponSprite: {fileID: 21300000, guid: 3ce5f551dc8826b4598277420ada506c, type: 3}
+  weaponShootPosition: {x: 0.38, y: 0.38, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 0bd6411007982a744972042633f93a63, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: 35c506d08362b6545ab17cbd9a3cf0c4, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 66b98f8df8b2c4e43b44caabb1e35b53, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: ffcefa53a2b14f44aa5c1a965184787f, type: 2}
+  hasInfiniteAmmo: 1
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 1
+  weaponAmmoCapacity: 0
+  weaponFireRate: 0.6
+  weaponPrechargeTime: 0
+  weaponReloadTime: 0.6
+  shouldShake: 0
+  intensity: 0
+  frequency: 0
+  time: 0

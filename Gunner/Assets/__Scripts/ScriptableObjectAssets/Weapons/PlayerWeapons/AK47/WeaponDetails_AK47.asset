@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_AK47
+  m_EditorClassIdentifier: 
+  weaponName: AK47
+  weaponSprite: {fileID: 21300000, guid: 1d519ed6840b5634f8df86633f719d2e, type: 3}
+  weaponShootPosition: {x: 1.146, y: 0.277, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: fe3f26e0a318d49409dcef0f9ad528bc, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: 8a68c7b78527881419fdfbe61e049872, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 26baf5e76475ee84f99bd3cea9fb19ec, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: f49b69fe182cfea4d89fe4f7cbd5ad3f, type: 2}
+  hasInfiniteAmmo: 0
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 30
+  weaponAmmoCapacity: 180
+  weaponFireRate: 0.15
+  weaponPrechargeTime: 0
+  weaponReloadTime: 2.5
+  shouldShake: 1
+  intensity: 4
+  frequency: 2
+  time: 0.05
