@@ -172,4 +172,14 @@ public class EnemyMovementAI : MonoBehaviour
             return (Vector3Int)currentRoom.spawnPositionArray[UnityEngine.Random.Range(0, currentRoom.spawnPositionArray.Length)];
         }
     }
+
+    public void StopEnemy()
+    {
+        moveSpeed = 0;
+    }
+
+    public void SetMovement()
+    {
+        moveSpeed = movementDetails.GetMoveSpeed();
+    }
 }

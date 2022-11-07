@@ -28,6 +28,9 @@ public class AmmoDetailsSO : ScriptableObject
     public float ammoSpreadMin = 0f;
     public float ammoSpreadMax = 0f;
 
+    [Header("Ammo Special Effects")]
+    public AmmoSpecialEffect[] ammoSpecialEffects;
+
     [Header("Ammo Spawn Details")]
     public int ammoSpawnAmountMin = 1;
     public int ammoSpawnAmountMax = 1;

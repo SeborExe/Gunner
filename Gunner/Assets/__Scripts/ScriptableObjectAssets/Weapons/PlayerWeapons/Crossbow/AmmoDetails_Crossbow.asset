@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoName: Crossbow Ammo
   isPlayerAmmo: 1
+  isMelee: 0
   ammoSprite: {fileID: 21300000, guid: ab4d59a1c98f3b048bcda48e28bb3e02, type: 3}
   ammoPrefabArray:
   - {fileID: 5249748811358305308, guid: 4febbd96e2e413a489261cf0b43a49f3, type: 3}
@@ -27,6 +28,7 @@ MonoBehaviour:
   ammoRotationSpeed: 0
   ammoSpreadMin: 1
   ammoSpreadMax: 3
+  ammoSpecialEffects: []
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0

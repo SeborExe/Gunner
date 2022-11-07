@@ -18,6 +18,7 @@ public class Ammo : MonoBehaviour, IFireable
     private bool isAmmoMaterialSet = false;
     private bool overrideAmmoMovement;
     private bool isColliding = false;
+    private GameObject sender;
 
     private void Awake()
     {
@@ -99,6 +100,14 @@ public class Ammo : MonoBehaviour, IFireable
             {
                 enemyHit = true;
             }
+
+            if (ammoDetails.ammoSpecialEffects != null)
+            {
+                foreach (AmmoSpecialEffect ammoSpecialEffect in ammoDetails.ammoSpecialEffects)
+                {
+                    ammoSpecialEffect.ActiveEffect(health, sender, GetGameObject());
+                }
+            }
         }
 
         if (ammoDetails.isPlayerAmmo)
@@ -126,11 +135,13 @@ public class Ammo : MonoBehaviour, IFireable
         }
     }
 
-    public void InitializeAmmo(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, float ammoSpeed, Vector3 weaponAimDirectionVector, bool overrideAmmoMovement = false)
+    public void InitializeAmmo(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, float ammoSpeed, Vector3 weaponAimDirectionVector, GameObject sender,
+        bool overrideAmmoMovement = false)
     {
         #region Ammo
 
         this.ammoDetails = ammoDetails;
+        this.sender = sender;
 
         isColliding = false;
 

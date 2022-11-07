@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_HookGun
+  m_EditorClassIdentifier: 
+  weaponName: HookGun
+  weaponSprite: {fileID: 21300000, guid: 02ac822b73112ad488f8876b40379050, type: 3}
+  weaponShootPosition: {x: 1.783, y: 0.062, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: fcb3330d7b18abd419e02c827ec20c14, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: 7e7520c3a355a894496118c71fd416b9, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 98600e94464094746b52804b6b70cd0e, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: 6a4e4c0a2235a6f4891d0edb825f1d45, type: 2}
+  hasInfiniteAmmo: 0
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 1
+  weaponAmmoCapacity: 30
+  weaponFireRate: 0.1
+  weaponPrechargeTime: 0
+  weaponReloadTime: 2
+  shouldShake: 1
+  intensity: 3
+  frequency: 1
+  time: 0.1

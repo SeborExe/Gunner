@@ -19,7 +19,7 @@ public class AmmoPatern : MonoBehaviour, IFireable
         return gameObject;
     }
 
-    public void InitializeAmmo(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, float ammoSpeed, Vector3 weaponAimDirectionVector,
+    public void InitializeAmmo(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, float ammoSpeed, Vector3 weaponAimDirectionVector, GameObject sender,
         bool overrideAmmoMovement)
     {
         this.ammoDetails = ammoDetails;
@@ -33,7 +33,7 @@ public class AmmoPatern : MonoBehaviour, IFireable
 
         foreach (Ammo ammo in ammoArray)
         {
-            ammo.InitializeAmmo(ammoDetails, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector, true);
+            ammo.InitializeAmmo(ammoDetails, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector, this.gameObject, true);
         }
 
         if (ammoDetails.ammoChargeTime > 0f)

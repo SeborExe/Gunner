@@ -177,4 +177,9 @@ public class Health : MonoBehaviour
     {
         return spriteRenderer;
     }
+
+    public void StartCou(IEnumerator Coroutine)
+    {
+        StartCoroutine(Coroutine);
+    }
 }

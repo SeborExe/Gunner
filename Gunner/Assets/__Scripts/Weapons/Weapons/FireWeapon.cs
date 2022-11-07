@@ -192,7 +192,7 @@ public class FireWeapon : MonoBehaviour
                     GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoSpeed()));
 
                 IFireable ammo = (IFireable)PoolManager.Instance.ReuseComponent(ammoPrefab, activeWeapon.GetShootPosition(), Quaternion.identity);
-                ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector);
+                ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector, this.gameObject);
 
                 yield return new WaitForSeconds(ammoSpawnInterval);
             }
@@ -201,7 +201,7 @@ public class FireWeapon : MonoBehaviour
                 float ammoSpeed = UnityEngine.Random.Range(currentAmmo.ammoSpeedMin, currentAmmo.ammoSpeedMax);
 
                 IFireable ammo = (IFireable)PoolManager.Instance.ReuseComponent(ammoPrefab, activeWeapon.GetShootPosition(), Quaternion.identity);
-                ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector);
+                ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector, this.gameObject);
 
                 yield return new WaitForSeconds(ammoSpawnInterval);
             }
@@ -248,7 +248,7 @@ public class FireWeapon : MonoBehaviour
                     GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoSpeed()));
 
                 IFireable ammo = (IFireable)PoolManager.Instance.ReuseComponent(ammoPrefab, activeWeapon.GetShootPosition(), Quaternion.identity);
-                ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector);
+                ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector, this.gameObject);
 
                 yield return new WaitForSeconds(ammoSpawnInterval);
             }
@@ -257,7 +257,7 @@ public class FireWeapon : MonoBehaviour
                 float ammoSpeed = UnityEngine.Random.Range(currentAmmo.ammoSpeedMin, currentAmmo.ammoSpeedMax);
 
                 IFireable ammo = (IFireable)PoolManager.Instance.ReuseComponent(ammoPrefab, activeWeapon.GetShootPosition(), Quaternion.identity);
-                ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector);
+                ammo.InitializeAmmo(currentAmmo, aimAngle, weaponAimAngle, ammoSpeed, weaponAimDirectionVector, this.gameObject);
 
                 yield return new WaitForSeconds(ammoSpawnInterval);
             }
