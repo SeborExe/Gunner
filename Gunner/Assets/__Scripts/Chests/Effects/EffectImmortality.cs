@@ -14,6 +14,6 @@ public class EffectImmortality : ItemEffect
 
         GameManager.Instance.GetPlayer().health.isDamagable = isImmune;
         GameManager.Instance.StartImmortalityRoutine(time,
-            GameManager.Instance.GetPlayer().health.GetPlayerSpriteRenderer());
+            GameManager.Instance.GetPlayer().health.GetSpriteRenderer());
     }
 }

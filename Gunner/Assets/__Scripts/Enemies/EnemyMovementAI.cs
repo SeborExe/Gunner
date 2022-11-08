@@ -178,8 +178,18 @@ public class EnemyMovementAI : MonoBehaviour
         moveSpeed = 0;
     }
 
-    public void SetMovement()
+    public void RestoreMovement()
     {
         moveSpeed = movementDetails.GetMoveSpeed();
+    }
+
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void SetMoveSpeed(float amount)
+    {
+        moveSpeed = amount;
     }
 }

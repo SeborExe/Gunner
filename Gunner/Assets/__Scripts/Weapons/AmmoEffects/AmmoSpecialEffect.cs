@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AmmoSpecialEffect : ScriptableObject
 {
-    public virtual void ActiveEffect(Health reciver, GameObject sender, GameObject bullet = null)
+    public virtual void ActiveEffect(Health reciver, EffectManager effectManager, GameObject sender, GameObject bullet = null)
     {
     }
 }

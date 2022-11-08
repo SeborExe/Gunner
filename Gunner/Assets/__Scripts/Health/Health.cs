@@ -173,13 +173,8 @@ public class Health : MonoBehaviour
         CallHealthEvent(0);
     }
 
-    public SpriteRenderer GetPlayerSpriteRenderer()
+    public SpriteRenderer GetSpriteRenderer()
     {
         return spriteRenderer;
-    }
-
-    public void StartCou(IEnumerator Coroutine)
-    {
-        StartCoroutine(Coroutine);
     }
 }

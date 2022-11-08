@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 2740559945774393031}
   - component: {fileID: -1141266021241702393}
   - component: {fileID: -8131270571671881849}
+  - component: {fileID: -8355030701474139535}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -283,6 +284,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerControl: {fileID: 0}
   playerStats: {fileID: 0}
+  itemTextSpawner: {fileID: 0}
   lastUsableItem: {fileID: 0}
   currentUsableItem: {fileID: 0}
   currentChargingPoints: 0
@@ -587,6 +589,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5a91ad0ffc76ab4794ac98c901de89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8355030701474139535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2367259199412606251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f2e8dee06d5484f86461b8a65fbbff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2367259199671075739
