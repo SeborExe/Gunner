@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class EffectManager : MonoBehaviour
 
     Color originalColor;
     float frozeTimer;
+    bool itsOnFire = false;
 
     private void Start()
     {
@@ -23,10 +25,18 @@ public class EffectManager : MonoBehaviour
     public IEnumerator FrozeCoroutine(Health reciver, float frozeAmountPercent, GameObject effectToSpawn, Color frozeColor, float frozeTime)
     {
         frozeTimer = frozeTime;
+        float speedBeforeSpeedDown = 0;
 
         if (reciver.TryGetComponent<EnemyMovementAI>(out EnemyMovementAI enemy))
         {
             float slowSpeed = (enemy.GetMoveSpeed() - (enemy.GetMoveSpeed() * (frozeAmountPercent / 100)));
+            enemy.SetMoveSpeed(slowSpeed);
+        }
+
+        if (reciver.TryGetComponent<PlayerControl>(out PlayerControl player))
+        {
+            speedBeforeSpeedDown = player.GetMovementSpeed();
+            float slowSpeed = (player.GetMovementSpeed() - (player.GetMovementSpeed() * (frozeAmountPercent / 100)));
             enemy.SetMoveSpeed(slowSpeed);
         }
 
@@ -49,5 +59,30 @@ public class EffectManager : MonoBehaviour
         {
             enemyAI.RestoreMovement();
         }
+        else if (reciver.TryGetComponent<PlayerControl>(out PlayerControl playerController))
+        {
+            playerController.SetMovementSpeed(speedBeforeSpeedDown);
+        }
+    }
+
+    public IEnumerator FireCoroutine(Health reciver, float damage, int perioid, float timeBetweenDamage, GameObject effectToSpawn)
+    {
+        GameObject effect = null;
+
+        if (!itsOnFire)
+        {
+            effect = Instantiate(effectToSpawn, reciver.transform.position, Quaternion.Euler(-90f, 0, 0));
+            effect.transform.parent = reciver.transform;
+            itsOnFire = true;
+        }
+
+        for (int i = 0; i < perioid; i++)
+        {
+            reciver.TakeDamage((int)damage);
+            yield return new WaitForSeconds(timeBetweenDamage);
+        }
+
+        Destroy(effect, 0.1f);
+        itsOnFire = false;
     }
 }
