@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MaterializeEffect : MonoBehaviour
 {
+    [SerializeField] SpriteRenderer minimapIcon;
+    [SerializeField] Material enemyMinimapMaterial;
+
     public IEnumerator MaterializeRoutine(Shader materializeShader, Color materializeColor, float materializeTime, 
         SpriteRenderer[] spriteRendererArray, Material normalMaterial)
     {
@@ -28,6 +31,11 @@ public class MaterializeEffect : MonoBehaviour
         foreach (SpriteRenderer spriteRenderer in spriteRendererArray)
         {
             spriteRenderer.material = normalMaterial;
+        }
+
+        if (minimapIcon != null)
+        {
+            minimapIcon.material = enemyMinimapMaterial;
         }
     }
 }

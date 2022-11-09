@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e830c8be56163d04a9a894a58f375cd7, type: 3}
+  m_Name: WeapomShootEffect_Magnum
+  m_EditorClassIdentifier: 
+  colorGradient:
+    serializedVersion: 2
+    key0: {r: 0.4716981, g: 0.4245283, b: 0.4245283, a: 1}
+    key1: {r: 0.8773585, g: 0.094357364, b: 0.094357364, a: 1}
+    key2: {r: 0.3301887, g: 0.32948342, b: 0.3002848, a: 0}
+    key3: {r: 0.06797788, g: 0.43554324, b: 0.6320754, a: 0}
+    key4: {r: 0.2742435, g: 0.33655894, b: 0.6698113, a: 0}
+    key5: {r: 1, g: 1, b: 1, a: 0}
+    key6: {r: 0.2264151, g: 0.21231756, b: 0.21231756, a: 0}
+    key7: {r: 1, g: 1, b: 1, a: 0}
+    ctime0: 0
+    ctime1: 3855
+    ctime2: 6554
+    ctime3: 26600
+    ctime4: 30840
+    ctime5: 49730
+    ctime6: 53585
+    ctime7: 65535
+    atime0: 0
+    atime1: 45489
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 3
+  duration: 0.6
+  startParticleSize: 0.3
+  startParticleSpeed: 0.5
+  startParticleLifeTime: 1.5
+  maxParticleNumber: 100
+  emissionRate: 100
+  burstParticleNumber: 40
+  effectGravity: -0.03
+  sprite: {fileID: 21300000, guid: ecf6e010769abce4cb1e7c60e0f3b3d8, type: 3}
+  velocityOverLifeTimeMin: {x: 0, y: 0, z: 0}
+  velocityOverLifeTimeMax: {x: 0, y: 0, z: 0}
+  weaponShootEffectPrefab: {fileID: 8577602166864936081, guid: 166c6859770486e42838617d3445a545, type: 3}

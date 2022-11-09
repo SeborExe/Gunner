@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class HoldingItemWithTime : HoldingItem
 
         GameManager.Instance.holdingItemCoolDownActive = true;
         GameManager.Instance.SetHoldingItemCooldownTimer(time);
+        GameManager.Instance.canUseHoldingItem = false;
     }
 
     public override void ActiveAfterCoolDownTimerEndCount()

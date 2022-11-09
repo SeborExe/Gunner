@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e93d5fa7f534a047996000b02dcd757, type: 3}
+  m_Name: AmmoDetails_RocketLuncher_Boss
+  m_EditorClassIdentifier: 
+  ammoName: RocketLuncher_Boss Ammo Boss
+  isPlayerAmmo: 0
+  isMelee: 0
+  ammoSprite: {fileID: 21300000, guid: 2e501402220ac394794303378bddf8ab, type: 3}
+  ammoPrefabArray:
+  - {fileID: 5249748811358305308, guid: 7de80ed40bf5f8c4385f697580223a58, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: 42c61dd66eb4e8c4a916ce83d7fbd680, type: 2}
+  ammoChargeTime: 0
+  ammoChargeMaterial: {fileID: 0}
+  ammoDamage: 20
+  ammoSpeedMin: 7
+  ammoSpeedMax: 10
+  ammoRange: 30
+  ammoRotationSpeed: 1
+  ammoSpreadMin: 1
+  ammoSpreadMax: 3
+  ammoSpecialEffects: []
+  ammoSpawnAmountMin: 1
+  ammoSpawnAmountMax: 1
+  ammoSpawnIntervalMin: 0
+  ammoSpawnIntervalMax: 0
+  isAmmoTrail: 0
+  ammoTrailTime: 0
+  ammoTrailMaterial: {fileID: 0}
+  ammoTrailStartWidth: 0
+  ammoTrailEndWidth: 0
+  ammoHitEffect: {fileID: 11400000, guid: 7dd5a5e913bc4a045adf80aa4573e554, type: 2}

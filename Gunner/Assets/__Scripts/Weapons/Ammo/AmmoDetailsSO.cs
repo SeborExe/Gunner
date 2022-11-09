@@ -8,6 +8,7 @@ public class AmmoDetailsSO : ScriptableObject
     [Header("Basic Ammo Details")]
     public string ammoName;
     public bool isPlayerAmmo;
+    public bool isMelee = false;
 
     [Header("Ammo sprite, prefabs and materials")]
     public Sprite ammoSprite;
@@ -26,6 +27,9 @@ public class AmmoDetailsSO : ScriptableObject
     [Header("Ammo Spread Details")]
     public float ammoSpreadMin = 0f;
     public float ammoSpreadMax = 0f;
+
+    [Header("Ammo Special Effects")]
+    public AmmoSpecialEffect[] ammoSpecialEffects;
 
     [Header("Ammo Spawn Details")]
     public int ammoSpawnAmountMin = 1;

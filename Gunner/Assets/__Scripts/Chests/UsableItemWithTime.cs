@@ -15,6 +15,8 @@ public class UsableItemWithTime : UsableItem
         GameManager.Instance.usableItemCoolDownTime = time;
         GameManager.Instance.usableItemCoolDownActive = true;
         GameManager.Instance.SetCoolDownTimer(time);
+        GameManager.Instance.usableItemThatWasUsed = this;
+        GameManager.Instance.canUseUsableItem = false;
     }
 
     public override void SetAfterUse()

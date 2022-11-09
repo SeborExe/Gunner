@@ -12,6 +12,7 @@ public class LightFlicker : MonoBehaviour
     [SerializeField] private float lightIntensityMax;
     [SerializeField] private float lightFLickerTimeMin;
     [SerializeField] private float lightFLickerTimeMax;
+    [SerializeField] GameObject flick;
 
     private float lightFlickerTimer;
 
@@ -19,10 +20,26 @@ public class LightFlicker : MonoBehaviour
     {
         light2D = GetComponentInChildren<Light2D>();
     }
-
+        
     private void Start()
     {
         lightFlickerTimer = Random.Range(lightFLickerTimeMin, lightFLickerTimeMax);
+        flick.SetActive(GetComponentInParent<InstantiatedRoom>().room == GameManager.Instance.GetCurrentRoom());
+    }
+
+    private void OnEnable()
+    {
+        StaticEventHandler.OnRoomChanged += StaticEventHandler_OnRoomChanged;
+    }
+
+    private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
+    {
+        flick.SetActive(roomChangedEventArgs.room == GameManager.Instance.GetCurrentRoom());
+    }
+
+    private void OnDisable()
+    {
+        StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
     }
 
     private void Update()

@@ -8,6 +8,7 @@ public class HoldingItem : Item
 {
     [Header("ItemType")]
     public ItemRank effectRank;
+    [Multiline(4)] public string itemTextAfterUse;
 
     public virtual void Use()
     {
@@ -16,7 +17,15 @@ public class HoldingItem : Item
             effect.ActiveEffect();
         }
 
-        GameManager.Instance.GetPlayer().lastHoldingItem = this;
+        if (effectRank == ItemRank.Time)
+        {
+            GameManager.Instance.GetPlayer().lastHoldingItem = this;
+        }
+
+        if (!String.IsNullOrEmpty(itemTextAfterUse))
+        {
+            GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(itemTextAfterUse);
+        }
 
         PlaySound();
         GameManager.Instance.GetPlayer().SetCurrentHoldingItem(null);
@@ -37,8 +46,12 @@ public class HoldingItem : Item
                 SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.weaponPickup);
                 break;
 
-            case ItemRank.negative:
+            case ItemRank.Negative:
                 SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.tableFlip);
+                break;
+
+            case ItemRank.Time:
+                SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
                 break;
         }
     }

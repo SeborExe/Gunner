@@ -57,12 +57,13 @@ public class Player : MonoBehaviour
     [HideInInspector] public Animator animator;
     [HideInInspector] public PlayerControl playerControl;
     [HideInInspector] public PlayerStats playerStats;
+    [HideInInspector] public ItemTextSpawner itemTextSpawner;
 
-    [HideInInspector] public UsableItem lastUsableItem = null;
+    [SerializeField] public UsableItem lastUsableItem = null;
     [SerializeField] UsableItem currentUsableItem = null;
     [SerializeField] int currentChargingPoints;
     [SerializeField] public HoldingItem holdingItem = null;
-    [HideInInspector] public HoldingItem lastHoldingItem = null;
+    [SerializeField] public HoldingItem lastHoldingItem = null;
 
     public List<Weapon> weaponList = new List<Weapon>();
 
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
         activeWeapon = GetComponent<ActiveWeapon>();
         reloadWeaponEvent = GetComponent<ReloadWeaponEvent>();
         weaponReloadedEvent = GetComponent<WeaponReloadedEvent>();
+        itemTextSpawner = GetComponentInChildren<ItemTextSpawner>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -216,10 +218,18 @@ public class Player : MonoBehaviour
 
     public void RefreshCurrentChargingPoints(int amount = 1)
     {
-        if (currentChargingPoints < currentUsableItem.chargingPoints)
+        if (currentUsableItem != null)
         {
-            currentChargingPoints += amount;
-            UsableItemUI.Instance.SetFill(currentUsableItem.chargingPoints, currentChargingPoints);
+            if (currentUsableItem.chargingPoints != 0)
+            {
+                if (currentChargingPoints < currentUsableItem.chargingPoints)
+                {
+                    currentChargingPoints += amount;
+                    UsableItemUI.Instance.SetFill(currentUsableItem.chargingPoints, currentChargingPoints);
+
+                    GameManager.Instance.usableItemsThatPlayerHad[currentUsableItem] = currentChargingPoints;
+                }
+            }
         }
     }
 }

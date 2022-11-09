@@ -173,7 +173,7 @@ public class Health : MonoBehaviour
         CallHealthEvent(0);
     }
 
-    public SpriteRenderer GetPlayerSpriteRenderer()
+    public SpriteRenderer GetSpriteRenderer()
     {
         return spriteRenderer;
     }

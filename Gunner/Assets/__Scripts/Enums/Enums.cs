@@ -59,6 +59,7 @@ public enum ItemRank
 {
     Positive,
     Neutral,
-    negative
+    Negative,
+    Time
 }
 

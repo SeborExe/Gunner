@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e93d5fa7f534a047996000b02dcd757, type: 3}
+  m_Name: AmmoDetails_Crossbow_Enemy
+  m_EditorClassIdentifier: 
+  ammoName: Crossbow Ammo Enemy
+  isPlayerAmmo: 0
+  ammoSprite: {fileID: 21300000, guid: ab4d59a1c98f3b048bcda48e28bb3e02, type: 3}
+  ammoPrefabArray:
+  - {fileID: 5249748811358305308, guid: 76a19169cb72ef44ea2ca1e7dd37f256, type: 3}
+  ammoMaterial: {fileID: 0}
+  ammoChargeTime: 0
+  ammoChargeMaterial: {fileID: 0}
+  ammoDamage: 12
+  ammoSpeedMin: 10
+  ammoSpeedMax: 15
+  ammoRange: 18
+  ammoRotationSpeed: 0
+  ammoSpreadMin: 1
+  ammoSpreadMax: 3
+  ammoSpawnAmountMin: 1
+  ammoSpawnAmountMax: 1
+  ammoSpawnIntervalMin: 0
+  ammoSpawnIntervalMax: 0
+  isAmmoTrail: 1
+  ammoTrailTime: 0.1
+  ammoTrailMaterial: {fileID: 2100000, guid: 69e2225d6ada040448d1b2e1e90fa0c8, type: 2}
+  ammoTrailStartWidth: 0.2
+  ammoTrailEndWidth: 0.079
+  ammoHitEffect: {fileID: 11400000, guid: 5ce2b53cd49a2a14eb00376da956678f, type: 2}

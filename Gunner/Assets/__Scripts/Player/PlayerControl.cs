@@ -183,9 +183,9 @@ public class PlayerControl : MonoBehaviour
 
         ReloadWeaponInput();
 
-        HanleUsableItem();
+        HandleUsableItem();
 
-        HanleHoldingItem();
+        HandleHoldingItem();
     }
 
     private void UseItemInput()
@@ -224,10 +224,12 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void HanleUsableItem()
+    private void HandleUsableItem()
     {
         if (player.GetCurrentUsableItem() != null)
         {
+            if (player.GetCurrentUsableItem().hasTimeEffect && !GameManager.Instance.canUseUsableItem) return;
+
             if (usableItemButton.usableButtonPressed)
             {
                 player.GetCurrentUsableItem().OnUse();
@@ -235,10 +237,12 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void HanleHoldingItem()
+    private void HandleHoldingItem()
     {
         if (player.GetCurrentHoldingItem() != null)
         {
+            if (player.GetCurrentHoldingItem().effectRank == ItemRank.Time && !GameManager.Instance.canUseHoldingItem) return;
+
             if (holdingItemButton.holdingItemButtonPressed)
             {
                 player.GetCurrentHoldingItem().Use();

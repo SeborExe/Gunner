@@ -18,6 +18,7 @@ public class Ammo : MonoBehaviour, IFireable
     private bool isAmmoMaterialSet = false;
     private bool overrideAmmoMovement;
     private bool isColliding = false;
+    private GameObject sender;
 
     private void Awake()
     {
@@ -68,6 +69,7 @@ public class Ammo : MonoBehaviour, IFireable
     private void DealDamage(Collider2D collision)
     {
         Health health = collision.GetComponent<Health>();
+        EffectManager effectManager = collision.GetComponent<EffectManager>();
 
         bool enemyHit = false;
 
@@ -99,6 +101,14 @@ public class Ammo : MonoBehaviour, IFireable
             {
                 enemyHit = true;
             }
+
+            if (ammoDetails.ammoSpecialEffects != null)
+            {
+                foreach (AmmoSpecialEffect ammoSpecialEffect in ammoDetails.ammoSpecialEffects)
+                {
+                    ammoSpecialEffect.ActiveEffect(health, effectManager, sender, GetGameObject());
+                }
+            }
         }
 
         if (ammoDetails.isPlayerAmmo)
@@ -126,11 +136,13 @@ public class Ammo : MonoBehaviour, IFireable
         }
     }
 
-    public void InitializeAmmo(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, float ammoSpeed, Vector3 weaponAimDirectionVector, bool overrideAmmoMovement = false)
+    public void InitializeAmmo(AmmoDetailsSO ammoDetails, float aimAngle, float weaponAimAngle, float ammoSpeed, Vector3 weaponAimDirectionVector, GameObject sender,
+        bool overrideAmmoMovement = false)
     {
         #region Ammo
 
         this.ammoDetails = ammoDetails;
+        this.sender = sender;
 
         isColliding = false;
 
@@ -153,7 +165,14 @@ public class Ammo : MonoBehaviour, IFireable
 
         if (ammoDetails.isPlayerAmmo)
         {
-            ammoRange = Mathf.Max(1f, ammoDetails.ammoRange + GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoRange());
+            if (ammoDetails.isMelee)
+            {
+                ammoRange = Mathf.Max(1f, ammoDetails.ammoRange);
+            }
+            else
+            {
+                ammoRange = Mathf.Max(1f, ammoDetails.ammoRange + GameManager.Instance.GetPlayer().playerStats.GetAdditionalAmmoRange());
+            }
         }
         else
         {

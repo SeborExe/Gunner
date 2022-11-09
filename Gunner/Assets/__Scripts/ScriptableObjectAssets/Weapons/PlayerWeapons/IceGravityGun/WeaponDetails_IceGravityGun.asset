@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_IceGravityGun
+  m_EditorClassIdentifier: 
+  weaponName: Ice Gravity Gun
+  weaponSprite: {fileID: 21300000, guid: 9bebf13a86a724e4aa0983ede5caafbf, type: 3}
+  weaponShootPosition: {x: 1.416, y: 0.182, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: bfd8ec2613e2c5c41b3536021a15703a, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: be58bda711117b64b9f2070f8a9fba66, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: d923de3c8182c564c959c1b00e850f2a, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: cc318d13faa45354081bff2da3a419e7, type: 2}
+  hasInfiniteAmmo: 0
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 3
+  weaponAmmoCapacity: 45
+  weaponFireRate: 1.5
+  weaponPrechargeTime: 0
+  weaponReloadTime: 5
+  shouldShake: 1
+  intensity: 7
+  frequency: 1
+  time: 0.1

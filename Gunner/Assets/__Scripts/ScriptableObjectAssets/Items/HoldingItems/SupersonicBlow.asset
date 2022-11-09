@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Supersonic Blow
   itemSprite: {fileID: -1616177654, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  itemText: '12 Seconds
+
+    Ammo Range and Speed Up!'
   isUsable: 1
   effects:
   - {fileID: 11400000, guid: e710d2e1569732445a2825532ff52517, type: 2}
   - {fileID: 11400000, guid: a4276b44b90117c438071acfdeb7b760, type: 2}
-  effectRank: 0
+  effectRank: 3
+  itemTextAfterUse: 
   time: 12
   debuffEffects:
   - {fileID: 11400000, guid: 38d5c96d724524d4f9d6071d2667876d, type: 2}

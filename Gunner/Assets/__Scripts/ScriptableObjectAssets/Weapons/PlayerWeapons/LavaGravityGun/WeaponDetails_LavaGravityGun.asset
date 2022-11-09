@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_LavaGravityGun
+  m_EditorClassIdentifier: 
+  weaponName: Lava Gravity Gun
+  weaponSprite: {fileID: 21300000, guid: 389ce45022c1d91418108ce989405cf4, type: 3}
+  weaponShootPosition: {x: 1.416, y: 0.182, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 944d92c162cd8d944927ae62b22fceee, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: ec489a08a370cf042a16337011308bbf, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 01c23613deb967849b3c502654d95c85, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: ce8e9770c734449439e4b19400321620, type: 2}
+  hasInfiniteAmmo: 0
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 3
+  weaponAmmoCapacity: 45
+  weaponFireRate: 1.5
+  weaponPrechargeTime: 0
+  weaponReloadTime: 4
+  shouldShake: 1
+  intensity: 7
+  frequency: 1
+  time: 0.1

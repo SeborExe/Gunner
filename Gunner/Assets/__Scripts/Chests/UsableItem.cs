@@ -5,6 +5,7 @@ public class UsableItem : Item
 {
     public bool isChangingStats = false;
     public bool hasIndividualSoundEffect = false;
+    public bool hasTimeEffect;
     public float coolDown = 0f;
     public int chargingPoints = 3;
 
@@ -33,6 +34,8 @@ public class UsableItem : Item
         {
             SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
         }
+
+        GameManager.Instance.usableItemsThatPlayerHad[this] = 0;
     }
 
     public virtual void SetAfterUse()

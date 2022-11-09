@@ -84,6 +84,7 @@ public class RoomLightingControl : MonoBehaviour
         Material material = new Material(GameResources.Instance.variableLitShader);
 
         Enviroment[] enviromentComponents = GetComponentsInChildren<Enviroment>();
+        LightFlicker[] lightFlickers = GetComponentsInChildren<LightFlicker>();
 
         foreach (Enviroment enviromentComponent in enviromentComponents)
         {

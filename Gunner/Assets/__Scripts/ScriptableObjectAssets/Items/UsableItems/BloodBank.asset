@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Blood Bank
   itemSprite: {fileID: -115004843, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  itemText: 'Hurt Everyone!
+
+    Take Damage'
   isUsable: 1
   effects:
   - {fileID: 11400000, guid: 7a40699004dd64f49ae9de4f40582f2f, type: 2}
   isChangingStats: 0
   hasIndividualSoundEffect: 1
+  hasTimeEffect: 0
   coolDown: 0
   chargingPoints: 1
   radius: 15

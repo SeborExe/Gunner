@@ -1120,7 +1120,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786016, y: 1}
+    m_SensorSize: {x: 1.776415, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1231,7 +1231,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786016, y: 1}
+    m_SensorSize: {x: 1.776415, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1335,7 +1335,10 @@ MonoBehaviour:
   finishLevelButton: {fileID: 745513278}
   usableItemCoolDownActive: 0
   usableItemCoolDownTime: 0
+  canUseUsableItem: 1
+  usableItemThatWasUsed: {fileID: 0}
   holdingItemCoolDownActive: 0
+  canUseHoldingItem: 1
   virtualCamera: {fileID: 233485550}
   controls: {fileID: 377315889}
 --- !u!4 &244444725
@@ -2372,11 +2375,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252285020697096, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 45
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 2929252285020697096, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 45
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 2929252285020697097, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_Name
@@ -8334,6 +8337,39 @@ MonoBehaviour:
   - poolSize: 10
     prefab: {fileID: 5150919058560808902, guid: 3532c9f32e954e945bfce2ac3d4e1f28, type: 3}
     componentType: IFireable
+  - poolSize: 10
+    prefab: {fileID: 7226885766712568917, guid: 23ac8babd354a34478c19b3faf463f2e, type: 3}
+    componentType: IFireable
+  - poolSize: 10
+    prefab: {fileID: 7226885766712568917, guid: 6026a718149e1f0478f1aaa244253d38, type: 3}
+    componentType: IFireable
+  - poolSize: 10
+    prefab: {fileID: 7226885766712568917, guid: c4e98551ed515d943af79738cdc48390, type: 3}
+    componentType: IFireable
+  - poolSize: 30
+    prefab: {fileID: 5249748811358305308, guid: 4febbd96e2e413a489261cf0b43a49f3, type: 3}
+    componentType: IFireable
+  - poolSize: 300
+    prefab: {fileID: 5249748811358305308, guid: 76a19169cb72ef44ea2ca1e7dd37f256, type: 3}
+    componentType: IFireable
+  - poolSize: 30
+    prefab: {fileID: 5249748811358305308, guid: 7de80ed40bf5f8c4385f697580223a58, type: 3}
+    componentType: IFireable
+  - poolSize: 300
+    prefab: {fileID: 5249748811358305308, guid: 3298c49780d26374a8acad66d4cb24d4, type: 3}
+    componentType: IFireable
+  - poolSize: 30
+    prefab: {fileID: 5249748811358305308, guid: 8f4589a996d20af43bb5d269384bc02b, type: 3}
+    componentType: IFireable
+  - poolSize: 50
+    prefab: {fileID: 5249748811358305308, guid: 057791ceca44d8b4ab4f91acb48105fa, type: 3}
+    componentType: IFireable
+  - poolSize: 30
+    prefab: {fileID: 5249748811358305308, guid: f5d6a145626c8c74ab6fa31ef15f0134, type: 3}
+    componentType: IFireable
+  - poolSize: 80
+    prefab: {fileID: 5249748811358305308, guid: c1ba2aac3a88ea940936d39ba388d392, type: 3}
+    componentType: IFireable
 --- !u!4 &1713267372
 Transform:
   m_ObjectHideFlags: 0
@@ -9220,8 +9256,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

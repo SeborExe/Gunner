@@ -28,7 +28,7 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
     {
         if (Input.GetMouseButtonDown(0) && GameManager.Instance.gameState == GameState.dungeonOverviewMap)
         {
-            GetRoomClicked();
+            GetRoomClicked();   
         }
     }
 
@@ -66,6 +66,7 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
         Vector3 spawnPosition = HelperUtilities.GetSpawnPositionNearestToPlayer(worldPosition);
 
         GameManager.Instance.GetPlayer().transform.position = spawnPosition;
+        GameManager.Instance.minimapButton.SetMapActiveFalse();
 
         yield return StartCoroutine(GameManager.Instance.Fade(1f, 0f, 1f, Color.black));
 

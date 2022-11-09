@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Magic Ring
   itemSprite: {fileID: 150319960, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  itemText: 'Use to Take Damage
+
+    Recive Damage and
+
+    Fire Rate Up!'
   isUsable: 1
   effects:
   - {fileID: 11400000, guid: 8fd555991d0a1fe439244c5473f0690b, type: 2}
@@ -22,5 +27,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 90f744067ed70904a9f704d73800d50d, type: 2}
   isChangingStats: 1
   hasIndividualSoundEffect: 0
+  hasTimeEffect: 0
   coolDown: 1
   chargingPoints: 0
