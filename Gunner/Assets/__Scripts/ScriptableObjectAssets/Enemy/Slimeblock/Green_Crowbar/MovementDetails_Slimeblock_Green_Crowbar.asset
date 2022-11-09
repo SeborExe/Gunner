@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7eff3d4ed96e714d890815ea7ff441d, type: 3}
-  m_Name: Knockback
+  m_Script: {fileID: 11500000, guid: 920d99c8fc7006342b7890b8d35139c2, type: 3}
+  m_Name: MovementDetails_Slimeblock_Green_Crowbar
   m_EditorClassIdentifier: 
-  knockbackForce: 35
-  knockbackTime: 0.2
+  minMoveSpeed: 6
+  maxMoveSpeed: 9
+  rollSpeed: 0
+  rollDistance: 0
+  rollColdownTime: 0
