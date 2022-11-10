@@ -17,7 +17,7 @@ public class KnockbackEffect : AmmoSpecialEffect
 
         if (reciver.TryGetComponent<EnemyMovementAI>(out EnemyMovementAI enemy))
         {
-            enemy.StopEnemy();
+            //enemy.StopEnemy();
             enemy.GetComponent<EnemyWeaponAI>().enabled = false;
             enemy.GetComponent<MovementToPosition>().enabled = false;
         }
@@ -44,7 +44,7 @@ public class KnockbackEffect : AmmoSpecialEffect
         {
             if (reciver.TryGetComponent<EnemyMovementAI>(out EnemyMovementAI enemy))
             {
-                enemy.RestoreMovement();
+                //enemy.RestoreMovement();
                 enemy.GetComponent<EnemyWeaponAI>().enabled = true;
                 enemy.GetComponent<MovementToPosition>().enabled = true;
             }
