@@ -6,6 +6,7 @@ using UnityEngine;
 public class FireEffect : AmmoSpecialEffect
 {
     [SerializeField] float amountToDeal = 10f;
+    [SerializeField, Range(0, 100)] int chanceOfArson;
     [SerializeField, Min(1)] int perioid = 5;
     [SerializeField] float timeBetweenDamage = 1f;
     [SerializeField] GameObject effectToSpawn;
@@ -17,8 +18,16 @@ public class FireEffect : AmmoSpecialEffect
             return;
         }
 
-        float damage = amountToDeal / perioid;
+        int chance = Random.Range(0, 100);
 
-        effectManager.StartCou(effectManager.FireCoroutine(reciver, damage, perioid, timeBetweenDamage, effectToSpawn));
+        if (chance >= chanceOfArson)
+        {
+            float damage = amountToDeal / perioid;
+            effectManager.StartCou(effectManager.FireCoroutine(reciver, damage, perioid, timeBetweenDamage, effectToSpawn));
+        }
+        else
+        {
+            return;
+        }
     }
 }

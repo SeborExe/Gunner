@@ -14,19 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoName: N22LaserBlaster Ammo
   isPlayerAmmo: 1
+  isMelee: 0
   ammoSprite: {fileID: 21300000, guid: 4df9cc7131cd27f4288bca5e76c82034, type: 3}
   ammoPrefabArray:
   - {fileID: 5249748811358305308, guid: b37ea02ea9ff5a34d8cd3465aef571fa, type: 3}
   ammoMaterial: {fileID: 2100000, guid: c64696a09f1cb1a4d9766d1fe9778ca5, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
-  ammoDamage: 17
+  ammoDamage: 15
   ammoSpeedMin: 55
   ammoSpeedMax: 55
   ammoRange: 40
   ammoRotationSpeed: 1
   ammoSpreadMin: 0.5
   ammoSpreadMax: 1
+  ammoSpecialEffects: []
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0

@@ -65,6 +65,7 @@ public class GameResources : MonoBehaviour
     public SoundEffectSO healthPickup;
     public SoundEffectSO weaponPickup;
     public SoundEffectSO ammoPickup;
+    public SoundEffectSO freez;
 
     [Header("Music")]
     public AudioMixerGroup musicMasterMixerGroup;
