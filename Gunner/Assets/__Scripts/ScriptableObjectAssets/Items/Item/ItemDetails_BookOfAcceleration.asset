@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Book of Acceleration
   itemSprite: {fileID: 837128049, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
-  itemText: Ammo Speed Up!
+  itemText: 'Ammo and Reload Speed Up!
+
+    Fire Rate and Move Speed Up!'
   isUsable: 0
   effects:
   - {fileID: 11400000, guid: 111f781215143424e8383ef612091a0e, type: 2}
+  - {fileID: 11400000, guid: 8b5af168ee134454f9d6b5ae37a88f35, type: 2}
+  - {fileID: 11400000, guid: 0183ec827de19c04193ede0967dbe4d3, type: 2}
+  - {fileID: 11400000, guid: 05da5868ff4f12943ace520762c45836, type: 2}

@@ -167,7 +167,10 @@ public class WeaponStatusUI : MonoBehaviour
 
         while (currentWeapon.isWeaponReloading)
         {
-            float barFill = currentWeapon.weaponReloadTimer / currentWeapon.weaponDetails.weaponReloadTime;
+            float reloadTime = Mathf.Max(0.2f, currentWeapon.weaponDetails.weaponReloadTime - (currentWeapon.weaponDetails.weaponReloadTime *
+                (GameManager.Instance.GetPlayer().playerStats.GetAdditionalWeaponReloadSpeed() / 100)));
+
+            float barFill = currentWeapon.weaponReloadTimer / reloadTime;
             reloadBar.transform.localScale = new Vector3(barFill, 1f, 1f);
 
             yield return null;

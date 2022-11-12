@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoName: Rocket Launcher Ammo
   isPlayerAmmo: 1
+  isMelee: 0
   ammoSprite: {fileID: 21300000, guid: bed41c1cbc0b07f4983e5839276f1dd2, type: 3}
   ammoPrefabArray:
   - {fileID: 5249748811358305308, guid: 15385cab5ca219a428f8c820e2700f2f, type: 3}
@@ -27,6 +28,8 @@ MonoBehaviour:
   ammoRotationSpeed: 1
   ammoSpreadMin: 1
   ammoSpreadMax: 2
+  ammoSpecialEffects:
+  - {fileID: 11400000, guid: 5f75497541ce7784c9b5f56b36c71a1e, type: 2}
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0

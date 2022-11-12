@@ -18,7 +18,7 @@ public class SpawnEnemy : MonoBehaviour
     private RoomEnemySpawnParameters roomEnemySpawnParameters;
     private HealthEvent healthEvent;
 
-    private List<GameObject> enemies = new List<GameObject>();
+    private List<Enemy> enemies = new List<Enemy>();
 
     private void Awake()
     {
@@ -32,27 +32,12 @@ public class SpawnEnemy : MonoBehaviour
         Invoke(nameof(SpawnEnemies), spawnInterval);
     }
 
-    private void OnEnable()
+    public void DestroyAllSpawnedEnemies()
     {
-        healthEvent.OnHealthChanged += HealthEvent_OnHealthLost;
-    }
-
-    private void OnDisable()
-    {
-        healthEvent.OnHealthChanged -= HealthEvent_OnHealthLost;
-    }
-
-    private void HealthEvent_OnHealthLost(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
-    {
-        if (healthEventArgs.healthAmount <= 0)
+        foreach (Enemy enemyObject in enemies)
         {
-            foreach (GameObject enemyObject in enemies)
-            {
-                Health enemyHealth = enemyObject.GetComponent<Enemy>().GetHealth();
-                enemyHealth.TakeDamage(200);
-            }
-
-            EnemyDestroyed();
+            Health enemyHealth = enemyObject.GetHealth();
+            enemyHealth.TakeDamage(200);
         }
     }
 
@@ -139,8 +124,10 @@ public class SpawnEnemy : MonoBehaviour
 
         DungeonLevelSO dungeonLevel = GameManager.Instance.GetCurrentDungeonLevel();
 
-        GameObject enemy = Instantiate(enemyDetails.enemyPrefab, position, Quaternion.identity);
-        enemy.GetComponent<Enemy>().EnemyInitialization(enemyDetails, enemiesSpawnedSoFar, dungeonLevel);
+        GameObject enemyGameObject = Instantiate(enemyDetails.enemyPrefab, position, Quaternion.identity);
+        Enemy enemy = enemyGameObject.GetComponent<Enemy>();
+
+        enemy.EnemyInitialization(enemyDetails, enemiesSpawnedSoFar, dungeonLevel);
 
         enemies.Add(enemy);
     }

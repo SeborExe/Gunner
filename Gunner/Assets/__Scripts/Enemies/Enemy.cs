@@ -89,10 +89,12 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(bloodParticle, transform.position, Quaternion.identity);
 
-            if (isMoving)
+            if (TryGetComponent<SpawnEnemy>(out SpawnEnemy spawnEnemy))
             {
-                EnemyDestroyed(); //Making sure the spawning boss kills everyone it summoned
+                spawnEnemy.DestroyAllSpawnedEnemies();
             }
+
+            EnemyDestroyed();
         }
     }
 

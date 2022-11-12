@@ -14,19 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoName: Laser Spear Ammo
   isPlayerAmmo: 1
+  isMelee: 0
   ammoSprite: {fileID: 21300000, guid: ab4d59a1c98f3b048bcda48e28bb3e02, type: 3}
   ammoPrefabArray:
   - {fileID: 5249748811358305308, guid: 4febbd96e2e413a489261cf0b43a49f3, type: 3}
   ammoMaterial: {fileID: 2100000, guid: c64696a09f1cb1a4d9766d1fe9778ca5, type: 2}
   ammoChargeTime: 0.2
   ammoChargeMaterial: {fileID: 0}
-  ammoDamage: 24
+  ammoDamage: 30
   ammoSpeedMin: 28
   ammoSpeedMax: 35
   ammoRange: 22
   ammoRotationSpeed: 0
   ammoSpreadMin: 2
   ammoSpreadMax: 4
+  ammoSpecialEffects: []
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0

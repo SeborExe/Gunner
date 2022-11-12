@@ -13,6 +13,7 @@ public class StatsDisplayUI : SingletonMonobehaviour<StatsDisplayUI>
     [SerializeField] TMP_Text movementSpeedText;
     [SerializeField] TMP_Text rangeText;
     [SerializeField] TMP_Text ammoSpeedText;
+    [SerializeField] TMP_Text weaponReloadSpeedText;
     [SerializeField] Transform itemIconContainer;
     [SerializeField] Image itemIconPrefab;
 
@@ -41,6 +42,7 @@ public class StatsDisplayUI : SingletonMonobehaviour<StatsDisplayUI>
         ShowMovementSpeed();
         ShowRange();
         ShowAmmoSpeed();
+        ShowWeaponReloadSpeed();
     }
 
     public void UpdateStatsUI()
@@ -82,6 +84,12 @@ public class StatsDisplayUI : SingletonMonobehaviour<StatsDisplayUI>
     {
         int ammoSpeed = player.playerStats.GetAdditionalAmmoSpeed();
         ammoSpeedText.text = ammoSpeed.ToString();
+    }
+
+    private void ShowWeaponReloadSpeed()
+    {
+        float reloadSpeed = player.playerStats.GetAdditionalWeaponReloadSpeed();
+        weaponReloadSpeedText.text = reloadSpeed.ToString();
     }
 
     public void AddItemIcon(Sprite itemIcon)
