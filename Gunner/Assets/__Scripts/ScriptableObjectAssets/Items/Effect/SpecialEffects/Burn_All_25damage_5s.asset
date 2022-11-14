@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbcc2a0dda400954a82af672736b7cbb, type: 3}
-  m_Name: Ammo_60
+  m_Script: {fileID: 11500000, guid: 95823369826bfd24486975219783f456, type: 3}
+  m_Name: Burn_All_25damage_5s
   m_EditorClassIdentifier: 
-  ammoPercent: 30
+  radius: 20
+  amountToDeal: 25
+  perioid: 5
+  timeBetweenDamage: 1
+  effectToSpawn: {fileID: 4926262109471085722, guid: d9023be1e4643254ea90188fbe6bd0d4, type: 3}

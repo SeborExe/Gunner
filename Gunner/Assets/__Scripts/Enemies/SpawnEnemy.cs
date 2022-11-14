@@ -13,18 +13,10 @@ public class SpawnEnemy : MonoBehaviour
     private int currentEnemyCount;
     private int enemiesSpawnedSoFar;
     private int enemyMaxConcurrentSpawnNumber;
-    private Health health;
     private Room currentRoom;
     private RoomEnemySpawnParameters roomEnemySpawnParameters;
-    private HealthEvent healthEvent;
 
     private List<Enemy> enemies = new List<Enemy>();
-
-    private void Awake()
-    {
-        healthEvent = GetComponent<HealthEvent>();
-        health = GetComponent<Health>();
-    }
 
     private void Start()
     {
@@ -34,17 +26,16 @@ public class SpawnEnemy : MonoBehaviour
 
     public void DestroyAllSpawnedEnemies()
     {
-        foreach (Enemy enemyObject in enemies)
+        if (enemies != null)
         {
-            Health enemyHealth = enemyObject.GetHealth();
-            enemyHealth.TakeDamage(200);
+            foreach (Enemy enemyObject in enemies)
+            {
+                if (enemyObject.TryGetComponent<Health>(out Health enemyHealth))
+                {
+                    enemyHealth.TakeDamage(200);
+                }
+            }
         }
-    }
-
-    private void EnemyDestroyed()
-    {
-        DestroyedEvent destroyedEvent = GetComponent<DestroyedEvent>();
-        destroyedEvent.CallDestroyedEvent(false, health.GetStartingHealth());
     }
 
     private void SpawnEnemies()

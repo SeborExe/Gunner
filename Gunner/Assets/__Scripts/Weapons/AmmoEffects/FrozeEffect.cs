@@ -15,7 +15,7 @@ public class FrozeEffect : AmmoSpecialEffect
     {
         int chance = Random.Range(0, 100);
 
-        if (chance >= chanceToFreeze)
+        if (chance <= chanceToFreeze)
         {
             effectManager.StartCou(effectManager.FrozeCoroutine(reciver, frozeAmountPercent, effectToSpawn, frozeColor, frozeTime));
         }

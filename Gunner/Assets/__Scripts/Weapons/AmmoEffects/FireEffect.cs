@@ -20,7 +20,7 @@ public class FireEffect : AmmoSpecialEffect
 
         int chance = Random.Range(0, 100);
 
-        if (chance >= chanceOfArson)
+        if (chance <= chanceOfArson)
         {
             float damage = amountToDeal / perioid;
             effectManager.StartCou(effectManager.FireCoroutine(reciver, damage, perioid, timeBetweenDamage, effectToSpawn));
