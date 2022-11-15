@@ -66,6 +66,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("Items Inpact")]
     public GameObject controls;
 
+    [Header("Visual Effects")]
+    public GameObject diseaseEffect;
+
     protected override void Awake()
     {
         base.Awake();

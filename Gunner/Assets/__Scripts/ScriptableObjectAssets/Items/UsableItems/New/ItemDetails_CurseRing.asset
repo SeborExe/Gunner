@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1fde1708c700324ea826de033790312, type: 3}
+  m_Name: ItemDetails_CurseRing
+  m_EditorClassIdentifier: 
+  itemName: Curse Ring
+  itemSprite: {fileID: -632707731, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  itemText: "Use me! I'll give you something \n             special hahaha!"
+  isUsable: 0
+  effects:
+  - {fileID: 11400000, guid: 11c7015a27dfb864fa0c569e285e3a24, type: 2}
+  - {fileID: 11400000, guid: a6eb58401fd2b0c439f4fec9d4401d88, type: 2}
+  - {fileID: 11400000, guid: 8b0b51276eaaf234fa63ab3e609d3980, type: 2}
+  isChangingStats: 1
+  hasIndividualSoundEffect: 0
+  hasTimeEffect: 0
+  coolDown: 0
+  chargingPoints: 5

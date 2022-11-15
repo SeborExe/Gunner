@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1fde1708c700324ea826de033790312, type: 3}
+  m_Name: ItemDetails_Tapeworm
+  m_EditorClassIdentifier: 
+  itemName: Tapeworm
+  itemSprite: {fileID: 21300002, guid: 916e34054e9ae44e19a9a046ba118f7c, type: 3}
+  itemText: "Use to Health Down and\n            All Stats Up!"
+  isUsable: 1
+  effects:
+  - {fileID: 11400000, guid: 1dc24d139fe584b4e811e93489d04dcc, type: 2}
+  - {fileID: 11400000, guid: 214ca2dd24186de4eb5be3fa0a1eda49, type: 2}
+  - {fileID: 11400000, guid: 476837525c10f224b839f13d4472044a, type: 2}
+  - {fileID: 11400000, guid: fa59d6b6195bbc14ea3de24f0d6e02a2, type: 2}
+  - {fileID: 11400000, guid: 89716c79dc0c5534db5da4335d013b48, type: 2}
+  - {fileID: 11400000, guid: 27c3cb989e062d14a9c24efb5a53d37e, type: 2}
+  - {fileID: 11400000, guid: 8b5af168ee134454f9d6b5ae37a88f35, type: 2}
+  isChangingStats: 1
+  hasIndividualSoundEffect: 0
+  hasTimeEffect: 0
+  coolDown: 0
+  chargingPoints: 3
