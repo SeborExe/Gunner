@@ -6,6 +6,7 @@ using UnityEngine;
 public class EffectActiveVisualEffect : ItemEffect
 {
     [SerializeField] string visualEffect;
+    [SerializeField] bool active = true;
 
     public override void ActiveEffect()
     {
@@ -14,7 +15,7 @@ public class EffectActiveVisualEffect : ItemEffect
         switch(visualEffect)
         {
             case "disease":
-                GameManager.Instance.diseaseEffect.SetActive(true);
+                GameManager.Instance.diseaseEffect.SetActive(active);
                 break;
         }
     }
