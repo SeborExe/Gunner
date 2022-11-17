@@ -10,8 +10,10 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] GameObject returnToMainMenuButton;
     [SerializeField] GameObject quitButton;
     [SerializeField] GameObject instructionsButton;
+    [SerializeField] GameObject highScoreButtonOnline;
 
     private bool isHighScoresSceneLoaded = false;
+    private bool isHighScoresOnlineSceneLoaded = false;
     private bool isInstructionsSceneLoaded = false;
 
     private void Start()
@@ -32,6 +34,7 @@ public class MainMenuUI : MonoBehaviour
     {
         playButton.SetActive(false);
         instructionsButton.SetActive(false);
+        highScoreButtonOnline.SetActive(false);
         highScoreButton.SetActive(false);
         isHighScoresSceneLoaded = true;
 
@@ -40,10 +43,24 @@ public class MainMenuUI : MonoBehaviour
         SceneManager.LoadScene("HighScoreScene", LoadSceneMode.Additive);
     }
 
+    public void LoadHighScoresOnline()
+    {
+        playButton.SetActive(false);
+        instructionsButton.SetActive(false);
+        highScoreButtonOnline.SetActive(false);
+        highScoreButton.SetActive(false);
+        isHighScoresOnlineSceneLoaded = true;
+
+        SceneManager.UnloadSceneAsync("CharacterSelectorScene");
+        returnToMainMenuButton.SetActive(true);
+        SceneManager.LoadScene("HighScoreSceneOnline", LoadSceneMode.Additive);
+    }
+
     public void LoadInstructions()
     {
         playButton.SetActive(false);
         instructionsButton.SetActive(false);
+        highScoreButtonOnline.SetActive(false);
         highScoreButton.SetActive(false);
         isInstructionsSceneLoaded = true;
 
@@ -66,10 +83,16 @@ public class MainMenuUI : MonoBehaviour
             SceneManager.UnloadSceneAsync("InstructionsScene");
             isInstructionsSceneLoaded = false;
         }
+        else if (isHighScoresOnlineSceneLoaded)
+        {
+            SceneManager.UnloadSceneAsync("HighScoreSceneOnline");
+            isHighScoresOnlineSceneLoaded = false;
+        }
 
         playButton.SetActive(true);
         highScoreButton.SetActive(true);
         instructionsButton.SetActive(true);
+        highScoreButtonOnline.SetActive(true);
 
         SceneManager.LoadScene("CharacterSelectorScene", LoadSceneMode.Additive);
     }

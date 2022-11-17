@@ -69,6 +69,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("Visual Effects")]
     public GameObject diseaseEffect;
 
+    [Header("LootLocker")]
+    private Leaderboard leaderboard;
+
     protected override void Awake()
     {
         base.Awake();
@@ -76,6 +79,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         playerDetails = GameResources.Instance.currentPlayer.playerDetails;
 
         InstantiatePlayer();
+        leaderboard = FindObjectOfType<Leaderboard>();
     }
     private void Start()
     {
@@ -465,6 +469,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         yield return StartCoroutine(DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f));
 
+        yield return leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
+            $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
+
         gameState = GameState.restartGame;
     }
 
@@ -519,6 +526,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         {
             yield return StartCoroutine(DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f));
         }
+
+        yield return leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
+            $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
 
         gameState = GameState.restartGame;
     }
@@ -671,6 +681,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public void StartImmortalityRoutine(float time, SpriteRenderer spriteRenderer)
     {
         StartCoroutine(player.health.ImmortalityRoutine(time, spriteRenderer));
+    }
+
+    public Leaderboard GetLeaderboard()
+    {
+        return leaderboard;
     }
 
     #region Validation
