@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
@@ -11,6 +13,11 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] GameObject quitButton;
     [SerializeField] GameObject instructionsButton;
     [SerializeField] GameObject highScoreButtonOnline;
+
+    [Header("Loading Screen")]
+    [SerializeField] GameObject loadingScreen;
+    [SerializeField] Image fillBar;
+    private float target;
 
     private bool isHighScoresSceneLoaded = false;
     private bool isHighScoresOnlineSceneLoaded = false;
@@ -25,9 +32,30 @@ public class MainMenuUI : MonoBehaviour
         returnToMainMenuButton.SetActive(false);
     }
 
-    public void PlayGame()
+    public async void PlayGame()
     {
-        SceneManager.LoadScene("MainGameScene");
+        target = 0;
+        fillBar.fillAmount = 0;
+
+        AsyncOperation scene = SceneManager.LoadSceneAsync("MainGameScene");
+        scene.allowSceneActivation = false;
+
+        loadingScreen.SetActive(true);
+
+        do
+        {
+            await Task.Delay(100);
+            target = scene.progress;
+
+        } while (scene.progress < 0.9f);
+
+        scene.allowSceneActivation = true;
+        loadingScreen.SetActive(false);
+    }
+
+    private void Update()
+    {
+        fillBar.fillAmount = Mathf.MoveTowards(fillBar.fillAmount, target, 3 * Time.deltaTime);
     }
 
     public void LoadHighScores()
