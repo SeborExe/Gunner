@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_BloodSword
+  m_EditorClassIdentifier: 
+  weaponName: Blood Sword
+  weaponSprite: {fileID: 1845648614, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  weaponShootPosition: {x: -0.3, y: 0.46, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 53126e43de314384dbffa31e80ec089a, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: cfec6a7fdcec4474abb331f926335948, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 1e15f638dfa9b8349bdf322919a88015, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: 3cbe5a5691ab5554c92e179d7dba6518, type: 2}
+  hasInfiniteAmmo: 1
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 1
+  weaponAmmoCapacity: 0
+  weaponFireRate: 0.01
+  weaponPrechargeTime: 0
+  weaponReloadTime: 0.5
+  shouldShake: 0
+  intensity: 2
+  frequency: 1
+  time: 0.05
