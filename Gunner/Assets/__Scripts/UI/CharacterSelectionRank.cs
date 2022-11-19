@@ -40,6 +40,12 @@ public class CharacterSelectionRank : MonoBehaviour
             SetCharacterName("The Thief");
             SetIfWon();
         }
+        else if (animator.runtimeAnimatorController.name == "TheKnight")
+        {
+            rankText.text = Rank.GetRank("knight").ToString();
+            SetCharacterName("The Knight");
+            SetIfWon();
+        }
 
         if (rankText.text == "0")
         {

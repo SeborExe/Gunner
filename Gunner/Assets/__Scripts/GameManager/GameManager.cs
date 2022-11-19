@@ -566,6 +566,15 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 Rank.SetRank("thief", level);
             }
         }
+
+        if (name == "TheKnight")
+        {
+            int actualRank = Rank.GetRank("knight");
+            if (level > actualRank)
+            {
+                Rank.SetRank("knight", level);
+            }
+        }
     }
 
     private void PlayDungeonLevel(int dungeonLevelListIndex)
