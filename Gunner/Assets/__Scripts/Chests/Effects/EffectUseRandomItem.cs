@@ -9,7 +9,7 @@ public class EffectUseRandomItem : ItemEffect
 
     public override void ActiveEffect()
     {
-        if (randomItemPool_1 != null)
+        if (randomItemPool_1 != null && randomItemPool_1.Count != 0)
         {
             int index = Random.Range(0, randomItemPool_1.Count);
             randomItemPool_1[index].AddImage();
@@ -19,6 +19,8 @@ public class EffectUseRandomItem : ItemEffect
             {
                 effect.ActiveEffect();
             }
+
+            base.ActiveEffect();
         }
     }
 }

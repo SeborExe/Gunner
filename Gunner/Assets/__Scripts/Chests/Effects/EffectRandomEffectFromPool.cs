@@ -15,35 +15,35 @@ public class EffectRandomEffectFromPool : ItemEffect
     {
         string textToDisplay = "";
 
-        if (effectsPool_1 != null)
+        if (effectsPool_1 != null && effectsPool_1.Length != 0)
         {
             int index = Random.Range(0, effectsPool_1.Length);
             effectsPool_1[index].ActiveEffect();
             textToDisplay += effectsPool_1[index].GetEffectText() + "\n";
         }
 
-        if (effectsPool_2 != null)
+        if (effectsPool_2 != null && effectsPool_2.Length != 0)
         {
             int index = Random.Range(0, effectsPool_2.Length);
             effectsPool_2[index].ActiveEffect();
             textToDisplay += effectsPool_2[index].GetEffectText() + "\n";
         }
 
-        if (effectsPool_3 != null)
+        if (effectsPool_3 != null && effectsPool_3.Length != 0)
         {
             int index = Random.Range(0, effectsPool_3.Length);
             effectsPool_3[index].ActiveEffect();
             textToDisplay += effectsPool_3[index].GetEffectText() + "\n";
         }
 
-        if (effectsPool_4 != null)
+        if (effectsPool_4 != null && effectsPool_4.Length != 0)
         {
             int index = Random.Range(0, effectsPool_4.Length);
             effectsPool_4[index].ActiveEffect();
             textToDisplay += effectsPool_4[index].GetEffectText() + "\n";
         }
 
-        if (effectsPool_5 != null)
+        if (effectsPool_5 != null && effectsPool_5.Length != 0)
         {
             int index = Random.Range(0, effectsPool_5.Length);
             effectsPool_5[index].ActiveEffect();
@@ -51,5 +51,6 @@ public class EffectRandomEffectFromPool : ItemEffect
         }
 
         GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(textToDisplay);
+        base.ActiveEffect();
     }
 }
