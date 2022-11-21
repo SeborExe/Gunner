@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e93d5fa7f534a047996000b02dcd757, type: 3}
+  m_Name: AmmoDetails_IceGravityGun_Enemy
+  m_EditorClassIdentifier: 
+  ammoName: IceGravityGun Ammo Enemy
+  isPlayerAmmo: 0
+  isMelee: 0
+  ammoSprite: {fileID: 21300000, guid: 05486d4791413f54fbeba1dcb5237251, type: 3}
+  ammoPrefabArray:
+  - {fileID: 5249748811358305308, guid: c1ba2aac3a88ea940936d39ba388d392, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: 855dd2ca07afbaa448184e6ab01411ef, type: 2}
+  ammoChargeTime: 0
+  ammoChargeMaterial: {fileID: 0}
+  ammoDamage: 20
+  ammoSpeedMin: 3
+  ammoSpeedMax: 6
+  ammoRange: 28
+  ammoRotationSpeed: 10
+  ammoSpreadMin: 1
+  ammoSpreadMax: 4
+  ammoSpecialEffects:
+  - {fileID: 11400000, guid: 3e2769eea61deb4419ed37cdfc176159, type: 2}
+  ammoSpawnAmountMin: 1
+  ammoSpawnAmountMax: 1
+  ammoSpawnIntervalMin: 0
+  ammoSpawnIntervalMax: 0
+  isAmmoTrail: 0
+  ammoTrailTime: 0
+  ammoTrailMaterial: {fileID: 0}
+  ammoTrailStartWidth: 0
+  ammoTrailEndWidth: 0
+  ammoHitEffect: {fileID: 11400000, guid: fb906775e589f5d42aa54ac2b1ed38f3, type: 2}

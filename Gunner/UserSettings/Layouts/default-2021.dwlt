@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 106
+  controlID: 110
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 47
+  controlID: 46
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 48
+  controlID: 47
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -404,7 +404,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3cf8ffff04f9ffff0cfbffff
+      m_ExpandedIDs: 0cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -461,8 +461,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -100, y: -25.600006}
+      snapOffset: {x: -100, y: -25.600006}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -472,9 +472,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -141, y: 149}
+      snapOffset: {x: -141, y: -229.4}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
+      snapCorner: 3
       id: unity-grid-and-snap-toolbar
       index: 1
       layout: 1
@@ -483,7 +483,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -675,9 +675,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.1784463, y: -1.3409444, z: -3.049417}
+    m_Target: {x: -4.700769, y: -2.3831594, z: -3.110033}
     speed: 2
-    m_Value: {x: -1.1784463, y: -1.3409444, z: -3.049417}
+    m_Value: {x: -5.6712627, y: -1.6809645, z: -3.1175485}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -728,9 +728,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.888114
+    m_Target: 15.949668
     speed: 2
-    m_Value: 9.888114
+    m_Value: 16.701223
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1134,22 +1134,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_prefabs/Enviroment/MovebleItems
+    - Assets/__Scripts/ScriptableObjectAssets/Dungeon/Rooms/Sorcery
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/_prefabs/Enviroment/MovebleItems
+  - Assets/__Scripts/ScriptableObjectAssets/Dungeon/Rooms/Sorcery
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\UnityGamesProject\Gunner\Gunner
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 598.2}
-    m_SelectedIDs: 849f0000
-    m_LastClickedID: 40836
-    m_ExpandedIDs: 00000000d29b0000d49b0000d69b0000d89b0000da9b0000dc9b0000de9b0000e09b0000e29b0000e69b0000fa9b00000c9c00008a9d0000329f000000ca9a3b
+    scrollPos: {x: 0, y: 470.2}
+    m_SelectedIDs: f2a10100
+    m_LastClickedID: 106994
+    m_ExpandedIDs: 000000000e810100da9f0100dc9f0100de9f0100e09f0100e29f0100e49f0100e69f0100e89f0100ea9f0100ee9f0100f09f0100f49f01003aa1010092a10100eca1010016a201001ea201000ea301001cb801007cb9010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1177,7 +1177,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ba700000d29b0000d49b0000d69b0000d89b0000da9b0000dc9b0000de9b0000e09b0000e29b0000e49b0000e69b0000e89b0000ea9b0000ec9b0000ee9b0000f09b0000f29b0000f49b0000f69b0000f89b0000fa9b0000fc9b0000fe9b0000009c0000029c0000049c0000069c0000089c00000a9c00000c9c00000e9c0000109c0000129c0000149c0000169c0000189c00001a9c0000
+    m_ExpandedIDs: 00000000da9f0100dc9f0100de9f0100e09f0100e29f0100e49f0100e69f0100e89f0100ea9f0100ec9f0100ee9f0100f09f0100f29f0100f49f0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1205,21 +1205,21 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000d6b4010080980000f29b00000298010028980000f298000064880100668801004e4c020030d2000090d20000a8d200009ea60000e2c9000020da0000d2a40100bca700005cc600000aad000066ad0000a4af000062990000e6ce0000060f020008c500008af80100689b000074d901006ed301005ebb0000e8ca0000a6ae0100a2ae010016af0000e89b0000cacb0000b6e400007af00000529d0000
+    m_ExpandedInstanceIDs: c6230000d6b4010080980000f29b00000298010028980000f298000064880100668801004e4c020030d2000090d20000a8d200009ea60000e2c9000020da0000d2a40100bca700005cc600000aad000066ad0000a4af000062990000e6ce0000060f020008c500008af80100689b000074d901006ed301005ebb0000e8ca0000a6ae0100a2ae010016af0000e89b0000cacb0000b6e400007af00000529d0000d6be0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Room_BossRoom_Sorcery_1
-      m_OriginalName: Room_BossRoom_Sorcery_1
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 41412
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 4
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
@@ -1229,7 +1229,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 321.2}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 233
