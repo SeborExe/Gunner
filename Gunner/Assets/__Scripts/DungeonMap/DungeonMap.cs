@@ -34,6 +34,8 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
 
     private void GetRoomClicked()
     {
+        if (GameManager.Instance.gameState == GameState.engagingEnemies || GameManager.Instance.gameState == GameState.engagingBoss) return;
+
         Vector3 worldPosition = dungeonCamera.ScreenToWorldPoint(Input.mousePosition);
         worldPosition = new Vector3(worldPosition.x, worldPosition.y, 0f);
 
