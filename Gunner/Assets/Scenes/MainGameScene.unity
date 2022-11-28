@@ -1120,7 +1120,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780105, y: 1}
+    m_SensorSize: {x: 1.7770898, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1231,7 +1231,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7780105, y: 1}
+    m_SensorSize: {x: 1.7770898, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2609,7 +2609,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &581742553
 GameObject:
@@ -8606,6 +8606,9 @@ MonoBehaviour:
     componentType: IFireable
   - poolSize: 80
     prefab: {fileID: 5249748811358305308, guid: c1ba2aac3a88ea940936d39ba388d392, type: 3}
+    componentType: IFireable
+  - poolSize: 20
+    prefab: {fileID: 5249748811358305308, guid: e3c17fbe4e50a684b955287424cf44ec, type: 3}
     componentType: IFireable
 --- !u!4 &1713267372
 Transform:

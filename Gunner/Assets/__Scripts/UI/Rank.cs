@@ -55,7 +55,7 @@ public static class Rank
 
         else if (name == "knight")
         {
-            PlayerPrefs.SetInt(ThiefRank, rank);
+            PlayerPrefs.SetInt(KnightRank, rank);
         }
     }
 }

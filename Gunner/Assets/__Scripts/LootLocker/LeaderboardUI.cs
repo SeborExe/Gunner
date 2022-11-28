@@ -34,8 +34,17 @@ public class LeaderboardUI : MonoBehaviour
                     scoreGameObject = Instantiate(GameResources.Instance.scorePrefab, contentAnchorTransform);
 
                     ScorePrefab scorePrefab = scoreGameObject.GetComponent<ScorePrefab>();
-                    scorePrefab.rankTMP.text = member.rank.ToString(); ;
-                    scorePrefab.nameTMP.text = member.player.name;
+                    scorePrefab.rankTMP.text = member.rank.ToString();
+
+                    if (member.player.name != "" || member.player.name != null)
+                    {
+                        scorePrefab.nameTMP.text = member.player.name;
+                    }
+                    else
+                    {
+                        scorePrefab.nameTMP.text = "Unknown Player";
+                    }
+
                     scorePrefab.levelTMP.text = member.metadata;
                     scorePrefab.scoreTMP.text = member.score.ToString();
                 }

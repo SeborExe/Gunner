@@ -376,7 +376,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     {
         gameState = GameState.playingLevel;
 
-        if (currentDungeonLevelListIndex == 5)
+        if (currentDungeonLevelListIndex == 6)
         {
             finishLevelButton.GetComponentInChildren<TMP_Text>().text = "FINISH";
         }

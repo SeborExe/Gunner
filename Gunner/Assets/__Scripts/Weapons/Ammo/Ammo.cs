@@ -69,7 +69,7 @@ public class Ammo : MonoBehaviour, IFireable
     private void DealDamage(Collider2D collision)
     {
         Health health = collision.GetComponent<Health>();
-        EffectManager effectManager = collision.GetComponent<EffectManager>();
+        EffectManager effectManager = collision.gameObject.GetComponent<EffectManager>();
 
         bool enemyHit = false;
 
