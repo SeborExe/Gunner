@@ -71,7 +71,7 @@ public class Health : MonoBehaviour
 
         if (player != null) isRolling = player.playerControl.isPlayerRolling;
 
-        if (isDamagable && !isRolling)
+        if (isDamagable && !isRolling && (!GetComponent<DevilHearthStateMachine>() || !GetComponent<DevilHearthStateMachine>().IsHide()))
         {
             currentHealth -= damageAmount;
             CallHealthEvent(damageAmount);
@@ -86,8 +86,16 @@ public class Health : MonoBehaviour
             if (healthBar != null)
             {
                 healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
-                //healthBar.SetHealthBarValue(startingHealth);
             }
+        }
+
+        else if (TryGetComponent<DevilHearthStateMachine>(out DevilHearthStateMachine devil)) //Only for Final Boss
+        {
+            int damage = (int)(damageAmount - (damageAmount * (devil.GetDamageReduct() / 100f)));
+
+            currentHealth -= damage;
+            CallHealthEvent(damage);
+            healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
         }
     }
 

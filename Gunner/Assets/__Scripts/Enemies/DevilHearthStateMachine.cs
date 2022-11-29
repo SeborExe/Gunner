@@ -12,6 +12,7 @@ public class DevilHearthStateMachine : MonoBehaviour
     [SerializeField] float minimumDistance = 5f;
     [SerializeField] float maximumDistance = 12f;
     [SerializeField] float laserSpeed;
+    [SerializeField] float damageReduct = 80f;
 
     private bool isHide = false;
 
@@ -28,7 +29,6 @@ public class DevilHearthStateMachine : MonoBehaviour
     private void ChangeState()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, GameManager.Instance.GetPlayer().transform.position);
-        Debug.Log(distanceToPlayer);
 
         if (distanceToPlayer <= minimumDistance && isHide)
         {
@@ -41,5 +41,15 @@ public class DevilHearthStateMachine : MonoBehaviour
             animator.SetTrigger("Hide");
             isHide = true;
         }
+    }
+
+    public bool IsHide()
+    {
+        return isHide;
+    }
+
+    public float GetDamageReduct()
+    {
+        return damageReduct;
     }
 }

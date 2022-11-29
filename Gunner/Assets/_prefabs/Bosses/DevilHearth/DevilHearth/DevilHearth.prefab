@@ -628,6 +628,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6158470697551482003, guid: dff98094ab888064994e7caedaba3908, type: 3}
   m_PrefabInstance: {fileID: 5203972236733156344}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-1680810445792150963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112031360151242603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de800d639593f2548ac5a176c4ed8dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesByLevelList:
+  - dungeonLevel: {fileID: 11400000, guid: f76dbedb9293f6848a2c1034bb5cd430, type: 2}
+    spawnableObjectRatioList:
+    - dungeonObject: {fileID: 11400000, guid: 9a64acb3b84d8634ab0dfe3d3c24ae65, type: 2}
+      ratio: 4
+    - dungeonObject: {fileID: 11400000, guid: 77418b76b03170546839075c2de51c87, type: 2}
+      ratio: 4
+    - dungeonObject: {fileID: 11400000, guid: a7a229d3997212b4e8776badca2c4e09, type: 2}
+      ratio: 4
+    - dungeonObject: {fileID: 11400000, guid: 1d6df0f74f73c1e42a75fbe3882df056, type: 2}
+      ratio: 3
+    - dungeonObject: {fileID: 11400000, guid: 95937aecb8a0f934dbd1e416771e5788, type: 2}
+      ratio: 4
+    - dungeonObject: {fileID: 11400000, guid: 37d6ebc165faf3c4fb7a0d909a6c9d77, type: 2}
+      ratio: 0
+    - dungeonObject: {fileID: 11400000, guid: 20dca7e8cd1ada3499eaaa984591b00c, type: 2}
+      ratio: 2
+    - dungeonObject: {fileID: 11400000, guid: d7865b5e36a318f4e89dab6af2748122, type: 2}
+      ratio: 3
+    - dungeonObject: {fileID: 11400000, guid: e707263dc1f30bb48bca3098e8a27aaf, type: 2}
+      ratio: 4
+    - dungeonObject: {fileID: 11400000, guid: 5c49bbf9a75466f409fc3c7a7f1e658a, type: 2}
+      ratio: 3
+  roomEnemySpawnParametersList:
+  - dungeonLevel: {fileID: 11400000, guid: f76dbedb9293f6848a2c1034bb5cd430, type: 2}
+    minTotalEnemiesToSpawn: 1
+    maxTotalEnemiesToSpawn: 3
+    minConcurrentEnemies: 3
+    maxConcurrentEnemies: 6
+    minSpawnInterval: 2
+    maxSpawnInterval: 3
+  MinMaxSpawnInterval: {x: 8, y: 12}
 --- !u!114 &8745762727954178869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,6 +689,7 @@ MonoBehaviour:
   minimumDistance: 7
   maximumDistance: 12
   laserSpeed: 0
+  damageReduct: 80
 --- !u!4 &7576142254382218503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2385751189007300351, guid: dff98094ab888064994e7caedaba3908, type: 3}
