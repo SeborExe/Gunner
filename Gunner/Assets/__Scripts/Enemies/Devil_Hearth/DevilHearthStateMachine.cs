@@ -18,11 +18,15 @@ public class DevilHearthStateMachine : MonoBehaviour
     [SerializeField] float delayBetweenLasers;
     [SerializeField] float timeToMoveLaser = 2f;
     [SerializeField] float destroyAfterTime;
+    [SerializeField] float laserHideSpeed = 2f;
+    [SerializeField] float laserShowSpeed = 1.2f;
+
+    [Header("FireGen")]
+    [SerializeField] Transform fireGen;
 
     private bool isHide = false;
     private Transform instantietedLaser = null;
     private float laserTimer = 0;
-    private float laserLifeTimeTimer = 0;
     private float rotation = 0;
 
     private void Awake()
@@ -33,12 +37,12 @@ public class DevilHearthStateMachine : MonoBehaviour
     private void Start()
     {
         Invoke(nameof(InstantiateLaser), 5f);
+        Invoke(nameof(InstantiateFireGen), 5f);
     }
 
     private void Update()
     {
         ChangeState();
-        MoveLaser();
         UpdateTimers();
     }
 
@@ -48,12 +52,6 @@ public class DevilHearthStateMachine : MonoBehaviour
         {
             laserTimer -= Time.deltaTime;
             if (laserTimer < 0) laserTimer = 0;
-        }
-
-        if (laserLifeTimeTimer > 0)
-        {
-            laserLifeTimeTimer -= Time.deltaTime;
-            if (laserLifeTimeTimer < 0) laserLifeTimeTimer = 0;
         }
     }
 
@@ -79,28 +77,53 @@ public class DevilHearthStateMachine : MonoBehaviour
         laserTimer = timeToMoveLaser;
         instantietedLaser = Instantiate(laser, transform.position + Vector3.up * 3f, Quaternion.Euler(0, 0, 0));
         instantietedLaser.transform.parent = this.transform;
-        instantietedLaser.transform.rotation = Quaternion.Euler(0, 0, 0);
-        rotation = 0;
 
-        Destroy(instantietedLaser.gameObject, destroyAfterTime);
-        Invoke(nameof(InstantiateLaser), delayBetweenLasers);     
+        int randomRotation = UnityEngine.Random.Range(0, 360);
+
+        instantietedLaser.transform.rotation = Quaternion.Euler(0, 0, randomRotation);
+        rotation = randomRotation;
+
+        StartCoroutine(MoveLaser());
     }
 
-    private void MoveLaser()
+    private IEnumerator MoveLaser()
     {
-        if (instantietedLaser != null && laserTimer <= 0)
+        while (instantietedLaser.transform.localScale.x < 1)
         {
-            laserLifeTimeTimer = destroyAfterTime;
-
-            rotation += Time.deltaTime * laserSpeed;
-            instantietedLaser.transform.rotation = Quaternion.Euler(0, 0, rotation);
-
-            if (laserLifeTimeTimer <= 0)
-            {
-                instantietedLaser = null;
-                rotation = 0;
-            }
+            instantietedLaser.transform.localScale = new Vector3(instantietedLaser.transform.localScale.x + Time.deltaTime * laserShowSpeed,
+                instantietedLaser.transform.localScale.y + Time.deltaTime * laserShowSpeed, 1f);
+            yield return null;
         }
+
+        float randomRotation = UnityEngine.Random.Range(180f, 360f);
+        float currentAngle = 0;
+
+        while (currentAngle < randomRotation)
+        {
+            rotation += Time.deltaTime * laserSpeed;
+            currentAngle += Time.deltaTime * laserSpeed;
+
+            instantietedLaser.transform.rotation = Quaternion.Euler(0, 0, rotation);
+            yield return null;
+        }
+
+        while (instantietedLaser.transform.localScale.x > 0.1f)
+        {
+            instantietedLaser.transform.localScale = new Vector3(instantietedLaser.transform.localScale.x - Time.deltaTime * laserHideSpeed,
+                instantietedLaser.transform.localScale.y - Time.deltaTime * laserHideSpeed, 1f);
+            yield return null;
+        }
+
+        Destroy(instantietedLaser.gameObject);
+        instantietedLaser = null;
+
+        Invoke(nameof(InstantiateLaser), delayBetweenLasers);
+    }
+
+    private void InstantiateFireGen()
+    {
+        Transform gen = Instantiate(fireGen, transform.position, Quaternion.identity);
+        gen.parent = transform;
     }
 
     public bool IsHide()
