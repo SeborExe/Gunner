@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
@@ -22,20 +23,34 @@ public class SpawnEnemy : MonoBehaviour
     {
         int spawnInterval = Random.Range((int)MinMaxSpawnInterval.x, (int)MinMaxSpawnInterval.y);
         Invoke(nameof(SpawnEnemies), spawnInterval);
+
+        GetComponent<HealthEvent>().OnHealthChanged += OnHealthChanged_OnDie;
+    }
+
+    private void OnHealthChanged_OnDie(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
+    {
+        if (healthEventArgs.healthAmount <= 0)
+        {
+            StopAllCoroutines();
+            DestroyAllSpawnedEnemies();
+        }
     }
 
     public void DestroyAllSpawnedEnemies()
     {
-        if (enemies != null)
+        enemies = enemies.Where(i => i != null).ToList();
+
+        foreach (Enemy enemyObject in enemies)
         {
-            foreach (Enemy enemyObject in enemies)
-            {
-                if (enemyObject.TryGetComponent<Health>(out Health enemyHealth))
-                {
-                    enemyHealth.TakeDamage(200);
-                }
-            }
+            Health enemyHealth = enemyObject.GetComponent<Health>();
+            enemyHealth.TakeDamage(200);
         }
+    }
+
+    private void EnemyDestroyed()
+    {
+        DestroyedEvent destroyedEvent = GetComponent<DestroyedEvent>();
+        destroyedEvent.CallDestroyedEvent(false, GetComponent<Health>().GetStartingHealth());
     }
 
     private void SpawnEnemies()
@@ -127,4 +142,5 @@ public class SpawnEnemy : MonoBehaviour
     {
         return (Random.Range(roomEnemySpawnParameters.minSpawnInterval, roomEnemySpawnParameters.maxSpawnInterval));
     }
+
 }

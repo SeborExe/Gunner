@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public EnemyDetailsSO enemyDetails;
     [HideInInspector] public AimWeaponEvent aimWeaponEvent;
     [HideInInspector] public FireWeaponEvent fireWeaponEvent;
-    private HealthEvent healthEvent;
+    [HideInInspector] public HealthEvent healthEvent;
     private Health health;
     private FireWeapon fireWeapon;
     private SetActiveWeaponEvent setActiveWeaponEvent;
@@ -88,12 +88,6 @@ public class Enemy : MonoBehaviour
         if (healthEventArgs.healthAmount <= 0)
         {
             Instantiate(bloodParticle, transform.position, Quaternion.identity);
-
-            if (TryGetComponent<SpawnEnemy>(out SpawnEnemy spawnEnemy))
-            {
-                spawnEnemy.DestroyAllSpawnedEnemies();
-            }
-
             EnemyDestroyed();
         }
     }
