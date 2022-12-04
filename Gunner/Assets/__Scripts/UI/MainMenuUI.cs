@@ -50,7 +50,6 @@ public class MainMenuUI : MonoBehaviour
         } while (scene.progress < 0.9f);
 
         scene.allowSceneActivation = true;
-        //loadingScreen.SetActive(false);
     }
 
     private void Update()
