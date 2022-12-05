@@ -7,6 +7,7 @@ using UnityEngine;
 public class Destroyed : MonoBehaviour
 {
     private DestroyedEvent destroyedEvent;
+    [SerializeField] ParticleSystem playerDeadParticles;
 
     private void Awake()
     {

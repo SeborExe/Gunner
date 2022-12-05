@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 27
+  controlID: 105
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 28
+  controlID: 106
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: SceneView
+  m_Name: GameView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -217,13 +217,13 @@ MonoBehaviour:
     height: 424
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 15}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 15}
   - {fileID: 13}
   - {fileID: 12}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   - {fileID: 18}
   - {fileID: 17}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 482.40002
     height: 730.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1920, y: 1080}
+  m_TargetSize: {x: 849, y: 477.5}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -460,10 +460,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -768
-    m_HBaseRangeMax: 768
-    m_VBaseRangeMin: -432
-    m_VBaseRangeMax: 432
+    m_HBaseRangeMin: -339.6
+    m_HBaseRangeMax: 339.6
+    m_VBaseRangeMin: -191
+    m_VBaseRangeMax: 191
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -472,7 +472,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -483,7 +483,7 @@ MonoBehaviour:
       y: 21
       width: 749.19995
       height: 382
-    m_Scale: {x: 0.44212964, y: 0.44212964}
+    m_Scale: {x: 1, y: 1}
     m_Translation: {x: 374.59998, y: 191}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -491,12 +491,12 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -847.26276
-      y: -432
-      width: 1694.5255
-      height: 864
+      x: -374.59998
+      y: -191
+      width: 749.19995
+      height: 382
     m_MinimalGUI: 1
-  m_defaultScale: 0.44212964
+  m_defaultScale: 1
   m_LastWindowPixelSize: {x: 936.49994, y: 503.75}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -534,23 +534,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 26de0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: de2ce1ff5844e2ffc84fe3ffd250e3ff2e62e3ff4ca8e7ff02a3edffbaa3edff80d7f7ffb8f7f8ff6c66fbfff68efcff84b5fdff04fbffff207200005e720000
+      m_ExpandedIDs: e0a8fcff98a9fcff0cfbffff1e720000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: EnemyAmmo_4x4NoWeapon(Clone)
-        m_OriginalName: EnemyAmmo_4x4NoWeapon(Clone)
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -982696
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -647,8 +647,8 @@ MonoBehaviour:
       containerId: overlay-toolbar__top
       floating: 0
       collapsed: 0
-      displayed: 0
-      snapOffset: {x: 0, y: 24.8}
+      displayed: 1
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Tilemap Focus
@@ -807,9 +807,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 32.05155, y: 54.523277, z: -1.2789463}
+    m_Target: {x: -30.545612, y: -49.66418, z: -0.0047753723}
     speed: 2
-    m_Value: {x: 32.05155, y: 54.523277, z: -1.2789463}
+    m_Value: {x: -30.545612, y: -49.66418, z: -0.0047753723}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -860,9 +860,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 53.10904
+    m_Target: 1.254735
     speed: 2
-    m_Value: 53.10904
+    m_Value: 1.254735
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -928,22 +928,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_prefabs/Particles
+    - Assets/_prefabs/Bosses/DevilHearth/DevilHearth
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/_prefabs/Particles
+  - Assets/_prefabs/Bosses/DevilHearth/DevilHearth
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\UnityGamesProject\Gunner\Gunner
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 2100}
-    m_SelectedIDs: 70a30100
-    m_LastClickedID: 107376
-    m_ExpandedIDs: 000000009483010080a1010082a1010084a1010086a1010088a101008aa101008ca101008ea1010090a1010092a1010094a1010096a1010098a101009aa101009ca101009ea10100a0a10100a2a10100a4a10100a6a10100a8a10100aaa10100aca10100b0a10100b2a10100b4a10100b6a10100b8a10100baa10100bca10100c0a10100c2a101002ca3010036a3010040a301005aa3010072a50100faa5010056a7010000ca9a3b
+    scrollPos: {x: 0, y: 1422.2}
+    m_SelectedIDs: 8ea20100
+    m_LastClickedID: 107150
+    m_ExpandedIDs: 00000000b08301009ea10100a0a10100a2a10100a4a10100a6a10100a8a10100aaa10100aca10100aea10100b0a10100b2a10100b4a10100b6a10100b8a10100baa10100bca10100bea10100c0a10100c2a10100c4a10100c6a10100c8a10100caa10100cca10100cea10100d0a10100d2a10100d4a10100d6a10100d8a10100daa10100dca10100dea10100e0a10100e2a10100e4a10100e6a10100e8a1010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -971,7 +971,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009483010080a1010082a1010084a1010086a1010088a101008aa101008ca101008ea1010090a1010092a1010094a1010096a1010098a101009aa101009ca101009ea10100a0a10100a2a10100a4a10100a6a10100a8a10100aaa10100aca10100aea10100b0a10100b2a10100b4a10100b6a10100b8a10100baa10100bca10100bea10100c0a10100c2a10100
+    m_ExpandedIDs: 00000000b08301009ea10100a0a10100a2a10100a4a10100a6a10100a8a10100aaa10100aca10100aea10100b0a10100b2a10100b4a10100b6a10100b8a10100baa10100bca10100bea10100c0a10100c2a10100c4a10100c6a10100c8a10100caa10100cca10100cea10100d0a10100d2a10100d4a10100d6a10100d8a10100daa10100dca10100dea10100e0a10100e2a10100e4a10100e6a10100e8a10100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -998,22 +998,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000d6b4010080980000f29b00000298010028980000f298000064880100668801004e4c020030d2000090d20000a8d200009ea60000e2c9000020da0000d2a40100bca700005cc600000aad000066ad0000a4af000062990000e6ce0000060f020008c500008af80100689b000074d901006ed301005ebb0000e8ca0000a6ae0100a2ae010016af0000e89b0000cacb0000b6e400007af00000529d0000d6be010090a20100cab70100bce801004aa30100d8730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: FireGen
+      m_OriginalName: FireGen
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 56894
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
@@ -1085,7 +1085,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 149152
+  m_LastSelectedObjectID: 137822
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52

@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3203829622497653824}
   - component: {fileID: 3344013945347230659}
-  - component: {fileID: 6225986910405386787}
-  - component: {fileID: 6260813138683574444}
   - component: {fileID: 1111700005065361015}
   - component: {fileID: 4348974989256885638}
   - component: {fileID: 1167937504918477525}
   - component: {fileID: 5126505376842979511}
+  - component: {fileID: 6225986910405386787}
+  - component: {fileID: 6260813138683574444}
   m_Layer: 15
   m_Name: FireGen
   m_TagString: Untagged
@@ -91,40 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6225986910405386787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3428669059590028708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f47d300b5c35d594fae4b4fa71f5a0c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  bullet: {fileID: 5249748811358305308, guid: 2d4f73a1895a95d45ac28ec6f07964e7, type: 3}
-  numberOfProjectiles: 8
-  ammoSpeed: 8
-  timeBetweenShoots: 2
-  bloodParticle: {fileID: 8738176433507403784, guid: 5a24485f80f8e744181458ce01a7e5c9, type: 3}
---- !u!114 &6260813138683574444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3428669059590028708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6457574d2d554ff43bec2c67b33f3f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contactDamageAmount: 10
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 132096
 --- !u!58 &1111700005065361015
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -193,6 +159,40 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6225986910405386787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3428669059590028708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f47d300b5c35d594fae4b4fa71f5a0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  bloodParticle: {fileID: 8738176433507403784, guid: 5a24485f80f8e744181458ce01a7e5c9, type: 3}
+  ammoDetails: {fileID: 11400000, guid: f6287d8da86d7784ab65e5c8757fa34b, type: 2}
+  numberOfProjectiles: 8
+  timeBetweenShoots: 2
+  cycles: 8
+--- !u!114 &6260813138683574444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3428669059590028708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6457574d2d554ff43bec2c67b33f3f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactDamageAmount: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 132096
 --- !u!1 &6912683385939933144
 GameObject:
   m_ObjectHideFlags: 0

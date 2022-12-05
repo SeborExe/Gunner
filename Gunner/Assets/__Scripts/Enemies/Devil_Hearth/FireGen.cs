@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class FireGen : MonoBehaviour
 {
+    [Header("Gen Stats")]
     [SerializeField] float speed = 5f;
-    [SerializeField] GameObject bullet;
-    [SerializeField] int numberOfProjectiles;
-    [SerializeField] private float ammoSpeed = 8f;
-    [SerializeField] private float timeBetweenShoots = 2f;
     [SerializeField] ParticleSystem bloodParticle;
 
-    private int cycles = 8;
+    [Header("Ammo Stats")]
+    [SerializeField] AmmoDetailsSO ammoDetails;
+    [SerializeField] int numberOfProjectiles;
+    [SerializeField] private float timeBetweenShoots = 2f;
+    [SerializeField] private int cycles = 8;
+
     private float radius = 5f;
     private Vector2 startPoint;
 
@@ -48,6 +50,8 @@ public class FireGen : MonoBehaviour
 
     private IEnumerator SpawnProjectiles(int numberOfProjectiles)
     {
+        GameObject ammoPrefab = ammoDetails.ammoPrefabArray[UnityEngine.Random.Range(0, ammoDetails.ammoPrefabArray.Length)];
+
         float angleStep = 360f / numberOfProjectiles;
         float angle = 0f;
 
@@ -62,14 +66,15 @@ public class FireGen : MonoBehaviour
                 float projectileDirYposition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
 
                 Vector2 projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
-                Vector2 projectileMoveDIrection = (projectileVector - startPoint).normalized * speed;
+                Vector2 projectileMoveDIrection = (projectileVector - startPoint).normalized * UnityEngine.Random.Range(ammoDetails.ammoSpeedMin, ammoDetails.ammoSpeedMax);
 
-                IFireable projectile = (IFireable)PoolManager.Instance.ReuseComponent(bullet, startPoint, Quaternion.identity);
-                projectile.GetGameObject().SetActive(true);
+                IFireable projectile = (IFireable)PoolManager.Instance.ReuseComponent(ammoPrefab, startPoint, Quaternion.identity);
+                projectile.InitializeAmmo(ammoDetails, 0, 0, UnityEngine.Random.Range(ammoDetails.ammoSpeedMin, ammoDetails.ammoSpeedMax), startPoint, gameObject);
                 projectile.GetGameObject().GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDIrection.x, projectileMoveDIrection.y);
 
                 angle += angleStep;
             }
+
             yield return new WaitForSeconds(timeBetweenShoots);
         }
 

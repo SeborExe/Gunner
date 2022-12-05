@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6493018470000168696}
   - component: {fileID: 1322354561621033191}
   - component: {fileID: 1352964634031774940}
-  - component: {fileID: -7675711091879448972}
+  - component: {fileID: 115180529417678427}
   m_Layer: 16
-  m_Name: EnemyAmmo_4x4NoWeapon
+  m_Name: EnemyAmmo_NoWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -653709415
   m_SortingLayer: 4
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: c3be09077243891458bdbf46a57d2e8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e36e8bbd18074d341b170885ac002038, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +105,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.25}
+    oldSize: {x: 0.4375, y: 0.4375}
     newSize: {x: 0.375, y: 0.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -113,14 +113,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.056348294, y: 0.11940533}
-      - {x: -0.12048841, y: 0.061474778}
-      - {x: -0.11922611, y: -0.05833427}
-      - {x: -0.06548044, y: -0.11598259}
-      - {x: 0.049539525, y: -0.11699079}
-      - {x: 0.11913717, y: -0.064529225}
-      - {x: 0.11879026, y: 0.05728539}
-      - {x: 0.0579084, y: 0.11940533}
+    - - {x: -0.08477959, y: 0.19800948}
+      - {x: -0.19909258, y: 0.08154392}
+      - {x: -0.1995027, y: -0.080075845}
+      - {x: -0.073842585, y: -0.19960402}
+      - {x: 0.07797082, y: -0.20061223}
+      - {x: 0.2010862, y: -0.08125352}
+      - {x: 0.20241171, y: 0.07902697}
+      - {x: 0.08466727, y: 0.19800949}
 --- !u!50 &1352964634031774940
 Rigidbody2D:
   serializedVersion: 4
@@ -142,7 +142,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &-7675711091879448972
+--- !u!114 &115180529417678427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d008e21a16e3f6043ba6fcd704b48863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoDetails: {fileID: 11400000, guid: 5f464d7ff78a12d4686609acca5ae24f, type: 2}
   trailRenderer: {fileID: 8431581466502459921}
 --- !u!1 &5717917128675893356
 GameObject:

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AmmoNoWeapon : MonoBehaviour, IFireable
 {
-    [SerializeField] AmmoDetailsSO ammoDetails;
     [SerializeField] TrailRenderer trailRenderer;
     private GameObject sender;
     private SpriteRenderer spriteRenderer;
+    private AmmoDetailsSO ammoDetails;
 
     private float range;
     private float ammoChargeTimer;
