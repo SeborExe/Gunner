@@ -24,6 +24,10 @@ public class DevilHearthStateMachine : MonoBehaviour
     [Header("FireGen")]
     [SerializeField] Transform fireGen;
 
+    [Header("Laser Circle")]
+    [SerializeField] Transform[] lasersTransforms;
+    [SerializeField] float turningSpeed;
+
     private bool isHide = false;
     private Transform instantietedLaser = null;
     private float laserTimer = 0;
@@ -36,8 +40,9 @@ public class DevilHearthStateMachine : MonoBehaviour
 
     private void Start()
     {
-        Invoke(nameof(InstantiateLaser), 5f);
-        Invoke(nameof(InstantiateFireGen), 5f);
+        Invoke(nameof(InstantiateLaser), 8f);
+        //Invoke(nameof(InstantiateFireGen), 5f);
+        //Invoke(nameof(InstantiateCircleLasersAttack), 10f);
     }
 
     private void Update()
@@ -75,7 +80,7 @@ public class DevilHearthStateMachine : MonoBehaviour
     private void InstantiateLaser()
     {
         laserTimer = timeToMoveLaser;
-        instantietedLaser = Instantiate(laser, transform.position + Vector3.up * 3f, Quaternion.Euler(0, 0, 0));
+        instantietedLaser = Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 0));
         instantietedLaser.transform.parent = this.transform;
 
         int randomRotation = UnityEngine.Random.Range(0, 360);
@@ -118,6 +123,52 @@ public class DevilHearthStateMachine : MonoBehaviour
         instantietedLaser = null;
 
         Invoke(nameof(InstantiateLaser), delayBetweenLasers);
+    }
+
+    private void InstantiateCircleLasersAttack()
+    {
+        foreach (Transform laser in lasersTransforms)
+        {
+            laser.gameObject.SetActive(true);
+        }
+
+        StartCoroutine(CircleAttack());
+    }
+
+    private IEnumerator CircleAttack()
+    {
+        foreach (Transform laser in lasersTransforms)
+        {
+            while (laser.localScale.x < 0.5f)
+            {
+                laser.localScale = new Vector3(laser.localScale.x + Time.deltaTime * laserShowSpeed, laser.localScale.y + Time.deltaTime * 2 * laserShowSpeed, 1f);
+                yield return null;
+            }
+        }
+
+        float angle = 360f;
+        float currentAngle = 0;
+
+        while (currentAngle < angle)
+        {
+            rotation += Time.deltaTime * laserSpeed;
+            currentAngle += Time.deltaTime * laserSpeed;
+
+            transform.rotation = Quaternion.Euler(0, 0, rotation);
+            yield return null;
+        }
+
+        foreach (Transform laser in lasersTransforms)
+        {
+            while (laser.localScale.x > 0.1f)
+            {
+                laser.localScale = new Vector3(laser.localScale.x - Time.deltaTime * laserHideSpeed, laser.localScale.y - Time.deltaTime * 2 * laserHideSpeed, 1f);
+                yield return null;
+            }
+
+            laser.localScale = new Vector3(0, 0, 1f);
+            laser.gameObject.SetActive(false);
+        }
     }
 
     private void InstantiateFireGen()
