@@ -28,6 +28,7 @@ public class Destroyed : MonoBehaviour
     {
         if (destroyEventArgs.playerDied)
         {
+            Instantiate(playerDeadParticles, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
         }
         else

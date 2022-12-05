@@ -421,7 +421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4675408329772287193, guid: 25bcc946967c98b4cae809b68f135a27, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25bcc946967c98b4cae809b68f135a27, type: 3}
@@ -977,6 +977,10 @@ PrefabInstance:
       propertyPath: isMoving
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9061225728195469800, guid: dff98094ab888064994e7caedaba3908, type: 3}
+      propertyPath: bloodParticle
+      value: 
+      objectReference: {fileID: 8738176433507403784, guid: f2cec783623a88d4790fabb331072cac, type: 3}
     - target: {fileID: 9166202000574618295, guid: dff98094ab888064994e7caedaba3908, type: 3}
       propertyPath: m_Radius
       value: 2
@@ -1040,6 +1044,35 @@ MonoBehaviour:
     minSpawnInterval: 2
     maxSpawnInterval: 3
   MinMaxSpawnInterval: {x: 8, y: 12}
+--- !u!114 &5247461306622506097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112031360151242603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb9b94590bf73b4aa954ff5ff7c3bbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spark: {fileID: 5548842341746381315}
+  minimumDistance: 5
+  maximumDistance: 12
+  damageReduct: 80
+  laser: {fileID: 3815125582786144950, guid: 25bcc946967c98b4cae809b68f135a27, type: 3}
+  laserSpeed: 45
+  timeToMoveLaser: 2
+  laserHideSpeed: 2
+  laserShowSpeed: 1.2
+  fireGen: {fileID: 3203829622497653824, guid: f66f4ce830d48864a90a552e41703a3d, type: 3}
+  lasersTransforms:
+  - {fileID: 8358265046051484950}
+  - {fileID: 6455564864016242683}
+  - {fileID: 7723921312435959382}
+  - {fileID: 6672774552127903086}
+  - {fileID: 3880066976084081665}
+  turningSpeed: 30
 --- !u!114 &8745762727954178869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,25 +1085,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b3cf839a0d8384db7ca3b144a66759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spark: {fileID: 5548842341746381315}
-  minimumDistance: 7
-  maximumDistance: 12
-  damageReduct: 80
-  laser: {fileID: 3815125582786144950, guid: 25bcc946967c98b4cae809b68f135a27, type: 3}
-  laserSpeed: 45
-  delayBetweenLasers: 15
-  timeToMoveLaser: 2
-  destroyAfterTime: 8
-  laserHideSpeed: 2
-  laserShowSpeed: 1.2
-  fireGen: {fileID: 3203829622497653824, guid: f66f4ce830d48864a90a552e41703a3d, type: 3}
-  lasersTransforms:
-  - {fileID: 8358265046051484950}
-  - {fileID: 6455564864016242683}
-  - {fileID: 7723921312435959382}
-  - {fileID: 6672774552127903086}
-  - {fileID: 3880066976084081665}
-  turningSpeed: 45
 --- !u!4 &7576142254382218503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2385751189007300351, guid: dff98094ab888064994e7caedaba3908, type: 3}
