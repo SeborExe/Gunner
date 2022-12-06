@@ -1057,15 +1057,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spark: {fileID: 5548842341746381315}
-  minimumDistance: 5
+  minimumDistance: 4
   maximumDistance: 12
   damageReduct: 80
+  healthPercentToStartSecondState: 35
   laser: {fileID: 3815125582786144950, guid: 25bcc946967c98b4cae809b68f135a27, type: 3}
   laserSpeed: 45
   timeToMoveLaser: 2
   laserHideSpeed: 2
-  laserShowSpeed: 1.2
-  fireGen: {fileID: 3203829622497653824, guid: f66f4ce830d48864a90a552e41703a3d, type: 3}
+  laserShowSpeed: 1
+  fireGens:
+  - {fileID: 3203829622497653824, guid: f66f4ce830d48864a90a552e41703a3d, type: 3}
   lasersTransforms:
   - {fileID: 8358265046051484950}
   - {fileID: 6455564864016242683}
@@ -1085,6 +1087,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b3cf839a0d8384db7ca3b144a66759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitBeforeFirstAttack: 13
+  waitBeforeFirstFireGenSummon: 10
+  minTimeToRollNewAttack: 7
+  maxTimeToRollNewAttack: 13
+  minTimeToSummonGen: 8
+  maxTimeToSummonGen: 12
+  percentChanceToSummonLaser: 40
+  minRollNewAttackDecrease: 1
+  maxRollNewAttackDecrease: 4
+  minSummonGenDecrease: 1
+  maxSummonGenDecrease: 2
 --- !u!4 &7576142254382218503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2385751189007300351, guid: dff98094ab888064994e7caedaba3908, type: 3}

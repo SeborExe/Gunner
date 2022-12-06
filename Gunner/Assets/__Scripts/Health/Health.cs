@@ -71,7 +71,7 @@ public class Health : MonoBehaviour
 
         if (player != null) isRolling = player.playerControl.isPlayerRolling;
 
-        if (isDamagable && !isRolling && (!GetComponent<DevilHearthStats>() || !GetComponent<DevilHearthStats>().IsHide()))
+        if (isDamagable && !isRolling && (!GetComponent<DevilHearthStats>() || !GetComponent<DevilHearthStats>().IsHide() || !GetComponent<DevilHearthStats>().CheckIfIsSecondState()))
         {
             currentHealth -= damageAmount;
             CallHealthEvent(damageAmount);

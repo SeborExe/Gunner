@@ -7,11 +7,14 @@ using UnityEngine;
 public class DevilHearthStats : MonoBehaviour
 {
     Animator animator;
+    DevilHearthStateMachine devilHearthState;
+    Health health;
 
     [SerializeField] Transform spark;
     [SerializeField] float minimumDistance = 5f;
     [SerializeField] float maximumDistance = 12f;
     [SerializeField] float damageReduct = 80f;
+    [SerializeField] int healthPercentToStartSecondState = 35;
 
     [Header("Laser")]
     [SerializeField] Transform laser;
@@ -21,7 +24,7 @@ public class DevilHearthStats : MonoBehaviour
     [SerializeField] float laserShowSpeed = 1.2f;
 
     [Header("FireGen")]
-    [SerializeField] Transform fireGen;
+    [SerializeField] Transform[] fireGens;
 
     [Header("Laser Circle")]
     [SerializeField] Transform[] lasersTransforms;
@@ -29,43 +32,49 @@ public class DevilHearthStats : MonoBehaviour
 
     private Transform instantietedLaser = null;
     private bool isHide = false;
+    private bool isSecondState = false;
     private float rotation = 0;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
-        Invoke(nameof(InstantiateLaser), 8f);
-        //Invoke(nameof(InstantiateFireGen), 5f);
-        //Invoke(nameof(InstantiateCircleLasersAttack), 10f);
+        devilHearthState = GetComponent<DevilHearthStateMachine>();
+        health = GetComponent<Health>();
     }
 
     private void Update()
     {
         ChangeState();
+        CheckSecondState();
     }
 
     private void ChangeState()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, GameManager.Instance.GetPlayer().transform.position);
 
-        if (distanceToPlayer <= minimumDistance && isHide)
+        if (distanceToPlayer <= maximumDistance && distanceToPlayer >= minimumDistance)
         {
             animator.SetTrigger("Show");
             isHide = false;
         }
-
-        if (distanceToPlayer >= maximumDistance && !isHide)
+        else
         {
             animator.SetTrigger("Hide");
             isHide = true;
         }
     }
 
-    public async void InstantiateLaser()
+    private void CheckSecondState()
+    {
+        if (health.currentHealth < (health.GetStartingHealth() * (healthPercentToStartSecondState / 100)))
+        {
+            isSecondState = true;
+            ChangeLasersSpeed();
+            devilHearthState.StartSecondStage().GetAwaiter().GetResult();
+        }
+    }
+
+    public async Task InstantiateLaser()
     {
         instantietedLaser = Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 0));
         instantietedLaser.transform.parent = this.transform;
@@ -110,7 +119,7 @@ public class DevilHearthStats : MonoBehaviour
         instantietedLaser = null;
     }
 
-    public async void InstantiateCircleLasersAttack()
+    public async Task InstantiateCircleLasersAttack()
     {
         foreach (Transform laser in lasersTransforms)
         {
@@ -156,10 +165,13 @@ public class DevilHearthStats : MonoBehaviour
         }
     }
 
-    public void InstantiateFireGen()
+    public void InstantiateFireGen(int amountToSummon = 1)
     {
-        Transform gen = Instantiate(fireGen, transform.position, Quaternion.identity);
-        gen.parent = transform;
+        for (int i = 0; i < amountToSummon; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, fireGens.Length);
+            Transform gen = Instantiate(fireGens[randomIndex], transform.position, Quaternion.identity);
+        }
     }
 
     public bool IsHide()
@@ -170,5 +182,16 @@ public class DevilHearthStats : MonoBehaviour
     public float GetDamageReduct()
     {
         return damageReduct;
+    }
+
+    public bool CheckIfIsSecondState()
+    {
+        return isSecondState;
+    }
+
+    private void ChangeLasersSpeed()
+    {
+        laserSpeed *= 2;
+        turningSpeed *= 2;
     }
 }
