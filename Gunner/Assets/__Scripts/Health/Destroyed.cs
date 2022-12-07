@@ -33,6 +33,11 @@ public class Destroyed : MonoBehaviour
         }
         else
         {
+            if (destroyedEvent.TryGetComponent<DevilHearthStats>(out DevilHearthStats devilHearth))
+            {
+                devilHearth.StopAllCoroutines();
+            }
+
             Destroy(gameObject);
         }
     }

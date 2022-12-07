@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using System.Threading;
+using System;
 
 public class DevilHearthStateMachine : MonoBehaviour
 {
@@ -31,26 +33,24 @@ public class DevilHearthStateMachine : MonoBehaviour
         devilHearth = GetComponent<DevilHearthStats>();
     }
 
-    private async void Start()
+    private void Start()
     {
         Invoke(nameof(SummonFireGen), waitBeforeFirstFireGenSummon);
         Invoke(nameof(RollNewAttack), waitBeforeFirstAttack);
-
-        await Task.Delay(waitBeforeFirstAttack * 1000);
     }
 
-    private async void RollNewAttack()
+    public void RollNewAttack()
     {
         int randomChance = UnityEngine.Random.Range(0, 100);
-        if (randomChance >= percentChanceToSummonLaser)
+        if (randomChance <= percentChanceToSummonLaser)
         {
             if (devilHearth != null)
-                await devilHearth.InstantiateLaser();
+                devilHearth.InstantiateLaser();
         }
         else
         {
             if (devilHearth != null)
-                await devilHearth.InstantiateCircleLasersAttack();
+                devilHearth.InstantiateCircleLasersAttack();
         }
 
         float timeToWait = UnityEngine.Random.Range(minTimeToRollNewAttack, maxTimeToRollNewAttack);
@@ -68,8 +68,7 @@ public class DevilHearthStateMachine : MonoBehaviour
 
     private void SummonFireGens()
     {
-        if (devilHearth != null)
-            devilHearth.InstantiateFireGen(3);
+        devilHearth.InstantiateFireGen(2);
 
         float timeToWait = UnityEngine.Random.Range(minTimeToSummonGen, maxTimeToSummonGen);
 
@@ -93,15 +92,13 @@ public class DevilHearthStateMachine : MonoBehaviour
         percentChanceToSummonLaser = percentToSet;
     }
 
-    public async Task StartSecondStage()
+    public void StartSecondStage()
     {
         CancelInvoke();
-        Debug.Log("SECOND STATE!!!");
 
         ChangeTimesToSummonFireGen(minSummonGenDecrease, maxSummonGenDecrease);
         ChangeTimeToRollNewAttack(minRollNewAttackDecrease, maxRollNewAttackDecrease);
 
-        Invoke(nameof(SummonFireGens), 5f);
-        await devilHearth.InstantiateCircleLasersAttack();
+        Invoke(nameof(SummonFireGens), waitBeforeFirstFireGenSummon);
     }
 }

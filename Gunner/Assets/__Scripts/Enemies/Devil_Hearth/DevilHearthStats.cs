@@ -3,6 +3,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class DevilHearthStats : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class DevilHearthStats : MonoBehaviour
     [SerializeField] float minimumDistance = 5f;
     [SerializeField] float maximumDistance = 12f;
     [SerializeField] float damageReduct = 80f;
-    [SerializeField] int healthPercentToStartSecondState = 35;
+    [SerializeField] float healthPercentToStartSecondState = 35;
 
     [Header("Laser")]
     [SerializeField] Transform laser;
@@ -32,8 +33,11 @@ public class DevilHearthStats : MonoBehaviour
 
     private Transform instantietedLaser = null;
     private bool isHide = false;
-    private bool isSecondState = false;
     private float rotation = 0;
+
+    private bool isSecondState = false;
+    private bool useSpecialAttack = true;
+    private bool specialAttackComplete = false;
 
     private void Awake()
     {
@@ -66,15 +70,15 @@ public class DevilHearthStats : MonoBehaviour
 
     private void CheckSecondState()
     {
-        if (health.currentHealth < (health.GetStartingHealth() * (healthPercentToStartSecondState / 100)))
+        if (health.currentHealth < (health.GetStartingHealth() * (healthPercentToStartSecondState / 100)) && !isSecondState)
         {
             isSecondState = true;
             ChangeLasersSpeed();
-            devilHearthState.StartSecondStage().GetAwaiter().GetResult();
+            devilHearthState.StartSecondStage();
         }
     }
 
-    public async Task InstantiateLaser()
+    public void InstantiateLaser()
     {
         instantietedLaser = Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 0));
         instantietedLaser.transform.parent = this.transform;
@@ -84,16 +88,16 @@ public class DevilHearthStats : MonoBehaviour
         instantietedLaser.transform.rotation = Quaternion.Euler(0, 0, randomRotation);
         rotation = randomRotation;
 
-        await MoveLaser();
+        StartCoroutine(MoveLaser());
     }
 
-    private async Task MoveLaser()
+    private IEnumerator MoveLaser()
     {
-        while (instantietedLaser.transform.localScale.x < 1)
+        while (instantietedLaser.transform.localScale.x < 1 && instantietedLaser != null)
         {
             instantietedLaser.transform.localScale = new Vector3(instantietedLaser.transform.localScale.x + Time.deltaTime * laserShowSpeed,
                 instantietedLaser.transform.localScale.y + Time.deltaTime * laserShowSpeed, 1f);
-            await Task.Yield();
+            yield return null;
         }
 
         float randomRotation = UnityEngine.Random.Range(180f, 360f);
@@ -101,67 +105,91 @@ public class DevilHearthStats : MonoBehaviour
 
         while (currentAngle < randomRotation)
         {
-            rotation += Time.deltaTime * laserSpeed;
-            currentAngle += Time.deltaTime * laserSpeed;
+            if (instantietedLaser != null)
+            {
+                rotation += Time.deltaTime * laserSpeed;
+                currentAngle += Time.deltaTime * laserSpeed;
 
-            instantietedLaser.transform.rotation = Quaternion.Euler(0, 0, rotation);
-            await Task.Yield();
+                instantietedLaser.transform.rotation = Quaternion.Euler(0, 0, rotation);
+                yield return null;
+            }
         }
 
-        while (instantietedLaser.transform.localScale.x > 0.1f)
+        while (instantietedLaser.transform.localScale.x > 0.1f && instantietedLaser != null)
         {
             instantietedLaser.transform.localScale = new Vector3(instantietedLaser.transform.localScale.x - Time.deltaTime * laserHideSpeed,
                 instantietedLaser.transform.localScale.y - Time.deltaTime * laserHideSpeed, 1f);
-            await Task.Yield();
+            yield return null;
         }
 
         Destroy(instantietedLaser.gameObject);
         instantietedLaser = null;
+
+        UseSpecialAttackSecondForm();
     }
 
-    public async Task InstantiateCircleLasersAttack()
+    public void InstantiateCircleLasersAttack()
     {
         foreach (Transform laser in lasersTransforms)
         {
             laser.gameObject.SetActive(true);
         }
 
-        await CircleAttack();
+        StartCoroutine(CircleAttack());
     }
 
-    private async Task CircleAttack()
+    private IEnumerator CircleAttack()
     {
         foreach (Transform laser in lasersTransforms)
         {
-            while (laser.localScale.x < 0.5f)
+            while (laser.localScale.x < 0.5f && laser != null)
             {
                 laser.localScale = new Vector3(laser.localScale.x + Time.deltaTime * laserShowSpeed, laser.localScale.y + Time.deltaTime * 2 * laserShowSpeed, 1f);
-                await Task.Yield();
+                yield return null;
             }
         }
 
         float angle = 360f;
         float currentAngle = 0;
 
-        while (currentAngle < angle)
+        while (currentAngle <= angle)
         {
-            rotation += Time.deltaTime * laserSpeed;
-            currentAngle += Time.deltaTime * laserSpeed;
+            rotation += Time.deltaTime * turningSpeed;
+            currentAngle += Time.deltaTime * turningSpeed;
 
             transform.rotation = Quaternion.Euler(0, 0, rotation);
-            await Task.Yield();
+            yield return null;
         }
 
         foreach (Transform laser in lasersTransforms)
         {
-            while (laser.localScale.x > 0.1f)
+            while (laser.localScale.x > 0.1f && laser != null)
             {
                 laser.localScale = new Vector3(laser.localScale.x - Time.deltaTime * laserHideSpeed, laser.localScale.y - Time.deltaTime * 2 * laserHideSpeed, 1f);
-                await Task.Yield();
+                yield return null;
             }
 
             laser.localScale = new Vector3(0, 0, 1f);
             laser.gameObject.SetActive(false);
+        }
+
+        if (specialAttackComplete)
+        {
+            yield return new WaitForSeconds(3f);
+            devilHearthState.RollNewAttack();
+            specialAttackComplete = false;
+        }
+
+        UseSpecialAttackSecondForm();
+    }
+
+    private void UseSpecialAttackSecondForm()
+    {
+        if (isSecondState && useSpecialAttack)
+        {
+            useSpecialAttack = false;
+            InstantiateCircleLasersAttack();
+            specialAttackComplete = true;
         }
     }
 
@@ -170,7 +198,7 @@ public class DevilHearthStats : MonoBehaviour
         for (int i = 0; i < amountToSummon; i++)
         {
             int randomIndex = UnityEngine.Random.Range(0, fireGens.Length);
-            Transform gen = Instantiate(fireGens[randomIndex], transform.position, Quaternion.identity);
+            Instantiate(fireGens[randomIndex], transform.position, Quaternion.identity);
         }
     }
 
