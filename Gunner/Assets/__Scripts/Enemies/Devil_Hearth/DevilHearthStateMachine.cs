@@ -27,6 +27,7 @@ public class DevilHearthStateMachine : MonoBehaviour
     [SerializeField] float maxRollNewAttackDecrease;
     [SerializeField] float minSummonGenDecrease;
     [SerializeField] float maxSummonGenDecrease;
+    [SerializeField] int percentToSummonLaserAfterTransformIntoSecondStage;
 
     private void Awake()
     {
@@ -75,19 +76,19 @@ public class DevilHearthStateMachine : MonoBehaviour
         Invoke(nameof(SummonFireGens), timeToWait);
     }
 
-    public void ChangeTimesToSummonFireGen(float minTime, float maxTime)
+    private void ChangeTimesToSummonFireGen(float minTime, float maxTime)
     {
         minTimeToSummonGen -= minTime;
         maxTimeToSummonGen -= maxTime;
     }
 
-    public void ChangeTimeToRollNewAttack(float minTime, float maxTime)
+    private void ChangeTimeToRollNewAttack(float minTime, float maxTime)
     {
         minTimeToRollNewAttack -= minTime;
         maxTimeToRollNewAttack -= maxTime;
     }
 
-    public void ChangePercentToSummonLaser(int percentToSet)
+    private void ChangePercentToSummonLaser(int percentToSet)
     {
         percentChanceToSummonLaser = percentToSet;
     }
@@ -98,7 +99,13 @@ public class DevilHearthStateMachine : MonoBehaviour
 
         ChangeTimesToSummonFireGen(minSummonGenDecrease, maxSummonGenDecrease);
         ChangeTimeToRollNewAttack(minRollNewAttackDecrease, maxRollNewAttackDecrease);
+        ChangePercentToSummonLaser(percentToSummonLaserAfterTransformIntoSecondStage);
 
         Invoke(nameof(SummonFireGens), waitBeforeFirstFireGenSummon);
+
+        if (!devilHearth.CheckIfIsAttacking())
+        {
+            devilHearth.InstantiateCircleLasersAttack();
+        }
     }
 }

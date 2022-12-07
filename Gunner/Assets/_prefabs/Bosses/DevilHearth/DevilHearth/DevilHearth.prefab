@@ -349,6 +349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spark
       objectReference: {fileID: 0}
+    - target: {fileID: 3290888516085539699, guid: 6479ac393a0e2e54ea426fa31696f607, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6479ac393a0e2e54ea426fa31696f607, type: 3}
 --- !u!4 &5548842341746381315 stripped
@@ -1040,8 +1044,8 @@ MonoBehaviour:
     minTotalEnemiesToSpawn: 1
     maxTotalEnemiesToSpawn: 3
     minConcurrentEnemies: 3
-    maxConcurrentEnemies: 6
-    minSpawnInterval: 2
+    maxConcurrentEnemies: 5
+    minSpawnInterval: 1
     maxSpawnInterval: 3
   MinMaxSpawnInterval: {x: 8, y: 12}
 --- !u!114 &5247461306622506097
@@ -1058,8 +1062,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spark: {fileID: 5548842341746381315}
   minimumDistance: 4
-  maximumDistance: 12
-  damageReduct: 80
+  maximumDistance: 10
+  damageReduct: 70
   healthPercentToStartSecondState: 35
   laser: {fileID: 3815125582786144950, guid: 25bcc946967c98b4cae809b68f135a27, type: 3}
   laserSpeed: 45
@@ -1067,14 +1071,28 @@ MonoBehaviour:
   laserHideSpeed: 2
   laserShowSpeed: 1
   fireGens:
+  - {fileID: 3203829622497653824, guid: 09e80df4db125784992f6d09e21891d5, type: 3}
+  - {fileID: 3203829622497653824, guid: 8a7c70119f9190048b65875405c1eeab, type: 3}
+  - {fileID: 3203829622497653824, guid: b9d8ef7224e485a46b1cab17bbf5641f, type: 3}
+  - {fileID: 3203829622497653824, guid: 02445ceee92325045bbf7e3f059d1587, type: 3}
+  - {fileID: 3203829622497653824, guid: 9858e3b9904170f44a7fd69fae34af70, type: 3}
+  - {fileID: 3203829622497653824, guid: c4c9d358c501c8e4784d0e8034f45965, type: 3}
   - {fileID: 3203829622497653824, guid: f66f4ce830d48864a90a552e41703a3d, type: 3}
+  - {fileID: 3203829622497653824, guid: c3dd2cb84f7c8cb42a2cd98f83e624b8, type: 3}
+  - {fileID: 3203829622497653824, guid: 3186a59bb41e10b4e865cd674f840782, type: 3}
+  - {fileID: 3203829622497653824, guid: 9858e3b9904170f44a7fd69fae34af70, type: 3}
+  - {fileID: 3203829622497653824, guid: c4c9d358c501c8e4784d0e8034f45965, type: 3}
+  - {fileID: 3203829622497653824, guid: f66f4ce830d48864a90a552e41703a3d, type: 3}
+  - {fileID: 3203829622497653824, guid: 02445ceee92325045bbf7e3f059d1587, type: 3}
+  - {fileID: 3203829622497653824, guid: b9d8ef7224e485a46b1cab17bbf5641f, type: 3}
+  - {fileID: 3203829622497653824, guid: 9858e3b9904170f44a7fd69fae34af70, type: 3}
   lasersTransforms:
   - {fileID: 8358265046051484950}
   - {fileID: 6455564864016242683}
   - {fileID: 7723921312435959382}
   - {fileID: 6672774552127903086}
   - {fileID: 3880066976084081665}
-  turningSpeed: 30
+  turningSpeed: 20
 --- !u!114 &8745762727954178869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1093,11 +1111,12 @@ MonoBehaviour:
   maxTimeToRollNewAttack: 13
   minTimeToSummonGen: 8
   maxTimeToSummonGen: 12
-  percentChanceToSummonLaser: 40
+  percentChanceToSummonLaser: 60
   minRollNewAttackDecrease: 1
   maxRollNewAttackDecrease: 4
   minSummonGenDecrease: 1
   maxSummonGenDecrease: 2
+  percentToSummonLaserAfterTransformIntoSecondStage: 40
 --- !u!4 &7576142254382218503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2385751189007300351, guid: dff98094ab888064994e7caedaba3908, type: 3}

@@ -38,6 +38,7 @@ public class DevilHearthStats : MonoBehaviour
     private bool isSecondState = false;
     private bool useSpecialAttack = true;
     private bool specialAttackComplete = false;
+    private bool isAttacking = false;
 
     private void Awake()
     {
@@ -80,6 +81,9 @@ public class DevilHearthStats : MonoBehaviour
 
     public void InstantiateLaser()
     {
+        isAttacking = true;
+        spark.gameObject.SetActive(false);
+
         instantietedLaser = Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 0));
         instantietedLaser.transform.parent = this.transform;
 
@@ -126,10 +130,16 @@ public class DevilHearthStats : MonoBehaviour
         instantietedLaser = null;
 
         UseSpecialAttackSecondForm();
+
+        isAttacking = false;
+        spark.gameObject.SetActive(true);
     }
 
     public void InstantiateCircleLasersAttack()
     {
+        isAttacking = true;
+        spark.gameObject.SetActive(false);
+
         foreach (Transform laser in lasersTransforms)
         {
             laser.gameObject.SetActive(true);
@@ -140,6 +150,8 @@ public class DevilHearthStats : MonoBehaviour
 
     private IEnumerator CircleAttack()
     {
+        float circleRotation = transform.rotation.z;
+
         foreach (Transform laser in lasersTransforms)
         {
             while (laser.localScale.x < 0.5f && laser != null)
@@ -154,10 +166,10 @@ public class DevilHearthStats : MonoBehaviour
 
         while (currentAngle <= angle)
         {
-            rotation += Time.deltaTime * turningSpeed;
+            circleRotation += Time.deltaTime * turningSpeed;
             currentAngle += Time.deltaTime * turningSpeed;
 
-            transform.rotation = Quaternion.Euler(0, 0, rotation);
+            transform.rotation = Quaternion.Euler(0, 0, circleRotation);
             yield return null;
         }
 
@@ -181,6 +193,9 @@ public class DevilHearthStats : MonoBehaviour
         }
 
         UseSpecialAttackSecondForm();
+
+        isAttacking = false;
+        spark.gameObject.SetActive(true);
     }
 
     private void UseSpecialAttackSecondForm()
@@ -221,5 +236,10 @@ public class DevilHearthStats : MonoBehaviour
     {
         laserSpeed *= 2;
         turningSpeed *= 2;
+    }
+
+    public bool CheckIfIsAttacking()
+    {
+        return isAttacking;
     }
 }

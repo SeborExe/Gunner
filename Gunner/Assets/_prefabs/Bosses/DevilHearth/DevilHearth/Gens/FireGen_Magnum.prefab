@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6225986910405386787}
   - component: {fileID: 6260813138683574444}
   m_Layer: 15
-  m_Name: FireGen
+  m_Name: FireGen_Magnum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,12 +171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47d300b5c35d594fae4b4fa71f5a0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   bloodParticle: {fileID: 8738176433507403784, guid: 5a24485f80f8e744181458ce01a7e5c9, type: 3}
-  ammoDetails: {fileID: 11400000, guid: f6287d8da86d7784ab65e5c8757fa34b, type: 2}
-  numberOfProjectiles: 8
+  ammoDetails: {fileID: 11400000, guid: ae1b37553a8bf01409491ffb52c45da8, type: 2}
+  numberOfProjectiles: 10
   timeBetweenShoots: 2
-  cycles: 8
+  cycles: 4
 --- !u!114 &6260813138683574444
 MonoBehaviour:
   m_ObjectHideFlags: 0

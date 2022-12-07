@@ -71,32 +71,49 @@ public class Health : MonoBehaviour
 
         if (player != null) isRolling = player.playerControl.isPlayerRolling;
 
-        if (isDamagable && !isRolling && (!GetComponent<DevilHearthStats>() || !GetComponent<DevilHearthStats>().IsHide() || !GetComponent<DevilHearthStats>().CheckIfIsSecondState()))
+        if (isDamagable && !isRolling && !GetComponent<DevilHearthStats>())
         {
-            currentHealth -= damageAmount;
-            CallHealthEvent(damageAmount);
-
-            if (player)
-            {
-                GameManager.Instance.virtualCamera.ShakeCamera(3f, 3f, .5f);
-            }
-
-            PostHitImmunity();
-
-            if (healthBar != null)
-            {
-                healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
-            }
+            TakeNormalDamage(damageAmount);
         }
 
-        else if (TryGetComponent<DevilHearthStats>(out DevilHearthStats devil)) //Only for Final Boss
+        else if (TryGetComponent<DevilHearthStats>(out DevilHearthStats devil))
         {
-            int damage = (int)(damageAmount - (damageAmount * (devil.GetDamageReduct() / 100f)));
+            if (devil.IsHide() || devil.CheckIfIsSecondState())
+            {
+                TakeReductedDamage(damageAmount, devil);
+            }
+            else
+            {
+                TakeNormalDamage(damageAmount);
+            }
+        }
+    }
 
-            currentHealth -= damage;
-            CallHealthEvent(damage);
+    private void TakeNormalDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        CallHealthEvent(damageAmount);
+
+        if (player)
+        {
+            GameManager.Instance.virtualCamera.ShakeCamera(3f, 3f, .5f);
+        }
+
+        PostHitImmunity();
+
+        if (healthBar != null)
+        {
             healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
         }
+    }
+
+    private void TakeReductedDamage(int damageAmount, DevilHearthStats devil)
+    {
+        int damage = (int)(damageAmount - (damageAmount * (devil.GetDamageReduct() / 100f)));
+
+        currentHealth -= damage;
+        CallHealthEvent(damage);
+        healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
     }
 
     private void PostHitImmunity()
