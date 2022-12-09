@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyDetails_Skullface_Red_Bazooka
   m_EditorClassIdentifier: 
   enemyName: Skullface Red
-  enemyPrefab: {fileID: 6807736693257227066, guid: 7df0d42672e556c49ac15349b13770b7, type: 3}
+  enemyPrefab: {fileID: 6807736693257227066, guid: df810459c87b2ae4dbbde64625ef7566, type: 3}
   chaseDistance: 50
   enemyStandardMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   enemyMaterializeTime: 3
@@ -38,6 +38,8 @@ MonoBehaviour:
     enemyHealthAmount: 700
   - dungeonLevel: {fileID: 11400000, guid: e0af8536dfbcc0545b6ff3d9ae75bc9e, type: 2}
     enemyHealthAmount: 850
+  - dungeonLevel: {fileID: 11400000, guid: f76dbedb9293f6848a2c1034bb5cd430, type: 2}
+    enemyHealthAmount: 480
   isImmuneAfterHit: 0
   hitImmuneTime: 0
   isHealthBarDisplayed: 1

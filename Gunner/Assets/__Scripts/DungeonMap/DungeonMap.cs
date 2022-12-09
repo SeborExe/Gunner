@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-using System;
 
 public class DungeonMap : SingletonMonobehaviour<DungeonMap>
 {
@@ -34,6 +33,8 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
 
     private void GetRoomClicked()
     {
+        if (GameManager.Instance.gameState == GameState.engagingEnemies || GameManager.Instance.gameState == GameState.engagingBoss) return;
+
         Vector3 worldPosition = dungeonCamera.ScreenToWorldPoint(Input.mousePosition);
         worldPosition = new Vector3(worldPosition.x, worldPosition.y, 0f);
 
@@ -57,7 +58,7 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
     {
         StaticEventHandler.CallRoomChangedEvent(room);
 
-        yield return StartCoroutine(GameManager.Instance.Fade(0f, 1f, 0f, Color.black));
+        yield return StartCoroutine(GameManager.Instance.FadeCoroutine(0f, 1f, 0f, Color.black));
 
         ClearDungeonOverviewMap();
 
@@ -68,7 +69,7 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
         GameManager.Instance.GetPlayer().transform.position = spawnPosition;
         GameManager.Instance.minimapButton.SetMapActiveFalse();
 
-        yield return StartCoroutine(GameManager.Instance.Fade(1f, 0f, 1f, Color.black));
+        yield return StartCoroutine(GameManager.Instance.FadeCoroutine(1f, 0f, 1f, Color.black));
 
         GameManager.Instance.GetPlayer().playerControl.EnablePlayer();
     }

@@ -10,6 +10,7 @@ public class EffectManager : MonoBehaviour
     Color originalColor;
     float frozeTimer;
     bool itsOnFire = false;
+    bool isFrozen = false;
 
     private void Start()
     {
@@ -19,49 +20,56 @@ public class EffectManager : MonoBehaviour
 
     public void StartCou(IEnumerator Coroutine)
     {
-        StartCoroutine(Coroutine);
+        if (Coroutine != null)
+            StartCoroutine(Coroutine);
     }
 
     public IEnumerator FrozeCoroutine(Health reciver, float frozeAmountPercent, GameObject effectToSpawn, Color frozeColor, float frozeTime)
     {
-        frozeTimer = frozeTime;
-        float speedBeforeSpeedDown = 0;
-
-        if (reciver.TryGetComponent<EnemyMovementAI>(out EnemyMovementAI enemy))
+        if (!isFrozen)
         {
-            float slowSpeed = (enemy.GetMoveSpeed() - (enemy.GetMoveSpeed() * (frozeAmountPercent / 100)));
-            enemy.SetMoveSpeed(slowSpeed);
-        }
+            frozeTimer = frozeTime;
+            float speedBeforeSpeedDown = 0;
+            isFrozen = true;
 
-        if (reciver.TryGetComponent<PlayerControl>(out PlayerControl player))
-        {
-            speedBeforeSpeedDown = player.GetMovementSpeed();
-            float slowSpeed = (player.GetMovementSpeed() - (player.GetMovementSpeed() * (frozeAmountPercent / 100)));
-            enemy.SetMoveSpeed(slowSpeed);
-        }
+            if (reciver.TryGetComponent<EnemyMovementAI>(out EnemyMovementAI enemy))
+            {
+                float slowSpeed = (enemy.GetMoveSpeed() - (enemy.GetMoveSpeed() * (frozeAmountPercent / 100)));
+                enemy.SetMoveSpeed(slowSpeed);
+            }
 
-        GameObject effect = Instantiate(effectToSpawn, reciver.transform.position, Quaternion.identity);
-        effect.transform.parent = reciver.transform;
+            if (reciver.TryGetComponent<PlayerControl>(out PlayerControl player))
+            {
+                speedBeforeSpeedDown = player.GetMovementSpeed();
+                float slowSpeed = (player.GetMovementSpeed() - (player.GetMovementSpeed() * (frozeAmountPercent / 100)));
+                player.SetMovementSpeedOnValue(slowSpeed);
+            }
 
-        while (frozeTimer > 0)
-        {
-            frozeTimer -= Time.deltaTime;
-            spriteRenderer.color = frozeColor;
+            GameObject effect = Instantiate(effectToSpawn, reciver.transform.position, Quaternion.identity);
+            effect.transform.parent = reciver.transform;
 
-            yield return null;
-        }
+            while (frozeTimer > 0)
+            {
+                frozeTimer -= Time.deltaTime;
+                spriteRenderer.color = frozeColor;
 
-        spriteRenderer.color = originalColor;
-        frozeTimer = 0;
-        Destroy(effect, 0.1f);
+                yield return null;
+            }
 
-        if (reciver.TryGetComponent<EnemyMovementAI>(out EnemyMovementAI enemyAI))
-        {
-            enemyAI.RestoreMovement();
-        }
-        else if (reciver.TryGetComponent<PlayerControl>(out PlayerControl playerController))
-        {
-            playerController.SetMovementSpeed(speedBeforeSpeedDown);
+            spriteRenderer.color = originalColor;
+            frozeTimer = 0;
+            Destroy(effect, 0.1f);
+
+            if (reciver.TryGetComponent<EnemyMovementAI>(out EnemyMovementAI enemyAI))
+            {
+                enemyAI.RestoreMovement();
+            }
+            else if (reciver.TryGetComponent<PlayerControl>(out PlayerControl playerController))
+            {
+                playerController.SetMovementSpeedOnValue(speedBeforeSpeedDown);
+            }
+
+            isFrozen = false;
         }
     }
 
@@ -84,5 +92,10 @@ public class EffectManager : MonoBehaviour
 
         Destroy(effect, 0.1f);
         itsOnFire = false;
+    }
+
+    public bool CheckIfIsFrozen()
+    {
+        return isFrozen;
     }
 }

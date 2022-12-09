@@ -67,6 +67,9 @@ public class Player : MonoBehaviour
 
     public List<Weapon> weaponList = new List<Weapon>();
 
+    private AmmoDetailsSO ammoToInstantiateWhenTakeDamage = null;
+    private WeaponDetailsSO weaponToShotWhenTakeDamage = null;
+
     private void Awake()
     {
         healthEvent = GetComponent<HealthEvent>();
@@ -231,5 +234,29 @@ public class Player : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void InstantiateOnTakeDamage()
+    {
+        healthEvent.OnHealthChanged += HealthEvent_OnHealthChanged_InstantiateBFG;
+    }
+
+    private void HealthEvent_OnHealthChanged_InstantiateBFG(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
+    {
+        Vector3 weaponDirection;
+        float weaponAngleDegrees, playerAngleDegrees;
+        AimDirection playerAimDirection;
+
+        GameManager.Instance.GetPlayer().playerControl.AimWeaponInput(
+            out weaponDirection, out weaponAngleDegrees, out playerAngleDegrees, out playerAimDirection);
+
+        GameManager.Instance.GetPlayer().fireWeaponEvent.CallItemFireWeapon(true, true, playerAimDirection,
+            playerAngleDegrees, weaponAngleDegrees, weaponDirection, ammoToInstantiateWhenTakeDamage, weaponToShotWhenTakeDamage);
+    }
+
+    public void SetAmmoAndWeaponDetailsWhenTakeDamage(AmmoDetailsSO ammoDetails, WeaponDetailsSO weaponDetails)
+    {
+        ammoToInstantiateWhenTakeDamage = ammoDetails;
+        weaponToShotWhenTakeDamage = weaponDetails;
     }
 }

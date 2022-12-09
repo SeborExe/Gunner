@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,7 @@ public class CharacterSelectionRank : MonoBehaviour
     [SerializeField] TMP_Text rankText;
     [SerializeField] SpriteRenderer rankImage;
     [SerializeField] Sprite wonGameSprite;
+    [SerializeField] TMP_Text characterNameText;
 
     Animator animator;
 
@@ -23,16 +25,25 @@ public class CharacterSelectionRank : MonoBehaviour
         if (animator.runtimeAnimatorController.name == "TheGeneral")
         {
             rankText.text = Rank.GetRank("general").ToString();
+            SetCharacterName("The General");
             SetIfWon();
         }
         else if (animator.runtimeAnimatorController.name == "TheScientist")
         {
             rankText.text = Rank.GetRank("scientist").ToString();
+            SetCharacterName("The Scientist");
             SetIfWon();
         }
         else if (animator.runtimeAnimatorController.name == "TheThief")
         {
             rankText.text = Rank.GetRank("thief").ToString();
+            SetCharacterName("The Thief");
+            SetIfWon();
+        }
+        else if (animator.runtimeAnimatorController.name == "TheKnight")
+        {
+            rankText.text = Rank.GetRank("knight").ToString();
+            SetCharacterName("The Knight");
             SetIfWon();
         }
 
@@ -41,6 +52,11 @@ public class CharacterSelectionRank : MonoBehaviour
             rankText.text = "";
             rankImage.color = Color.black;
         }
+    }
+
+    private void SetCharacterName(string name)
+    {
+        characterNameText.text = name;
     }
 
     private void SetIfWon()
@@ -55,5 +71,10 @@ public class CharacterSelectionRank : MonoBehaviour
     public TMP_Text GetRankText()
     {
         return rankText;
+    }
+
+    public TMP_Text GetCharacterName()
+    {
+        return characterNameText;
     }
 }

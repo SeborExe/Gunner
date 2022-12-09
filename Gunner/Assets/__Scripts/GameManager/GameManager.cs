@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Cinemachine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Threading.Tasks;
 
 [DisallowMultipleComponent]
 public class GameManager : SingletonMonobehaviour<GameManager>
@@ -66,6 +67,13 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("Items Inpact")]
     public GameObject controls;
 
+    [Header("Visual Effects")]
+    public GameObject diseaseEffect;
+    public GameObject hellEffect;
+
+    [Header("LootLocker")]
+    private Leaderboard leaderboard;
+
     protected override void Awake()
     {
         base.Awake();
@@ -73,8 +81,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         playerDetails = GameResources.Instance.currentPlayer.playerDetails;
 
         InstantiatePlayer();
+        leaderboard = FindObjectOfType<Leaderboard>();
     }
-    private void Start()
+    private async void Start()
     {
         previousGameState = GameState.gameStarted;
         gameState = GameState.gameStarted;
@@ -82,7 +91,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         gameScore = 0;
         scoreMultiplier = 1;
 
-        StartCoroutine(Fade(0f, 1f, 0f, Color.black));
+        await Fade(0f, 1f, 0f, Color.black);
     }
 
     private void OnEnable()
@@ -194,7 +203,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     }
 
 
-    private void HandleGameState()
+    private async void HandleGameState()
     {
         switch (gameState)
         {
@@ -219,6 +228,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
+                }
+                if (minimapButton.minimapButtonButtonPressed)
+                {
+                    DisplayDungeonOverviewMap();
                 }
                 break;
 
@@ -245,22 +258,26 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 {
                     PauseGameMenu();
                 }
+                if (minimapButton.minimapButtonButtonPressed)
+                {
+                    DisplayDungeonOverviewMap();
+                }
                 break;
 
             case GameState.levelCompleted:
-                StartCoroutine(LevelComplete());
+                await LevelComplete();
                 break;
 
             case GameState.gameWon:
                 if (previousGameState != GameState.gameWon)
-                    StartCoroutine(GameWon());
+                    await GameWon();
                 break;
 
             case GameState.gameLost:
                 if (previousGameState != GameState.gameLost)
                 {
                     StopAllCoroutines();
-                    StartCoroutine(GameLost());
+                    await GameLost();
                 }
                 break;
 
@@ -304,7 +321,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         currentRoom = room;
     }
 
-    private void RoomEnemiesDefeated()
+    private async void RoomEnemiesDefeated()
     {
         bool isDungeonClearOfRegularEnemies = true;
         bossRoom = null;
@@ -339,53 +356,55 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         else if (isDungeonClearOfRegularEnemies)
         {
             gameState = GameState.bossStage;
-            StartCoroutine(BossStage());
+            await BossStage();
         }
+
+        await Task.Yield(); 
     }
 
-    private IEnumerator BossStage()
+    private async Task BossStage()
     {
         bossRoom.gameObject.SetActive(true);
         bossRoom.UnlockDoors(0f);
-        yield return new WaitForSeconds(2f);
+        await Task.Delay(2000);
 
-        yield return StartCoroutine(Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f)));
+        await Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f));
 
-        yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
-            "SURVIVED... SO FAR...\n NOW FIND AND DEFEAT THE BOSS... GOOD LUCK...", Color.white, 5f));
+        await DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
+            "SURVIVED... SO FAR...\n NOW FIND AND DEFEAT THE BOSS... GOOD LUCK...", Color.white, 5f);
 
-        yield return StartCoroutine(Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f)));
+        await Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f));
     }
 
-    private IEnumerator LevelComplete()
+    private async Task LevelComplete()
     {
         gameState = GameState.playingLevel;
 
-        if (currentDungeonLevelListIndex == 5)
+        if (currentDungeonLevelListIndex == 6)
         {
             finishLevelButton.GetComponentInChildren<TMP_Text>().text = "FINISH";
         }
 
         finishLevelButton.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(2f);
+        await Task.Delay(2000);
 
-        yield return StartCoroutine(Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f)));
+        await Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f));
 
-        yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
-            "SURVIVED THIS DUNGEON LEVEL!", Color.white, 5f));
+        await DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
+            "SURVIVED THIS DUNGEON LEVEL!", Color.white, 5f);
 
-        yield return StartCoroutine(DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE BOX AND PRESS\n'COMPLETE BUTTON' TO ADVANCE TO THE NEXT LEVEL",
-            Color.white, 5f));
+        await DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE BOX AND PRESS\n'COMPLETE BUTTON' TO ADVANCE TO THE NEXT LEVEL",
+            Color.white, 5f);
 
-        yield return StartCoroutine(Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f)));
+        await Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f));
 
         while (!finishLevelButton.finishLevelButtonPressed)
         {
-            yield return null;
+            await Task.Yield();
         }
 
-        yield return null;
+        await Task.Yield();
 
         usableItemsThatPlayerHad.Clear();
         if (GetPlayer().GetCurrentUsableItem() != null)
@@ -393,13 +412,35 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             usableItemsThatPlayerHad.Add(GetPlayer().GetCurrentUsableItem(), GetPlayer().GetCurrentChargingPoints());
         }
 
+        //Increase max player health
+        GetPlayer().health.AddHealth(10);
+        StatsDisplayUI.Instance.UpdateStatsUI();
+
         SetRank(playerDetails.playerPrefab.name, currentDungeonLevelListIndex + 1);
         currentDungeonLevelListIndex++;
         finishLevelButton.gameObject.SetActive(false);
         PlayDungeonLevel(currentDungeonLevelListIndex);
     }
 
-    public IEnumerator Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
+    public async Task Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
+    {
+        isFading = true;
+        Image image = canvasGroup.GetComponent<Image>();
+        image.color = backgroundColor;
+
+        float time = 0f;
+
+        while (time <= fadeSeconds)
+        {
+            time += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time / fadeSeconds);
+            await Task.Yield();
+        }
+
+        isFading = false;
+    }
+
+    public IEnumerator FadeCoroutine(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
     {
         isFading = true;
         Image image = canvasGroup.GetComponent<Image>();
@@ -417,7 +458,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         isFading = false;
     }
 
-    private IEnumerator GameWon()
+    private async Task GameWon()
     {
         previousGameState = GameState.gameWon;
 
@@ -449,23 +490,26 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             rankText = $"YOUR SCORE ISN'T RANKED IN THE TOP {Settings.numberOfHighScoresToSava.ToString("#0")}";
         }
 
-        yield return new WaitForSeconds(1f);
+        await Task.Delay(1000);
 
         SetRank(playerDetails.playerPrefab.name, 6);
 
-        yield return StartCoroutine(Fade(0f, 1f, 2f, Color.black));
+        await Fade(0f, 1f, 2f, Color.black);
 
-        yield return StartCoroutine(DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
-            "DEFEATED THE DUNGEON!", Color.white, 3f));
+        await DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
+            "DEFEATED THE DUNGEON!", Color.white, 3f);
 
-        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED: " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f));
+        await DisplayMessageRoutine("YOU SCORED: " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f);
 
-        yield return StartCoroutine(DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f));
+        await DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f);
+
+        leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
+            $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
 
         gameState = GameState.restartGame;
     }
 
-    private IEnumerator GameLost()
+    private async Task GameLost()
     {
         previousGameState = GameState.gameLost;
 
@@ -497,9 +541,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             rankText = $"YOUR SCORE ISN'T RANKED IN THE TOP {Settings.numberOfHighScoresToSava.ToString("#0")}";
         }
 
-        yield return new WaitForSeconds(1f);
+        await Task.Delay(1000);
 
-        yield return StartCoroutine(Fade(0f, 1f, 2f, Color.black));
+        await Fade(0f, 1f, 2f, Color.black);
 
         Enemy[] enemyArray = GameObject.FindObjectsOfType<Enemy>();
         foreach (Enemy enemy in enemyArray)
@@ -507,15 +551,18 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             enemy.gameObject.SetActive(false);
         }
 
-        yield return StartCoroutine(DisplayMessageRoutine("BAD LUCK " + GameResources.Instance.currentPlayer.playerName +
-            "... THIS DUNGEON HAS BECOME YOUR GRAVE", Color.white, 2f));
+        await DisplayMessageRoutine("BAD LUCK " + GameResources.Instance.currentPlayer.playerName +
+            "... THIS DUNGEON HAS BECOME YOUR GRAVE", Color.white, 2f);
 
-        yield return StartCoroutine(DisplayMessageRoutine("YOU SCORED: " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f));
+        await DisplayMessageRoutine("YOU SCORED: " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f);
 
         while (!Input.GetMouseButtonDown(0))
         {
-            yield return StartCoroutine(DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f));
+            await DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f);
         }
+
+        await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
+            $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
 
         gameState = GameState.restartGame;
     }
@@ -553,9 +600,18 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 Rank.SetRank("thief", level);
             }
         }
+
+        if (name == "TheKnight")
+        {
+            int actualRank = Rank.GetRank("knight");
+            if (level > actualRank)
+            {
+                Rank.SetRank("knight", level);
+            }
+        }
     }
 
-    private void PlayDungeonLevel(int dungeonLevelListIndex)
+    private async void PlayDungeonLevel(int dungeonLevelListIndex)
     {
         bool dungeonBuiltSuccessfully = DungeonBuilder.Instance.GenerateDungeon(dungeonLevelList[dungeonLevelListIndex]);
 
@@ -571,24 +627,24 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         player.gameObject.transform.position = HelperUtilities.GetSpawnPositionNearestToPlayer(player.gameObject.transform.position);
 
-        StartCoroutine(DisplayDungeonLevelText());
+        await DisplayDungeonLevelText();
     }
 
-    private IEnumerator DisplayDungeonLevelText()
+    private async Task DisplayDungeonLevelText()
     {
-        StartCoroutine(Fade(0f, 1f, 0f, Color.black));
+        await Fade(0f, 1f, 0f, Color.black);
         GetPlayer().playerControl.DisablePlayer();
 
         string messageText = "LEVEL: " + (currentDungeonLevelListIndex + 1).ToString() + "\n\n" + dungeonLevelList[
             currentDungeonLevelListIndex].levelName.ToUpper();
 
-        yield return StartCoroutine(DisplayMessageRoutine(messageText, Color.white, 2f));
+        await DisplayMessageRoutine(messageText, Color.white, 2f);
 
         GetPlayer().playerControl.EnablePlayer();
-        yield return StartCoroutine(Fade(1f, 0f, 2f, Color.black));
+        await Fade(1f, 0f, 2f, Color.black);
     }
 
-    private IEnumerator DisplayMessageRoutine(string text, Color textColor, float displaySeconds)
+    private async Task DisplayMessageRoutine(string text, Color textColor, float displaySeconds)
     {
         messageText.SetText(text);
         messageText.color = textColor;
@@ -600,11 +656,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             while (timer > 0f)
             {
                 timer -= Time.deltaTime;
-                yield return null;
+                await Task.Yield();
             }
         }
 
-        yield return null;
+        await Task.Yield();
         messageText.SetText("");
     }
 
@@ -668,6 +724,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public void StartImmortalityRoutine(float time, SpriteRenderer spriteRenderer)
     {
         StartCoroutine(player.health.ImmortalityRoutine(time, spriteRenderer));
+    }
+
+    public Leaderboard GetLeaderboard()
+    {
+        return leaderboard;
     }
 
     #region Validation

@@ -11,6 +11,7 @@ public class PlayerStats : MonoBehaviour
     private float additionalFireRateInPercent = 0;
     private float additionalRange = 0;
     private int additionalAmmoSpeed = 0;
+    private float additionalWeaponReloadSpeed = 0;
 
     public int GetBaseDamage()
     {
@@ -60,5 +61,15 @@ public class PlayerStats : MonoBehaviour
     public void SetAdditionalAmmoSpeed(int amount)
     {
         additionalAmmoSpeed += amount;
+    }
+
+    public float GetAdditionalWeaponReloadSpeed()
+    {
+        return additionalWeaponReloadSpeed;
+    }
+
+    public void SetAdditionalWeaponReloadSpeed(float amount)
+    {
+        additionalWeaponReloadSpeed += amount;
     }
 }

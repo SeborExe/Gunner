@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95823369826bfd24486975219783f456, type: 3}
+  m_Name: Burn_All_25damage_5s_NoText
+  m_EditorClassIdentifier: 
+  effectText: 
+  radius: 20
+  amountToDeal: 25
+  perioid: 5
+  timeBetweenDamage: 1
+  effectToSpawn: {fileID: 4926262109471085722, guid: d9023be1e4643254ea90188fbe6bd0d4, type: 3}

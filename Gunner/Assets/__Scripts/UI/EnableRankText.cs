@@ -9,6 +9,7 @@ public class EnableRankText : MonoBehaviour
         if (collision.gameObject.TryGetComponent<CharacterSelectionRank>(out CharacterSelectionRank selectionRank))
         {
             selectionRank.GetRankText().enabled = true;
+            selectionRank.GetCharacterName().enabled = true;
         }
     }
 }

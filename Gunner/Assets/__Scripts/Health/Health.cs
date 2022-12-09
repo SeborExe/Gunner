@@ -71,24 +71,49 @@ public class Health : MonoBehaviour
 
         if (player != null) isRolling = player.playerControl.isPlayerRolling;
 
-        if (isDamagable && !isRolling)
+        if (isDamagable && !isRolling && !GetComponent<DevilHearthStats>())
         {
-            currentHealth -= damageAmount;
-            CallHealthEvent(damageAmount);
+            TakeNormalDamage(damageAmount);
+        }
 
-            if (player)
+        else if (TryGetComponent<DevilHearthStats>(out DevilHearthStats devil))
+        {
+            if (devil.IsHide() || devil.CheckIfIsSecondState())
             {
-                GameManager.Instance.virtualCamera.ShakeCamera(3f, 3f, .5f);
+                TakeReductedDamage(damageAmount, devil);
             }
-
-            PostHitImmunity();
-
-            if (healthBar != null)
+            else
             {
-                healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
-                //healthBar.SetHealthBarValue(startingHealth);
+                TakeNormalDamage(damageAmount);
             }
         }
+    }
+
+    private void TakeNormalDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        CallHealthEvent(damageAmount);
+
+        if (player)
+        {
+            GameManager.Instance.virtualCamera.ShakeCamera(3f, 3f, .5f);
+        }
+
+        PostHitImmunity();
+
+        if (healthBar != null)
+        {
+            healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
+        }
+    }
+
+    private void TakeReductedDamage(int damageAmount, DevilHearthStats devil)
+    {
+        int damage = (int)(damageAmount - (damageAmount * (devil.GetDamageReduct() / 100f)));
+
+        currentHealth -= damage;
+        CallHealthEvent(damage);
+        healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
     }
 
     private void PostHitImmunity()

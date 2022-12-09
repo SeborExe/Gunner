@@ -57,10 +57,24 @@ public class ReloadWeapon : MonoBehaviour
 
         weapon.isWeaponReloading = true;
 
-        while (weapon.weaponReloadTimer < weapon.weaponDetails.weaponReloadTime)
+        if (weapon.weaponDetails.weaponCurrentAmmo.isPlayerAmmo)
         {
-            weapon.weaponReloadTimer += Time.deltaTime;
-            yield return null;
+            float reloadTime = Mathf.Max(0.2f, weapon.weaponDetails.weaponReloadTime - (weapon.weaponDetails.weaponReloadTime *
+                (GameManager.Instance.GetPlayer().playerStats.GetAdditionalWeaponReloadSpeed() / 100)));
+
+            while (weapon.weaponReloadTimer < reloadTime)
+            {
+                weapon.weaponReloadTimer += Time.deltaTime;
+                yield return null;
+            }
+        }
+        else
+        {
+            while (weapon.weaponReloadTimer < weapon.weaponDetails.weaponReloadTime)
+            {
+                weapon.weaponReloadTimer += Time.deltaTime;
+                yield return null;
+            }
         }
 
         if (topUpAmmoPercent != 0)

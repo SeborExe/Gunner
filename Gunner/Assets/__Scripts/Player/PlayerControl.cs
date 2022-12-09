@@ -84,6 +84,11 @@ public class PlayerControl : MonoBehaviour
         moveSpeed += amount;
     }
 
+    public void SetMovementSpeedOnValue(float amount)
+    {
+        moveSpeed = amount;
+    }
+
     public float GetMovementSpeed()
     {
         return moveSpeed;

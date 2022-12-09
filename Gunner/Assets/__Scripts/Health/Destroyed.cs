@@ -7,6 +7,7 @@ using UnityEngine;
 public class Destroyed : MonoBehaviour
 {
     private DestroyedEvent destroyedEvent;
+    [SerializeField] ParticleSystem playerDeadParticles;
 
     private void Awake()
     {
@@ -27,10 +28,16 @@ public class Destroyed : MonoBehaviour
     {
         if (destroyEventArgs.playerDied)
         {
+            Instantiate(playerDeadParticles, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
         }
         else
         {
+            if (destroyedEvent.TryGetComponent<DevilHearthStats>(out DevilHearthStats devilHearth))
+            {
+                devilHearth.StopAllCoroutines();
+            }
+
             Destroy(gameObject);
         }
     }

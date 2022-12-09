@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyDetails_Orc_Flesh_Crossbow
   m_EditorClassIdentifier: 
   enemyName: Orc Crossbow
-  enemyPrefab: {fileID: 6017502499073047210, guid: 98019a7537039f6428d291466ced630b, type: 3}
+  enemyPrefab: {fileID: 6017502499073047210, guid: 0465706551f1f3d4fbbf39a0e27a1ad2, type: 3}
   chaseDistance: 50
   enemyStandardMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   enemyMaterializeTime: 3
@@ -38,6 +38,8 @@ MonoBehaviour:
     enemyHealthAmount: 65
   - dungeonLevel: {fileID: 11400000, guid: e0af8536dfbcc0545b6ff3d9ae75bc9e, type: 2}
     enemyHealthAmount: 75
+  - dungeonLevel: {fileID: 11400000, guid: f76dbedb9293f6848a2c1034bb5cd430, type: 2}
+    enemyHealthAmount: 90
   isImmuneAfterHit: 0
   hitImmuneTime: 0
   isHealthBarDisplayed: 0

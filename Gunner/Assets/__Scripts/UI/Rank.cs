@@ -7,6 +7,7 @@ public static class Rank
     public const string GeneralRank = "generalRank";
     public const string ScientistRank = "scientistRank";
     public const string ThiefRank = "thiefRank";
+    public const string KnightRank = "knightRank";
 
     [Tooltip("Name should be: general, scientist or thief")]
     public static int GetRank(string name)
@@ -24,6 +25,11 @@ public static class Rank
         else if (name == "thief")
         {
             return PlayerPrefs.GetInt(ThiefRank, 0);
+        }
+
+        else if (name == "knight")
+        {
+            return PlayerPrefs.GetInt(KnightRank, 0);
         }
 
         return 0;
@@ -45,6 +51,11 @@ public static class Rank
         else if (name == "thief")
         {
             PlayerPrefs.SetInt(ThiefRank, rank);
+        }
+
+        else if (name == "knight")
+        {
+            PlayerPrefs.SetInt(KnightRank, rank);
         }
     }
 }

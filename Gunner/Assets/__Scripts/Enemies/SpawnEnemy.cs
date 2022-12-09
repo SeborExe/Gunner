@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
@@ -13,53 +14,43 @@ public class SpawnEnemy : MonoBehaviour
     private int currentEnemyCount;
     private int enemiesSpawnedSoFar;
     private int enemyMaxConcurrentSpawnNumber;
-    private Health health;
     private Room currentRoom;
     private RoomEnemySpawnParameters roomEnemySpawnParameters;
-    private HealthEvent healthEvent;
 
-    private List<GameObject> enemies = new List<GameObject>();
-
-    private void Awake()
-    {
-        healthEvent = GetComponent<HealthEvent>();
-        health = GetComponent<Health>();
-    }
+    private List<Enemy> enemies = new List<Enemy>();
 
     private void Start()
     {
         int spawnInterval = Random.Range((int)MinMaxSpawnInterval.x, (int)MinMaxSpawnInterval.y);
         Invoke(nameof(SpawnEnemies), spawnInterval);
+
+        GetComponent<HealthEvent>().OnHealthChanged += OnHealthChanged_OnDie;
     }
 
-    private void OnEnable()
-    {
-        healthEvent.OnHealthChanged += HealthEvent_OnHealthLost;
-    }
-
-    private void OnDisable()
-    {
-        healthEvent.OnHealthChanged -= HealthEvent_OnHealthLost;
-    }
-
-    private void HealthEvent_OnHealthLost(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
+    private void OnHealthChanged_OnDie(HealthEvent healthEvent, HealthEventArgs healthEventArgs)
     {
         if (healthEventArgs.healthAmount <= 0)
         {
-            foreach (GameObject enemyObject in enemies)
-            {
-                Health enemyHealth = enemyObject.GetComponent<Enemy>().GetHealth();
-                enemyHealth.TakeDamage(200);
-            }
+            StopAllCoroutines();
+            DestroyAllSpawnedEnemies();
+        }
+    }
 
-            EnemyDestroyed();
+    public void DestroyAllSpawnedEnemies()
+    {
+        enemies = enemies.Where(i => i != null).ToList();
+
+        foreach (Enemy enemyObject in enemies)
+        {
+            Health enemyHealth = enemyObject.GetComponent<Health>();
+            enemyHealth.TakeDamage(200);
         }
     }
 
     private void EnemyDestroyed()
     {
         DestroyedEvent destroyedEvent = GetComponent<DestroyedEvent>();
-        destroyedEvent.CallDestroyedEvent(false, health.GetStartingHealth());
+        destroyedEvent.CallDestroyedEvent(false, GetComponent<Health>().GetStartingHealth());
     }
 
     private void SpawnEnemies()
@@ -139,8 +130,10 @@ public class SpawnEnemy : MonoBehaviour
 
         DungeonLevelSO dungeonLevel = GameManager.Instance.GetCurrentDungeonLevel();
 
-        GameObject enemy = Instantiate(enemyDetails.enemyPrefab, position, Quaternion.identity);
-        enemy.GetComponent<Enemy>().EnemyInitialization(enemyDetails, enemiesSpawnedSoFar, dungeonLevel);
+        GameObject enemyGameObject = Instantiate(enemyDetails.enemyPrefab, position, Quaternion.identity);
+        Enemy enemy = enemyGameObject.GetComponent<Enemy>();
+
+        enemy.EnemyInitialization(enemyDetails, enemiesSpawnedSoFar, dungeonLevel);
 
         enemies.Add(enemy);
     }
@@ -149,4 +142,5 @@ public class SpawnEnemy : MonoBehaviour
     {
         return (Random.Range(roomEnemySpawnParameters.minSpawnInterval, roomEnemySpawnParameters.maxSpawnInterval));
     }
+
 }

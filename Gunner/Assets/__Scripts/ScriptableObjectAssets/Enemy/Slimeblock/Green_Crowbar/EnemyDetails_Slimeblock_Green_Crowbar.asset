@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyDetails_Slimeblock_Green_Crowbar
   m_EditorClassIdentifier: 
   enemyName: Slimeblock Green Crowbow
-  enemyPrefab: {fileID: 7047134002394612637, guid: 66b81ca608e5fc544953d1d7ce4cc909, type: 3}
+  enemyPrefab: {fileID: 7047134002394612637, guid: 26970f398106af94b840fc02268d21ed, type: 3}
   chaseDistance: 50
   enemyStandardMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   enemyMaterializeTime: 3
@@ -38,6 +38,8 @@ MonoBehaviour:
     enemyHealthAmount: 35
   - dungeonLevel: {fileID: 11400000, guid: e0af8536dfbcc0545b6ff3d9ae75bc9e, type: 2}
     enemyHealthAmount: 40
+  - dungeonLevel: {fileID: 11400000, guid: f76dbedb9293f6848a2c1034bb5cd430, type: 2}
+    enemyHealthAmount: 60
   isImmuneAfterHit: 0
   hitImmuneTime: 0
   isHealthBarDisplayed: 0

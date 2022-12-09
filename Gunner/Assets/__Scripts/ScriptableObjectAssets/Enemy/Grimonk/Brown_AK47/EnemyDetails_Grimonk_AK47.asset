@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyDetails_Grimonk_AK47
   m_EditorClassIdentifier: 
   enemyName: Grimonk AK47
-  enemyPrefab: {fileID: 2323215839739776936, guid: cea6d92dd1e3e1b4eb7198409c7e1c37, type: 3}
+  enemyPrefab: {fileID: 2323215839739776936, guid: ccd3b5f24036fc44b9197a3ea6b75f05, type: 3}
   chaseDistance: 50
   enemyStandardMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   enemyMaterializeTime: 2.5
@@ -38,6 +38,8 @@ MonoBehaviour:
     enemyHealthAmount: 65
   - dungeonLevel: {fileID: 11400000, guid: e0af8536dfbcc0545b6ff3d9ae75bc9e, type: 2}
     enemyHealthAmount: 80
+  - dungeonLevel: {fileID: 11400000, guid: f76dbedb9293f6848a2c1034bb5cd430, type: 2}
+    enemyHealthAmount: 95
   isImmuneAfterHit: 0
   hitImmuneTime: 0
   isHealthBarDisplayed: 0

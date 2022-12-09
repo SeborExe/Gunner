@@ -49,7 +49,7 @@ public class CharacterSelectorUI : MonoBehaviour
 
     public void NextCharacter()
     {
-        if (selectedPlayerIndex >= playerDetailsList.Count - 1) return;
+        if (selectedPlayerIndex >= playerDetailsList.Count - 1) selectedPlayerIndex = -1;
 
         selectedPlayerIndex++;
         currentPlayer.playerDetails = playerDetailsList[selectedPlayerIndex];
@@ -58,7 +58,7 @@ public class CharacterSelectorUI : MonoBehaviour
 
     public void PreviousCharacter()
     {
-        if (selectedPlayerIndex == 0) return;
+        if (selectedPlayerIndex == 0) selectedPlayerIndex = playerDetailsList.Count;
 
         selectedPlayerIndex--;
         currentPlayer.playerDetails = playerDetailsList[selectedPlayerIndex];
