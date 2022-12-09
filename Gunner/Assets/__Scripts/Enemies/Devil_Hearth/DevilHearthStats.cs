@@ -37,7 +37,6 @@ public class DevilHearthStats : MonoBehaviour
 
     private bool isSecondState = false;
     private bool useSpecialAttack = true;
-    private bool specialAttackComplete = false;
     private bool isAttacking = false;
 
     private void Awake()
@@ -133,6 +132,10 @@ public class DevilHearthStats : MonoBehaviour
 
         isAttacking = false;
         spark.gameObject.SetActive(true);
+
+        float timeToWait = UnityEngine.Random.Range(devilHearthState.GetMinTimeToRollNewAttack(), devilHearthState.GetMaxTimeToRollNewAttack());
+        yield return new WaitForSeconds(timeToWait);
+        devilHearthState.RollNewAttack();
     }
 
     public void InstantiateCircleLasersAttack()
@@ -185,17 +188,14 @@ public class DevilHearthStats : MonoBehaviour
             laser.gameObject.SetActive(false);
         }
 
-        if (specialAttackComplete)
-        {
-            yield return new WaitForSeconds(3f);
-            devilHearthState.RollNewAttack();
-            specialAttackComplete = false;
-        }
-
         UseSpecialAttackSecondForm();
 
         isAttacking = false;
         spark.gameObject.SetActive(true);
+
+        float timeToWait = UnityEngine.Random.Range(devilHearthState.GetMinTimeToRollNewAttack(), devilHearthState.GetMaxTimeToRollNewAttack());
+        yield return new WaitForSeconds(timeToWait);
+        devilHearthState.RollNewAttack();
     }
 
     private void UseSpecialAttackSecondForm()
@@ -204,7 +204,6 @@ public class DevilHearthStats : MonoBehaviour
         {
             useSpecialAttack = false;
             InstantiateCircleLasersAttack();
-            specialAttackComplete = true;
         }
     }
 
@@ -241,5 +240,10 @@ public class DevilHearthStats : MonoBehaviour
     public bool CheckIfIsAttacking()
     {
         return isAttacking;
+    }
+
+    public void SetDamageReduct(float amount)
+    {
+        damageReduct = amount;
     }
 }

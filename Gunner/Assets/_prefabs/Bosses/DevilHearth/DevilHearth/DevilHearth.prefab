@@ -527,15 +527,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5254811276613352108, guid: dff98094ab888064994e7caedaba3908, type: 3}
       propertyPath: m_LocalScale.x
-      value: 11
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5254811276613352108, guid: dff98094ab888064994e7caedaba3908, type: 3}
       propertyPath: m_LocalScale.y
-      value: 11
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5254811276613352108, guid: dff98094ab888064994e7caedaba3908, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5843218170558449028, guid: dff98094ab888064994e7caedaba3908, type: 3}
       propertyPath: m_LocalPosition.y
@@ -544,6 +544,18 @@ PrefabInstance:
     - target: {fileID: 6158470697551482003, guid: dff98094ab888064994e7caedaba3908, type: 3}
       propertyPath: m_Name
       value: DevilHearth
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758779272401431798, guid: dff98094ab888064994e7caedaba3908, type: 3}
+      propertyPath: m_Color.b
+      value: 0.19110003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758779272401431798, guid: dff98094ab888064994e7caedaba3908, type: 3}
+      propertyPath: m_Color.g
+      value: 0.19110003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758779272401431798, guid: dff98094ab888064994e7caedaba3908, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8301887
       objectReference: {fileID: 0}
     - target: {fileID: 7448065228579945887, guid: dff98094ab888064994e7caedaba3908, type: 3}
       propertyPath: m_Enabled
@@ -1017,7 +1029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesByLevelList:
-  - dungeonLevel: {fileID: 11400000, guid: ac8f09ebd15458f4e89eafe5fa7d0417, type: 2}
+  - dungeonLevel: {fileID: 11400000, guid: f76dbedb9293f6848a2c1034bb5cd430, type: 2}
     spawnableObjectRatioList:
     - dungeonObject: {fileID: 11400000, guid: 9a64acb3b84d8634ab0dfe3d3c24ae65, type: 2}
       ratio: 4
@@ -1040,14 +1052,14 @@ MonoBehaviour:
     - dungeonObject: {fileID: 11400000, guid: 5c49bbf9a75466f409fc3c7a7f1e658a, type: 2}
       ratio: 3
   roomEnemySpawnParametersList:
-  - dungeonLevel: {fileID: 11400000, guid: ac8f09ebd15458f4e89eafe5fa7d0417, type: 2}
+  - dungeonLevel: {fileID: 11400000, guid: f76dbedb9293f6848a2c1034bb5cd430, type: 2}
     minTotalEnemiesToSpawn: 1
-    maxTotalEnemiesToSpawn: 3
+    maxTotalEnemiesToSpawn: 2
     minConcurrentEnemies: 3
     maxConcurrentEnemies: 5
     minSpawnInterval: 1
     maxSpawnInterval: 3
-  MinMaxSpawnInterval: {x: 8, y: 12}
+  MinMaxSpawnInterval: {x: 15, y: 22}
 --- !u!114 &5247461306622506097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1063,8 +1075,8 @@ MonoBehaviour:
   spark: {fileID: 5548842341746381315}
   minimumDistance: 4
   maximumDistance: 10
-  damageReduct: 70
-  healthPercentToStartSecondState: 35
+  damageReduct: 80
+  healthPercentToStartSecondState: 30
   laser: {fileID: 3815125582786144950, guid: 25bcc946967c98b4cae809b68f135a27, type: 3}
   laserSpeed: 45
   timeToMoveLaser: 2
@@ -1106,10 +1118,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitBeforeFirstAttack: 13
-  waitBeforeFirstFireGenSummon: 10
+  waitBeforeFirstFireGenSummon: 6
   minTimeToRollNewAttack: 7
   maxTimeToRollNewAttack: 13
-  minTimeToSummonGen: 8
+  minTimeToSummonGen: 6
   maxTimeToSummonGen: 12
   percentChanceToSummonLaser: 60
   minRollNewAttackDecrease: 1
@@ -1117,6 +1129,7 @@ MonoBehaviour:
   minSummonGenDecrease: 1
   maxSummonGenDecrease: 2
   percentToSummonLaserAfterTransformIntoSecondStage: 40
+  damageReductInSecondStage: 60
 --- !u!4 &7576142254382218503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2385751189007300351, guid: dff98094ab888064994e7caedaba3908, type: 3}

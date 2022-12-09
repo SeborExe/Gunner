@@ -16,7 +16,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 8585789884273365465, guid: 9aefd95e0fa6cb248a3223ad48694ad6, type: 3}
   runtimeAnimatorController: {fileID: 9100000, guid: e87ce176a15556c459b355908992b930, type: 2}
   id: 0
-  playerHealthAmount: 400
+  playerHealthAmount: 250
   isImmuneAfterHit: 1
   hitImmuneTime: 1
   playerMiniMapIcon: {fileID: 21300000, guid: 709f49100a0267f419aa33d571fb9d25, type: 3}
@@ -24,7 +24,12 @@ MonoBehaviour:
   startingWeapon: {fileID: 11400000, guid: 1d200c4697117fa42bc21092199fc234, type: 2}
   startingWeaponList:
   - {fileID: 11400000, guid: 1d200c4697117fa42bc21092199fc234, type: 2}
-  baseDamageInPercent: 444
-  baseFireRateInPercent: 0
-  baseRange: 0
-  baseAmmoSpeed: 0
+  - {fileID: 11400000, guid: 2d334b9d48f4d7b4e9f651c4c832c387, type: 2}
+  - {fileID: 11400000, guid: ff33183dddfec314db8e2e3e4c512509, type: 2}
+  - {fileID: 11400000, guid: 56964dd9860d466439cf7fb1529824e5, type: 2}
+  - {fileID: 11400000, guid: 7545c105761fd5d4b8d29dc4b7d87ce3, type: 2}
+  - {fileID: 11400000, guid: 6c9881de696cca844aacfd23da71e2f0, type: 2}
+  baseDamageInPercent: 220
+  baseFireRateInPercent: 25
+  baseRange: 2
+  baseAmmoSpeed: 2

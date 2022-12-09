@@ -408,6 +408,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             usableItemsThatPlayerHad.Add(GetPlayer().GetCurrentUsableItem(), GetPlayer().GetCurrentChargingPoints());
         }
 
+        //Increase max player health
+        GetPlayer().health.AddHealth(10);
+
         SetRank(playerDetails.playerPrefab.name, currentDungeonLevelListIndex + 1);
         currentDungeonLevelListIndex++;
         finishLevelButton.gameObject.SetActive(false);

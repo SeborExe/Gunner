@@ -29,6 +29,9 @@ public class DevilHearthStateMachine : MonoBehaviour
     [SerializeField] float maxSummonGenDecrease;
     [SerializeField] int percentToSummonLaserAfterTransformIntoSecondStage;
 
+    [Header("Reduct")]
+    [SerializeField] float damageReductInSecondStage;
+
     private void Awake()
     {
         devilHearth = GetComponent<DevilHearthStats>();
@@ -53,9 +56,6 @@ public class DevilHearthStateMachine : MonoBehaviour
             if (devilHearth != null)
                 devilHearth.InstantiateCircleLasersAttack();
         }
-
-        float timeToWait = UnityEngine.Random.Range(minTimeToRollNewAttack, maxTimeToRollNewAttack);
-        Invoke(nameof(RollNewAttack), timeToWait);
     }
 
     private void SummonFireGen()
@@ -96,6 +96,8 @@ public class DevilHearthStateMachine : MonoBehaviour
     public void StartSecondStage()
     {
         CancelInvoke();
+        GameManager.Instance.virtualCamera.ShakeCamera(12f, 4f, 5f);
+        devilHearth.SetDamageReduct(damageReductInSecondStage);
 
         ChangeTimesToSummonFireGen(minSummonGenDecrease, maxSummonGenDecrease);
         ChangeTimeToRollNewAttack(minRollNewAttackDecrease, maxRollNewAttackDecrease);
@@ -107,5 +109,15 @@ public class DevilHearthStateMachine : MonoBehaviour
         {
             devilHearth.InstantiateCircleLasersAttack();
         }
+    }
+
+    public float GetMinTimeToRollNewAttack()
+    {
+        return minTimeToRollNewAttack;
+    }
+
+    public float GetMaxTimeToRollNewAttack()
+    {
+        return maxTimeToRollNewAttack;
     }
 }
