@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using LootLocker.Requests;
-using TMPro;
+using System.Threading.Tasks;
 
 public class Leaderboard : SingletonMonobehaviour<Leaderboard>
 {
@@ -42,7 +41,7 @@ public class Leaderboard : SingletonMonobehaviour<Leaderboard>
         yield return new WaitWhile(() => done == false);
     }
 
-    public IEnumerator SubmitScoreRoutine(string playerID ,int scoreToUpload, string levelName)
+    public async Task SubmitScoreRoutine(string playerID ,int scoreToUpload, string levelName)
     {
         bool done = false;
         //string playerID = PlayerPrefs.GetString("PlayerID");
@@ -60,6 +59,17 @@ public class Leaderboard : SingletonMonobehaviour<Leaderboard>
             }
         });
 
-        yield return new WaitWhile(() => done == false);
+        await TaskUtils.WaitUntil(() => done == false);
+    }
+
+    public static class TaskUtils
+    {
+        public static async Task WaitUntil(System.Func<bool> predicate, int sleep = 50)
+        {
+            while (!predicate())
+            {
+                await Task.Delay(sleep);
+            }
+        }
     }
 }

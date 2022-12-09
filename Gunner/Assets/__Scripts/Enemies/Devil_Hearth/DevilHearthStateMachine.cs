@@ -96,8 +96,10 @@ public class DevilHearthStateMachine : MonoBehaviour
     public void StartSecondStage()
     {
         CancelInvoke();
+
         GameManager.Instance.virtualCamera.ShakeCamera(12f, 4f, 5f);
         devilHearth.SetDamageReduct(damageReductInSecondStage);
+        GameManager.Instance.hellEffect.gameObject.SetActive(true);
 
         ChangeTimesToSummonFireGen(minSummonGenDecrease, maxSummonGenDecrease);
         ChangeTimeToRollNewAttack(minRollNewAttackDecrease, maxRollNewAttackDecrease);
