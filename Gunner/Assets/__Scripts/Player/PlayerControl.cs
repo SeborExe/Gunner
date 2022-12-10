@@ -250,7 +250,7 @@ public class PlayerControl : MonoBehaviour
 
             if (holdingItemButton.holdingItemButtonPressed)
             {
-                player.GetCurrentHoldingItem().Use();
+                player.GetCurrentHoldingItem().Use(true);
             }
         }
     }

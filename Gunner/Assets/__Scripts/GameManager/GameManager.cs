@@ -503,8 +503,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         await DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f);
 
-        leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
+        /*
+        await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
             $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
+        */
 
         gameState = GameState.restartGame;
     }
@@ -561,8 +563,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             await DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f);
         }
 
+        /*
         await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
             $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
+        */
 
         gameState = GameState.restartGame;
     }

@@ -10,7 +10,7 @@ public class HoldingItem : Item
     public ItemRank effectRank;
     [Multiline(4)] public string itemTextAfterUse;
 
-    public virtual void Use()
+    public virtual void Use(bool shouldUse)
     {
         foreach (ItemEffect effect in effects)
         {
@@ -28,8 +28,12 @@ public class HoldingItem : Item
         }
 
         PlaySound();
-        GameManager.Instance.GetPlayer().SetCurrentHoldingItem(null);
-        HoldingItemUI.Instance.DisableHoldingItemImageState();
+
+        if (shouldUse)
+        {
+            GameManager.Instance.GetPlayer().SetCurrentHoldingItem(null);
+            HoldingItemUI.Instance.DisableHoldingItemImageState();
+        }
 
         StatsDisplayUI.Instance.UpdateStatsUI();
     }
