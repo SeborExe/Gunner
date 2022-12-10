@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -60,7 +61,7 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
         return (UnityEngine.Random.Range(roomEnemySpawnParameters.minConcurrentEnemies, roomEnemySpawnParameters.maxConcurrentEnemies));
     }
 
-    private void SpawnEnemies()
+    private async void SpawnEnemies()
     {
         if (GameManager.Instance.gameState == GameState.bossStage)
         {
@@ -74,10 +75,10 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
             GameManager.Instance.gameState = GameState.engagingEnemies;
         }
 
-        StartCoroutine(SpawnEnemiesRoutine());
+        await SpawnEnemiesRoutine();
     }
 
-    private IEnumerator SpawnEnemiesRoutine()
+    private async Task SpawnEnemiesRoutine()
     {
         Grid grid = currentRoom.instantiatedRoom.grid;
 
@@ -89,13 +90,14 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
             {
                 while (currentEnemyCount >= enemyMaxConcurrentSpawnNumber)
                 {
-                    yield return null;
+                    await Task.Yield();
                 }
 
                 Vector3Int cellPosition = (Vector3Int)currentRoom.spawnPositionArray[UnityEngine.Random.Range(0, currentRoom.spawnPositionArray.Length)];
                 CreateEnemy(randomEnemiesHelperClass.GetItem(), grid.CellToWorld(cellPosition));
 
-                yield return new WaitForSeconds(GetEnemySpawnInterval());
+                float timeToWait = GetEnemySpawnInterval() * 1000;
+                await Task.Delay((int)timeToWait);
             }
         }
     }
