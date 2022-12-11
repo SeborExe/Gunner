@@ -413,7 +413,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
 
         //Increase max player health
-        GetPlayer().health.AddHealth(10);
+        GetPlayer().playerStats.SetAdditionalHealth(10);
         StatsDisplayUI.Instance.UpdateStatsUI();
 
         SetRank(playerDetails.playerPrefab.name, currentDungeonLevelListIndex + 1);

@@ -82,7 +82,7 @@ public class Ammo : MonoBehaviour, IFireable
                 if (GameManager.Instance.GetPlayer().activeWeapon.GetCurrentAmmo().ammoSpawnAmountMax > 1)
                 {
                     int damage = ammoDetails.ammoDamage +
-                         ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 150);
+                         ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 300);
                     health.TakeDamage(damage);
                 }
                 else
