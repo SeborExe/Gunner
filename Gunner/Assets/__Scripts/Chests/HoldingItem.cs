@@ -9,6 +9,7 @@ public class HoldingItem : Item
     [Header("ItemType")]
     public ItemRank effectRank;
     [Multiline(4)] public string itemTextAfterUse;
+    [SerializeField] bool showTextAfterUse = true;
 
     public virtual void Use(bool shouldUse)
     {
@@ -22,7 +23,7 @@ public class HoldingItem : Item
             GameManager.Instance.GetPlayer().lastHoldingItem = this;
         }
 
-        if (!String.IsNullOrEmpty(itemTextAfterUse))
+        if (!String.IsNullOrEmpty(itemTextAfterUse) && showTextAfterUse)
         {
             GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(itemTextAfterUse);
         }
