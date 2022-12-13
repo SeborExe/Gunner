@@ -13,6 +13,8 @@ public class HoldingItem : Item
 
     public virtual void Use(bool shouldUse)
     {
+        GameManager.Instance.ClearItemText();
+
         foreach (ItemEffect effect in effects)
         {
             effect.ActiveEffect();

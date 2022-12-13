@@ -270,6 +270,8 @@ public class Chest : MonoBehaviour, IUseable
     {
         if (chestItem == null || !chestItem.isItemMaterialized) return;
 
+        GameManager.Instance.ClearItemText();
+
         if (!item.isUsable)
         {
             foreach (ItemEffect effect in item.effects)

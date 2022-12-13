@@ -735,6 +735,14 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         return leaderboard;
     }
 
+    public void ClearItemText()
+    {
+        foreach (RectTransform child in GetPlayer().itemTextSpawner.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
     #region Validation
 #if UNITY_EDITOR
 
