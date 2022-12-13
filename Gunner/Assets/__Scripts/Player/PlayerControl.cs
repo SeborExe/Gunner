@@ -270,6 +270,7 @@ public class PlayerControl : MonoBehaviour
         if (weaponChangeButton.weaponChangeButtonPressed)
         {
             NextWeapon();
+            weaponChangeButton.weaponChangeButtonPressed = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))

@@ -81,15 +81,19 @@ public class Ammo : MonoBehaviour, IFireable
             {
                 if (GameManager.Instance.GetPlayer().activeWeapon.GetCurrentAmmo().ammoSpawnAmountMax > 1)
                 {
-                    int damage = ammoDetails.ammoDamage +
-                         ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 300);
+                    float damage = ammoDetails.ammoDamage +
+                         (ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 300));
                     health.TakeDamage(damage);
+
+                    Debug.Log("Multiple Ammo: " + damage);
                 }
                 else
                 {
-                    int damage = ammoDetails.ammoDamage +
-                        ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 100);
+                    float damage = ammoDetails.ammoDamage +
+                        (ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 100));
                     health.TakeDamage(damage);
+
+                    Debug.Log("Solo Ammo: " + damage);
                 }
             }
             else

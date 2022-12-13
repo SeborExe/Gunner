@@ -50,7 +50,7 @@ public class SpawnEnemy : MonoBehaviour
     private void EnemyDestroyed()
     {
         DestroyedEvent destroyedEvent = GetComponent<DestroyedEvent>();
-        destroyedEvent.CallDestroyedEvent(false, GetComponent<Health>().GetStartingHealth());
+        destroyedEvent.CallDestroyedEvent(false, (int)GetComponent<Health>().GetStartingHealth());
     }
 
     private void SpawnEnemies()

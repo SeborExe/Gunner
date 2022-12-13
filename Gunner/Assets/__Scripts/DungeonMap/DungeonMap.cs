@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System.Threading.Tasks;
 
 public class DungeonMap : SingletonMonobehaviour<DungeonMap>
 {
@@ -31,7 +32,7 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
         }
     }
 
-    private void GetRoomClicked()
+    private async void GetRoomClicked()
     {
         if (GameManager.Instance.gameState == GameState.engagingEnemies || GameManager.Instance.gameState == GameState.engagingBoss) return;
 
@@ -48,17 +49,17 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
 
                 if (instantiatedRoom.room.isClearedOfEnemies && instantiatedRoom.room.isPreviouslyVisited)
                 {
-                    StartCoroutine(MovePlayerToRoom(worldPosition, instantiatedRoom.room));
+                    await MovePlayerToRoom(worldPosition, instantiatedRoom.room);
                 }
             }
         }
     }
 
-    private IEnumerator MovePlayerToRoom(Vector3 worldPosition, Room room)
+    private async Task MovePlayerToRoom(Vector3 worldPosition, Room room)
     {
         StaticEventHandler.CallRoomChangedEvent(room);
 
-        yield return StartCoroutine(GameManager.Instance.FadeCoroutine(0f, 1f, 0f, Color.black));
+        await GameManager.Instance.Fade(0f, 1f, 0f, Color.black);
 
         ClearDungeonOverviewMap();
 
@@ -69,7 +70,7 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
         GameManager.Instance.GetPlayer().transform.position = spawnPosition;
         GameManager.Instance.minimapButton.SetMapActiveFalse();
 
-        yield return StartCoroutine(GameManager.Instance.FadeCoroutine(1f, 0f, 1f, Color.black));
+        await GameManager.Instance.Fade(1f, 0f, 1f, Color.black);
 
         GameManager.Instance.GetPlayer().playerControl.EnablePlayer();
     }

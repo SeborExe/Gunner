@@ -18,7 +18,7 @@ public class AmmoDetailsSO : ScriptableObject
     public Material ammoChargeMaterial;
 
     [Header("Ammo Base Parameters")]
-    public int ammoDamage = 1;
+    public float ammoDamage = 1;
     public float ammoSpeedMin = 20f;
     public float ammoSpeedMax = 20f;
     public float ammoRange = 20f;
