@@ -1,22 +1,7 @@
 fileFormatVersion: 2
-guid: d9ddc90d31f720246ad105cfc560958d
+guid: 24977517f2b088547b30df73620f1a8a
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -3530179825704258662
-    second: SlimeBlockKingIdleUp_Red_0
-  - first:
-      213: 1204471970314977514
-    second: SlimeBlockKingIdleUp_Red_1
-  - first:
-      213: 4829727362094811213
-    second: SlimeBlockKingIdleUp_Red_2
-  - first:
-      213: 919597272157065627
-    second: SlimeBlockKingIdleUp_Red_3
-  - first:
-      213: 8057128681040585992
-    second: SlimeBlockKingIdleUp_Red_4
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -96,7 +81,31 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimeBlockKingIdleUp_Red_0
+      name: Monstro_MoveUp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a93b5a7f628420fc0800000000000000
-      internalID: -3530179825704258662
+      spriteID: 35691e7e39932ca4fbf41226d63a12fe
+      internalID: 701783426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingIdleUp_Red_1
+      name: Monstro_MoveUp_1
       rect:
         serializedVersion: 2
         x: 48
@@ -142,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae00a8c10e427b010800000000000000
-      internalID: 1204471970314977514
+      spriteID: 019464424d52c5d499f1cc4bdfbb4d56
+      internalID: 218501812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingIdleUp_Red_2
+      name: Monstro_MoveUp_2
       rect:
         serializedVersion: 2
         x: 96
@@ -163,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4845a36273a60340800000000000000
-      internalID: 4829727362094811213
+      spriteID: 55c43ddb6f1a3994fbbf18dd8d48765f
+      internalID: 153694252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingIdleUp_Red_3
+      name: Monstro_MoveUp_3
       rect:
         serializedVersion: 2
         x: 144
@@ -184,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b911757c8d013cc00800000000000000
-      internalID: 919597272157065627
+      spriteID: 2e4114777074b01469fd006dc0fa4b79
+      internalID: -219906929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingIdleUp_Red_4
+      name: Monstro_MoveUp_4
       rect:
         serializedVersion: 2
         x: 192
@@ -205,8 +214,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 805290fc8dba0df60800000000000000
-      internalID: 8057128681040585992
+      spriteID: 5511f457a7571af4a883d45684b3fdb6
+      internalID: -2000321879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monstro_MoveUp_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30b52f71f924d1641b1557a146121b17
+      internalID: -1986187855
       vertices: []
       indices: 
       edges: []
@@ -222,11 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SlimeBlockKingIdleUp_Red_4: 8057128681040585992
-      SlimeBlockKingIdleUp_Red_0: -3530179825704258662
-      SlimeBlockKingIdleUp_Red_3: 919597272157065627
-      SlimeBlockKingIdleUp_Red_1: 1204471970314977514
-      SlimeBlockKingIdleUp_Red_2: 4829727362094811213
+      Monstro_MoveUp_5: -1986187855
+      Monstro_MoveUp_0: 701783426
+      Monstro_MoveUp_4: -2000321879
+      Monstro_MoveUp_2: 153694252
+      Monstro_MoveUp_1: 218501812
+      Monstro_MoveUp_3: -219906929
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

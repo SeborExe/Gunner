@@ -84,16 +84,12 @@ public class Ammo : MonoBehaviour, IFireable
                     float damage = ammoDetails.ammoDamage +
                          (ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 300));
                     health.TakeDamage(damage);
-
-                    Debug.Log("Multiple Ammo: " + damage);
                 }
                 else
                 {
                     float damage = ammoDetails.ammoDamage +
                         (ammoDetails.ammoDamage * (GameManager.Instance.GetPlayer().playerStats.GetBaseDamage() / 100));
                     health.TakeDamage(damage);
-
-                    Debug.Log("Solo Ammo: " + damage);
                 }
             }
             else

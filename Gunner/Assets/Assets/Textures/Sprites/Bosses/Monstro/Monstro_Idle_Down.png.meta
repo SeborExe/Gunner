@@ -1,22 +1,7 @@
 fileFormatVersion: 2
-guid: 7b09fa81c81d79547aaf426aac115e8a
+guid: dfed04a4813ca934480bb0a6f23d1f23
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 8784337606989860369
-    second: SlimeBlockKingIdleDown_Red_0
-  - first:
-      213: -2316078177831284074
-    second: SlimeBlockKingIdleDown_Red_1
-  - first:
-      213: -4945199039461388777
-    second: SlimeBlockKingIdleDown_Red_2
-  - first:
-      213: -3066443749120879133
-    second: SlimeBlockKingIdleDown_Red_3
-  - first:
-      213: 6099516406439767007
-    second: SlimeBlockKingIdleDown_Red_4
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -96,7 +81,31 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimeBlockKingIdleDown_Red_0
+      name: Monstro_Idle_Down_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11e4cbb138c38e970800000000000000
-      internalID: 8784337606989860369
+      spriteID: 24f2b83b9b89c754695f83ead675e161
+      internalID: -325148752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingIdleDown_Red_1
+      name: Monstro_Idle_Down_1
       rect:
         serializedVersion: 2
         x: 48
@@ -142,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 692155a1b23abdfd0800000000000000
-      internalID: -2316078177831284074
+      spriteID: f7fe67fe72caff343a66095dd522d1a1
+      internalID: 87359206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingIdleDown_Red_2
+      name: Monstro_Idle_Down_2
       rect:
         serializedVersion: 2
         x: 96
@@ -163,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71e0d45acaf1f5bb0800000000000000
-      internalID: -4945199039461388777
+      spriteID: 46421683ab515a5488997102891ca8eb
+      internalID: 1956396638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingIdleDown_Red_3
+      name: Monstro_Idle_Down_3
       rect:
         serializedVersion: 2
         x: 144
@@ -184,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e5dee928adc175d0800000000000000
-      internalID: -3066443749120879133
+      spriteID: b15cd4540127ac04591fc052c1a592f5
+      internalID: 479873666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingIdleDown_Red_4
+      name: Monstro_Idle_Down_4
       rect:
         serializedVersion: 2
         x: 192
@@ -205,8 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdb6283ead5d5a450800000000000000
-      internalID: 6099516406439767007
+      spriteID: 5f699fcec61584243a4f43c122d94645
+      internalID: 1401219120
       vertices: []
       indices: 
       edges: []
@@ -222,11 +231,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SlimeBlockKingIdleDown_Red_2: -4945199039461388777
-      SlimeBlockKingIdleDown_Red_1: -2316078177831284074
-      SlimeBlockKingIdleDown_Red_4: 6099516406439767007
-      SlimeBlockKingIdleDown_Red_0: 8784337606989860369
-      SlimeBlockKingIdleDown_Red_3: -3066443749120879133
+      Monstro_Idle_Down_2: 1956396638
+      Monstro_Idle_Down_0: -325148752
+      Monstro_Idle_Down_3: 479873666
+      Monstro_Idle_Down_4: 1401219120
+      Monstro_Idle_Down_1: 87359206
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

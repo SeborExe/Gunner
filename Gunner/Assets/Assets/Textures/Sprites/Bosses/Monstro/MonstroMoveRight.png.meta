@@ -1,25 +1,7 @@
 fileFormatVersion: 2
-guid: 50c63d79640e55b4e9d80ba346b02120
+guid: 223bad5dac4a46f4c832b200b90e6dd3
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -6773533008627503079
-    second: SlimeBlockKingMoveUp_Red_0
-  - first:
-      213: -7698940558881729680
-    second: SlimeBlockKingMoveUp_Red_1
-  - first:
-      213: -6062531184625401381
-    second: SlimeBlockKingMoveUp_Red_2
-  - first:
-      213: 5376270303993226320
-    second: SlimeBlockKingMoveUp_Red_3
-  - first:
-      213: -2106303446268865917
-    second: SlimeBlockKingMoveUp_Red_4
-  - first:
-      213: 3599203912187204350
-    second: SlimeBlockKingMoveUp_Red_5
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,7 +81,31 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimeBlockKingMoveUp_Red_0
+      name: MonstroMoveRight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 910ff5acd939ff1a0800000000000000
-      internalID: -6773533008627503079
+      spriteID: 10aca9091aed0104093454de3425d278
+      internalID: 26780415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingMoveUp_Red_1
+      name: MonstroMoveRight_1
       rect:
         serializedVersion: 2
         x: 48
@@ -145,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 073d1093a5ed72590800000000000000
-      internalID: -7698940558881729680
+      spriteID: a86c1bdfb7866e34da727d23e9fee375
+      internalID: 753587190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingMoveUp_Red_2
+      name: MonstroMoveRight_2
       rect:
         serializedVersion: 2
         x: 96
@@ -166,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd1ccac12009ddba0800000000000000
-      internalID: -6062531184625401381
+      spriteID: 0b44268cbb001fd4e9bd06c919c4c2ae
+      internalID: 772560780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingMoveUp_Red_3
+      name: MonstroMoveRight_3
       rect:
         serializedVersion: 2
         x: 144
@@ -187,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0546ff55b595c9a40800000000000000
-      internalID: 5376270303993226320
+      spriteID: 99936c1e097c32748bf1303d73f6d5b1
+      internalID: 182497890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingMoveUp_Red_4
+      name: MonstroMoveRight_4
       rect:
         serializedVersion: 2
         x: 192
@@ -208,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38296ffdc28e4c2e0800000000000000
-      internalID: -2106303446268865917
+      spriteID: 9e7f1720127162d48bcc7fd8e2739fa3
+      internalID: 533543810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SlimeBlockKingMoveUp_Red_5
+      name: MonstroMoveRight_5
       rect:
         serializedVersion: 2
         x: 240
@@ -229,8 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef25d1483e0f2f130800000000000000
-      internalID: 3599203912187204350
+      spriteID: 43ce0e6cf67514c45a8192442fcd29e2
+      internalID: -653267568
       vertices: []
       indices: 
       edges: []
@@ -246,12 +252,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SlimeBlockKingMoveUp_Red_1: -7698940558881729680
-      SlimeBlockKingMoveUp_Red_2: -6062531184625401381
-      SlimeBlockKingMoveUp_Red_4: -2106303446268865917
-      SlimeBlockKingMoveUp_Red_3: 5376270303993226320
-      SlimeBlockKingMoveUp_Red_5: 3599203912187204350
-      SlimeBlockKingMoveUp_Red_0: -6773533008627503079
+      MonstroMoveRight_5: -653267568
+      MonstroMoveRight_4: 533543810
+      MonstroMoveRight_1: 753587190
+      MonstroMoveRight_2: 772560780
+      MonstroMoveRight_0: 26780415
+      MonstroMoveRight_3: 182497890
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
