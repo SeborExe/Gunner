@@ -18,15 +18,17 @@ MonoBehaviour:
 
     Recive Damage and
 
-    Fire Rate Up!'
+    Fire Rate Up!
+
+    Can
+    be used every 3 seconds'
   isUsable: 1
   effects:
   - {fileID: 11400000, guid: 8fd555991d0a1fe439244c5473f0690b, type: 2}
-  - {fileID: 11400000, guid: 214ca2dd24186de4eb5be3fa0a1eda49, type: 2}
+  - {fileID: 11400000, guid: 087ba86d7f7b366458e4da6083475a30, type: 2}
   - {fileID: 11400000, guid: 0183ec827de19c04193ede0967dbe4d3, type: 2}
-  - {fileID: 11400000, guid: 90f744067ed70904a9f704d73800d50d, type: 2}
   isChangingStats: 1
   hasIndividualSoundEffect: 0
   hasTimeEffect: 0
-  coolDown: 1
+  coolDown: 3
   chargingPoints: 0

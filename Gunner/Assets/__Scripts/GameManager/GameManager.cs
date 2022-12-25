@@ -413,7 +413,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
 
         //Increase max player health
-        GetPlayer().health.AddHealth(10);
+        GetPlayer().playerStats.SetAdditionalHealth(10);
         StatsDisplayUI.Instance.UpdateStatsUI();
 
         SetRank(playerDetails.playerPrefab.name, currentDungeonLevelListIndex + 1);
@@ -503,8 +503,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         await DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f);
 
-        leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
+        /*
+        await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
             $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
+        */
 
         gameState = GameState.restartGame;
     }
@@ -561,8 +563,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             await DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f);
         }
 
+        /*
         await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
             $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
+        */
 
         gameState = GameState.restartGame;
     }
@@ -729,6 +733,24 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public Leaderboard GetLeaderboard()
     {
         return leaderboard;
+    }
+
+    public void ClearItemText()
+    {
+        foreach (RectTransform child in GetPlayer().itemTextSpawner.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    public string GetCurrentLevelName()
+    {
+        return GetCurrentDungeonLevel().levelName.ToUpper();
+    }
+
+    public string GetCurrentLevelNumber()
+    {
+        return $"LEVEL {currentDungeonLevelListIndex + 1}";
     }
 
     #region Validation

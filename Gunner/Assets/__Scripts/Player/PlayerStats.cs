@@ -6,19 +6,19 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class PlayerStats : MonoBehaviour
 {
-    private int baseDamageInPercent = 0;
+    private float baseDamageInPercent = 0;
     private int additionalHealth = 0;
     private float additionalFireRateInPercent = 0;
     private float additionalRange = 0;
     private int additionalAmmoSpeed = 0;
     private float additionalWeaponReloadSpeed = 0;
 
-    public int GetBaseDamage()
+    public float GetBaseDamage()
     {
         return baseDamageInPercent + GameManager.Instance.GetPlayer().playerDetails.baseDamageInPercent;
     }
 
-    public void SetBaseDamage(int amount)
+    public void SetBaseDamage(float amount)
     {
         baseDamageInPercent += amount;
     }

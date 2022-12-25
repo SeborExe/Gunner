@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using System.Threading.Tasks;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -245,7 +246,7 @@ public class Chest : MonoBehaviour, IUseable
         UpdateChestState();
     }
 
-    private void CollectWeaponItem()
+    private async void CollectWeaponItem()
     {
         if (chestItem == null || !chestItem.isItemMaterialized) return;
 
@@ -257,7 +258,7 @@ public class Chest : MonoBehaviour, IUseable
 
         else
         {
-            StartCoroutine(DisplayMessage("WEAPON\nALREADY\nEQUIPPED", 5f));
+            await DisplayMessage("WEAPON\nALREADY\nEQUIPPED", 5);
         }
 
         weaponDetails = null;
@@ -268,6 +269,8 @@ public class Chest : MonoBehaviour, IUseable
     private void CollectItem()
     {
         if (chestItem == null || !chestItem.isItemMaterialized) return;
+
+        GameManager.Instance.ClearItemText();
 
         if (!item.isUsable)
         {
@@ -369,11 +372,11 @@ public class Chest : MonoBehaviour, IUseable
         HoldingItemUI.Instance.OnItemCollected();
     }
 
-    private IEnumerator DisplayMessage(string messageText, float messageDisplayTime)
+    private async Task DisplayMessage(string messageText, int messageDisplayTime)
     {
         messageTextTMP.text = messageText;
 
-        yield return new WaitForSeconds(messageDisplayTime);
+        await Task.Delay(messageDisplayTime);
 
         messageTextTMP.text = "";
     }

@@ -25,17 +25,29 @@ public class InstantiatedRoom : MonoBehaviour
     private BoxCollider2D boxCollider2D;
 
     [SerializeField] private GameObject enviromentGameObject;
+    [SerializeField] private bool isEntry = false;
+
+    private LightFlicker[] lightFlickers;
 
     private void Awake()
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
 
         roomColliderBounds = boxCollider2D.bounds;
+        lightFlickers = GetComponentsInChildren<LightFlicker>();
     }
 
     private void Start()
     {
         UpdateMovableObstacles();
+
+        if (!isEntry)
+        {
+            foreach (LightFlicker lightFlicker in lightFlickers)
+            {
+                lightFlicker.gameObject.SetActive(false);
+            }
+        }
     }
 
     internal void UpdateMovableObstacles()
@@ -79,6 +91,11 @@ public class InstantiatedRoom : MonoBehaviour
         if (collision.tag == Settings.playerTag && room != GameManager.Instance.GetCurrentRoom())
         {
             StaticEventHandler.CallRoomChangedEvent(room);
+
+            foreach (LightFlicker lightFlicker in lightFlickers)
+            {
+                lightFlicker.gameObject.SetActive(true);
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -14,7 +15,7 @@ public class DoorLightingControl : MonoBehaviour
         door = GetComponentInParent<Door>();
     }
 
-    public void FadeInDoor(Door door)
+    public async void FadeInDoor(Door door)
     {
         Material material = new Material(GameResources.Instance.variableLitShader);
 
@@ -24,21 +25,21 @@ public class DoorLightingControl : MonoBehaviour
 
             foreach (SpriteRenderer spriteRenderer in spriteRendererArray)
             {
-                StartCoroutine(FadeInDoorRoutine(spriteRenderer, material));
+                await FadeInDoorRoutine(spriteRenderer, material);
             }
 
             isLit = true;
         }
     }
 
-    private IEnumerator FadeInDoorRoutine(SpriteRenderer spriteRenderer, Material material)
+    private async Task FadeInDoorRoutine(SpriteRenderer spriteRenderer, Material material)
     {
         spriteRenderer.material = material;
 
         for (float i = 0.05f; i <= 1f; i += Time.deltaTime / Settings.fadeInTime)
         {
             material.SetFloat("Alpha_Slider", i);
-            yield return null;
+            await Task.Yield();
         }
 
         spriteRenderer.material = GameResources.Instance.litMaterial;

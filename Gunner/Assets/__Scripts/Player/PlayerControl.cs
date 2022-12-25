@@ -250,7 +250,7 @@ public class PlayerControl : MonoBehaviour
 
             if (holdingItemButton.holdingItemButtonPressed)
             {
-                player.GetCurrentHoldingItem().Use();
+                player.GetCurrentHoldingItem().Use(true);
             }
         }
     }
@@ -270,6 +270,7 @@ public class PlayerControl : MonoBehaviour
         if (weaponChangeButton.weaponChangeButtonPressed)
         {
             NextWeapon();
+            weaponChangeButton.weaponChangeButtonPressed = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))

@@ -9,8 +9,8 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private HealthBar healthBar;
 
-    private int startingHealth;
-    public int currentHealth;
+    private float startingHealth;
+    public float currentHealth;
     private HealthEvent healthEvent;
     private Player player;
     private Coroutine immunityCoroutine;
@@ -65,7 +65,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(float damageAmount)
     {
         bool isRolling = false;
 
@@ -89,7 +89,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void TakeNormalDamage(int damageAmount)
+    private void TakeNormalDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
         CallHealthEvent(damageAmount);
@@ -103,17 +103,17 @@ public class Health : MonoBehaviour
 
         if (healthBar != null)
         {
-            healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
+            healthBar.SetHealthBarValue(currentHealth / startingHealth);
         }
     }
 
-    private void TakeReductedDamage(int damageAmount, DevilHearthStats devil)
+    private void TakeReductedDamage(float damageAmount, DevilHearthStats devil)
     {
         int damage = (int)(damageAmount - (damageAmount * (devil.GetDamageReduct() / 100f)));
 
         currentHealth -= damage;
         CallHealthEvent(damage);
-        healthBar.SetHealthBarValue((float)currentHealth / (float)startingHealth);
+        healthBar.SetHealthBarValue(currentHealth / startingHealth);
     }
 
     private void PostHitImmunity()
@@ -163,9 +163,9 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void CallHealthEvent(int damageAmount)
+    private void CallHealthEvent(float damageAmount)
     {
-        healthEvent.CallHealthChangedEvent(((float)currentHealth / (float)startingHealth), currentHealth, damageAmount);
+        healthEvent.CallHealthChangedEvent((currentHealth / startingHealth), currentHealth, damageAmount);
     }
 
     public void SetStartingHealth(int startingHealth)
@@ -176,7 +176,7 @@ public class Health : MonoBehaviour
         CallHealthEvent(0);
     }
 
-    public int GetStartingHealth()
+    public float GetStartingHealth()
     {
         return startingHealth;
     }
@@ -184,7 +184,7 @@ public class Health : MonoBehaviour
     public void AddHealth(int healthPercent)
     {
         int healthIncrease = Mathf.RoundToInt((startingHealth * healthPercent) / 100f);
-        int totalHealth = currentHealth + healthIncrease;
+        float totalHealth = currentHealth + healthIncrease;
 
         if (totalHealth > startingHealth)
         {

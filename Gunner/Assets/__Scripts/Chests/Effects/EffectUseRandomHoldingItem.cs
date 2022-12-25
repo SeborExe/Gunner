@@ -15,7 +15,7 @@ public class EffectUseRandomHoldingItem : ItemEffect
         if (randomItemPool_1 != null && randomItemPool_1.Length != 0)
         {
             int index = Random.Range(0, randomItemPool_1.Length);
-            randomItemPool_1[index].Use();
+            randomItemPool_1[index].Use(false);
 
             if (showText)
             {
@@ -26,13 +26,13 @@ public class EffectUseRandomHoldingItem : ItemEffect
         if (randomItemPool_2 != null && randomItemPool_2.Length != 0)
         {
             int index = Random.Range(0, randomItemPool_2.Length);
-            randomItemPool_2[index].Use();  
+            randomItemPool_2[index].Use(false);  
         }
 
         if (randomItemPool_3 != null && randomItemPool_3.Length != 0)
         {
             int index = Random.Range(0, randomItemPool_3.Length);
-            randomItemPool_3[index].Use();
+            randomItemPool_3[index].Use(false);
         }
     }
 }

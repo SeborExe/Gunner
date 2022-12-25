@@ -9,9 +9,12 @@ public class HoldingItem : Item
     [Header("ItemType")]
     public ItemRank effectRank;
     [Multiline(4)] public string itemTextAfterUse;
+    [SerializeField] bool showTextAfterUse = true;
 
-    public virtual void Use()
+    public virtual void Use(bool shouldUse)
     {
+        GameManager.Instance.ClearItemText();
+
         foreach (ItemEffect effect in effects)
         {
             effect.ActiveEffect();
@@ -22,14 +25,18 @@ public class HoldingItem : Item
             GameManager.Instance.GetPlayer().lastHoldingItem = this;
         }
 
-        if (!String.IsNullOrEmpty(itemTextAfterUse))
+        if (!String.IsNullOrEmpty(itemTextAfterUse) && showTextAfterUse)
         {
             GameManager.Instance.GetPlayer().itemTextSpawner.Spawn(itemTextAfterUse);
         }
 
         PlaySound();
-        GameManager.Instance.GetPlayer().SetCurrentHoldingItem(null);
-        HoldingItemUI.Instance.DisableHoldingItemImageState();
+
+        if (shouldUse)
+        {
+            GameManager.Instance.GetPlayer().SetCurrentHoldingItem(null);
+            HoldingItemUI.Instance.DisableHoldingItemImageState();
+        }
 
         StatsDisplayUI.Instance.UpdateStatsUI();
     }

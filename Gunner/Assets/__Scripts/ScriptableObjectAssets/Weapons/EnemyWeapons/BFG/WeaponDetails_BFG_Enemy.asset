@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_BFG_Enemy
+  m_EditorClassIdentifier: 
+  weaponName: BFG
+  weaponSprite: {fileID: 0}
+  weaponShootPosition: {x: 0, y: 0, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: e1ebfe465379da04791c73d698efe4b3, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: 42cf61fba441c4446aec5b3f001b626b, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 1dd80006483ea7942acbc6fec25702f3, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: 4b33b1a0cd780f246ab23a72a9c9fa05, type: 2}
+  hasInfiniteAmmo: 1
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 1
+  weaponAmmoCapacity: 0
+  weaponFireRate: 1
+  weaponPrechargeTime: 0
+  weaponReloadTime: 1
+  shouldShake: 0
+  intensity: 0
+  frequency: 0
+  time: 0

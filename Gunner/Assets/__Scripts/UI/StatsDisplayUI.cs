@@ -52,7 +52,7 @@ public class StatsDisplayUI : SingletonMonobehaviour<StatsDisplayUI>
 
     private void ShowDamage()
     {
-        int damage = player.playerStats.GetBaseDamage();
+        float damage = player.playerStats.GetBaseDamage();
         damageText.text = $"{damage}%";
     }
 
@@ -64,7 +64,7 @@ public class StatsDisplayUI : SingletonMonobehaviour<StatsDisplayUI>
 
     private void ShowMaxHealth()
     {
-        int maxHealth = player.health.GetStartingHealth();
+        float maxHealth = player.health.GetStartingHealth();
         healthText.text = maxHealth.ToString();
     }
 
@@ -89,7 +89,7 @@ public class StatsDisplayUI : SingletonMonobehaviour<StatsDisplayUI>
     private void ShowWeaponReloadSpeed()
     {
         float reloadSpeed = player.playerStats.GetAdditionalWeaponReloadSpeed();
-        weaponReloadSpeedText.text = reloadSpeed.ToString();
+        weaponReloadSpeedText.text = $"{reloadSpeed}%";
     }
 
     public void AddItemIcon(Sprite itemIcon)

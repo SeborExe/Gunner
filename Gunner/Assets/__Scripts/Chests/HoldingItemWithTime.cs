@@ -9,9 +9,9 @@ public class HoldingItemWithTime : HoldingItem
     public float time;
     public ItemEffect[] debuffEffects;
 
-    public override void Use()
+    public override void Use(bool shouldUse)
     {
-        base.Use();
+        base.Use(shouldUse);
 
         GameManager.Instance.holdingItemCoolDownActive = true;
         GameManager.Instance.SetHoldingItemCooldownTimer(time);
