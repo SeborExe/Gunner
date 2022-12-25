@@ -10,54 +10,54 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2708e4084c4a1534ba646096300f778c, type: 3}
-  m_Name: Room_BossRoom_Catacombs_1
+  m_Name: Room_BossRoom_Catacombs_5
   m_EditorClassIdentifier: 
-  guid: c6f2bd6894e8ae947b8677a49ba9d8f8
-  prefab: {fileID: 4327421925113694216, guid: 9fb6f8f004f241940b9e1447a0f4570a, type: 3}
-  previousPrefab: {fileID: 4327421925113694216, guid: 9fb6f8f004f241940b9e1447a0f4570a, type: 3}
+  guid: fb46209715df71748a118d2584b6d23f
+  prefab: {fileID: 4327421925113694216, guid: 91b3e55d9efb02d439b1cfde2a2291af, type: 3}
+  previousPrefab: {fileID: 4327421925113694216, guid: 91b3e55d9efb02d439b1cfde2a2291af, type: 3}
   battleMusic: {fileID: 11400000, guid: 3f53113c3f003c447a52c0c1758bd9f2, type: 2}
   ambientMusic: {fileID: 11400000, guid: 3b192c85ba91b764eb87abfe909cdeed, type: 2}
   roomNodeType: {fileID: 11400000, guid: c659def4741fbb34a95636743febdec5, type: 2}
-  lowerBounds: {x: -24, y: -2}
-  upperBounds: {x: 34, y: 63}
+  lowerBounds: {x: -5, y: 0}
+  upperBounds: {x: 45, y: 44}
   doorwayList:
-  - position: {x: 5, y: 63}
+  - position: {x: 21, y: 44}
     orientation: 0
     doorPrefab: {fileID: 7274227074280557773, guid: 863c060205837a741941e0697fb6e0df, type: 3}
-    doorwayStartCopyPosition: {x: 2, y: 63}
+    doorwayStartCopyPosition: {x: 18, y: 44}
     doorwayCopyTileWidth: 5
-    doorwayCopyTileHeight: 11
+    doorwayCopyTileHeight: 6
     isConnected: 0
     isUnavailable: 0
-  - position: {x: 5, y: -2}
+  - position: {x: 20, y: 0}
     orientation: 2
     doorPrefab: {fileID: 7274227074280557773, guid: 863c060205837a741941e0697fb6e0df, type: 3}
-    doorwayStartCopyPosition: {x: 2, y: 2}
+    doorwayStartCopyPosition: {x: 17, y: 4}
     doorwayCopyTileWidth: 5
     doorwayCopyTileHeight: 5
     isConnected: 0
     isUnavailable: 0
-  - position: {x: 34, y: 27}
+  - position: {x: 45, y: 23}
     orientation: 1
     doorPrefab: {fileID: 1896265390330972305, guid: 85565b03f0fb219459ff4584be00e0d4, type: 3}
-    doorwayStartCopyPosition: {x: 31, y: 33}
+    doorwayStartCopyPosition: {x: 42, y: 29}
     doorwayCopyTileWidth: 4
     doorwayCopyTileHeight: 8
     isConnected: 0
     isUnavailable: 0
-  - position: {x: -24, y: 27}
+  - position: {x: -5, y: 17}
     orientation: 3
     doorPrefab: {fileID: 1896265390330972305, guid: 85565b03f0fb219459ff4584be00e0d4, type: 3}
-    doorwayStartCopyPosition: {x: -24, y: 33}
+    doorwayStartCopyPosition: {x: -5, y: 23}
     doorwayCopyTileWidth: 4
     doorwayCopyTileHeight: 8
     isConnected: 0
     isUnavailable: 0
   spawnPositionArray:
-  - {x: -13, y: 27}
-  - {x: 5, y: 27}
-  - {x: 22, y: 28}
-  - {x: 6, y: 11}
+  - {x: 3, y: 35}
+  - {x: 38, y: 35}
+  - {x: 4, y: 9}
+  - {x: 38, y: 9}
   enemiesByLevelList:
   - dungeonLevel: {fileID: 11400000, guid: ac8f09ebd15458f4e89eafe5fa7d0417, type: 2}
     spawnableObjectRatioList:
@@ -68,7 +68,7 @@ MonoBehaviour:
     - dungeonObject: {fileID: 11400000, guid: c7929d9f931f2954cafc0538671bd36e, type: 2}
       ratio: 2
     - dungeonObject: {fileID: 11400000, guid: ad8793ceb570211469396488012ad4ed, type: 2}
-      ratio: 1
+      ratio: 2
   - dungeonLevel: {fileID: 11400000, guid: d634e73cb404ed6468b248b7e20e237b, type: 2}
     spawnableObjectRatioList:
     - dungeonObject: {fileID: 11400000, guid: f0beb5f7feb1ef9428a457a805ff2d21, type: 2}

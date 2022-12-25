@@ -9,6 +9,10 @@ public class PauseMenuUI : MonoBehaviour
     [SerializeField] private TMP_Text musicLevelText;
     [SerializeField] private TMP_Text soundsLevelText;
 
+    [Header("Level")]
+    [SerializeField] TMP_Text levelNumberText;
+    [SerializeField] TMP_Text levelNameText;
+
     private void Start()
     {
         gameObject.SetActive(false);
@@ -21,6 +25,8 @@ public class PauseMenuUI : MonoBehaviour
         GameManager.Instance.controls.SetActive(false);
         soundsLevelText.SetText(SoundsEffectManager.Instance.soundsVolume.ToString());
         musicLevelText.SetText(MusicManager.Instance.musicVolume.ToString());
+
+        ShowLevelName();
     }
 
     private void OnEnable()
@@ -63,5 +69,11 @@ public class PauseMenuUI : MonoBehaviour
     {
         SoundsEffectManager.Instance.DecreaseSoundsVolume();
         soundsLevelText.SetText(SoundsEffectManager.Instance.soundsVolume.ToString());
+    }
+
+    private void ShowLevelName()
+    {
+        levelNumberText.text = GameManager.Instance.GetCurrentLevelNumber();
+        levelNameText.text = GameManager.Instance.GetCurrentLevelName();
     }
 }

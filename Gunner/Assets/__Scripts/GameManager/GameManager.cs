@@ -743,6 +743,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         }
     }
 
+    public string GetCurrentLevelName()
+    {
+        return GetCurrentDungeonLevel().levelName.ToUpper();
+    }
+
+    public string GetCurrentLevelNumber()
+    {
+        return $"LEVEL {currentDungeonLevelListIndex + 1}";
+    }
+
     #region Validation
 #if UNITY_EDITOR
 
