@@ -6,7 +6,8 @@ using System;
 
 public class LeaderboardUI : MonoBehaviour
 {
-    int leaderBoardID = 8963;
+    int leaderBoardID = 10046;
+    //int leaderBoardID = 8963;
     [SerializeField] private Transform contentAnchorTransform;
 
     private void OnEnable()
@@ -35,16 +36,7 @@ public class LeaderboardUI : MonoBehaviour
 
                     ScorePrefab scorePrefab = scoreGameObject.GetComponent<ScorePrefab>();
                     scorePrefab.rankTMP.text = member.rank.ToString();
-
-                    if (member.player.name != "" || member.player.name != null)
-                    {
-                        scorePrefab.nameTMP.text = member.player.name;
-                    }
-                    else
-                    {
-                        scorePrefab.nameTMP.text = "Unknown Player";
-                    }
-
+                    scorePrefab.nameTMP.text = member.player.name;
                     scorePrefab.levelTMP.text = member.metadata;
                     scorePrefab.scoreTMP.text = member.score.ToString();
                 }

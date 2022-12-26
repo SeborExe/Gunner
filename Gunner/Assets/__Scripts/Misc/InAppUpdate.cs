@@ -32,7 +32,7 @@ public class InAppUpdate : MonoBehaviour
             }
             else
             {
-                updateInfoText.text = "No Update Available";
+                updateInfoText.text = $"Version {Application.version}";
             }
 
             var appUpdateOptions = AppUpdateOptions.ImmediateAppUpdateOptions();
