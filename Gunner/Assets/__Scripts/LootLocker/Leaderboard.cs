@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 public class Leaderboard : SingletonMonobehaviour<Leaderboard>
 {
-    int leaderBoardID = 8963;
+    int leaderBoardID = 10046;
+    //int leaderBoardID = 8963;
 
     protected override void Awake()
     {

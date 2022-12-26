@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LootLocker.Requests;
+using System;
 
 public class LootLockerPlayerManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class LootLockerPlayerManager : MonoBehaviour
 
     public void SetPlayerName()
     {
-        LootLockerSDKManager.SetPlayerName(GameResources.Instance.currentPlayer.playerName, (response) =>
+        LootLockerSDKManager.SetPlayerName(GetPlayerName(), (response) =>
         {
             if (response.success)
             {
@@ -23,5 +24,17 @@ public class LootLockerPlayerManager : MonoBehaviour
                 Debug.Log("Could not set player name " + response.Error);
             }
         });
+    }
+
+    private string GetPlayerName()
+    {
+        if (!string.IsNullOrEmpty(GameResources.Instance.currentPlayer.playerName))
+        {
+            return GameResources.Instance.currentPlayer.playerName;
+        }
+        else
+        {
+            return "Unknown Hero";
+        }
     }
 }

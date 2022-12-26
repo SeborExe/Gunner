@@ -472,7 +472,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             rankText = $"YOUR SCORE IS RANKED {rank.ToString("#0")} IN THE TOP {Settings.numberOfHighScoresToSava.ToString("#0")}";
             string name = GameResources.Instance.currentPlayer.playerName;
 
-            if (name =="")
+            if (name == "")
             {
                 name = playerDetails.playerCharacterName.ToUpper();
             }
@@ -503,12 +503,23 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         await DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f);
 
-        /*
-        await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
-            $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
-        */
+        await AddToGlobalLeaderBoard();
 
         gameState = GameState.restartGame;
+    }
+
+    private async Task AddToGlobalLeaderBoard()
+    {
+        if (!string.IsNullOrEmpty(GameResources.Instance.currentPlayer.playerName))
+        {
+            await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
+                $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
+        }
+        else
+        {
+            await leaderboard.SubmitScoreRoutine("Unknown Hero", (int)gameScore,
+                $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
+        }
     }
 
     private async Task GameLost()
@@ -563,10 +574,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             await DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f);
         }
 
-        /*
-        await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
-            $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
-        */
+        await AddToGlobalLeaderBoard();
 
         gameState = GameState.restartGame;
     }
