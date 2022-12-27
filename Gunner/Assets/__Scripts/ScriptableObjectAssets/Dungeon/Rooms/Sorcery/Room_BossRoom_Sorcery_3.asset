@@ -115,8 +115,8 @@ MonoBehaviour:
   - dungeonLevel: {fileID: 11400000, guid: b8dc6c9ec82964d429bceee46a29bdd8, type: 2}
     minTotalEnemiesToSpawn: 3
     maxTotalEnemiesToSpawn: 3
-    minConcurrentEnemies: 2
-    maxConcurrentEnemies: 2
+    minConcurrentEnemies: 3
+    maxConcurrentEnemies: 3
     minSpawnInterval: 2
     maxSpawnInterval: 4
   - dungeonLevel: {fileID: 11400000, guid: f3fef57c02aea0a44866d02bb377f07d, type: 2}
@@ -134,6 +134,13 @@ MonoBehaviour:
     minSpawnInterval: 1
     maxSpawnInterval: 2
   - dungeonLevel: {fileID: 11400000, guid: f76dbedb9293f6848a2c1034bb5cd430, type: 2}
+    minTotalEnemiesToSpawn: 1
+    maxTotalEnemiesToSpawn: 1
+    minConcurrentEnemies: 1
+    maxConcurrentEnemies: 1
+    minSpawnInterval: 2
+    maxSpawnInterval: 4
+  - dungeonLevel: {fileID: 11400000, guid: ac8f09ebd15458f4e89eafe5fa7d0417, type: 2}
     minTotalEnemiesToSpawn: 1
     maxTotalEnemiesToSpawn: 1
     minConcurrentEnemies: 1
