@@ -74,6 +74,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("LootLocker")]
     private Leaderboard leaderboard;
 
+    [Header("Damage Text")]
+    public GameObject damageText;
+
     protected override void Awake()
     {
         base.Awake();

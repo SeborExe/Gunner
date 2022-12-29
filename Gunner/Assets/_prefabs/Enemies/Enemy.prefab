@@ -436,7 +436,7 @@ Animator:
   m_GameObject: {fileID: 6158470697551482003}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9486522f4632a0b43ad88fae8f1a4163, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -461,6 +461,7 @@ MonoBehaviour:
   enemyDetails: {fileID: 0}
   aimWeaponEvent: {fileID: 0}
   fireWeaponEvent: {fileID: 0}
+  healthEvent: {fileID: 0}
   movementToPositionEvent: {fileID: 0}
   idleEvent: {fileID: 0}
   animator: {fileID: 0}
@@ -749,6 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab10f2080ea59f946a20972583c63ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDeadParticles: {fileID: 0}
 --- !u!114 &2585923753322535607
 MonoBehaviour:
   m_ObjectHideFlags: 0

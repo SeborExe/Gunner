@@ -1270,7 +1270,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7775489, y: 1}
+    m_SensorSize: {x: 1.7784492, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1381,7 +1381,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7775489, y: 1}
+    m_SensorSize: {x: 1.7784492, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1494,6 +1494,7 @@ MonoBehaviour:
   controls: {fileID: 377315889}
   diseaseEffect: {fileID: 1715077421}
   hellEffect: {fileID: 1540116385}
+  damageText: {fileID: 8134302326156807459, guid: 2154e936b4166c24d93e23bdba2ead38, type: 3}
 --- !u!4 &244444725
 Transform:
   m_ObjectHideFlags: 0
@@ -9423,6 +9424,9 @@ MonoBehaviour:
   - poolSize: 80
     prefab: {fileID: 5249748811358305308, guid: dcb0832fb9ab2304ca5e5adf45bf5103, type: 3}
     componentType: IFireable
+  - poolSize: 80
+    prefab: {fileID: 8134302326156807459, guid: 2154e936b4166c24d93e23bdba2ead38, type: 3}
+    componentType: IText
 --- !u!4 &1713267372
 Transform:
   m_ObjectHideFlags: 0
