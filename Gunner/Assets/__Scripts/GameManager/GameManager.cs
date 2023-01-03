@@ -84,10 +84,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         playerDetails = GameResources.Instance.currentPlayer.playerDetails;
 
         InstantiatePlayer();
-        leaderboard = FindObjectOfType<Leaderboard>();
     }
     private async void Start()
     {
+        leaderboard = FindObjectOfType<Leaderboard>();
+
         previousGameState = GameState.gameStarted;
         gameState = GameState.gameStarted;
 
@@ -513,6 +514,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     private async Task AddToGlobalLeaderBoard()
     {
+        if (Application.internetReachability == NetworkReachability.NotReachable) { return; }
+
         if (!string.IsNullOrEmpty(GameResources.Instance.currentPlayer.playerName))
         {
             await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
@@ -585,6 +588,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private void RestartGame()
     {
         SceneManager.LoadScene("MainMenuScene");
+        leaderboard.Login();
     }
 
     private void SetRank(string name, int level)
