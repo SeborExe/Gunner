@@ -2,29 +2,32 @@ using System.Collections;
 using UnityEngine;
 using LootLocker.Requests;
 using System.Threading.Tasks;
+using TMPro;
 
 public class Leaderboard : SingletonMonobehaviour<Leaderboard>
 {
-    int leaderBoardID = 10046;
-    //int leaderBoardID = 8963;
+    string leaderBoardID = "DungeonGunnerHighScore";
 
     protected override void Awake()
     {
         DontDestroyOnLoad(this);
         base.Awake();
-
-        StartCoroutine(SetupRoutine());
     }
 
-    IEnumerator SetupRoutine()
+    private void Start()
     {
-        yield return LoginRoutine();
+        Login();
+    }
+
+    public void Login()
+    {
+        StartCoroutine(LoginRoutine());
     }
 
     IEnumerator LoginRoutine()
     {
         bool done = false;
-        LootLockerSDKManager.StartSession(PlayerPrefs.GetString("PlayerID") ,(response) =>
+        LootLockerSDKManager.StartGuestSession(PlayerPrefs.GetString("PlayerID", Random.value.ToString()), (response) =>
         {
             if (response.success)
             {
@@ -45,7 +48,6 @@ public class Leaderboard : SingletonMonobehaviour<Leaderboard>
     public async Task SubmitScoreRoutine(string playerID ,int scoreToUpload, string levelName)
     {
         bool done = false;
-        //string playerID = PlayerPrefs.GetString("PlayerID");
         LootLockerSDKManager.SubmitScore(playerID, scoreToUpload, leaderBoardID, levelName, (response) =>
         {
             if (response.success)

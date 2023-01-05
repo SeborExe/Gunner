@@ -1,16 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using LootLocker.Requests;
-using System;
+using TMPro;
 
 public class LeaderboardUI : MonoBehaviour
 {
-    int leaderBoardID = 10046;
-    //int leaderBoardID = 8963;
+    string leaderBoardID = "DungeonGunnerHighScore";
     [SerializeField] private Transform contentAnchorTransform;
 
-    private void OnEnable()
+    private void Start()
     {
         StartCoroutine(FetchLeaderBoard());
     }
@@ -47,6 +45,15 @@ public class LeaderboardUI : MonoBehaviour
             {
                 Debug.Log("Failed" + response.Error);
                 done = true;
+
+                GameObject scoreGameObject;
+                scoreGameObject = Instantiate(GameResources.Instance.scorePrefab, contentAnchorTransform);
+
+                ScorePrefab scorePrefab = scoreGameObject.GetComponent<ScorePrefab>();
+                scorePrefab.rankTMP.text = 1.ToString();
+                scorePrefab.nameTMP.text = "NOT CONNECTED";
+                scorePrefab.levelTMP.text = "-";
+                scorePrefab.scoreTMP.text = 0.ToString();
             }
         });
 

@@ -1,12 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Cinemachine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Threading.Tasks;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 [DisallowMultipleComponent]
 public class GameManager : SingletonMonobehaviour<GameManager>
@@ -74,6 +74,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [Header("LootLocker")]
     private Leaderboard leaderboard;
 
+    [Header("Damage Text")]
+    public GameObject damageText;
+
     protected override void Awake()
     {
         base.Awake();
@@ -81,10 +84,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         playerDetails = GameResources.Instance.currentPlayer.playerDetails;
 
         InstantiatePlayer();
-        leaderboard = FindObjectOfType<Leaderboard>();
     }
     private async void Start()
     {
+        leaderboard = FindObjectOfType<Leaderboard>();
+
         previousGameState = GameState.gameStarted;
         gameState = GameState.gameStarted;
 
@@ -412,6 +416,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             usableItemsThatPlayerHad.Add(GetPlayer().GetCurrentUsableItem(), GetPlayer().GetCurrentChargingPoints());
         }
 
+        UnlockAchievement();
+
         //Increase max player health
         GetPlayer().playerStats.SetAdditionalHealth(10);
         StatsDisplayUI.Instance.UpdateStatsUI();
@@ -420,6 +426,25 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         currentDungeonLevelListIndex++;
         finishLevelButton.gameObject.SetActive(false);
         PlayDungeonLevel(currentDungeonLevelListIndex);
+    }
+
+    private void UnlockAchievement()
+    {
+        if (PlayerPrefs.GetInt("FirstBoss", 0) == 0)
+        {
+            Social.ReportProgress("CgkI4fCvip0QEAIQAQ", 100.0f, (bool success) =>
+            {
+                if (success)
+                {
+                    Social.ShowAchievementsUI();
+                    PlayerPrefs.SetInt("FirstBoss", 1);
+                }
+                else
+                {
+                    return;
+                }
+            });
+        }
     }
 
     public async Task Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
@@ -510,16 +535,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     private async Task AddToGlobalLeaderBoard()
     {
-        if (!string.IsNullOrEmpty(GameResources.Instance.currentPlayer.playerName))
-        {
-            await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
-                $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
-        }
-        else
-        {
-            await leaderboard.SubmitScoreRoutine("Unknown Hero", (int)gameScore,
-                $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
-        }
+        if (Application.internetReachability == NetworkReachability.NotReachable) { return; }
+
+        await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
+            $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
     }
 
     private async Task GameLost()
@@ -582,6 +601,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     private void RestartGame()
     {
         SceneManager.LoadScene("MainMenuScene");
+        leaderboard.Login();
     }
 
     private void SetRank(string name, int level)

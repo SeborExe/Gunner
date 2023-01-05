@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using LootLocker.Requests;
-using System;
 
 public class LootLockerPlayerManager : MonoBehaviour
 {

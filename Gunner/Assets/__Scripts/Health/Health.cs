@@ -97,6 +97,13 @@ public class Health : MonoBehaviour
         if (player)
         {
             GameManager.Instance.virtualCamera.ShakeCamera(3f, 3f, .5f);
+            ShowDamageText(damageAmount, true);
+        }
+        else
+        {
+            if (TryGetComponent<DestroyableItems>(out DestroyableItems item)) { return; }
+
+            ShowDamageText(damageAmount);
         }
 
         PostHitImmunity();
@@ -111,9 +118,24 @@ public class Health : MonoBehaviour
     {
         int damage = (int)(damageAmount - (damageAmount * (devil.GetDamageReduct() / 100f)));
 
+        ShowDamageText(damage);
+
         currentHealth -= damage;
         CallHealthEvent(damage);
         healthBar.SetHealthBarValue(currentHealth / startingHealth);
+    }
+
+    private void ShowDamageText(float damage, bool isPlayer = false)
+    {
+        float randomXPosition = UnityEngine.Random.Range(0f, 1.5f);
+        float randomYPosition = UnityEngine.Random.Range(0f, 2f);
+
+        IText text = (IText)PoolManager.Instance.ReuseComponent(GameManager.Instance.damageText, transform.position + new Vector3(randomXPosition, randomYPosition, 0f),
+            Quaternion.identity);
+
+        DamageText damageText = text.GetDamageText();
+        damageText.gameObject.SetActive(true);
+        damageText.SetUp(damage, isPlayer);
     }
 
     private void PostHitImmunity()
