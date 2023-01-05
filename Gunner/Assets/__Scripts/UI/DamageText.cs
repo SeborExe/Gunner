@@ -25,11 +25,15 @@ public class DamageText : MonoBehaviour, IText
         {
             text.color = Color.blue;
         }
+        else
+        {
+            text.color = Color.red;
+        }
     }
 
     public void DestroyDamageText()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public GameObject GetGameObject()

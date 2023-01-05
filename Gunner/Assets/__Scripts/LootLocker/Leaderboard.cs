@@ -27,7 +27,7 @@ public class Leaderboard : SingletonMonobehaviour<Leaderboard>
     IEnumerator LoginRoutine()
     {
         bool done = false;
-        LootLockerSDKManager.StartGuestSession(PlayerPrefs.GetString("PlayerID", "Guest"), (response) =>
+        LootLockerSDKManager.StartGuestSession(PlayerPrefs.GetString("PlayerID", Random.value.ToString()), (response) =>
         {
             if (response.success)
             {

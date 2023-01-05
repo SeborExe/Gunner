@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Cinemachine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.Threading.Tasks;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 [DisallowMultipleComponent]
 public class GameManager : SingletonMonobehaviour<GameManager>
@@ -416,6 +417,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             usableItemsThatPlayerHad.Add(GetPlayer().GetCurrentUsableItem(), GetPlayer().GetCurrentChargingPoints());
         }
 
+        UnlockAchievement();
+
         //Increase max player health
         GetPlayer().playerStats.SetAdditionalHealth(10);
         StatsDisplayUI.Instance.UpdateStatsUI();
@@ -424,6 +427,25 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         currentDungeonLevelListIndex++;
         finishLevelButton.gameObject.SetActive(false);
         PlayDungeonLevel(currentDungeonLevelListIndex);
+    }
+
+    private static void UnlockAchievement()
+    {
+        if (PlayerPrefs.GetString("FirstBoss", "0") == "0")
+        {
+            Social.ReportProgress("CgkI4fCvip0QEAIQAQ", 100.0f, (bool success) =>
+            {
+                if (success)
+                {
+                    Social.ShowAchievementsUI();
+                    PlayerPrefs.SetString("FirstBoss", "Complete");
+                }
+                else
+                {
+                    return;
+                }
+            });
+        }
     }
 
     public async Task Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
@@ -516,16 +538,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     {
         if (Application.internetReachability == NetworkReachability.NotReachable) { return; }
 
-        if (!string.IsNullOrEmpty(GameResources.Instance.currentPlayer.playerName))
-        {
-            await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
-                $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
-        }
-        else
-        {
-            await leaderboard.SubmitScoreRoutine("Unknown Hero", (int)gameScore,
-                $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
-        }
+        await leaderboard.SubmitScoreRoutine(GameResources.Instance.currentPlayer.playerName, (int)gameScore,
+            $"LEVEL {currentDungeonLevelListIndex + 1} - " + $"{GetCurrentDungeonLevel().levelName.ToUpper()}");
     }
 
     private async Task GameLost()
