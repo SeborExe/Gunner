@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -429,16 +428,16 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         PlayDungeonLevel(currentDungeonLevelListIndex);
     }
 
-    private static void UnlockAchievement()
+    private void UnlockAchievement()
     {
-        if (PlayerPrefs.GetString("FirstBoss", "0") == "0")
+        if (PlayerPrefs.GetInt("FirstBoss", 0) == 0)
         {
             Social.ReportProgress("CgkI4fCvip0QEAIQAQ", 100.0f, (bool success) =>
             {
                 if (success)
                 {
                     Social.ShowAchievementsUI();
-                    PlayerPrefs.SetString("FirstBoss", "Complete");
+                    PlayerPrefs.SetInt("FirstBoss", 1);
                 }
                 else
                 {
