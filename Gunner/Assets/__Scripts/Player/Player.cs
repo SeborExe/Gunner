@@ -147,8 +147,14 @@ public class Player : MonoBehaviour
 
     public void SetPlayerHealth()
     {
-        int healthAmount = Mathf.Max(1, playerDetails.playerHealthAmount + playerStats.GetAdditionalhealth());
+        int healthAmount = Mathf.Clamp(playerDetails.playerHealthAmount + playerStats.GetAdditionalhealth(), 1, 1000);
         health.SetStartingHealth(healthAmount);
+    }
+
+    public void SetPlayerNewHealth()
+    {
+        int healthAmount = Mathf.Clamp(playerDetails.playerHealthAmount + playerStats.GetAdditionalhealth(), 1, 1000);
+        health.SetMaxPlayerHealth(healthAmount);
     }
 
     public Vector3 GetPlayerPosition()

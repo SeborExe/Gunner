@@ -1056,7 +1056,7 @@ MonoBehaviour:
     minTotalEnemiesToSpawn: 1
     maxTotalEnemiesToSpawn: 2
     minConcurrentEnemies: 3
-    maxConcurrentEnemies: 5
+    maxConcurrentEnemies: 6
     minSpawnInterval: 1
     maxSpawnInterval: 3
   MinMaxSpawnInterval: {x: 15, y: 22}
@@ -1075,8 +1075,8 @@ MonoBehaviour:
   spark: {fileID: 5548842341746381315}
   minimumDistance: 4
   maximumDistance: 10
-  damageReduct: 80
-  healthPercentToStartSecondState: 30
+  damageReduct: 85
+  healthPercentToStartSecondState: 35
   laser: {fileID: 3815125582786144950, guid: 25bcc946967c98b4cae809b68f135a27, type: 3}
   laserSpeed: 45
   timeToMoveLaser: 2
@@ -1117,8 +1117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b3cf839a0d8384db7ca3b144a66759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitBeforeFirstAttack: 13
-  waitBeforeFirstFireGenSummon: 6
+  waitBeforeFirstAttack: 12
+  waitBeforeFirstFireGenSummon: 5
   minTimeToRollNewAttack: 7
   maxTimeToRollNewAttack: 13
   minTimeToSummonGen: 6

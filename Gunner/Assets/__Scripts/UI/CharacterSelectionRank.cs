@@ -61,7 +61,7 @@ public class CharacterSelectionRank : MonoBehaviour
 
     private void SetIfWon()
     {
-        if (rankText.text == "6")
+        if (rankText.text == "7")
         {
             rankText.text = "W";
             rankImage.sprite = wonGameSprite;

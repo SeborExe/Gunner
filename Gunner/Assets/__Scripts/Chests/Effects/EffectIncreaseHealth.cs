@@ -11,7 +11,7 @@ public class EffectIncreaseHealth : ItemEffect
     public override void ActiveEffect()
     {
         GameManager.Instance.GetPlayer().playerStats.SetAdditionalHealth(healthToIncreaseInPercent);
-        GameManager.Instance.GetPlayer().SetPlayerHealth();
+        GameManager.Instance.GetPlayer().SetPlayerNewHealth();
         GameManager.Instance.GetPlayer().health.AddHealth(healAmount);
         base.ActiveEffect();
     }

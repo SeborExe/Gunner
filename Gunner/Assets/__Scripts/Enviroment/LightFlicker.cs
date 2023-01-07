@@ -34,7 +34,8 @@ public class LightFlicker : MonoBehaviour
 
     private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
     {
-        flick.SetActive(roomChangedEventArgs.room == GameManager.Instance.GetCurrentRoom());
+        if (flick != null)
+            flick.SetActive(roomChangedEventArgs.room == GameManager.Instance.GetCurrentRoom());
     }
 
     private void OnDisable()

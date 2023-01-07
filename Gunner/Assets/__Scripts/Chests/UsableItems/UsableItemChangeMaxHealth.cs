@@ -20,7 +20,7 @@ public class UsableItemChangeMaxHealth : UsableItem
             base.Use();
 
             GameManager.Instance.GetPlayer().playerStats.SetAdditionalHealth(healthToChangeInPercent);
-            GameManager.Instance.GetPlayer().SetPlayerHealth();
+            GameManager.Instance.GetPlayer().SetPlayerNewHealth();
             GameManager.Instance.GetPlayer().health.AddHealth(healAmount);
 
             SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.weaponPickup);
