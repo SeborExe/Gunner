@@ -73,8 +73,6 @@ public class AmmoNoWeapon : MonoBehaviour, IFireable
                 ammoSpecialEffect.ActiveEffect(health, effectManager, sender, GetGameObject());
             }
         }
-
-        StaticEventHandler.CallMultiplierEvent(false);
     }
 
     private void AmmoHitEffectPlay()

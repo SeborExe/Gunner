@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e93d5fa7f534a047996000b02dcd757, type: 3}
+  m_Name: AmmoDetails_Pistol_Boss_Strong
+  m_EditorClassIdentifier: 
+  ammoName: Pistol Ammo Boss
+  isPlayerAmmo: 0
+  isMelee: 0
+  ammoSprite: {fileID: 21300000, guid: 4df9cc7131cd27f4288bca5e76c82034, type: 3}
+  ammoPrefabArray:
+  - {fileID: 5249748811358305308, guid: be711060ddd2e764b8eafac73f939b08, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: a8f373dc317a30d40a68b73a78ce1d09, type: 2}
+  ammoChargeTime: 0
+  ammoChargeMaterial: {fileID: 0}
+  ammoDamage: 15
+  ammoSpeedMin: 8
+  ammoSpeedMax: 16
+  ammoRange: 22
+  ammoRotationSpeed: 1
+  ammoSpreadMin: 2
+  ammoSpreadMax: 6
+  ammoSpecialEffects: []
+  ammoSpawnAmountMin: 1
+  ammoSpawnAmountMax: 1
+  ammoSpawnIntervalMin: 0
+  ammoSpawnIntervalMax: 0
+  isAmmoTrail: 0
+  ammoTrailTime: 0
+  ammoTrailMaterial: {fileID: 0}
+  ammoTrailStartWidth: 0
+  ammoTrailEndWidth: 0
+  ammoHitEffect: {fileID: 11400000, guid: 0a0ccf92657a52e41bd9ce31ff8e0930, type: 2}
