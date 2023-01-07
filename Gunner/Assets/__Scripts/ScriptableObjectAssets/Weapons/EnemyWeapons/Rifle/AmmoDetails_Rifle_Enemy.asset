@@ -14,19 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoName: Rifle Ammo Enemy
   isPlayerAmmo: 0
+  isMelee: 0
   ammoSprite: {fileID: 21300000, guid: c3be09077243891458bdbf46a57d2e8a, type: 3}
   ammoPrefabArray:
   - {fileID: 5249748811358305308, guid: 3298c49780d26374a8acad66d4cb24d4, type: 3}
   ammoMaterial: {fileID: 2100000, guid: 33a55999e44f4724191171c59fc64319, type: 2}
   ammoChargeTime: 0
   ammoChargeMaterial: {fileID: 0}
-  ammoDamage: 10
+  ammoDamage: 15
   ammoSpeedMin: 15
   ammoSpeedMax: 18
   ammoRange: 24
   ammoRotationSpeed: 1
   ammoSpreadMin: 0.5
   ammoSpreadMax: 1.5
+  ammoSpecialEffects: []
   ammoSpawnAmountMin: 1
   ammoSpawnAmountMax: 1
   ammoSpawnIntervalMin: 0

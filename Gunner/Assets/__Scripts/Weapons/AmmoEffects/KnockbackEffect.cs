@@ -23,7 +23,7 @@ public class KnockbackEffect : AmmoSpecialEffect
         }
         else
         {
-            reciver.GetComponent<PlayerControl>().enabled = false;
+            //reciver.GetComponent<PlayerControl>().enabled = false;
         }
 
         timer = knockbackTime;
@@ -50,7 +50,7 @@ public class KnockbackEffect : AmmoSpecialEffect
             }
             else
             {
-                reciver.GetComponent<PlayerControl>().enabled = true;
+                //reciver.GetComponent<PlayerControl>().enabled = true;
             }
         }
 

@@ -274,7 +274,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
             case GameState.gameWon:
                 if (previousGameState != GameState.gameWon)
+                {
+                    StopAllCoroutines();
                     await GameWon();
+                }
                 break;
 
             case GameState.gameLost:
@@ -488,6 +491,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         previousGameState = GameState.gameWon;
 
         GetPlayer().playerControl.DisablePlayer();
+        GetPlayer().health.AddHealth(100);
 
         int rank = HighScoreManager.Instance.GetRank(gameScore);
         string rankText;
@@ -517,7 +521,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         await Task.Delay(1000);
 
-        SetRank(playerDetails.playerPrefab.name, 6);
+        SetRank(playerDetails.playerPrefab.name, 7);
 
         await Fade(0f, 1f, 2f, Color.black);
 
@@ -718,7 +722,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
     private void DisplayDungeonOverviewMap()
     {
-        if (isFading) return;
+        //if (isFading) return;
 
         DungeonMap.Instance.DisplayDungeonOverviewMap();
     }

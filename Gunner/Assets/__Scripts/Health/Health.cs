@@ -198,6 +198,13 @@ public class Health : MonoBehaviour
         CallHealthEvent(0);
     }
 
+    public void SetMaxPlayerHealth(int startingHealth)
+    {
+        this.startingHealth = startingHealth;
+
+        CallHealthEvent(0);
+    }
+
     public float GetStartingHealth()
     {
         return startingHealth;
