@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "EnemyDetails_", menuName = "Scriptable Objects/Enemy/Enemy Details")]
 public class EnemyDetailsSO : ScriptableObject
@@ -29,4 +30,10 @@ public class EnemyDetailsSO : ScriptableObject
     public bool isImmuneAfterHit = false;
     public float hitImmuneTime;
     public bool isHealthBarDisplayed = false;
+
+    [Header("World Guide"), Space(15)]
+    public string enemyID;
+    public Sprite enemySprite;
+    [Multiline(5)] public string enemyGuideDescription;
+    public Color color;
 }

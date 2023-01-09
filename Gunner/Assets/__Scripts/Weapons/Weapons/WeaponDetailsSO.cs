@@ -31,6 +31,10 @@ public class WeaponDetailsSO : ScriptableObject
     public float frequency;
     public float time;
 
+    [Header("World Guide"), Space(15)]
+    public string itemID;
+    [Multiline(5)] public string itemGuideDescription;
+
     #region Validation
 #if UNITY_EDITOR
 

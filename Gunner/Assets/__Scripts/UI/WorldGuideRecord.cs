@@ -26,4 +26,22 @@ public class WorldGuideRecord : MonoBehaviour
             image.color = Color.black;
         }
     }
+
+    public void EnemySetUp(string itemID, string description, Sprite sprite, string name, Color color)
+    {
+        image.sprite = sprite;
+        this.name.text = name;
+        image.color = color;
+
+        if (PlayerPrefs.HasKey(itemID))
+        {
+            this.description.text = description;
+        }
+        else
+        {
+            this.name.text = "?";
+            this.description.text = "?";
+            image.color = Color.black;
+        }
+    }
 }
