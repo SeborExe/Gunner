@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] ParticleSystem bloodParticle;
 
     [SerializeField] bool isMoving = true;
+    private bool isFirstTime = false;
 
     private void Awake()
     {
@@ -76,6 +77,11 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         healthEvent.OnHealthChanged += HealthEvent_OnHealthLost;
+
+        if (!PlayerPrefs.HasKey(enemyDetails.enemyID))
+        {
+            isFirstTime = true;
+        }
     }
 
     private void OnDisable()
@@ -88,6 +94,10 @@ public class Enemy : MonoBehaviour
         if (healthEventArgs.healthAmount <= 0)
         {
             Instantiate(bloodParticle, transform.position, Quaternion.identity);
+
+            if (isFirstTime)
+                PlayerPrefs.SetString(enemyDetails.enemyID, enemyDetails.enemyID);
+
             EnemyDestroyed();
         }
     }

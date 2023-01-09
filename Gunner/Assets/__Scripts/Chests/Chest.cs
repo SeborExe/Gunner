@@ -272,6 +272,11 @@ public class Chest : MonoBehaviour, IUseable
 
         GameManager.Instance.ClearItemText();
 
+        if (!PlayerPrefs.HasKey(item.itemID))
+        {
+            PlayerPrefs.SetString(item.itemID, item.itemID);
+        }
+
         if (!item.isUsable)
         {
             foreach (ItemEffect effect in item.effects)
@@ -347,6 +352,11 @@ public class Chest : MonoBehaviour, IUseable
 
         SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
         HoldingItem chestUsableItem = holdingItem;
+
+        if (!PlayerPrefs.HasKey(chestUsableItem.itemID))
+        {
+            PlayerPrefs.SetString(chestUsableItem.itemID, chestUsableItem.itemID);
+        }
 
         if (GameManager.Instance.GetPlayer().GetCurrentHoldingItem() != null)
         {
