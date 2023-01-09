@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WorldGuideRecord : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] TMP_Text name;
+    [SerializeField] Image image;
     [SerializeField] TMP_Text description;
 
-    public void SetUp(string itemID, string description, Sprite sprite)
+    public void SetUp(string itemID, string description, Sprite sprite, string name)
     {
-        spriteRenderer.sprite = sprite;
+        image.sprite = sprite;
+        this.name.text = name;
 
         if (PlayerPrefs.HasKey(itemID))
         {
@@ -18,8 +21,9 @@ public class WorldGuideRecord : MonoBehaviour
         }
         else
         {
+            this.name.text = "?";
             this.description.text = "?";
-            spriteRenderer.color = Color.black;
+            image.color = Color.black;
         }
     }
 }

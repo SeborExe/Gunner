@@ -13,6 +13,7 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] GameObject quitButton;
     [SerializeField] GameObject instructionsButton;
     [SerializeField] GameObject highScoreButtonOnline;
+    [SerializeField] GameObject guidButton;
 
     [Header("Loading Screen")]
     [SerializeField] GameObject loadingScreen;
@@ -22,6 +23,7 @@ public class MainMenuUI : MonoBehaviour
     private bool isHighScoresSceneLoaded = false;
     private bool isHighScoresOnlineSceneLoaded = false;
     private bool isInstructionsSceneLoaded = false;
+    private bool isGuidSceneLoaded = false;
 
     private void Start()
     {
@@ -61,6 +63,7 @@ public class MainMenuUI : MonoBehaviour
     {
         playButton.SetActive(false);
         instructionsButton.SetActive(false);
+        guidButton.SetActive(false);
         highScoreButtonOnline.SetActive(false);
         highScoreButton.SetActive(false);
         isHighScoresSceneLoaded = true;
@@ -74,6 +77,7 @@ public class MainMenuUI : MonoBehaviour
     {
         playButton.SetActive(false);
         instructionsButton.SetActive(false);
+        guidButton.SetActive(false);
         highScoreButtonOnline.SetActive(false);
         highScoreButton.SetActive(false);
         isHighScoresOnlineSceneLoaded = true;
@@ -87,6 +91,7 @@ public class MainMenuUI : MonoBehaviour
     {
         playButton.SetActive(false);
         instructionsButton.SetActive(false);
+        guidButton.SetActive(false);
         highScoreButtonOnline.SetActive(false);
         highScoreButton.SetActive(false);
         isInstructionsSceneLoaded = true;
@@ -94,6 +99,20 @@ public class MainMenuUI : MonoBehaviour
         SceneManager.UnloadSceneAsync("CharacterSelectorScene");
         returnToMainMenuButton.SetActive(true);
         SceneManager.LoadScene("InstructionsScene", LoadSceneMode.Additive);
+    }
+
+    public void LoadGuid()
+    {
+        playButton.SetActive(false);
+        instructionsButton.SetActive(false);
+        guidButton.SetActive(false);
+        highScoreButtonOnline.SetActive(false);
+        highScoreButton.SetActive(false);
+        isGuidSceneLoaded = true;
+
+        SceneManager.UnloadSceneAsync("CharacterSelectorScene");
+        returnToMainMenuButton.SetActive(true);
+        SceneManager.LoadScene("WorldGuideScene", LoadSceneMode.Additive);
     }
 
     public void LoadCharacterSelector()
@@ -110,6 +129,11 @@ public class MainMenuUI : MonoBehaviour
             SceneManager.UnloadSceneAsync("InstructionsScene");
             isInstructionsSceneLoaded = false;
         }
+        else if (isGuidSceneLoaded)
+        {
+            SceneManager.UnloadSceneAsync("WorldGuideScene");
+            isGuidSceneLoaded = false;
+        }
         else if (isHighScoresOnlineSceneLoaded)
         {
             SceneManager.UnloadSceneAsync("HighScoreSceneOnline");
@@ -119,6 +143,7 @@ public class MainMenuUI : MonoBehaviour
         playButton.SetActive(true);
         highScoreButton.SetActive(true);
         instructionsButton.SetActive(true);
+        guidButton.SetActive(true);
         highScoreButtonOnline.SetActive(true);
 
         SceneManager.LoadScene("CharacterSelectorScene", LoadSceneMode.Additive);

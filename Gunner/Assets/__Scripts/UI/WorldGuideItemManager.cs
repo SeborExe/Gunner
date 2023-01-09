@@ -25,19 +25,19 @@ public class WorldGuideItemManager : MonoBehaviour
         foreach (Item item in itemList)
         {
             WorldGuideRecord record = Instantiate(worldGuidePrefab, itemListTransformPivot);
-            record.SetUp(item.itemID, item.itemGuideDescription, item.itemSprite);
+            record.SetUp(item.itemID, item.itemGuideDescription, item.itemSprite, item.itemName);
         }
 
         foreach (Item item in usableItemList)
         {
             WorldGuideRecord record = Instantiate(worldGuidePrefab, usableItemListTransformPivot);
-            record.SetUp(item.itemID, item.itemGuideDescription, item.itemSprite);
+            record.SetUp(item.itemID, item.itemGuideDescription, item.itemSprite, item.itemName);
         }
 
         foreach (Item item in holdingItemList)
         {
             WorldGuideRecord record = Instantiate(worldGuidePrefab, holdingItemListTransformPivot);
-            record.SetUp(item.itemID, item.itemGuideDescription, item.itemSprite);
+            record.SetUp(item.itemID, item.itemGuideDescription, item.itemSprite, item.itemName);
         }
 
         await Task.Yield();
