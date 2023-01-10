@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1fde1708c700324ea826de033790312, type: 3}
-  m_Name: ItemDetails_SmellyLiquid
+  m_Name: ItemDetails_BoxOfPills
   m_EditorClassIdentifier: 
-  itemName: Smelly Liquid
-  itemSprite: {fileID: -431983360, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
-  itemText: 5x Random Effect!
+  itemName: Box of Pills
+  itemSprite: {fileID: 1405158385, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  itemText: Use to eat random Pill!
   isUsable: 1
   effects:
-  - {fileID: 11400000, guid: 0a6878e56f067ec48a0a429f00307c92, type: 2}
+  - {fileID: 11400000, guid: d73fe172c195ee44d9f00dcb13985f67, type: 2}
+  itemID: Item54
+  itemGuideDescription: 'Eat a Random Pill
+
+    (any of the statistics up or down)'
   isChangingStats: 1
   hasIndividualSoundEffect: 0
   hasTimeEffect: 0
   coolDown: 0
-  chargingPoints: 3
+  chargingPoints: 2

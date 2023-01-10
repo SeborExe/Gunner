@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1fde1708c700324ea826de033790312, type: 3}
-  m_Name: ItemDetails_Hell
+  m_Name: ItemDetails_FrostWand
   m_EditorClassIdentifier: 
-  itemName: Hell
-  itemSprite: {fileID: 21300008, guid: e2b17575f8a7a4ccfb4c97ebc6cb683d, type: 3}
-  itemText: Make them Burn!!!!
+  itemName: Frost Wand
+  itemSprite: {fileID: -1006270167, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  itemText: Freez Everyone!
   isUsable: 1
   effects:
-  - {fileID: 11400000, guid: 8b0b51276eaaf234fa63ab3e609d3980, type: 2}
+  - {fileID: 11400000, guid: c75e9cfd9648fb7449ea7db3e4a9b488, type: 2}
+  itemID: Item56
+  itemGuideDescription: Freez all enemies for 5 seconds
   isChangingStats: 0
-  hasIndividualSoundEffect: 0
+  hasIndividualSoundEffect: 1
   hasTimeEffect: 0
   coolDown: 0
   chargingPoints: 1

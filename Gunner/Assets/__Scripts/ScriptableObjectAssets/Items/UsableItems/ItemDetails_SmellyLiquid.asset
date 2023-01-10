@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1fde1708c700324ea826de033790312, type: 3}
-  m_Name: ItemDetails_RandomTreasure
+  m_Name: ItemDetails_SmellyLiquid
   m_EditorClassIdentifier: 
-  itemName: Random Treasure
-  itemSprite: {fileID: -5281422124547630143, guid: beeb19d9abdca5b4fae733163f7ad375, type: 3}
-  itemText: use to get random ITEM!
+  itemName: Smelly Liquid
+  itemSprite: {fileID: -431983360, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  itemText: 5x Random Effect!
   isUsable: 1
   effects:
-  - {fileID: 11400000, guid: 267766d0f77f6df43ba9d708a3f4ce93, type: 2}
+  - {fileID: 11400000, guid: 0a6878e56f067ec48a0a429f00307c92, type: 2}
+  itemID: Item60
+  itemGuideDescription: 'Random 5xWeakEffect
+
+    (any of the statistics up or down)'
   isChangingStats: 1
   hasIndividualSoundEffect: 0
   hasTimeEffect: 0
   coolDown: 0
-  chargingPoints: 5
+  chargingPoints: 3

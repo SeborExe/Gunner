@@ -17,7 +17,7 @@ public class Item : ScriptableObject
 
     [Header("World Guide"), Space(15)]
     public string itemID;
-    [Multiline(5)] public string itemGuideDescription;
+    [Multiline(9)] public string itemGuideDescription;
 
     public void AddImage()
     {

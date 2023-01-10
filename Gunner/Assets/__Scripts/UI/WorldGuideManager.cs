@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class WorldGuideManager : MonoBehaviour
 {
+    [SerializeField] ScrollRect[] scrolls;
     [SerializeField] Button itemButton;
     [SerializeField] Button weaponButton;
     [SerializeField] Button enemyButton;
@@ -127,5 +128,10 @@ public class WorldGuideManager : MonoBehaviour
         options.SetActive(true);
 
         startOptionButton.Select();
+
+        foreach (ScrollRect scroll in scrolls)
+        {
+            scroll.content = options.GetComponent<RectTransform>();
+        }
     }
 }
