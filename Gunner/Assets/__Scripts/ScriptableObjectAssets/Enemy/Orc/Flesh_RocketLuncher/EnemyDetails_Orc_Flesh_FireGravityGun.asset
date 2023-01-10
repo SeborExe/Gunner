@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eec900795e0cd542915561b958e3c44, type: 3}
   m_Name: EnemyDetails_Orc_Flesh_FireGravityGun
   m_EditorClassIdentifier: 
-  enemyName: Orc FireGravityGun
+  enemyName: Orc Lava Gravity Gun
   enemyPrefab: {fileID: 6017502499073047210, guid: cf856f38d694a9c4a86de849d8cf2d1f, type: 3}
   chaseDistance: 50
   enemyStandardMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -43,3 +43,12 @@ MonoBehaviour:
   isImmuneAfterHit: 0
   hitImmuneTime: 0
   isHealthBarDisplayed: 0
+  enemyID: Enemy16
+  enemySprite: {fileID: 8472232358565690018, guid: 4a49f6d6d5594ae48bafa9d9a279031f, type: 3}
+  enemyGuideDescription: 'Used Weapon: Lava Gravity Gun
+
+    Health: A Lot Of
+
+    Speed:
+    1.5-2.5'
+  color: {r: 1, g: 1, b: 1, a: 1}
