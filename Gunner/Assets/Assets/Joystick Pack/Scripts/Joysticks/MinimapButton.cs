@@ -11,6 +11,9 @@ public class MinimapButton : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if ((GameManager.Instance.gameState == GameState.engagingEnemies) || (GameManager.Instance.gameState == GameState.bossStage) ||
+            (GameManager.Instance.gameState == GameState.engagingBoss)) return;
+
         minimapButtonButtonPressed = true;
         closeMinimapButton.SetActive(true);
     }

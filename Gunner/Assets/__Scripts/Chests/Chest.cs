@@ -250,6 +250,11 @@ public class Chest : MonoBehaviour, IUseable
     {
         if (chestItem == null || !chestItem.isItemMaterialized) return;
 
+        if (!PlayerPrefs.HasKey(weaponDetails.itemID))
+        {
+            PlayerPrefs.SetString(weaponDetails.itemID, weaponDetails.itemID);
+        }
+
         if (!GameManager.Instance.GetPlayer().IsWeaponHeldByPlayer(weaponDetails))
         {
             GameManager.Instance.GetPlayer().AddWeaponToPlayer(weaponDetails);

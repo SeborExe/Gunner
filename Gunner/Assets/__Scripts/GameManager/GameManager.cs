@@ -233,10 +233,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 {
                     PauseGameMenu();
                 }
-                if (minimapButton.minimapButtonButtonPressed)
-                {
-                    DisplayDungeonOverviewMap();
-                }
                 break;
 
             case GameState.dungeonOverviewMap:
@@ -251,20 +247,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 {
                     PauseGameMenu();
                 }
-                if (minimapButton.minimapButtonButtonPressed)
-                {
-                    DisplayDungeonOverviewMap();
-                }
                 break;
 
             case GameState.engagingBoss:
                 if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
-                }
-                if (minimapButton.minimapButtonButtonPressed)
-                {
-                    DisplayDungeonOverviewMap();
                 }
                 break;
 
