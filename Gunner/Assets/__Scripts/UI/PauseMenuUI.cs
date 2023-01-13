@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class PauseMenuUI : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PauseMenuUI : MonoBehaviour
     [Header("Level")]
     [SerializeField] TMP_Text levelNumberText;
     [SerializeField] TMP_Text levelNameText;
+
+    [Header("Health")]
+    [SerializeField] Slider healthDisplaySlider;
 
     private void Start()
     {
@@ -32,6 +36,8 @@ public class PauseMenuUI : MonoBehaviour
     private void OnEnable()
     {
         Time.timeScale = 0f;
+
+        healthDisplaySlider.value = PlayerPrefs.GetInt("HealthDisplay", 0);
 
         StartCoroutine(InitializeUI());
     }
@@ -69,6 +75,20 @@ public class PauseMenuUI : MonoBehaviour
     {
         SoundsEffectManager.Instance.DecreaseSoundsVolume();
         soundsLevelText.SetText(SoundsEffectManager.Instance.soundsVolume.ToString());
+    }
+
+    public void SetHealthDisplayOption()
+    {
+        if (healthDisplaySlider.value == 0)
+        {
+            PlayerPrefs.SetInt("HealthDisplay", 0);
+        }
+        else if (healthDisplaySlider.value == 1)
+        {
+            PlayerPrefs.SetInt("HealthDisplay", 1);
+        }
+
+        GameManager.Instance.GetHealthUI().RefreshHealthUI();
     }
 
     private void ShowLevelName()

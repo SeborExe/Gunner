@@ -19,6 +19,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] HealthUI healthUI;
     private Room currentRoom;
     private Room previousRoom;
     private PlayerDetailsSO playerDetails;
@@ -810,6 +811,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public string GetCurrentLevelNumber()
     {
         return $"LEVEL {currentDungeonLevelListIndex + 1}";
+    }
+
+    public HealthUI GetHealthUI()
+    {
+        return healthUI;
     }
 
     #region Validation
