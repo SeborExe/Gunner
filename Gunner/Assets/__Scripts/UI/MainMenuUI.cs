@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
-    [SerializeField] GameObject playButton;
+    [SerializeField] GameObject playEasyButton;
+    [SerializeField] GameObject playHardButton;
     [SerializeField] GameObject highScoreButton;
     [SerializeField] GameObject returnToMainMenuButton;
     [SerializeField] GameObject quitButton;
@@ -34,13 +35,27 @@ public class MainMenuUI : MonoBehaviour
         returnToMainMenuButton.SetActive(false);
     }
 
-    public async void PlayGame()
+    private void OnEnable()
+    {
+        playEasyButton.GetComponent<Button>().onClick.AddListener(() => PlayGame(GameLevel.Easy));
+        playHardButton.GetComponent<Button>().onClick.AddListener(() => PlayGame(GameLevel.Hard));
+    }
+
+    private void OnDisable()
+    {
+        playEasyButton.GetComponent<Button>().onClick.RemoveListener(() => PlayGame(GameLevel.Easy));
+        playHardButton.GetComponent<Button>().onClick.RemoveListener(() => PlayGame(GameLevel.Hard));
+    }
+
+    public async void PlayGame(GameLevel gameLevel)
     {
         target = 0;
         fillBar.fillAmount = 0;
 
         AsyncOperation scene = SceneManager.LoadSceneAsync("MainGameScene");
         scene.allowSceneActivation = false;
+
+        GameLevelManager.Instance.SetGameLevel(gameLevel);
 
         loadingScreen.SetActive(true);
 
@@ -61,7 +76,8 @@ public class MainMenuUI : MonoBehaviour
 
     public void LoadHighScores()
     {
-        playButton.SetActive(false);
+        playEasyButton.SetActive(false);
+        playHardButton.SetActive(false);
         instructionsButton.SetActive(false);
         guidButton.SetActive(false);
         highScoreButtonOnline.SetActive(false);
@@ -75,7 +91,8 @@ public class MainMenuUI : MonoBehaviour
 
     public void LoadHighScoresOnline()
     {
-        playButton.SetActive(false);
+        playEasyButton.SetActive(false);
+        playHardButton.SetActive(false);
         instructionsButton.SetActive(false);
         guidButton.SetActive(false);
         highScoreButtonOnline.SetActive(false);
@@ -89,7 +106,8 @@ public class MainMenuUI : MonoBehaviour
 
     public void LoadInstructions()
     {
-        playButton.SetActive(false);
+        playEasyButton.SetActive(false);
+        playHardButton.SetActive(false);
         instructionsButton.SetActive(false);
         guidButton.SetActive(false);
         highScoreButtonOnline.SetActive(false);
@@ -103,7 +121,8 @@ public class MainMenuUI : MonoBehaviour
 
     public void LoadGuid()
     {
-        playButton.SetActive(false);
+        playEasyButton.SetActive(false);
+        playHardButton.SetActive(false);
         instructionsButton.SetActive(false);
         guidButton.SetActive(false);
         highScoreButtonOnline.SetActive(false);
@@ -140,7 +159,8 @@ public class MainMenuUI : MonoBehaviour
             isHighScoresOnlineSceneLoaded = false;
         }
 
-        playButton.SetActive(true);
+        playEasyButton.SetActive(true);
+        playHardButton.SetActive(true);
         highScoreButton.SetActive(true);
         instructionsButton.SetActive(true);
         guidButton.SetActive(true);

@@ -4,18 +4,22 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MinimapButton : MonoBehaviour, IPointerDownHandler
+public class MinimapButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool minimapButtonButtonPressed;
     [SerializeField] GameObject closeMinimapButton;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if ((GameManager.Instance.gameState == GameState.engagingEnemies) || (GameManager.Instance.gameState == GameState.bossStage) ||
-            (GameManager.Instance.gameState == GameState.engagingBoss)) return;
+        if ((GameManager.Instance.gameState == GameState.engagingEnemies) || (GameManager.Instance.gameState == GameState.engagingBoss)) return;
 
         minimapButtonButtonPressed = true;
         closeMinimapButton.SetActive(true);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        minimapButtonButtonPressed = false;
     }
 
     public void SetMapActiveFalse()

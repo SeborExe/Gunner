@@ -34,8 +34,7 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
 
     private async void GetRoomClicked()
     {
-        if ((GameManager.Instance.gameState == GameState.engagingEnemies) || (GameManager.Instance.gameState == GameState.bossStage) ||
-            (GameManager.Instance.gameState == GameState.engagingBoss)) return;
+        if ((GameManager.Instance.gameState == GameState.engagingEnemies) || (GameManager.Instance.gameState == GameState.engagingBoss)) return;
 
         Vector3 worldPosition = dungeonCamera.ScreenToWorldPoint(Input.mousePosition);
         worldPosition = new Vector3(worldPosition.x, worldPosition.y, 0f);
@@ -78,8 +77,7 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
 
     public void DisplayDungeonOverviewMap()
     {
-        if ((GameManager.Instance.gameState == GameState.engagingEnemies) || (GameManager.Instance.gameState == GameState.bossStage) ||
-            (GameManager.Instance.gameState == GameState.engagingBoss)) return;
+        if ((GameManager.Instance.gameState == GameState.engagingEnemies) || (GameManager.Instance.gameState == GameState.engagingBoss)) return;
 
         GameManager.Instance.previousGameState = GameManager.Instance.gameState;
         GameManager.Instance.gameState = GameState.dungeonOverviewMap;

@@ -74,14 +74,17 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        healthEvent.OnHealthChanged += HealthEvent_OnHealthLost;
-
         if (!PlayerPrefs.HasKey(enemyDetails.enemyID))
         {
             isFirstTime = true;
         }
+    }
+
+    private void OnEnable()
+    {
+        healthEvent.OnHealthChanged += HealthEvent_OnHealthLost;
     }
 
     private void OnDisable()
@@ -93,11 +96,12 @@ public class Enemy : MonoBehaviour
     {
         if (healthEventArgs.healthAmount <= 0)
         {
-            Instantiate(bloodParticle, transform.position, Quaternion.identity);
-
             if (isFirstTime)
+            {
                 PlayerPrefs.SetString(enemyDetails.enemyID, enemyDetails.enemyID);
+            }
 
+            Instantiate(bloodParticle, transform.position, Quaternion.identity);
             EnemyDestroyed();
         }
     }

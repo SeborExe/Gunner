@@ -348,6 +348,7 @@ public class Chest : MonoBehaviour, IUseable
             }
 
             UsableItemUI.Instance.AddStripes();
+            StatsDisplayUI.Instance.UpdateCurrentUsableItemInPauseMenu();
         }
     }
 
