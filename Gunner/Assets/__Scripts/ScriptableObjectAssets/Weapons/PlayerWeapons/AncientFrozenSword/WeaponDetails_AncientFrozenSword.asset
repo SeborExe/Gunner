@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_AncientFrozenSword
+  m_EditorClassIdentifier: 
+  weaponName: Ancient Frozen Sword
+  weaponSprite: {fileID: 21300000, guid: 6c87ffdfb6165564288e836e4d179168, type: 3}
+  weaponShootPosition: {x: 1.178, y: 0.435, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: 8bf210c4b88dd65438e8899e5a9ce343, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: f554e8de03e2dae46af7a34b238a47bd, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: 16e4c7852cd2b6d47b37bdf70c262a85, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: f74e87e4489045d4a8c0cf26878700a0, type: 2}
+  hasInfiniteAmmo: 1
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 1
+  weaponAmmoCapacity: 0
+  weaponFireRate: 0.01
+  weaponPrechargeTime: 0
+  weaponReloadTime: 0.8
+  shouldShake: 0
+  intensity: 2
+  frequency: 1
+  time: 0.05
+  itemID: Weapon31
+  itemGuideDescription: 'Damage: 25
+
+    Clip Ammo Capacity: 1
+
+    Range: 6
+
+    Reload
+    Time: 0.8s
+
+    Freez enemy'

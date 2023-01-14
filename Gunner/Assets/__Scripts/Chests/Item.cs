@@ -15,6 +15,10 @@ public class Item : ScriptableObject
     [Header("Item configuration")]
     public ItemEffect[] effects;
 
+    [Header("World Guide"), Space(15)]
+    public string itemID;
+    [Multiline(9)] public string itemGuideDescription;
+
     public void AddImage()
     {
         StatsDisplayUI.Instance.AddItemIcon(itemSprite);

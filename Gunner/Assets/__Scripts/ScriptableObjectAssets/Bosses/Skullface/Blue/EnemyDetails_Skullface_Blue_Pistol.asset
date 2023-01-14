@@ -19,7 +19,7 @@ MonoBehaviour:
   enemyMaterializeTime: 2
   enemyMaterializeShader: {fileID: -6465566751694194690, guid: 5fec8f8e6ea244648a3c6ede24a56288, type: 3}
   enemyMaterializeColor: {r: 8.47419, g: 0, b: 6.122713, a: 1}
-  enemyWeapon: {fileID: 11400000, guid: b3f2130edeb253f43be50ded872002e9, type: 2}
+  enemyWeapon: {fileID: 11400000, guid: 254d4d656e457e243b6d79380210960d, type: 2}
   firingIntervalMin: 1
   firingIntervalMax: 3
   firingDurationMin: 8
@@ -37,9 +37,17 @@ MonoBehaviour:
   - dungeonLevel: {fileID: 11400000, guid: f3fef57c02aea0a44866d02bb377f07d, type: 2}
     enemyHealthAmount: 900
   - dungeonLevel: {fileID: 11400000, guid: e0af8536dfbcc0545b6ff3d9ae75bc9e, type: 2}
-    enemyHealthAmount: 750
+    enemyHealthAmount: 950
   - dungeonLevel: {fileID: 11400000, guid: f76dbedb9293f6848a2c1034bb5cd430, type: 2}
     enemyHealthAmount: 400
   isImmuneAfterHit: 0
   hitImmuneTime: 0
   isHealthBarDisplayed: 1
+  enemyID: Enemy36
+  enemySprite: {fileID: 4434631920700272137, guid: 7bdbf47b0efa80f4b8f0b72e6571c9da, type: 3}
+  enemyGuideDescription: 'Used Weapon: Pistol
+
+    Health: A Lot Of
+
+    Speed: 4-5'
+  color: {r: 0.45882353, g: 0.56078434, b: 0.94509804, a: 1}

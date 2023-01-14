@@ -27,7 +27,9 @@ public class KnockbackEffect : AmmoSpecialEffect
         }
 
         timer = knockbackTime;
-        effectManager.StartCou(KnockRoutine(rb, reciver, sender));
+
+        if (effectManager != null)
+            effectManager.StartCou(KnockRoutine(rb, reciver, sender));
     }
 
     private IEnumerator KnockRoutine(Rigidbody2D rb, Health reciver, GameObject sender)
@@ -35,9 +37,14 @@ public class KnockbackEffect : AmmoSpecialEffect
         while (timer > 0)
         {
             timer -= Time.deltaTime;
-            Vector2 difference = (reciver.transform.position - sender.transform.position).normalized;
-            rb.AddForce(difference * knockbackForce * rb.mass);
-            yield return null;
+
+            if (sender != null)
+            {
+                Vector2 difference = (reciver.transform.position - sender.transform.position).normalized;
+
+                rb.AddForce(difference * knockbackForce * rb.mass);
+                yield return null;
+            }
         }
 
         if (timer <= 0)

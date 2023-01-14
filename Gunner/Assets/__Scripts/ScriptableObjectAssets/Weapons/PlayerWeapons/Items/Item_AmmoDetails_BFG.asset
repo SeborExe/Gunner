@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoName: BMG Ammo
   isPlayerAmmo: 1
+  isMelee: 0
   ammoSprite: {fileID: 21300000, guid: e36e8bbd18074d341b170885ac002038, type: 3}
   ammoPrefabArray:
   - {fileID: 5249748811358305308, guid: 83e4ac3e9eefc194a94cd112902ee368, type: 3}
@@ -27,6 +28,8 @@ MonoBehaviour:
   ammoRotationSpeed: 5
   ammoSpreadMin: 1
   ammoSpreadMax: 45
+  ammoSpecialEffects:
+  - {fileID: 11400000, guid: 5f75497541ce7784c9b5f56b36c71a1e, type: 2}
   ammoSpawnAmountMin: 12
   ammoSpawnAmountMax: 20
   ammoSpawnIntervalMin: 0.01

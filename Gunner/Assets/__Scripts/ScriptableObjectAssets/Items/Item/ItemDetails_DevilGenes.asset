@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43eed323e1570e4c8aa2ea01e6c7c7c, type: 3}
+  m_Name: ItemDetails_DevilGenes
+  m_EditorClassIdentifier: 
+  itemName: Devil Genes
+  itemSprite: {fileID: 21300000, guid: fb65508ee97a94f48a0ada84b918f47c, type: 3}
+  itemText: 'Health and Movement Speed Down
+
+    Damage and Fire Rate Up!'
+  isUsable: 0
+  effects:
+  - {fileID: 11400000, guid: 09955139827ffc344ba085facd87abac, type: 2}
+  - {fileID: 11400000, guid: 59970bdb574ec9040829bbd1b646ae08, type: 2}
+  - {fileID: 11400000, guid: 641e4d122987d8e40ba972fdfe6a79d8, type: 2}
+  - {fileID: 11400000, guid: 1408d62b20954af40bf7cd6007b46b38, type: 2}
+  - {fileID: 11400000, guid: 386ff51ac6b9710408cc5de12fe98bbc, type: 2}
+  itemID: Item27
+  itemGuideDescription: 'Health: -20 pkt
+
+    Movement Speed: -1 pkt
+
+    Damage:
+    +25%
+
+    Fire Rate: +10%
+
+    Summon projectiles'

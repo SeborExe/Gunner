@@ -77,6 +77,8 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
 
     public void DisplayDungeonOverviewMap()
     {
+        if ((GameManager.Instance.gameState == GameState.engagingEnemies) || (GameManager.Instance.gameState == GameState.engagingBoss)) return;
+
         GameManager.Instance.previousGameState = GameManager.Instance.gameState;
         GameManager.Instance.gameState = GameState.dungeonOverviewMap;
 

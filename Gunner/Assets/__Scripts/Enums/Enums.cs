@@ -63,3 +63,9 @@ public enum ItemRank
     Time
 }
 
+public enum GameLevel
+{
+    Easy,
+    Hard
+}
+

@@ -17,6 +17,10 @@ public class StatsDisplayUI : SingletonMonobehaviour<StatsDisplayUI>
     [SerializeField] Transform itemIconContainer;
     [SerializeField] Image itemIconPrefab;
 
+    [Header("Current Usable Item"), Space(10)]
+    [SerializeField] Image usableItemIcon;
+    [SerializeField] TMP_Text usableItemDescription;
+
     Player player;
 
     public event Action OnRefreshStatsUI;
@@ -32,6 +36,8 @@ public class StatsDisplayUI : SingletonMonobehaviour<StatsDisplayUI>
 
         OnRefreshStatsUI += InitializeUI;
         InitializeUI();
+
+        UpdateCurrentUsableItemInPauseMenu();
     }
 
     private void InitializeUI()
@@ -43,6 +49,23 @@ public class StatsDisplayUI : SingletonMonobehaviour<StatsDisplayUI>
         ShowRange();
         ShowAmmoSpeed();
         ShowWeaponReloadSpeed();
+    }
+
+    public void UpdateCurrentUsableItemInPauseMenu()
+    {
+        UsableItem usableItem = player.GetCurrentUsableItem();
+        if (usableItem != null)
+        {
+            usableItemIcon.gameObject.SetActive(true);
+            usableItemIcon.sprite = usableItem.itemSprite;
+
+            usableItemDescription.text = usableItem.itemGuideDescription;
+        }
+        else
+        {
+            usableItemIcon.gameObject.SetActive(false);
+            usableItemDescription.text = "";
+        }
     }
 
     public void UpdateStatsUI()

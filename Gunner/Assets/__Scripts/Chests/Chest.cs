@@ -250,6 +250,11 @@ public class Chest : MonoBehaviour, IUseable
     {
         if (chestItem == null || !chestItem.isItemMaterialized) return;
 
+        if (!PlayerPrefs.HasKey(weaponDetails.itemID))
+        {
+            PlayerPrefs.SetString(weaponDetails.itemID, weaponDetails.itemID);
+        }
+
         if (!GameManager.Instance.GetPlayer().IsWeaponHeldByPlayer(weaponDetails))
         {
             GameManager.Instance.GetPlayer().AddWeaponToPlayer(weaponDetails);
@@ -271,6 +276,11 @@ public class Chest : MonoBehaviour, IUseable
         if (chestItem == null || !chestItem.isItemMaterialized) return;
 
         GameManager.Instance.ClearItemText();
+
+        if (!PlayerPrefs.HasKey(item.itemID))
+        {
+            PlayerPrefs.SetString(item.itemID, item.itemID);
+        }
 
         if (!item.isUsable)
         {
@@ -338,6 +348,7 @@ public class Chest : MonoBehaviour, IUseable
             }
 
             UsableItemUI.Instance.AddStripes();
+            StatsDisplayUI.Instance.UpdateCurrentUsableItemInPauseMenu();
         }
     }
 
@@ -347,6 +358,11 @@ public class Chest : MonoBehaviour, IUseable
 
         SoundsEffectManager.Instance.PlaySoundEffect(GameResources.Instance.healthPickup);
         HoldingItem chestUsableItem = holdingItem;
+
+        if (!PlayerPrefs.HasKey(chestUsableItem.itemID))
+        {
+            PlayerPrefs.SetString(chestUsableItem.itemID, chestUsableItem.itemID);
+        }
 
         if (GameManager.Instance.GetPlayer().GetCurrentHoldingItem() != null)
         {

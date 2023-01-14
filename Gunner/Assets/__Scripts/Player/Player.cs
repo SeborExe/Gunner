@@ -225,6 +225,11 @@ public class Player : MonoBehaviour
         currentChargingPoints = amount;
     }
 
+    public float GetPlayerMaxHealth()
+    {
+        return health.GetStartingHealth();
+    }
+
     public void RefreshCurrentChargingPoints(int amount = 1)
     {
         if (currentUsableItem != null)

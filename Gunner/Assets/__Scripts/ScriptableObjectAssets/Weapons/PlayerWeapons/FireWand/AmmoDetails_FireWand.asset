@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e93d5fa7f534a047996000b02dcd757, type: 3}
+  m_Name: AmmoDetails_FireWand
+  m_EditorClassIdentifier: 
+  ammoName: FireWand Ammo
+  isPlayerAmmo: 1
+  isMelee: 0
+  ammoSprite: {fileID: 21300000, guid: 05486d4791413f54fbeba1dcb5237251, type: 3}
+  ammoPrefabArray:
+  - {fileID: 5249748811358305308, guid: f5d6a145626c8c74ab6fa31ef15f0134, type: 3}
+  ammoMaterial: {fileID: 2100000, guid: 913fdcc915f34b44988b9615965ba18e, type: 2}
+  ammoChargeTime: 0
+  ammoChargeMaterial: {fileID: 0}
+  ammoDamage: 8
+  ammoSpeedMin: 8
+  ammoSpeedMax: 14
+  ammoRange: 22
+  ammoRotationSpeed: 25
+  ammoSpreadMin: 1
+  ammoSpreadMax: 20
+  ammoSpecialEffects:
+  - {fileID: 11400000, guid: 314a426dc3a14b74092e4b5790670295, type: 2}
+  ammoSpawnAmountMin: 2
+  ammoSpawnAmountMax: 5
+  ammoSpawnIntervalMin: 0.01
+  ammoSpawnIntervalMax: 0.06
+  isAmmoTrail: 0
+  ammoTrailTime: 0
+  ammoTrailMaterial: {fileID: 0}
+  ammoTrailStartWidth: 0
+  ammoTrailEndWidth: 0
+  ammoHitEffect: {fileID: 11400000, guid: d3e4e6692e0e9e14eb7d5f6931cf744f, type: 2}

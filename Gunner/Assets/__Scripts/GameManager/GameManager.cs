@@ -7,6 +7,7 @@ using TMPro;
 using System.Threading.Tasks;
 using GooglePlayGames;
 using UnityEngine.SocialPlatforms;
+using System;
 
 [DisallowMultipleComponent]
 public class GameManager : SingletonMonobehaviour<GameManager>
@@ -18,12 +19,14 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] HealthUI healthUI;
     private Room currentRoom;
     private Room previousRoom;
     private PlayerDetailsSO playerDetails;
     private Player player;
+    private GameLevel gameLevel;
 
-    [HideInInspector] public GameState gameState;
+    public GameState gameState;
     [HideInInspector] public GameState previousGameState;
 
     [Header("Joysticks")]
@@ -81,6 +84,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     {
         base.Awake();
 
+        gameLevel = GameLevelManager.Instance.GetGameLevel();
         playerDetails = GameResources.Instance.currentPlayer.playerDetails;
 
         InstantiatePlayer();
@@ -96,6 +100,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         scoreMultiplier = 1;
 
         await Fade(0f, 1f, 0f, Color.black);
+
+        SetPlayerStatsBasedOnGameLevel();
     }
 
     private void OnEnable()
@@ -196,7 +202,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             scoreMultiplier--;
         }
 
-        scoreMultiplier = Mathf.Clamp(scoreMultiplier, 1, 30);
+        scoreMultiplier = Mathf.Clamp(scoreMultiplier, 1, GetmaxMultiplierValue());
         StaticEventHandler.CallScoreChangedEvent(gameScore, scoreMultiplier);
     }
 
@@ -206,6 +212,20 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         gameState = GameState.gameLost;
     }
 
+    private int GetmaxMultiplierValue()
+    {
+        int maxMultiplier = 1;
+        if (gameLevel == GameLevel.Easy)
+        {
+            maxMultiplier = 20;
+        }
+        else if (gameLevel == GameLevel.Hard)
+        {
+            maxMultiplier = 30;
+        }
+
+        return maxMultiplier;
+    }
 
     private async void HandleGameState()
     {
@@ -233,10 +253,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 {
                     PauseGameMenu();
                 }
-                if (minimapButton.minimapButtonButtonPressed)
-                {
-                    DisplayDungeonOverviewMap();
-                }
                 break;
 
             case GameState.dungeonOverviewMap:
@@ -261,10 +277,6 @@ public class GameManager : SingletonMonobehaviour<GameManager>
                 if (pauseButton.pauseButtonPressed)
                 {
                     PauseGameMenu();
-                }
-                if (minimapButton.minimapButtonButtonPressed)
-                {
-                    DisplayDungeonOverviewMap();
                 }
                 break;
 
@@ -461,7 +473,10 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         while (time <= fadeSeconds)
         {
             time += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time / fadeSeconds);
+
+            if (canvasGroup != null)
+                canvasGroup.alpha = Mathf.Lerp(startFadeAlpha, targetFadeAlpha, time / fadeSeconds);
+
             await Task.Yield();
         }
 
@@ -700,6 +715,19 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         messageText.SetText("");
     }
 
+    private void SetPlayerStatsBasedOnGameLevel()
+    {
+        if (gameLevel == GameLevel.Easy)
+        {
+            GetPlayer().playerStats.SetAdditionalHealth(60);
+            GetPlayer().SetPlayerNewHealth();
+            GetPlayer().health.AddHealth(60);
+
+            GetPlayer().playerStats.SetBaseDamage(50);
+            StatsDisplayUI.Instance.UpdateStatsUI();
+        }
+    }
+
     public Room GetCurrentRoom()
     {
         return currentRoom;
@@ -783,6 +811,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public string GetCurrentLevelNumber()
     {
         return $"LEVEL {currentDungeonLevelListIndex + 1}";
+    }
+
+    public HealthUI GetHealthUI()
+    {
+        return healthUI;
     }
 
     #region Validation

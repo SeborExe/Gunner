@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1fde1708c700324ea826de033790312, type: 3}
+  m_Name: ItemDetails_Tapeworm
+  m_EditorClassIdentifier: 
+  itemName: Tapeworm
+  itemSprite: {fileID: 21300002, guid: 916e34054e9ae44e19a9a046ba118f7c, type: 3}
+  itemText: "Use to Health Down and\n            All Stats Up!"
+  isUsable: 1
+  effects:
+  - {fileID: 11400000, guid: 1dc24d139fe584b4e811e93489d04dcc, type: 2}
+  - {fileID: 11400000, guid: 214ca2dd24186de4eb5be3fa0a1eda49, type: 2}
+  - {fileID: 11400000, guid: 73b39d9af389b9041b67595c93e23bcf, type: 2}
+  - {fileID: 11400000, guid: 90f744067ed70904a9f704d73800d50d, type: 2}
+  - {fileID: 11400000, guid: 1408d62b20954af40bf7cd6007b46b38, type: 2}
+  - {fileID: 11400000, guid: 27c3cb989e062d14a9c24efb5a53d37e, type: 2}
+  - {fileID: 11400000, guid: 8b5af168ee134454f9d6b5ae37a88f35, type: 2}
+  itemID: Item61
+  itemGuideDescription: 'Health: -10 pkt
+
+    Damage: +15%
+
+    Ammo Speed: +1 pkt
+
+    Ammo
+    Range: +1 pkt
+
+    Fire Rate: +10%
+
+    Reload Speed: +10%
+
+    Movement Speed:
+    +1 pkt'
+  isChangingStats: 1
+  hasIndividualSoundEffect: 0
+  hasTimeEffect: 0
+  coolDown: 0
+  chargingPoints: 4

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43eed323e1570e4c8aa2ea01e6c7c7c, type: 3}
+  m_Name: ItemDetails_JadeBracelet
+  m_EditorClassIdentifier: 
+  itemName: Jade Bracelet
+  itemSprite: {fileID: 1197344579, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  itemText: '
+
+
+    Fire Rate Up!'
+  isUsable: 0
+  effects:
+  - {fileID: 11400000, guid: b2992f890b1b2e642aa49853c0253bab, type: 2}
+  - {fileID: 11400000, guid: d73fe172c195ee44d9f00dcb13985f67, type: 2}
+  itemID: Item30
+  itemGuideDescription: 'Fire Rate: +20%
+
+    Eat a Random Pill'

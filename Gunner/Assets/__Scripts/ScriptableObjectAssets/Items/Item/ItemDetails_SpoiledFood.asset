@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43eed323e1570e4c8aa2ea01e6c7c7c, type: 3}
+  m_Name: ItemDetails_SpoiledFood
+  m_EditorClassIdentifier: 
+  itemName: Spoiled Food
+  itemSprite: {fileID: 1918643673, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  itemText: 'Movement and Reload Speed Up!
+
+    Fire Rate Up!
+
+    Health Down.
+
+    I
+    need to go to the toilet!!!
+
+'
+  isUsable: 0
+  effects:
+  - {fileID: 11400000, guid: 386ff51ac6b9710408cc5de12fe98bbc, type: 2}
+  - {fileID: 11400000, guid: 2a2e449ef2b08304f9739eb6c98b5e6e, type: 2}
+  - {fileID: 11400000, guid: 09955139827ffc344ba085facd87abac, type: 2}
+  - {fileID: 11400000, guid: 346aada87979e7b459bbc634dbfcd709, type: 2}
+  - {fileID: 11400000, guid: b2992f890b1b2e642aa49853c0253bab, type: 2}
+  - {fileID: 11400000, guid: 07c2f6ddc0103f540aa58af4d401b592, type: 2}
+  itemID: Item34
+  itemGuideDescription: 'Summon projectiles
+
+    Disease Effect
+
+    Health: -20
+    pkt
+
+    Movement Speed: +5 pkt
+
+    Fire Rate: +20%
+
+    Reload Speed: +30%'
