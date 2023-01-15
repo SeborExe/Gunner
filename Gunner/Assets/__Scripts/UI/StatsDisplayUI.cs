@@ -32,11 +32,13 @@ public class StatsDisplayUI : SingletonMonobehaviour<StatsDisplayUI>
 
     private void Start()
     {
-        player = GameManager.Instance.GetPlayer();
-
         OnRefreshStatsUI += InitializeUI;
         InitializeUI();
+    }
 
+    private void OnEnable()
+    {
+        player = GameManager.Instance.GetPlayer();
         UpdateCurrentUsableItemInPauseMenu();
     }
 

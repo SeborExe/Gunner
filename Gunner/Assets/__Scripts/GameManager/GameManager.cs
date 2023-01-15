@@ -465,8 +465,12 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public async Task Fade(float startFadeAlpha, float targetFadeAlpha, float fadeSeconds, Color backgroundColor)
     {
         isFading = true;
-        Image image = canvasGroup.GetComponent<Image>();
-        image.color = backgroundColor;
+
+        if (canvasGroup != null)
+        {
+            Image image = canvasGroup.GetComponent<Image>();
+            image.color = backgroundColor;
+        }
 
         float time = 0f;
 
