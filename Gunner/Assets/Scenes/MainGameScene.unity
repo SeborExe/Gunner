@@ -10262,9 +10262,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b528956e5b8fae5428d4e0baca0e999e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicMaterial: Sprite-Lit-Default (Instance)
   pixelizeMaterial: {fileID: 2100000, guid: bc9ed06a62b2e554a82f2a72588138dd, type: 2}
   windMaterial: {fileID: 2100000, guid: d7cb88f1be8409148ab84bc65c55488c, type: 2}
   blureMaterial: {fileID: 2100000, guid: d4bbc4c12a33d1d4d9366bab32d6f64b, type: 2}
+  pixelizeAndWindMaterial: {fileID: 0}
+  windAndBlureMaterial: {fileID: 0}
+  windAndPixelizeMaterial: {fileID: 0}
+  blureAndPixelizeMaterial: {fileID: 0}
+  blurePixelizeAndWindMaterial: {fileID: 0}
 --- !u!4 &2080254779
 Transform:
   m_ObjectHideFlags: 0
