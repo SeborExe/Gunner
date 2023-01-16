@@ -270,4 +270,33 @@ public class Player : MonoBehaviour
         ammoToInstantiateWhenTakeDamage = ammoDetails;
         weaponToShotWhenTakeDamage = weaponDetails;
     }
+
+    public Material GetMainMaterial()
+    {
+        return gameObject.GetComponent<Renderer>().material;
+    }
+
+    public List<Transform> GetAllTransforms()
+    {
+        List<Transform> transforms = new List<Transform>();
+        transforms.Add(transform);
+
+        foreach (Transform transform in transform)
+        {
+            transforms.Add(transform);
+        }
+
+        return transforms;
+    }
+
+    public void SetAllMaterials(Material materialsToSet)
+    {
+        foreach (Transform transform in GetAllTransforms())
+        {
+            if (transform.TryGetComponent<Renderer>(out Renderer renderer))
+            {
+                renderer.material = materialsToSet;
+            }
+        }
+    }
 }
