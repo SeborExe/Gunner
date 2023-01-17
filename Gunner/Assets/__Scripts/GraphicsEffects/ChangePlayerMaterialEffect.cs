@@ -10,7 +10,6 @@ public class ChangePlayerMaterialEffect : ItemEffect
     public override void ActiveEffect()
     {
         Material playerMaterial = GameManager.Instance.GetPlayer().spriteRenderer.material;
-        Player player = GameManager.Instance.GetPlayer();
         MaterialsManager materialsManager = MaterialsManager.Instance;
 
         if (playerMaterial.name == materialsManager.basicMaterial)
@@ -44,7 +43,7 @@ public class ChangePlayerMaterialEffect : ItemEffect
                 GameManager.Instance.GetPlayer().spriteRenderer.material = materialsManager.windAndBlureMaterial;
             }
         }
-
+  
         base.ActiveEffect();
     }
 }
