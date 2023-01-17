@@ -1045,7 +1045,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7767549, y: 1}
+    m_SensorSize: {x: 1.7773153, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1156,7 +1156,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7767549, y: 1}
+    m_SensorSize: {x: 1.7773153, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4641,7 +4641,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1672850586}
   m_HandleRect: {fileID: 1672850585}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8258,6 +8258,12 @@ MonoBehaviour:
   - poolSize: 80
     prefab: {fileID: 8134302326156807459, guid: 2154e936b4166c24d93e23bdba2ead38, type: 3}
     componentType: IText
+  - poolSize: 40
+    prefab: {fileID: 5249748811358305308, guid: 4b784319c253d7a45b29abcc22f1a8e3, type: 3}
+    componentType: IFireable
+  - poolSize: 40
+    prefab: {fileID: 5249748811358305308, guid: 0677e8fb73929bd4484ec86181447b78, type: 3}
+    componentType: IFireable
 --- !u!4 &1713267372
 Transform:
   m_ObjectHideFlags: 0

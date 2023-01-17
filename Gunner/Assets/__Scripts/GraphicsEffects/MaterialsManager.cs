@@ -14,7 +14,6 @@ public class MaterialsManager : SingletonMonobehaviour<MaterialsManager>
     [Header("Combined Materials")]
     public Material pixelizeAndWindMaterial;
     public Material windAndBlureMaterial;
-    public Material windAndPixelizeMaterial;
     public Material blureAndPixelizeMaterial;
     public Material blurePixelizeAndWindMaterial;
 

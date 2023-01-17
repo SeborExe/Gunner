@@ -42,6 +42,14 @@ public class ChangePlayerMaterialEffect : ItemEffect
             {
                 GameManager.Instance.GetPlayer().spriteRenderer.material = materialsManager.windAndBlureMaterial;
             }
+
+            //Blure, Wind and pixelize
+            else if ((materialToSet == materialsManager.blureMaterial && playerMaterial == materialsManager.pixelizeAndWindMaterial) ||
+                (materialToSet == materialsManager.windMaterial && playerMaterial == materialsManager.blureAndPixelizeMaterial) ||
+                (materialToSet == materialsManager.pixelizeMaterial && playerMaterial == materialsManager.windAndBlureMaterial))
+            {
+                GameManager.Instance.GetPlayer().spriteRenderer.material = materialsManager.blurePixelizeAndWindMaterial;
+            }
         }
   
         base.ActiveEffect();
