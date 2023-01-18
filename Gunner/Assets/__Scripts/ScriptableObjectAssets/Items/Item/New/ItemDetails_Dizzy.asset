@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43eed323e1570e4c8aa2ea01e6c7c7c, type: 3}
+  m_Name: ItemDetails_Dizzy
+  m_EditorClassIdentifier: 
+  itemName: Dizzy
+  itemSprite: {fileID: -1900440577, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  itemText: 'Feels vague...
+
+    Damage and Fire Rate Up!
+
+    Movement Speed Up!
+
+    Health
+    and Reload Speed Down.'
+  isUsable: 0
+  effects:
+  - {fileID: 11400000, guid: 982fec63c098105468ed1e620258e7de, type: 2}
+  - {fileID: 11400000, guid: 214ca2dd24186de4eb5be3fa0a1eda49, type: 2}
+  - {fileID: 11400000, guid: 89716c79dc0c5534db5da4335d013b48, type: 2}
+  - {fileID: 11400000, guid: 8b5af168ee134454f9d6b5ae37a88f35, type: 2}
+  - {fileID: 11400000, guid: 508d413fb5e582f4983ac4c90c216ca3, type: 2}
+  - {fileID: 11400000, guid: 09955139827ffc344ba085facd87abac, type: 2}
+  itemID: Item72
+  itemGuideDescription: 'Damage: +15%
+
+    Fire Rate: +15%
+
+    Movement Speed: +1
+    pkt
+
+    Reload Speed: -10%
+
+    Health: -20 pkt
+
+    Feels vague...'
