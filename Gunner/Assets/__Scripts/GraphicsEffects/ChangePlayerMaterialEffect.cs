@@ -7,6 +7,13 @@ public class ChangePlayerMaterialEffect : ItemEffect
 {
     [SerializeField] Material materialToSet;
 
+    private string windMat = "WindEffect_Mat (Instance)";
+    private string pixelMat = "Pixelize_Mat (Instance)";
+    private string blureMat = "SpriteBlure_Mat (Instance)";
+    private string pixelWindMat = "PixelizeWind_Mat (Instance)";
+    private string pixelBlureMat = "PixelateBlure_Mat (Instance)";
+    private string windBlureMat = "BlureWind_Mat (Instance)";
+
     public override void ActiveEffect()
     {
         Material playerMaterial = GameManager.Instance.GetPlayer().spriteRenderer.material;
@@ -23,30 +30,30 @@ public class ChangePlayerMaterialEffect : ItemEffect
 
 
             //Pixel and Wind
-            if ((materialToSet == materialsManager.pixelizeMaterial && playerMaterial == materialsManager.windMaterial) ||
-                (materialToSet == materialsManager.windMaterial && playerMaterial == materialsManager.pixelizeMaterial))
+            if ((materialToSet == materialsManager.pixelizeMaterial && playerMaterial.name == windMat) ||
+                (materialToSet == materialsManager.windMaterial && playerMaterial.name == pixelMat))
             {
                 GameManager.Instance.GetPlayer().spriteRenderer.material = materialsManager.pixelizeAndWindMaterial;
             }
 
             //Pixel and Blure
-            else if ((materialToSet == materialsManager.pixelizeMaterial && playerMaterial == materialsManager.blureMaterial) ||
-                (materialToSet == materialsManager.blureMaterial && playerMaterial == materialsManager.pixelizeMaterial))
+            else if ((materialToSet == materialsManager.pixelizeMaterial && playerMaterial.name == blureMat) ||
+                (materialToSet == materialsManager.blureMaterial && playerMaterial.name == pixelMat))
             {
                 GameManager.Instance.GetPlayer().spriteRenderer.material = materialsManager.blureAndPixelizeMaterial;
             }
 
             //Blure and Wind
-            else if ((materialToSet == materialsManager.blureMaterial && playerMaterial == materialsManager.windMaterial) ||
-                (materialToSet == materialsManager.windMaterial && playerMaterial == materialsManager.blureMaterial))
+            else if ((materialToSet == materialsManager.blureMaterial && playerMaterial.name == windMat) ||
+                (materialToSet == materialsManager.windMaterial && playerMaterial.name == blureMat))
             {
                 GameManager.Instance.GetPlayer().spriteRenderer.material = materialsManager.windAndBlureMaterial;
             }
 
             //Blure, Wind and pixelize
-            else if ((materialToSet == materialsManager.blureMaterial && playerMaterial == materialsManager.pixelizeAndWindMaterial) ||
-                (materialToSet == materialsManager.windMaterial && playerMaterial == materialsManager.blureAndPixelizeMaterial) ||
-                (materialToSet == materialsManager.pixelizeMaterial && playerMaterial == materialsManager.windAndBlureMaterial))
+            else if ((materialToSet == materialsManager.blureMaterial && playerMaterial.name == pixelWindMat) ||
+                (materialToSet == materialsManager.windMaterial && playerMaterial.name == pixelBlureMat) ||
+                (materialToSet == materialsManager.pixelizeMaterial && playerMaterial.name == windBlureMat))
             {
                 GameManager.Instance.GetPlayer().spriteRenderer.material = materialsManager.blurePixelizeAndWindMaterial;
             }
