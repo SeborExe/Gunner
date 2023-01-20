@@ -11,6 +11,9 @@ public class MaterialsManager : SingletonMonobehaviour<MaterialsManager>
     public Material windMaterial;
     public Material blureMaterial;
 
+    [Header("Enemy Materials")]
+    public Material enemyPixelizeMaterial;
+
     [Header("Combined Materials")]
     public Material pixelizeAndWindMaterial;
     public Material windAndBlureMaterial;

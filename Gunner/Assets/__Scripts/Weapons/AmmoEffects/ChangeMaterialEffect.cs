@@ -21,6 +21,8 @@ public class ChangeMaterialEffect : AmmoSpecialEffect
         {
             if (reciver.TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRenderer))
             {
+                if (spriteRenderer.material.name != MaterialsManager.Instance.basicMaterial) return;
+
                 spriteRenderer.material = materialToSet;
 
                 if (reciver.TryGetComponent<EnemyMovementAI>(out EnemyMovementAI enemy))
