@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef093ce464cae14dab9c1633439d8ca, type: 3}
+  m_Name: WeaponDetails_PixelGun
+  m_EditorClassIdentifier: 
+  weaponName: Pixel Gun
+  weaponSprite: {fileID: 21300000, guid: ef9bf10f5c3fd27438e766c415c526cf, type: 3}
+  weaponShootPosition: {x: 1.207, y: 0.259, z: 0}
+  weaponCurrentAmmo: {fileID: 11400000, guid: c2182fd4e5dbd2a4ea44df03fc0ca53e, type: 2}
+  weaponShootEffect: {fileID: 11400000, guid: 8f011f73bf35cae4cb1c984c1bfc7927, type: 2}
+  weaponFiringSoundEffect: {fileID: 11400000, guid: c82e9e61036233b459fa2727cf3bb078, type: 2}
+  weaponReloadingSoundEffect: {fileID: 11400000, guid: 9da4f6cecd770274387d9c65c6df3f54, type: 2}
+  hasInfiniteAmmo: 0
+  hasInfiniteClipCapacity: 0
+  weaponClipAmmoCapacity: 7
+  weaponAmmoCapacity: 70
+  weaponFireRate: 0.75
+  weaponPrechargeTime: 0
+  weaponReloadTime: 2.25
+  shouldShake: 0
+  intensity: 0
+  frequency: 0
+  time: 0
+  itemID: Weapon35
+  itemGuideDescription: 'Damage: 9
+
+    Clip Ammo Capacity: 7
+
+    Range: 19
+
+    Reload
+    Time: 2.25s
+
+    Pixelize enemy'

@@ -1045,7 +1045,7 @@ MonoBehaviour:
     ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7770767, y: 1}
+    m_SensorSize: {x: 1.7773153, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1156,7 +1156,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7770767, y: 1}
+    m_SensorSize: {x: 1.7773153, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4495,7 +4495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: d7cb88f1be8409148ab84bc65c55488c, type: 2}
   m_Color: {r: 0.7075472, g: 0.19624421, b: 0.19624421, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8258,6 +8258,12 @@ MonoBehaviour:
   - poolSize: 80
     prefab: {fileID: 8134302326156807459, guid: 2154e936b4166c24d93e23bdba2ead38, type: 3}
     componentType: IText
+  - poolSize: 40
+    prefab: {fileID: 5249748811358305308, guid: 4b784319c253d7a45b29abcc22f1a8e3, type: 3}
+    componentType: IFireable
+  - poolSize: 40
+    prefab: {fileID: 5249748811358305308, guid: 0677e8fb73929bd4484ec86181447b78, type: 3}
+    componentType: IFireable
 --- !u!4 &1713267372
 Transform:
   m_ObjectHideFlags: 0
@@ -10232,6 +10238,59 @@ Transform:
   - {fileID: 240953762}
   m_Father: {fileID: 0}
   m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2080254777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2080254779}
+  - component: {fileID: 2080254778}
+  m_Layer: 0
+  m_Name: MaterialsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2080254778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080254777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b528956e5b8fae5428d4e0baca0e999e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicMaterial: Sprite-Lit-Default (Instance)
+  pixelizeMaterial: {fileID: 2100000, guid: bc9ed06a62b2e554a82f2a72588138dd, type: 2}
+  windMaterial: {fileID: 2100000, guid: d7cb88f1be8409148ab84bc65c55488c, type: 2}
+  blureMaterial: {fileID: 2100000, guid: d4bbc4c12a33d1d4d9366bab32d6f64b, type: 2}
+  enemyPixelizeMaterial: {fileID: 2100000, guid: 4df9e2096974e4b4cb342a2138765b22, type: 2}
+  pixelizeAndWindMaterial: {fileID: 2100000, guid: 06b627708d2ce0242b52786ae3611fdf, type: 2}
+  windAndBlureMaterial: {fileID: 2100000, guid: 9e2723abf9341244faa869ff6f387d7c, type: 2}
+  blureAndPixelizeMaterial: {fileID: 2100000, guid: 4f9c19d23b4017b48a44513bf24285ad, type: 2}
+  blurePixelizeAndWindMaterial: {fileID: 2100000, guid: 7cce15e01a80fe940a763db300cbce1d, type: 2}
+--- !u!4 &2080254779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080254777}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2086229754
 GameObject:

@@ -41,7 +41,10 @@ public class UsableItemAOEDamage : UsableItem
 
         foreach (Enemy enemy in enemies)
         {
-            enemy.GetComponent<Health>().TakeDamage(damage);
+            if (enemy.TryGetComponent<Health>(out Health health))
+            {
+                health.TakeDamage(damage);
+            }
         }
 
         enemies.Clear();

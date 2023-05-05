@@ -24,7 +24,7 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
         StaticEventHandler.OnRoomChanged -= StaticEventHandler_OnRoomChanged;
     }
 
-    private void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
+    private async void StaticEventHandler_OnRoomChanged(RoomChangedEventArgs roomChangedEventArgs)
     {
         enemiesSpawnedSoFar = 0;
         currentEnemyCount = 0;
@@ -53,7 +53,7 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
 
         currentRoom.instantiatedRoom.LockDoors();
 
-        SpawnEnemies();
+        await SpawnEnemies();
     }
 
     private int GetConcurrentEnemies()
@@ -61,7 +61,7 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
         return (UnityEngine.Random.Range(roomEnemySpawnParameters.minConcurrentEnemies, roomEnemySpawnParameters.maxConcurrentEnemies));
     }
 
-    private async void SpawnEnemies()
+    private async Task SpawnEnemies()
     {
         if (GameManager.Instance.gameState == GameState.bossStage)
         {
@@ -94,7 +94,9 @@ public class EnemySpawner : SingletonMonobehaviour<EnemySpawner>
                 }
 
                 Vector3Int cellPosition = (Vector3Int)currentRoom.spawnPositionArray[UnityEngine.Random.Range(0, currentRoom.spawnPositionArray.Length)];
-                CreateEnemy(randomEnemiesHelperClass.GetItem(), grid.CellToWorld(cellPosition));
+
+                if (grid != null)
+                    CreateEnemy(randomEnemiesHelperClass.GetItem(), grid.CellToWorld(cellPosition));
 
                 float timeToWait = GetEnemySpawnInterval() * 1000;
                 await Task.Delay((int)timeToWait);

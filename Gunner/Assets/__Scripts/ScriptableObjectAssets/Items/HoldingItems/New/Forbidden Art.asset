@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915ba91f97ea1d84d9de7e5575afd3dd, type: 3}
+  m_Name: Forbidden Art
+  m_EditorClassIdentifier: 
+  itemName: Forbidden Art
+  itemSprite: {fileID: -1878176189, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  itemText: Use to read content
+  isUsable: 1
+  effects:
+  - {fileID: 11400000, guid: feebaa5675735e3448630c78dc5cf873, type: 2}
+  itemID: Item75
+  itemGuideDescription: 'Random Effect from small pool
+
+    (positive or negative
+    effect)'
+  effectRank: 1
+  itemTextAfterUse: 
+  showTextAfterUse: 1

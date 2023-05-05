@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43eed323e1570e4c8aa2ea01e6c7c7c, type: 3}
+  m_Name: ItemDetails_PaperBoy
+  m_EditorClassIdentifier: 
+  itemName: Paper Boy
+  itemSprite: {fileID: -1440603762, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  itemText: 'Feels very light....
+
+    Fire Rate Up!
+
+    Ammo and Movement Speed
+    Up!
+
+    Reload Speed Up!
+
+    Health and Damage down.'
+  isUsable: 0
+  effects:
+  - {fileID: 11400000, guid: 7417aabc80253c5468e38a8a27053f46, type: 2}
+  - {fileID: 11400000, guid: 3f5101b86c9057a47aadaa1100fae9fe, type: 2}
+  - {fileID: 11400000, guid: 5ecd46683dd8477489ed2e38571bda8f, type: 2}
+  - {fileID: 11400000, guid: db2ebd1088e76634cb369f9251460e5c, type: 2}
+  - {fileID: 11400000, guid: 4123abe0effa29e44b0f1f1d64281c07, type: 2}
+  - {fileID: 11400000, guid: 6b874ec9cd61cd0439267dd0c19c33ea, type: 2}
+  - {fileID: 11400000, guid: bf82c7da9188a9e4c9d5d97fb68e1ed4, type: 2}
+  itemID: Item74
+  itemGuideDescription: 'Fire Rate: +40%
+
+    Ammo Speed: +5 pkt
+
+    Movement Speed:
+    +3 pkt
+
+    Reload Speed: + 15%
+
+    Health: -40 pkt
+
+    Damage: -20%
+
+    Feels
+    very light....'
