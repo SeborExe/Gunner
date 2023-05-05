@@ -99,11 +99,13 @@ public class AnimatePlayer : MonoBehaviour
                 break;
 
             case AimDirection.UpLeft:
-                player.animator.SetBool(Settings.aimUpLeft, true);
+                //player.animator.SetBool(Settings.aimUpLeft, true);
+                player.animator.SetBool(Settings.aimUp, true);
                 break;
 
             case AimDirection.UpRight:
-                player.animator.SetBool(Settings.aimUpRight, true);
+                //player.animator.SetBool(Settings.aimUpRight, true);
+                player.animator.SetBool(Settings.aimUp, true);
                 break;
 
             case AimDirection.Down:

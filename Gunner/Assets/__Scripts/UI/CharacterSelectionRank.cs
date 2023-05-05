@@ -22,10 +22,10 @@ public class CharacterSelectionRank : MonoBehaviour
 
     private void SetRank()
     {
-        if (animator.runtimeAnimatorController.name == "TheGeneral")
+        if (animator.runtimeAnimatorController.name == "TheAstronaut")
         {
-            rankText.text = Rank.GetRank("general").ToString();
-            SetCharacterName("The General");
+            rankText.text = Rank.GetRank("astronaut").ToString();
+            SetCharacterName("The Astronaut");
             SetIfWon();
         }
         else if (animator.runtimeAnimatorController.name == "TheScientist")
