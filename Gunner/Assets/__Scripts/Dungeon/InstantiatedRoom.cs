@@ -16,6 +16,7 @@ public class InstantiatedRoom : MonoBehaviour
     [HideInInspector] public Tilemap frontTilemap;
     [HideInInspector] public Tilemap collisionTilemap;
     [HideInInspector] public Tilemap minimapTilemap;
+    [HideInInspector] public Tilemap waterAndHolesmap;
     [HideInInspector] public int[,] aStarMovementPenalty;
     [HideInInspector] public Bounds roomColliderBounds;
 
@@ -146,6 +147,10 @@ public class InstantiatedRoom : MonoBehaviour
             {
                 minimapTilemap = tilemap;
             }
+            else if (tilemap.gameObject.tag == "WaterAndHoles")
+            {
+                waterAndHolesmap = tilemap;
+            }
         }
     }
 
@@ -156,6 +161,11 @@ public class InstantiatedRoom : MonoBehaviour
             if (doorway.isConnected) { continue; }
 
             if (collisionTilemap != null)
+            {
+                BlockADoorwayOnTilemapLayer(collisionTilemap, doorway);
+            }
+
+            if (waterAndHolesmap != null)
             {
                 BlockADoorwayOnTilemapLayer(collisionTilemap, doorway);
             }

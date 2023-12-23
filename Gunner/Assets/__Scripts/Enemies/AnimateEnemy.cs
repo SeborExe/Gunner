@@ -75,11 +75,11 @@ public class AnimateEnemy : MonoBehaviour
                 break;
 
             case AimDirection.UpLeft:
-                enemy.animator.SetBool(Settings.aimUpLeft, true);
+                enemy.animator.SetBool(Settings.aimUp, true);
                 break;
 
             case AimDirection.UpRight:
-                enemy.animator.SetBool(Settings.aimUpRight, true);
+                enemy.animator.SetBool(Settings.aimUp, true);
                 break;
 
             case AimDirection.Left:

@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.13725491
       objectReference: {fileID: 0}
+    - target: {fileID: 2396353259626243664, guid: a09406c224952f2429a7254dfa627e64, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 3484137158050447664, guid: a09406c224952f2429a7254dfa627e64, type: 3}
       propertyPath: m_Name
       value: Torch_GreenFlameMaterial
@@ -38,6 +42,10 @@ PrefabInstance:
     - target: {fileID: 5133397113389367322, guid: a09406c224952f2429a7254dfa627e64, type: 3}
       propertyPath: m_Color.r
       value: 0.13866138
+      objectReference: {fileID: 0}
+    - target: {fileID: 5133397113389367322, guid: a09406c224952f2429a7254dfa627e64, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5951982218263959981, guid: a09406c224952f2429a7254dfa627e64, type: 3}
       propertyPath: m_RootOrder
@@ -83,5 +91,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8059602382659958381, guid: a09406c224952f2429a7254dfa627e64, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dbf837e5a591c0b4ab590b1ec567e58e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a09406c224952f2429a7254dfa627e64, type: 3}
