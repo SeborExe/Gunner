@@ -13,7 +13,7 @@ public class GooglePlaySignUp : SingletonMonobehaviour<GooglePlaySignUp>
     protected override void Awake()
     {
         base.Awake();
-        PlayGamesPlatform.Activate();
+        //PlayGamesPlatform.Activate();
     }
 
     private void Start()
@@ -24,6 +24,7 @@ public class GooglePlaySignUp : SingletonMonobehaviour<GooglePlaySignUp>
     
     public void SignToGooglePlay()
     {
+        /*
         PlayGamesPlatform.Instance.Authenticate((result) => {
             switch (result)
             {
@@ -36,5 +37,6 @@ public class GooglePlaySignUp : SingletonMonobehaviour<GooglePlaySignUp>
                     break;
             }
         });
+        */
     }
 }
