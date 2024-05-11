@@ -70,6 +70,7 @@ public class DungeonMap : SingletonMonobehaviour<DungeonMap>
         GameManager.Instance.GetPlayer().transform.position = spawnPosition;
         GameManager.Instance.minimapButton.SetMapActiveFalse();
 
+        GameManager.Instance.GetMainUI().GetComponent<Canvas>().enabled = true;
         await GameManager.Instance.Fade(1f, 0f, 1f, Color.black);
 
         GameManager.Instance.GetPlayer().playerControl.EnablePlayer();

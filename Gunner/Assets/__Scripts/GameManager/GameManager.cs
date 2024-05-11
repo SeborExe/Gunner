@@ -19,6 +19,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject mainUI;
     [SerializeField] HealthUI healthUI;
     private Room currentRoom;
     private Room previousRoom;
@@ -111,6 +112,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         StaticEventHandler.OnPointScored += StaticEventHandler_OnPointsScored;
         StaticEventHandler.OnMultiplier += StaticEventHandler_OnMultiplier;
         player.destroyedEvent.OnDestroyed += Player_OnDestroyed;
+
+        mapExitButton.onClick.AddListener(() => mainUI.GetComponent<Canvas>().enabled = true);
     }
 
     private void OnDisable()
@@ -120,6 +123,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         StaticEventHandler.OnPointScored -= StaticEventHandler_OnPointsScored;
         StaticEventHandler.OnMultiplier -= StaticEventHandler_OnMultiplier;
         player.destroyedEvent.OnDestroyed -= Player_OnDestroyed;
+
+        mapExitButton.onClick.RemoveListener(() => mainUI.GetComponent<Canvas>().enabled = true);
     }
 
     private void Update()
@@ -318,6 +323,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         if (gameState != GameState.gamePaused) 
         {
             pauseMenu.SetActive(true);
+            mainUI.GetComponent<Canvas>().enabled = false;
             GetPlayer().playerControl.DisablePlayer();
 
             previousGameState = gameState;
@@ -327,6 +333,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         else if (gameState == GameState.gamePaused)
         {
             pauseMenu.SetActive(false);
+            mainUI.GetComponent<Canvas>().enabled = true;
             GetPlayer().playerControl.EnablePlayer();
 
             gameState = previousGameState;
@@ -757,6 +764,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         //if (isFading) return;
 
         DungeonMap.Instance.DisplayDungeonOverviewMap();
+        mainUI.GetComponent<Canvas>().enabled = false;
     }
 
     public float GetTimer()
@@ -820,6 +828,11 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     public HealthUI GetHealthUI()
     {
         return healthUI;
+    }
+
+    public GameObject GetMainUI()
+    {
+        return mainUI;
     }
 
     #region Validation
