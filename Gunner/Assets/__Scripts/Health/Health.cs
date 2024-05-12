@@ -65,7 +65,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(float damageAmount, bool showText = true)
     {
         bool isRolling = false;
 
@@ -73,7 +73,7 @@ public class Health : MonoBehaviour
 
         if (isDamagable && !isRolling && !GetComponent<DevilHearthStats>())
         {
-            TakeNormalDamage(damageAmount);
+            TakeNormalDamage(damageAmount, showText);
         }
 
         else if (TryGetComponent<DevilHearthStats>(out DevilHearthStats devil))
@@ -89,7 +89,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void TakeNormalDamage(float damageAmount)
+    private void TakeNormalDamage(float damageAmount, bool showText = true)
     {
         currentHealth -= damageAmount;
         CallHealthEvent(damageAmount);
@@ -97,13 +97,16 @@ public class Health : MonoBehaviour
         if (player)
         {
             GameManager.Instance.virtualCamera.ShakeCamera(3f, 3f, .5f);
-            ShowDamageText(damageAmount, true);
+
+            if (showText)
+                ShowDamageText(damageAmount, true);
         }
         else
         {
             if (TryGetComponent<DestroyableItems>(out DestroyableItems item)) { return; }
 
-            ShowDamageText(damageAmount);
+            if (showText)
+                ShowDamageText(damageAmount);
         }
 
         PostHitImmunity();

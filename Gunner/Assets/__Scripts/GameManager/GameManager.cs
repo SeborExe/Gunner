@@ -396,8 +396,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         await Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f));
 
-        await DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
-            "SURVIVED... SO FAR...\n NOW FIND AND DEFEAT THE BOSS... GOOD LUCK...", Color.white, 5f);
+        await DisplayMessageRoutine("EXCELLENT " + GameResources.Instance.currentPlayer.playerName +
+            "\n IT'S TIME TO FACE THE BOSS", Color.white, 5f);
 
         await Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f));
     }
@@ -417,10 +417,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         await Fade(0f, 1f, 2f, new Color(0f, 0f, 0f, 0.4f));
 
-        await DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
-            "SURVIVED THIS DUNGEON LEVEL!", Color.white, 5f);
+        await DisplayMessageRoutine("IMPRESSIVE " + GameResources.Instance.currentPlayer.playerName, Color.white, 5f);
 
-        await DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE BOX AND PRESS\n'COMPLETE BUTTON' TO ADVANCE TO THE NEXT LEVEL",
+        await DisplayMessageRoutine("COLLECT YOUR REWARD FROM THE CHEST \n AND PRESS'COMPLETE BUTTON' \n TO ADVANCE TO THE NEXT LEVEL",
             Color.white, 5f);
 
         await Fade(1f, 0f, 2f, new Color(0f, 0f, 0f, 0.4f));
@@ -551,10 +550,9 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         await Fade(0f, 1f, 2f, Color.black);
 
-        await DisplayMessageRoutine("WELL DONE " + GameResources.Instance.currentPlayer.playerName + "! YOU'VE " +
-            "DEFEATED THE DUNGEON!", Color.white, 3f);
+        await DisplayMessageRoutine("INCREDIBLE " + GameResources.Instance.currentPlayer.playerName + "\n YOU HAVE DEFEATED THE ENETRNAL EVIL!", Color.white, 3f);
 
-        await DisplayMessageRoutine("YOU SCORED: " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f);
+        await DisplayMessageRoutine("YOUR SCORE: " + gameScore.ToString("###,###0") + "\n\n" + rankText, Color.white, 4f);
 
         await DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f);
 
