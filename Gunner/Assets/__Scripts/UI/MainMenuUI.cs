@@ -74,6 +74,21 @@ public class MainMenuUI : MonoBehaviour
         fillBar.fillAmount = Mathf.MoveTowards(fillBar.fillAmount, target, 3 * Time.deltaTime);
     }
 
+    public void LoadLeaderBoards()
+    {
+        playEasyButton.SetActive(false);
+        playHardButton.SetActive(false);
+        instructionsButton.SetActive(false);
+        guidButton.SetActive(false);
+        highScoreButtonOnline.SetActive(false);
+        highScoreButton.SetActive(false);
+        isHighScoresSceneLoaded = true;
+
+        SceneManager.UnloadSceneAsync("CharacterSelectorScene");
+        returnToMainMenuButton.SetActive(true);
+        SceneManager.LoadScene("LeaderBoardSelect", LoadSceneMode.Additive);
+    }
+
     public void LoadHighScores()
     {
         playEasyButton.SetActive(false);
@@ -134,18 +149,33 @@ public class MainMenuUI : MonoBehaviour
         SceneManager.LoadScene("WorldGuideScene", LoadSceneMode.Additive);
     }
 
+    public void LoadOptionsSelect()
+    {
+        playEasyButton.SetActive(false);
+        playHardButton.SetActive(false);
+        instructionsButton.SetActive(false);
+        guidButton.SetActive(false);
+        highScoreButtonOnline.SetActive(false);
+        highScoreButton.SetActive(false);
+        isInstructionsSceneLoaded = true;
+
+        SceneManager.UnloadSceneAsync("CharacterSelectorScene");
+        returnToMainMenuButton.SetActive(true);
+        SceneManager.LoadScene("OptionsSelect", LoadSceneMode.Additive);
+    }
+
     public void LoadCharacterSelector()
     {
         returnToMainMenuButton.SetActive(false);
 
         if (isHighScoresSceneLoaded)
         {
-            SceneManager.UnloadSceneAsync("HighScoreScene");
+            SceneManager.UnloadSceneAsync("LeaderBoardSelect");
             isHighScoresSceneLoaded = false;
         }
         else if (isInstructionsSceneLoaded)
         {
-            SceneManager.UnloadSceneAsync("InstructionsScene");
+            SceneManager.UnloadSceneAsync("OptionsSelect");
             isInstructionsSceneLoaded = false;
         }
         else if (isGuidSceneLoaded)
@@ -163,8 +193,8 @@ public class MainMenuUI : MonoBehaviour
         playHardButton.SetActive(true);
         highScoreButton.SetActive(true);
         instructionsButton.SetActive(true);
-        guidButton.SetActive(true);
-        highScoreButtonOnline.SetActive(true);
+        //guidButton.SetActive(true);
+        //highScoreButtonOnline.SetActive(true);
 
         SceneManager.LoadScene("CharacterSelectorScene", LoadSceneMode.Additive);
     }

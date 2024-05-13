@@ -20,6 +20,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject mainUI;
+    [SerializeField] private TMP_Text scoreText;
     [SerializeField] HealthUI healthUI;
     private Room currentRoom;
     private Room previousRoom;
@@ -99,6 +100,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
 
         gameScore = 0;
         scoreMultiplier = 1;
+        scoreText.enabled = false;
 
         await Fade(0f, 1f, 0f, Color.black);
 
@@ -323,6 +325,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         if (gameState != GameState.gamePaused) 
         {
             pauseMenu.SetActive(true);
+            scoreText.enabled = true;
             mainUI.GetComponent<Canvas>().enabled = false;
             GetPlayer().playerControl.DisablePlayer();
 
@@ -333,6 +336,7 @@ public class GameManager : SingletonMonobehaviour<GameManager>
         else if (gameState == GameState.gamePaused)
         {
             pauseMenu.SetActive(false);
+            scoreText.enabled = false;
             mainUI.GetComponent<Canvas>().enabled = true;
             GetPlayer().playerControl.EnablePlayer();
 
