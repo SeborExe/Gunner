@@ -171,7 +171,7 @@ public class WeaponStatusUI : MonoBehaviour
                 (GameManager.Instance.GetPlayer().playerStats.GetAdditionalWeaponReloadSpeed() / 100)));
 
             float barFill = currentWeapon.weaponReloadTimer / reloadTime;
-            reloadBar.transform.localScale = new Vector3(barFill, 1f, 1f);
+            reloadBar.transform.localScale = new Vector3(1f, barFill, 1f);
 
             yield return null;
         }
