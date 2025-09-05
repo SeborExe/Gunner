@@ -616,7 +616,8 @@ public class GameManager : SingletonMonobehaviour<GameManager>
             await DisplayMessageRoutine("TAP TO BACK TO MENU", Color.white, 0f);
         }
 
-        await AddToGlobalLeaderBoard();
+        // TO DO: Add to leaderboard
+        //await AddToGlobalLeaderBoard();
 
         gameState = GameState.restartGame;
     }
